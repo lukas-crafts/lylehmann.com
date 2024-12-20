@@ -1,6 +1,7 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: lylehmann
+  site: 'https://lylehmann.com'
+  # trunk-ignore(yamllint/quoted-strings)
   base: '/'
   trailingSlash: false
 
@@ -9,16 +10,17 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: lylehmann
+    template: '%s - lylehmann'
+  description: "\U0001F680 Explore Lukas Yair Lehmann's portfolio: UX and Product Designer specializing in user research, accessibility, and inclusive design for neurodiverse users.."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: lylehmann
     images:
-      - url: '~/assets/images/default.png'
+      # trunk-ignore(yamllint/quoted-strings)
+      - url: '~/assets/images/hero-image.jpg'
         width: 1200
         height: 628
     type: website
@@ -38,12 +40,14 @@ apps:
 
     post:
       isEnabled: true
+      # trunk-ignore(yamllint/quoted-strings)
       permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
+      # trunk-ignore(yamllint/quoted-strings)
       pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
