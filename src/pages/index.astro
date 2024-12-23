@@ -8,6 +8,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
 const metadata = {
   title: 'UX & Product Designer | Accessibility & Neurodiversity Advocate - Lukas Yair Lehmann',
@@ -418,8 +419,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Email Me',
-        href: 'contact',
-        target: '_blank',
+        href: `mailto:${email}`, // Update this line to use the imported email
       },
       {
         variant: 'secondary',
