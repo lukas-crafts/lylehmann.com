@@ -1,5 +1,5 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
-
+const email = import.meta.env.PUBLIC_EMAIL; // A
 const currentYear = new Date().getFullYear();
 
 export const headerData = {
@@ -133,7 +133,7 @@ export const footerData = {
     {
       ariaLabel: 'E-Mail',
       icon: 'tabler:mail',
-      href: 'contact',
+      href: `mailto:${email}`,
       target: '_blank',
     },
     {
