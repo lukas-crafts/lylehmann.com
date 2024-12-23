@@ -131,6 +131,12 @@ export const footerData = {
   ],
   socialLinks: [
     {
+      ariaLabel: 'E-Mail',
+      icon: 'tabler:mail',
+      href: 'contact',
+      target: '_blank',
+    },
+    {
       ariaLabel: 'Linkedin',
       icon: 'tabler:brand-linkedin',
       href: 'https://linkedin.com/in/lylehmann',
