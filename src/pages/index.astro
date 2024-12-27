@@ -7,6 +7,7 @@ import Note from '~/components/widgets/Note.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
@@ -49,7 +50,7 @@ const metadata = {
       },
       { text: 'Learn About Me', href: '#about' },
     ]}
-   image={{ src: '~/assets/images/hero-image.jpg', alt: 'lylehmann Hero Image', width: 800, height: 800 }}
+    image={{ src: '~/assets/images/hero-image.jpg', alt: 'lylehmann Hero Image', width: 800, height: 800 }}
   >
     <Fragment slot="title"> Hi, I'm Lukas 👋 </Fragment>
 
@@ -95,7 +96,7 @@ const metadata = {
         },
       },
     ]}
-    image={{ src: '~/assets/images/about-1.jpg', alt: 'lylehmann Hero Image' }}
+    image={{ src: '~/assets/images/about-1.jpg', alt: 'Journey Image' }}
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
@@ -321,10 +322,9 @@ const metadata = {
       alt: 'Tech Design Image',
     }}
     callToAction={{
-      target: '_blank',
       text: 'Go to the project',
       icon: 'tabler:chevron-right',
-      href: '#',
+      href: '/focusbuddy-case-study',
     }}
   >
     <Fragment slot="content">
@@ -412,6 +412,16 @@ const metadata = {
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Content>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Discover Insights in My Case Studies"
+    information={`Dive into detailed case studies showcasing inclusive UX design, digital innovation, and creative strategies.
+                    Each project highlights unique challenges, solutions, and lessons learned to inspire and inform.
+                    Explore how thoughtful design can make a meaningful impact.
+            `}
+  />
 
   <!-- CallToAction Widget *********** -->
 
