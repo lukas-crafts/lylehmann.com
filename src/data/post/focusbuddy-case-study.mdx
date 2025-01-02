@@ -1,7 +1,7 @@
 ---
 publishDate: 2023-07-17T00:00:00Z
 title: FocusBuddy - A Safe Space for Focus and Accountability
-excerpt: Discover how I designed FocusBuddy, a macOS app to help individuals with ADHD and productivity challenges stay focused and accountable.
+excerpt: How my own struggles with productivity inspired me to design a macOS app that helps individuals with ADHD and autism stay focused, accountable, and connected.
 image: ~/assets/images/FocusBuddy.png
 ogImage: ~/assets/images/FocusBuddy.png
 cover: ~/assets/images/FocusBuddy.png
@@ -16,88 +16,225 @@ metadata:
 
 import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import FocusBuddyImage from 'src/assets/images/FocusBuddy.png';
+import FocusBuddyImage from '~/assets/images/FocusBuddy.png';
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Content from '~/components/widgets/Content.astro';
 
-{/* Exposition / Introduction */}
+## Finding Focus in the Chaos
 
-## Overview
+        FocusBuddy was born out of my own experiences as a neurodivergent individual. Like many with ADHD, I often found
+        myself struggling to maintain focus, manage my time, and stay productive.
 
-FocusBuddy for macOS is designed to help individuals, especially those with ADHD or productivity challenges, stay on task and accountable during work sessions. With a clean, intuitive interface, FocusBuddy provides a supportive space where users can find accountability partners or groups and use tools like the Pomodoro timer and focus-enhancing music to boost productivity.
+- It wasn't until I discovered **body doubling** -a method where two or more people work together in the same space to stay accountable-that things started to change. I joined digital body doubling sessions and found them incredibly helpful.
+- In these sessions, I met others who shared my struggles. Conversations revealed common challenges like distraction, isolation, and the absence of tools designed for our unique needs. This shared experience inspired me to create **FocusBuddy**: a productivity app designed with neurodivergent individuals in mind.
 
-| **Aspect**            | **Details**                                                                                                                                                             |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Role**              | Led end-to-end product design, including UX/UI design, user research, and testing.                                                                                      |
-| **Team**              | Individual project with collaboration from the ADHD community and remote workers for feedback.                                                                          |
-| **Timeframe**         | October 21st - November 8th, 2024.                                                                                                                                      |
-| **Inciting Incident** | Many individuals struggle with focus, time management, and feelings of isolation while working alone. This inspired the creation of a tool to address these challenges. |
+## What We Struggle With
 
-{/* ![FocusBuddy App Intro](../assets/images/FocusBuddy.png "FocusBuddy for macOS") */}
+### Learning from Shared Experiences
 
----
+To understand these challenges more deeply, I combined my personal struggles with input from others:
 
-{/* Rising Action */}
+- Conducted **10 interviews** with neurodivergent individuals
+- Surveyed **85 participants** in digital body doubling sessions to uncover patterns and needs
 
-## Challenges Identified
+### The Pain Points
 
-- Difficulty maintaining focus on tasks.
-- Struggles with time management.
-- Need for structured routines and accountability.
-- Feelings of loneliness and isolation.
+<Features
+  title="Key Challenges Identified"
+  items={[
+    {
+      title: 'Distractions Everywhere',
+      description: 'Staying focused was a constant battle',
+      icon: 'tabler:zoom-question',
+      color: 'red',
+    },
+    {
+      title: 'Time Slipping Away',
+      description: 'Poor task prioritization created overwhelm',
+      icon: 'tabler:clock-question',
+      color: 'red',
+    },
+    {
+      title: 'No Accountability',
+      description: 'Without structure, productivity was inconsistent',
+      icon: 'tabler:bell-question',
+      color: 'red',
+    },
+    {
+      title: 'Isolation Hurts',
+      description: 'Working alone often led to feelings of loneliness',
+      icon: 'tabler:user-question',
+      color: 'red',
+    },
+  ]}
+/>
 
-## Design Process
-
-1. **Research**: Conducted surveys and interviews with individuals with ADHD and productivity challenges.
-   {/* ![Survey Results](../assets/images/SurveyResults.png "Survey results highlighting user pain points") */}
-2. **Ideation**: Brainstormed features like accountability partners, timers, and focus-enhancing music.
-   {/* ![Brainstorming Sketches](../assets/images/BrainstormingSketches.png "Early brainstorming sketches of features") */}
-3. **Prototyping & Testing**: Created low-, mid-, and high-fidelity wireframes; tested designs with users to refine the interface.
-   {/* ![Wireframes](../assets/images/Wireframes.png "Low-fidelity wireframes created during prototyping phase") */}
-
----
-
-{/* Climax */}
-
-## Pivotal Moments
-
-- During user testing, feedback from neurodivergent users emphasized the importance of customization and creating a safe environment. This insight led to prioritizing features like dark/light mode and flexible timer settings.
-- A significant decision was made to integrate focus-enhancing music directly into the app after discovering its positive impact on productivity.
-
-{/* ![High-Fidelity Prototype](../assets/images/HighFidelityPrototype.png "High-fidelity prototype showcasing the Pomodoro timer feature") */}
-
----
-
-{/* Falling Action */}
-
-## Final Iterations
-
-- Refined the interface for macOS-specific design elements.
-- Implemented key features such as:
-  - Pomodoro timer for structured work sessions.
-  - Shared agendas for collaboration.
-  - Chat features for real-time communication with accountability partners.
-  - Focus sounds/music integration to enhance concentration.
-
-{/* ![Final Design Screenshots](../assets/images/FinalDesign.png "Final design showcasing key features like the timer and shared agenda") */}
-
-User testing confirmed that the app provided a supportive space for focus and accountability.
+This collective insight became the foundation of FocusBuddy's design.
 
 ---
 
-{/* Resolution */}
+## Designing a Solution That Felt Personal
 
-## Outcomes
+![Stairway representing the journey of design thinking](/assets/images/journey.jpg)
 
-- Created a user-friendly app that offers a safe space for focus and accountability.
-- Learned macOS-specific design principles and discovered new Figma plugins for building a design system.
-- Identified opportunities to enhance customization for diverse user needs.
+<Steps
+  title="The Journey"
+  subtitle="Building FocusBuddy was a deeply personal process. <br>I used the <strong>Design Thinking Methodology</strong> to guide each step."
+  items={[
+    {
+      title: 'Empathize',
+      description: `
+        - Mapped my own struggles and combined them with the stories shared in interviews and surveys <br>
+        - Learned about tools users tried and what didn't work for them
+        `,
+      icon: 'tabler:user-heart',
+    },
+    {
+      title: 'Define',
+      description: `
+        - Created personas like The Overwhelmed Worker and The Isolated Achiever to capture the range of needs <br>
+        - Defined problem statements to focus on designing for flexibility and support
+        `,
+      icon: 'tabler:pencil',
+    },
+    {
+      title: 'Ideate',
+      description: `
+        - Customizable Pomodoro timers to structure focus <br>
+        - Accountability partner matching for real-time encouragement <br>
+        - Focus-enhancing music playlists to create the right environment
+        `,
+      icon: 'tabler:bulb',
+    },
+    {
+      title: 'Prototype & Test',
+      description: `
+        - Developed low, mid, and high-fidelity prototypes <br>
+        - Collected feedback from neurodivergent users at every stage to refine the experience
+        `,
+      icon: 'tabler:lego',
+    },
+  ]}
+/>
 
-## Future Improvements
+---
 
-- Expand customization options for timers and focus sessions.
-- Broaden the library of focus sounds/music.
-- Improve mobile optimization for cross-device use.
-- Integrate task management tools like Apple Reminders, Trello, or Asana.
+<Features3
+  title="Moments That Defined FocusBuddy"
+  subtitle="Key insights and decisions that shaped our journey"
+  highlight="Defining Moments"
+  image="https://picsum.photos/id/3/600/400"
+  imageAlt="Modern workspace illustrating focus and productivity"
+  items={[
+    {
+      title: 'Customization',
+      description:
+        'Understanding that neurodivergent users need flexibility, we prioritized personalized workflows, adaptive dashboards, and visual comfort options including light and dark modes. This customization ensures each user can create their ideal focus environment.',
+      icon: 'tabler:adjustments',
+      color: 'primary',
+    },
+    {
+      title: 'Focus-Enhancing Music',
+      description:
+        'Through testing and personal experience, we discovered the powerful impact of curated music on concentration. This insight led to the integration of a comprehensive focus music library, helping users maintain their productivity flow.',
+      icon: 'tabler:music',
+      color: 'secondary',
+    },
+    {
+      title: 'Community Connection',
+      description:
+        'Inspired by body doubling sessions, we built strong community features including accountability partner matching and group focus sessions. These social elements transformed FocusBuddy from a simple app into a supportive productivity ecosystem.',
+      icon: 'tabler:users-group',
+      color: 'warning',
+    },
+  ]}
+/>
 
-{/* ![Outcome Metrics](../assets/images/Outcomes.png "User feedback highlights showing success metrics") */}
+---
 
-**This project taught me the importance of designing inclusive solutions that cater to neurodiverse users. It also reinforced my commitment to creating safe digital spaces that foster productivity and collaboration.**
+## Turning Ideas Into Reality
+
+### Final Features
+
+<Features2
+  title="Core Features"
+  columns={2}
+  items={[
+    {
+      title: 'Pomodoro Timer',
+      description: 'Structured intervals for work and breaks',
+      icon: 'tabler:time-duration-10',
+    },
+    {
+      title: 'Accountability Tools',
+      description: 'Partner matching, shared agendas, and habit tracking',
+      icon: 'tabler:users',
+    },
+    {
+      title: 'Focus Music Library',
+      description: 'Playlists curated for concentration and relaxation',
+      icon: 'tabler:playlist',
+    },
+    {
+      title: 'macOS-Optimized Design',
+      description: "Seamlessly integrated with Apple's design guidelines",
+      icon: 'tabler:brand-apple',
+    },
+  ]}
+/>
+
+<Stats
+  title="User Impact"
+  stats={[
+    { title: 'Improved Focus', amount: '80%' },
+    { title: 'Reduced Isolation', amount: '70%' },
+  ]}
+/>
+
+---
+
+## FocusBuddy's Journey Forward
+
+<Steps
+  id="roadmap"
+  title="What's Next?"
+  subtitle="The development roadmap for upcoming features and enhancements"
+  items={[
+    {
+      title: 'Enhanced Customization',
+      description:
+        'Expanding workflow and timer options to provide more flexibility and personalization for different user needs.',
+      icon: 'tabler:settings',
+      classes: { container: 'bg-primary-50 dark:bg-slate-800' },
+    },
+    {
+      title: 'Expanded Music Library',
+      description:
+        'Growing our focus music collection with more genres and ambient sounds to suit diverse preferences.',
+      icon: 'tabler:playlist',
+      classes: { container: 'bg-primary-100 dark:bg-slate-700' },
+    },
+    {
+      title: 'Mobile Experience',
+      description: 'Developing a mobile app to enable seamless productivity across all your devices.',
+      icon: 'tabler:device-mobile',
+      classes: { container: 'bg-primary-200 dark:bg-slate-600' },
+    },
+    {
+      title: 'Tool Integration',
+      description: 'Connecting with popular tools like Trello and Asana to create a unified productivity ecosystem.',
+      icon: 'tabler:apps',
+      classes: { container: 'bg-primary-300 dark:bg-slate-500' },
+    },
+  ]}
+/>
+
+### What I Learned
+
+Designing FocusBuddy taught me the value of empathy in design. By creating a solution rooted in my own experiences and those of my community, I learned how to turn struggles into opportunities. This project reinforced my passion for building tools that empower neurodivergent individuals to thrive.
