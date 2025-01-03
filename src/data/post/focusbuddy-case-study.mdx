@@ -16,6 +16,7 @@ metadata:
 
 import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import Content from '~/components/widgets/Content.astro';
 import FocusBuddyImage from '~/assets/images/FocusBuddy.png';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -24,26 +25,42 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Stats from '~/components/widgets/Stats.astro';
-import Content from '~/components/widgets/Content.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
 
-## Finding Focus in the Chaos
+  <Content
+    isReversed
+    title="Finding Focus in the Chaos"
+    items={[
+      {
+        title: 'Rooted in the power of body doubling',
+        description:
+          'Discovering body doubling-a method where individuals work together in the same space for accountability-transformed my productivity. Joining digital body doubling sessions revealed shared struggles, including distraction, isolation, and a lack of tailored tools.',
+      },
+      {
+        title: 'Inspired by Shared Struggles',
+        description:
+          'These shared experiences became the foundation for FocusBuddy, a productivity app crafted specifically to address the challenges faced by neurodivergent individuals.',
+      },
+      {
+        title: 'Driven by Research, Built for Impact',
+        description:
+          'To ensure FocusBuddy meets the needs of its users, I combined personal insights with extensive research, conducting interviews and surveys to deeply understand the needs and pain points of neurodivergent individuals.',
+      },
+    ]}
+   image={{
+      src: 'https://images.pexels.com/photos/3755755/pexels-photo-3755755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      FocusBuddy was born out of my own experiences as a neurodivergent individual. Like many with ADHD, I often found myself struggling to maintain focus, manage my time, and stay productive.
+    </Fragment>
 
-        FocusBuddy was born out of my own experiences as a neurodivergent individual. Like many with ADHD, I often found
-        myself struggling to maintain focus, manage my time, and stay productive.
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
 
-- It wasn't until I discovered **body doubling** -a method where two or more people work together in the same space to stay accountable-that things started to change. I joined digital body doubling sessions and found them incredibly helpful.
-- In these sessions, I met others who shared my struggles. Conversations revealed common challenges like distraction, isolation, and the absence of tools designed for our unique needs. This shared experience inspired me to create **FocusBuddy**: a productivity app designed with neurodivergent individuals in mind.
-
-## What We Struggle With
-
-### Learning from Shared Experiences
-
-To understand these challenges more deeply, I combined my personal struggles with input from others:
-
-- Conducted **10 interviews** with neurodivergent individuals
-- Surveyed **85 participants** in digital body doubling sessions to uncover patterns and needs
-
-### The Pain Points
+  </Content>
 
 <Features
   title="Key Challenges Identified"
@@ -75,11 +92,15 @@ To understand these challenges more deeply, I combined my personal struggles wit
   ]}
 />
 
-This collective insight became the foundation of FocusBuddy's design.
-
+<Stats
+  title="What users needed most"
+  stats={[
+    { title: 'Chat feature, Focus sounds & music', amount: '57-71%' },
+    { title: 'Timer & Shared agenda', amount: '42.9%' },
+    { title: 'Online community & accountability' },
+  ]}
+/>
 ---
-
-## Designing a Solution That Felt Personal
 
 ![Stairway representing the journey of design thinking](/assets/images/journey.jpg)
 
@@ -127,10 +148,12 @@ This collective insight became the foundation of FocusBuddy's design.
 
 <Features3
   title="Moments That Defined FocusBuddy"
-  subtitle="Key insights and decisions that shaped our journey"
+  subtitle="Key insights and decisions that shaped the journey"
   highlight="Defining Moments"
-  image="https://picsum.photos/id/3/600/400"
-  imageAlt="Modern workspace illustrating focus and productivity"
+  image={{
+    src: 'https://images.pexels.com/photos/17485633/pexels-photo-17485633/free-photo-of-abstrakt-technologie-forschung-digital.png?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    alt: 'Colorful Image',
+  }}
   items={[
     {
       title: 'Customization',
@@ -158,12 +181,9 @@ This collective insight became the foundation of FocusBuddy's design.
 
 ---
 
-## Turning Ideas Into Reality
-
-### Final Features
-
 <Features2
-  title="Core Features"
+  title="Turning Ideas Into Reality"
+  subtitle="The key features that make FocusBuddy a powerful productivity tool"
   columns={2}
   items={[
     {
@@ -189,22 +209,12 @@ This collective insight became the foundation of FocusBuddy's design.
   ]}
 />
 
-<Stats
-  title="User Impact"
-  stats={[
-    { title: 'Improved Focus', amount: '80%' },
-    { title: 'Reduced Isolation', amount: '70%' },
-  ]}
-/>
-
 ---
-
-## FocusBuddy's Journey Forward
 
 <Steps
   id="roadmap"
   title="What's Next?"
-  subtitle="The development roadmap for upcoming features and enhancements"
+  subtitle="The Road Ahead: Shaping the Future of FocusBuddy"
   items={[
     {
       title: 'Enhanced Customization',
@@ -235,6 +245,33 @@ This collective insight became the foundation of FocusBuddy's design.
   ]}
 />
 
-### What I Learned
+---
 
-Designing FocusBuddy taught me the value of empathy in design. By creating a solution rooted in my own experiences and those of my community, I learned how to turn struggles into opportunities. This project reinforced my passion for building tools that empower neurodivergent individuals to thrive.
+<FAQs
+  title="What I Learned"
+  subtitle="Discover the key insights I gained while designing FocusBuddy and how they shaped my approach to design."
+  tagline="Insights"
+  classes={{ container: 'max-w-6xl' }}
+  items={[
+    {
+      title: 'What was the most important lesson you gained from designing FocusBuddy?',
+      description:
+        'Designing FocusBuddy highlighted the transformative power of empathy in design. By grounding the solution in my own experiences and those of my community, I discovered how to transform shared struggles into meaningful opportunities.',
+    },
+    {
+      title: 'How did this project impact your approach to design?',
+      description:
+        'This project reinforced my passion for creating tools that empower neurodivergent individuals. It showed me the value of understanding users deeply and designing with their unique needs in mind.',
+    },
+    {
+      title: 'What does empathy mean in the context of this project?',
+      description:
+        'Empathy meant truly listening to the challenges faced by neurodivergent individuals, recognizing their unique struggles, and turning those insights into actionable design solutions.',
+    },
+    {
+      title: 'How does FocusBuddy reflect your growth as a designer?',
+      description:
+        'FocusBuddy is a testament to my ability to connect with users on a personal level, leverage research effectively, and translate those insights into impactful design decisions.',
+    },
+  ]}
+/>
