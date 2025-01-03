@@ -2,6 +2,7 @@
 import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 
 import merge from 'lodash.merge';
+import Header from '~/components/widgets/Header.astro';
 import type { ImageMetadata } from 'astro';
 import Layout from '~/layouts/PageLayout.astro';
 import SinglePost from '~/components/blog/SinglePost.astro';
@@ -46,6 +47,26 @@ const metadata = merge(
 ---
 
 <Layout metadata={metadata}>
+  <!-- Header Widget ***************** -->
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/#' },
+        { text: 'About', href: '/#about' },
+        { text: 'Resume', href: '/#resume' },
+        { text: 'Porfolio', href: '/#portfolio' },
+        { text: 'Contact', href: '/#contact' },
+      ]}
+      actions={[
+        {
+          text: 'Hire me',
+          href: '#contact',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>

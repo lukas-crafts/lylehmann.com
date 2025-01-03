@@ -1,0 +1,285 @@
+---
+publishDate: 2024-11-08T00:00:00Z
+title: Meta Cafe - Bridging Digital and Physical Experiences in Munich
+excerpt: How we transformed a unique Munich venue combining caf&eacute;, bakery and yoga into an engaging digital experience through thoughtful UX design.
+image: ~/assets/images/Metta.png
+ogImage: ~/assets/images/Metta.png
+cover: ~/assets/images/Metta.png
+category: Case Studies
+tags:
+  - UX Design
+  - Web Design
+  - Mobile App
+metadata:
+  canonical: https://lylehmann.com/metacafe-case-study
+---
+
+import DListItem from '~/components/ui/DListItem.astro';
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import FocusBuddyImage from '~/assets/images/FocusBuddy.png';
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+## Overview
+
+Meta Cafe is a digital transformation project designed to bring a unique Munich venue's three-fold offering - caf&eacute;, bakery, and yoga studio - into the digital space. The project delivers both a website and mobile app that helps health-conscious customers discover products, book classes, and engage with the venue's community.
+
+| **Role**       | **Details**                                                                    |
+| -------------- | ------------------------------------------------------------------------------ |
+| **Team**       | Lukas Lehmann & Beyza &Ouml;zsel as UX Designers                               |
+| **Users**      | Health-conscious individuals, yoga enthusiasts, dietary-restricted customers   |
+| **Peers**      | WBS Coding School mentors and fellow students who provided feedback            |
+| **Timeframe**  | Three sprints: Aug 5-9, Sept 9-13, Sept 30-Oct 4, 2024                         |
+| **Tools Used** | Figma, Google Forms (for surveys), Slack (for interviews and usability testing |
+
+---
+
+<Hero
+  isReversed
+  title="Bridging Physical and Digital Experiences"
+  items={[
+    {
+      title: 'A Unique Venue Needs a Unique Solution',
+      description:
+        'Meta Cafe combines three distinct experiences - caf&eacute;, bakery, and yoga studio - creating unique challenges for digital representation.',
+    },
+    {
+      title: 'Inspired by Customer Needs',
+      description:
+        'The lack of digital presence limited access to crucial information about dietary options and class schedules.',
+    },
+    {
+      title: 'Research-Driven Design',
+      description:
+        'Through extensive user research and testing, we crafted a solution that brings the warmth and accessibility of Meta Cafe online.',
+    },
+  ]}
+  image={{
+    src: 'https://images.pexels.com/photos/30010396/pexels-photo-30010396/free-photo-of-gemutliches-sonnendurchflutetes-cafe-innendesign-aus-holz.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
+    alt: 'Meta Cafe - Bridging Digital and Physical Experiences in Munich',
+  }}
+>
+  <Fragment slot="subtitle">
+    Meta Cafe needed to translate its welcoming physical space into an equally inviting digital experience, making its
+    unique offerings accessible to a broader audience.
+  </Fragment>
+</Hero>
+
+<Features
+  title="Key Challenges Identified"
+  items={[
+    {
+      title: 'Limited Online Presence',
+      description: 'No dedicated platform for showcasing offerings',
+      icon: 'tabler:world',
+      color: 'blue',
+    },
+    {
+      title: 'Complex Information Structure',
+      description: 'Multiple services requiring clear organization',
+      icon: 'tabler:hierarchy',
+      color: 'blue',
+    },
+    {
+      title: 'Booking Friction',
+      description: 'No online system for yoga classes',
+      icon: 'tabler:calendar',
+      color: 'blue',
+    },
+    {
+      title: 'Dietary Information Access',
+      description: 'Difficulty finding vegan and gluten-free options',
+      icon: 'tabler:leaf',
+      color: 'blue',
+    },
+  ]}
+/>
+
+<Stats
+  title="What users needed most"
+  stats={[
+    { title: 'Online booking for Yoga classes', amount: '59.6%' },
+    { title: 'Menu and Dietary information', amount: '37%' },
+    { title: 'Mobile-friendly menu access' },
+    { title: 'Class schedule & product information' },
+  ]}
+/>
+
+---
+
+<Steps
+  title="The Journey"
+  subtitle="Transforming Meta Cafe's digital presence through thoughtful design. <br>Following the <strong>Design Thinking Methodology</strong> at every step."
+  items={[
+    {
+      title: 'Empathize',
+      description: `
+        - Conducted interviews with yoga practitioners and caf&eacute; regulars <br>
+        - Analyzed pain points in accessing venue information and services
+        `,
+      icon: 'tabler:user-heart',
+    },
+    {
+      title: 'Define',
+      description: `
+        - Created personas including The Health-Conscious Professional and The Yoga Enthusiast <br>
+        - Mapped user journeys across different services
+        `,
+      icon: 'tabler:pencil',
+    },
+    {
+      title: 'Ideate',
+      description: `
+        - Integrated booking system for yoga classes <br>
+        - Dietary filter system for menu items <br>
+        - Mobile-first design approach for on-the-go access
+        `,
+      icon: 'tabler:bulb',
+    },
+    {
+      title: 'Prototype & Test',
+      description: `
+        - Created interactive prototypes for both web and mobile <br>
+        - Conducted usability testing with target user groups
+        `,
+      icon: 'tabler:lego',
+    },
+  ]}
+/>
+
+---
+
+<Features3
+  title="Key Design Decisions"
+  subtitle="Critical choices that shaped the digital experience"
+  highlight="Design Impact"
+  image={{
+    src: 'https://images.pexels.com/photos/1833399/pexels-photo-1833399.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)',
+    alt: 'Customer choosing from menu and ordering food.',
+  }}
+  items={[
+    {
+      title: 'Unified Experience',
+      description:
+        'Created a seamless connection between the three core offerings - caf&eacute;, bakery, and yoga studio - while maintaining distinct identity for each service.',
+      icon: 'tabler:components',
+      color: 'primary',
+    },
+    {
+      title: 'Accessibility First',
+      description:
+        'Implemented clear dietary labeling and intuitive navigation to ensure all users could easily find relevant information and services.',
+      icon: 'tabler:accessible',
+      color: 'secondary',
+    },
+    {
+      title: 'Mobile Optimization',
+      description:
+        'Developed a responsive design that prioritizes mobile users while maintaining full functionality across all devices.',
+      icon: 'tabler:device-mobile',
+      color: 'warning',
+    },
+  ]}
+/>
+
+---
+
+<Features2
+  title="Core Features Delivered"
+  subtitle="Essential functionalities that power the digital experience"
+  columns={2}
+  items={[
+    {
+      title: 'Smart Booking System',
+      description: 'Integrated calendar for yoga class reservations',
+      icon: 'tabler:calendar',
+    },
+    {
+      title: 'Dietary Filters',
+      description: 'Easy identification of vegan and gluten-free options',
+      icon: 'tabler:filter',
+    },
+    {
+      title: 'Product Showcase',
+      description: 'Visual gallery of bakery items and caf&eacute; offerings',
+      icon: 'tabler:photo',
+    },
+    {
+      title: 'Mobile Experience',
+      description: 'Optimized interface for on-the-go access',
+      icon: 'tabler:device-mobile',
+    },
+  ]}
+/>
+
+---
+
+<Steps
+  id="roadmap"
+  title="Future Vision"
+  subtitle="Expanding Meta Cafe's Digital Horizons"
+  items={[
+    {
+      title: 'Event Management',
+      description: 'Implementing a comprehensive system for workshop and event bookings.',
+      icon: 'tabler:calendar-event',
+      classes: { container: 'bg-primary-50 dark:bg-slate-800' },
+    },
+    {
+      title: 'Loyalty Program',
+      description: 'Digital reward system integrating caf&eacute; purchases and class attendance.',
+      icon: 'tabler:award',
+      classes: { container: 'bg-primary-100 dark:bg-slate-700' },
+    },
+    {
+      title: 'Community Features',
+      description: 'Building a platform for customer interaction and feedback.',
+      icon: 'tabler:users',
+      classes: { container: 'bg-primary-200 dark:bg-slate-600' },
+    },
+    {
+      title: 'Order Integration',
+      description: 'Adding online ordering capabilities for bakery products.',
+      icon: 'tabler:shopping-cart',
+      classes: { container: 'bg-primary-300 dark:bg-slate-500' },
+    },
+  ]}
+/>
+
+---
+
+<FAQs
+  title="Reflections & Insights"
+  subtitle="Key learnings from designing Meta Cafe's digital experience"
+  tagline="Learnings"
+  classes={{ container: 'max-w-6xl' }}
+  items={[
+    {
+      title: 'What was the biggest challenge in designing for multiple services?',
+      description:
+        'Balancing the distinct needs of each service while maintaining a cohesive user experience proved both challenging and rewarding. It taught us the importance of information architecture in complex systems.',
+    },
+    {
+      title: 'How did user research impact the final design?',
+      description:
+        'User insights led to crucial features like dietary filters and mobile optimization, showing how direct user input shapes better solutions.',
+    },
+    {
+      title: 'What was the most valuable team learning?',
+      description:
+        'Collaborating closely with Beyza taught us the value of diverse perspectives in solving complex design challenges.',
+    },
+    {
+      title: 'How did this project influence your approach to UX design?',
+      description:
+        'This project reinforced the importance of designing for real user needs while balancing business objectives and technical constraints.',
+    },
+  ]}
+/>
