@@ -16,7 +16,7 @@ metadata:
 
 import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import Content from '~/components/widgets/Content.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import FocusBuddyImage from '~/assets/images/FocusBuddy.png';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -43,7 +43,7 @@ This case study explores the journey of designing FocusBuddy, from identifying k
 
 ---
 
-  <Content
+  <Hero
     isReversed
     title="Finding Focus in the Chaos"
     items={[
@@ -68,7 +68,7 @@ This case study explores the journey of designing FocusBuddy, from identifying k
       alt: 'Colorful Image',
     }}
   >
-    <Fragment slot="content">
+    <Fragment slot="subtitle">
       FocusBuddy was born out of my own experiences as a neurodivergent individual. Like many with ADHD, I often found myself struggling to maintain focus, manage my time, and stay productive.
     </Fragment>
 
@@ -76,7 +76,7 @@ This case study explores the journey of designing FocusBuddy, from identifying k
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
 
-  </Content>
+  </Hero>
 
 <Features
   title="Key Challenges Identified"
@@ -111,7 +111,7 @@ This case study explores the journey of designing FocusBuddy, from identifying k
 <Stats
   title="What users needed most"
   stats={[
-    { title: 'Chat feature, Focus sounds & music', amount: '57-71%' },
+    { title: 'Chat feature, Focus sounds & music', amount: '<71%' },
     { title: 'Timer & Shared agenda', amount: '42.9%' },
     { title: 'Online community & accountability' },
   ]}

@@ -16,7 +16,7 @@ metadata:
 
 import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import Content from '~/components/widgets/Content.astro';
+import Hero from '~/components/widgets/Hero.astro';
 import FocusBuddyImage from '~/assets/images/FocusBuddy.png';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
@@ -43,7 +43,7 @@ This case study explores my journey designing BrushBuddy, from identifying the c
 
 ---
 
-<Content
+<Hero
   isReversed
   title="Designing for a Daily Challenge"
   items={[
@@ -68,7 +68,7 @@ This case study explores my journey designing BrushBuddy, from identifying the c
       alt: 'A young woman having challenges with staying focused while brushing her teeth.',
     }}
 >
-    <Fragment slot="content">
+    <Fragment slot="subtitle">
       Oral care routines may seem simple, but they can be a source of stress for neurodivergent individuals. BrushBuddy transforms brushing into a structured, engaging, and rewarding activity.
     </Fragment>
 
@@ -76,7 +76,7 @@ This case study explores my journey designing BrushBuddy, from identifying the c
       <div class="absolute inset-0 bg-gray-50 dark:bg-transparent"></div>
     </Fragment>
 
-</Content>
+</Hero>
 
 <Features
   title="Key Challenges Identified"
