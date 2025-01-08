@@ -13,5 +13,6 @@
   },
   "eslint.useFlatConfig": true,
   "terminal.explorerKind": "external",
-  "terminal.sourceControlRepositoriesKind": "external"
+  "terminal.sourceControlRepositoriesKind": "external",
+  "cSpell.words": ["Cimdata", "omnichannel", "tabler"]
 }

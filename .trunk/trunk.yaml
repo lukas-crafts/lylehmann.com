@@ -19,7 +19,7 @@ lint:
   disabled:
     - yamllint
   enabled:
-    - checkov@3.2.346
+    - checkov@3.2.347
     - eslint@9.17.0
     - git-diff-check
     - markdownlint@0.43.0
