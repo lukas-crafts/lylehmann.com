@@ -14,5 +14,21 @@
   "eslint.useFlatConfig": true,
   "terminal.explorerKind": "external",
   "terminal.sourceControlRepositoriesKind": "external",
-  "cSpell.words": ["Cimdata", "omnichannel", "tabler"]
+  "cSpell.words": ["Cimdata", "omnichannel", "tabler"],
+  "cssvar.files": ["/src/assets/styles/*.css"],
+  "cssvar.extensions": [
+    "css",
+    "scss",
+    "sass",
+    "less",
+    "postcss",
+    "astro",
+    "vue",
+    "svelte",
+    "astro",
+    "ts",
+    "tsx",
+    "js",
+    "jsx"
+  ]
 }
