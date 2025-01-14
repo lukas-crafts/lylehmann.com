@@ -70,7 +70,7 @@ apps:
 analytics:
   vendors:
     googleAnalytics:
-      id: 'G-9QE9631ZZ7'
+      id: 'G-KV010Z1DKM'
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
