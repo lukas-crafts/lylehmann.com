@@ -15,7 +15,7 @@
 - ✅ **Open Graph tags** for social media sharing.
 - ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
 
-<br>
+<br />
 
 <img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astrowind-1.png" alt="AstroWind Theme Screenshot">
 
@@ -27,13 +27,13 @@
 [![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
 [![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
 
-<br>
+<br />
 
 <details open>
 <summary>Table of Contents</summary>
 
 - [Demo](#demo)
-- [Upcoming: AstroWind 2.0 – We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
+- [Upcoming: AstroWind 2.0 - We Need Your Vision!](#-upcoming-astrowind-20--we-need-your-vision)
 - [Getting started](#getting-started)
   - [Project structure](#project-structure)
   - [Commands](#commands)
@@ -47,21 +47,21 @@
 
 </details>
 
-<br>
+<br />
 
 ## Demo
 
 📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
 
-<br>
+<br />
 
-## 🔔 Upcoming: AstroWind 2.0 – We Need Your Vision!
+## Upcoming: AstroWind 2.0 - We Need Your Vision!
 
 We're embarking on an exciting journey with **AstroWind 2.0**, and we want you to be a part of it! We're currently taking the first steps in developing this new version and your insights are invaluable. Join the discussion and share your feedback, ideas, and suggestions to help shape the future of **AstroWind**. Let's make **AstroWind 2.0** even better, together!
 
 [Share Your Feedback in Our Discussion!](https://github.com/onwidget/astrowind/discussions/392)
 
-<br>
+<br />
 
 ## Getting started
 
@@ -169,7 +169,7 @@ site:
 metadata:
   title:
     default: 'Example'
-    template: '%s — Example'
+    template: '%s - Example'
   description: 'This is the default meta description of Example website'
   robots:
     index: true
@@ -292,4 +292,4 @@ Initially created by [onWidget](https://onwidget.com) and maintained by a commun
 
 ## License
 
-**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
+**AstroWind** is licensed under the MIT license - see the [LICENSE](./LICENSE.md) file for details.
