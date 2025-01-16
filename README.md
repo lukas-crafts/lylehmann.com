@@ -215,9 +215,9 @@ apps:
 
     tag:
       isEnabled: true
-      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      pathname: 'topics' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
       robots:
-        index: false
+        index: true
 
     isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
     relatedPostsCount: 4 # Number of related posts to display
