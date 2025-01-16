@@ -24,11 +24,15 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
+  site: 'https://lylehmann.com',
+
   integrations: [
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      // configuration options
+    }),
     mdx(),
     icon({
       include: {
