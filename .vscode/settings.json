@@ -14,7 +14,40 @@
   "eslint.useFlatConfig": true,
   "terminal.explorerKind": "external",
   "terminal.sourceControlRepositoriesKind": "external",
-  "cSpell.words": ["Cimdata", "omnichannel", "tabler"],
+  "cSpell.words": [
+    "Bildungsakademie",
+    "brushbuddy",
+    "cimdata",
+    "Cimdata",
+    "focusbuddy",
+    "github",
+    "Heilbad",
+    "Heiligenstadt",
+    "Hochschule",
+    "impressum",
+    "Impressum",
+    "Innodata",
+    "Jüdische",
+    "Karls",
+    "Kerem",
+    "linkedin",
+    "Linkedin",
+    "metacafe",
+    "neurodivergent",
+    "neurodiverse",
+    "neurodiversity",
+    "Neurodiversity",
+    "omnichannel",
+    "Porfolio",
+    "Ruprecht",
+    "saas",
+    "Studien",
+    "tabler",
+    "Universität",
+    "WBSCS",
+    "wireframing",
+    "Yair"
+  ],
   "cssvar.files": ["/src/assets/styles/*.css"],
   "cssvar.extensions": [
     "css",
@@ -30,5 +63,13 @@
     "tsx",
     "js",
     "jsx"
-  ]
+  ],
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:lylehmann.com}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  }
 }
