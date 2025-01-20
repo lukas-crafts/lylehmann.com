@@ -1,6 +1,6 @@
 site:
   name: lylehmann
-  site: 'https://lylehmann.com'
+  site: 'https://www.lylehmann.com'
   # trunk-ignore(yamllint/quoted-strings)
   base: '/'
   trailingSlash: false
@@ -41,14 +41,14 @@ apps:
     post:
       isEnabled: true
       # trunk-ignore(yamllint/quoted-strings)
-      permalink: '/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      permalink: '/%category%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
       # trunk-ignore(yamllint/quoted-strings)
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'articles' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
