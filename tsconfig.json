@@ -7,7 +7,8 @@
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"]
-    }
+    },
+    "types": ["astro/client"]
   },
   "include": [".astro/types.d.ts", "src/**/*"],
   "exclude": ["dist/"]
