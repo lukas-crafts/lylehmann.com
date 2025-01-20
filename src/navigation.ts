@@ -123,7 +123,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'LandingPages',
+      title: 'Pages',
       links: [
         { text: 'Home', href: '/' },
         { text: 'About', href: '/about' },
