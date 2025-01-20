@@ -122,8 +122,13 @@ export const headerData = {
 
 export const footerData = {
   links: [
-    { text: 'Home', href: '/' },
-    { text: 'About', href: '/about' },
+    {
+      title: 'LandingPages',
+      links: [
+        { text: 'Home', href: '/' },
+        { text: 'About', href: '/about' },
+      ],
+    },
   ],
   secondaryLinks: [
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
@@ -143,8 +148,13 @@ export const footerData = {
       target: '_blank',
     },
     { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/lylehmann' },
+    {
+      ariaLabel: 'RSS',
+      icon: 'tabler:rss',
+      href: getAsset('/rss.xml'),
+    },
   ],
-  footNote: `&copy; ${currentYear} Lukas Yair Lehmann. All rights reserved.`,
+  footNote: `&copy; 2024-${currentYear} Lukas Yair Lehmann. All rights reserved.`,
 };
 
 export const navigation = {
@@ -165,8 +175,16 @@ export const navigation = {
       href: 'https://linkedin.com/in/lylehmann',
       target: '_blank',
     },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/lylehmann' },
+    {
+      ariaLabel: 'RSS',
+      icon: 'tabler:rss',
+      href: getAsset('/rss.xml'),
+    },
+    {
+      ariaLabel: 'Github',
+      icon: 'tabler:brand-github',
+      href: 'https://github.com/lylehmann',
+    },
   ],
   footNote: `
     &copy; ${currentYear} Lukas Yair Lehmann. Template made by <a class="text-blue-600 underline dark:text-muted" href="https://onwidget.com/"> onWidget</a> · All rights reserved.
