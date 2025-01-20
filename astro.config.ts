@@ -16,6 +16,7 @@ import astrowind from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 import playformCompress from '@playform/compress';
+import clarity from '@kbyte-tech/astro-clarity';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -29,6 +30,10 @@ export default defineConfig({
   site: 'https://lylehmann.com',
 
   integrations: [
+    clarity({
+      enabled: true,
+      projectId: 'c0e89zmgud',
+    }),
     tailwind({
       applyBaseStyles: false,
     }),
