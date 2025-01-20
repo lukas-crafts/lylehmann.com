@@ -11,7 +11,7 @@ metadata:
   title:
     default: lylehmann
     template: '%s - lylehmann'
-  description: 'Explore the portfolio of Lukas Yair Lehmann: UX/Product Designer focused on creating inclusive and accessible designs for neurodiverse users and diverse needs'
+  description: 'UX designer specializing in accessible digital experiences. From disability support to inclusive design, designing tools like FocusBuddy that empower neurodivergent users.'
   robots:
     index: true
     follow: true
