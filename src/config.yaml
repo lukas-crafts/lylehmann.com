@@ -11,7 +11,7 @@ metadata:
   title:
     default: lylehmann
     template: '%s - lylehmann'
-  description: 'UX designer specializing in accessible digital experiences. From disability support to inclusive design, designing tools like FocusBuddy that empower neurodivergent users.'
+  description: 'Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs.'
   robots:
     index: true
     follow: true
