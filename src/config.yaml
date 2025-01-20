@@ -1,7 +1,6 @@
 site:
   name: lylehmann
   site: 'https://www.lylehmann.com'
-  # trunk-ignore(yamllint/quoted-strings)
   base: '/'
   trailingSlash: false
 
@@ -12,14 +11,13 @@ metadata:
   title:
     default: lylehmann
     template: '%s - lylehmann'
-  description: "\U0001F680 Explore Lukas Yair Lehmann's portfolio: UX and Product Designer specializing in user research, accessibility, and inclusive design for neurodiverse users.."
+  description: 'Explore the portfolio of Lukas Yair Lehmann: UX/Product Designer focused on creating inclusive and accessible designs for neurodiverse users and diverse needs'
   robots:
     index: true
     follow: true
   openGraph:
     site_name: lylehmann
     images:
-      # trunk-ignore(yamllint/quoted-strings)
       - url: '~/assets/images/hero-image.jpg'
         width: 1200
         height: 628
@@ -40,14 +38,12 @@ apps:
 
     post:
       isEnabled: true
-      # trunk-ignore(yamllint/quoted-strings)
       permalink: '/%category%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
       robots:
         index: true
 
     list:
       isEnabled: true
-      # trunk-ignore(yamllint/quoted-strings)
       pathname: 'articles' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
