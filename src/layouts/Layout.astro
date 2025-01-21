@@ -11,6 +11,8 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+//import { GoogleTagmanagerPartytown, SiteVerification } from '@digi4care/astro-google-tagmanager';
+import { GoogleTagmanagerPartytown } from '@digi4care/astro-google-tagmanager';
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
@@ -35,6 +37,8 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <!-- <SiteVerification id="SITE_VERIFICATION_ID" /> -->
+    <GoogleTagmanagerPartytown id="GTM-PVL67MM" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Comment the line below to disable View Transitions -->

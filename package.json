@@ -29,6 +29,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "^1.0.0-beta.8",
+    "@digi4care/astro-google-tagmanager": "^1.4.0",
     "@fontsource-variable/inter": "^5.1.0",
     "@kbyte-tech/astro-clarity": "^0.0.8",
     "@microsoft/clarity": "^1.0.0",
