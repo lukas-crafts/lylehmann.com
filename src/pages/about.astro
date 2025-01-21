@@ -1,0 +1,109 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Inclusive UX Designer | Accessibility - Lukas Yair Lehmann',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Header Widget ***************** -->
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'Porfolio', href: '/blog' },
+        { text: 'About' },
+        { text: 'Resume', href: '/resume' },
+      ]}
+      actions={[
+        {
+          text: 'Contact me',
+          href: '/contact',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero>
+    <Fragment slot="title"> From Empathy to Innovation </Fragment>
+    <Fragment slot="subtitle">
+      Crafting Inclusive Digital Experiences with Impact
+    </Fragment>
+  </Hero>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-github',
+        callToAction: {
+          target: '_blank',
+          text: 'GitHub',
+          href: 'https://github.com/lylehmann',
+        },
+      },
+      {
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          target: '_blank',
+          text: 'Linkedin',
+          href: 'https://www.linkedin.com/in/lylehmann/',
+        },
+      },
+      {
+        icon: 'tabler:code',
+        callToAction: {
+          target: '_blank',
+          text: 'WBSCS',
+          href: '/',
+        },
+      },
+    ]}
+    image={{ src: '~/assets/images/my-journey.jpg', alt: 'A wood, curvy street with cars' }}
+    classes={{ container: 'flex flex-col-reverse md:flex-row' }}
+  >
+    <Fragment slot="content">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+        My Journey into UX Design: <br> Empathy, Innovation, and Impact
+      </h2>
+      <p>
+        I started my career in disability support, helping people with special needs. This taught me empathy, clear
+        communication, and the value of accessibility-lessons I use in my design work today.
+      </p>
+      <br />
+      <p>
+        Later, as a webmaster, I improved websites, organized content, and trained teams. This gave me strong technical
+        skills and a focus on creating user-friendly solutions.
+      </p>
+      <br />
+      <p>
+        In publishing, I managed projects and teams, building skills in organization and problem-solving. My ADHD
+        diagnosis was a turning point. It inspired me to move from publishing to UX design-a field where I can combine
+        creativity and problem-solving to make an impact.
+      </p>
+      <br />
+      <p>
+        Now, I combine my diverse experiences with UX/UI design training to create accessible and user-friendly digital
+        solutions that truly work for everyone.
+      </p>
+      <br />
+      <p>Curious to learn more? Let's connect!</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 gap-1 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>

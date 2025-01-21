@@ -1,0 +1,448 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Note from '~/components/widgets/Note.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+
+const metadata = {
+  title: 'Inclusive UX Designer | Accessibility - Lukas Yair Lehmann',
+  ignoreTitleTemplate: true,
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- Header Widget ***************** -->
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'About', href: '#about' },
+        { text: 'Resume', href: '#resume' },
+        { text: 'Porfolio', href: '#portfolio' },
+        { text: 'Contact', href: '#contact' },
+      ]}
+      actions={[
+        {
+          text: 'Hire me',
+          href: '#contact',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Explore My Work',
+        href: '#portfolio',
+      },
+      { text: 'Learn About Me', href: '#about' },
+    ]}
+    image={{ src: '~/assets/images/hero-image.jpeg', alt: 'Lukas Lehmann', width: 800, height: 800 }}
+  >
+    <Fragment slot="title"> Hi, I'm Lukas 👋 </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        <span class="font-semibold">UX & Product Designer focused on Accessibility and Neurodiversity</span>
+        <span class="block mb-1 font-bold text-blue-600 dark:text-blue-300"
+          >Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs.</span
+        >
+      </span>
+    </Fragment>
+  </Hero>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="about"
+    columns={3}
+    items={[
+      {
+        icon: 'tabler:brand-github',
+        callToAction: {
+          target: '_blank',
+          text: 'GitHub',
+          href: 'https://github.com/lylehmann',
+        },
+      },
+      {
+        icon: 'tabler:brand-linkedin',
+        callToAction: {
+          target: '_blank',
+          text: 'Linkedin',
+          href: 'https://www.linkedin.com/in/lylehmann/',
+        },
+      },
+      {
+        icon: 'tabler:code',
+        callToAction: {
+          target: '_blank',
+          text: 'WBSCS',
+          href: '/',
+        },
+      },
+    ]}
+    image={{ src: '~/assets/images/about-1.jpg', alt: 'A wood, curvy street with cars' }}
+    classes={{ container: 'flex flex-col-reverse md:flex-row' }}
+  >
+    <Fragment slot="content">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+        From Empathy to Innovation: <br /> My Journey into UX Design
+      </h2>
+
+      <p>
+        I started my career in disability support, helping people with special needs. This taught me empathy, clear
+        communication, and the value of accessibility-lessons I use in my design work today.
+      </p>
+      <br />
+      <p>
+        Later, as a webmaster, I improved websites, organized content, and trained teams. This gave me strong technical
+        skills and a focus on creating user-friendly solutions.
+      </p>
+      <br />
+      <p>
+        In publishing, I managed projects and teams, building skills in organization and problem-solving. My ADHD
+        diagnosis was a turning point. It inspired me to move from publishing to UX design-a field where I can combine
+        creativity and problem-solving to make an impact.
+      </p>
+      <br />
+      <p>
+        Now, I combine my diverse experiences with UX/UI design training to create accessible and user-friendly digital
+        solutions that truly work for everyone.
+      </p>
+      <br />
+      <p>Curious to learn more? Let's connect!</p>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 gap-1 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Note Widget ******************* -->
+
+  <Note />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Work experience"
+    items={[
+      {
+        title:
+          'Career Transition to UX/UI Design <br /> <span class="font-normal">Training & Certification, Berlin, Germany</span> <br /> <span class="text-sm font-normal">2020 - Present</span>',
+        description: `Shifted to UX/UI design, focusing on creating accessible, user-friendly digital products. <br /> Earned certifications in UX/UI Design, Scrum Master (PSM-I), and Content Marketing. <br /> Worked with tools like Figma, Adobe XD, and Sketch to design accessible digital solutions. <br /> Improved technical skills in HTML, CSS, and CMS platforms to enhance my designs. <br /> Applied agile methods and user-centered design thinking in every project.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Production Editor Books <br /> <span class="font-normal">De Gruyter, Berlin, Germany</span> <br /> <span class="text-sm font-normal">2018 - 2022</span>',
+        description: `Managed book projects from start to finish, ensuring quality and timely delivery. <br /> Contributed to the development of brand identities and marketing collateral. <br /> Used Jira to organize project workflows and communicate with authors and editors.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Relocation and Career Development<br /> <span class="font-normal">Heilbad Heiligenstadt, Germany</span> <br /> <span class="text-sm font-normal">2016 - 2018</span>',
+        description: `Moved back to Germany and completed courses in project management. <br /> Contributed to the development of brand identities and marketing collateral. <br /> Focused on topics like Classic and Agile Project management, Design Thinking, project metrics, and risk analysis to strengthen my management skills.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Full Service Management Associate<br /> <span class="font-normal">Innodata, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2014 - 2016</span>',
+        description: `Coordinated journal production, handling tasks like typesetting, editing, and data management. <br /> Developed strong problem-solving and organizational skills.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Webmaster<br /> <span class="font-normal">Leo Baeck Institute, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2014 - 2015</span>',
+        description: `Led a website overhaul, improving user experience and information architecture. <br /> Trained staff in WordPress and optimized website management.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Caregiver<br /> <span class="font-normal">Shekel, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2011 - 2014</span>',
+        description: `Supported individuals with special needs, developing strong communication skills based on empathy and respect. <br /> Worked directly with people with disabilities, gaining valuable insights into their diverse needs.</br> Inspired a deep commitment to creating inclusive, accessible digital products.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Webmaster<br /> <span class="font-normal">Hochschule für Jüdische Studien, Heidelberg, Germany </span> <br /> <span class="text-sm font-normal">2006 - 2008</span>',
+        description: `Maintained content using HTML and CSS to ensure a functional and user-friendly site.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Volunteer Experience"
+    items={[
+      {
+        title: `Caregiver<br /> <span class="font-normal">Saint Vincent Ein Kerem, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2003 - 2005</span>`,
+        description: `Provided care and support to children and teenagers with special needs, developing strong interpersonal skills and empathy.<br>Developed problem-solving abilities and adaptability in challenging situations.<br>Gained insights into accessibility and inclusivity, shaping a lifelong commitment to creating solutions that address diverse user needs.`,
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="resume"
+    title="Education"
+    items={[
+      {
+        title: `Certificate in Product UX Design <br /> <span class="font-normal">WBS Coding School</span> <br /> <span class="text-sm font-normal">2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Scrum Master (PSM-I) <br /> <span class="font-normal">Scrum.org</span> <br /> <span class="text-sm font-normal">2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in UX/UI Design, Branded UX / Interaction Design <br /> <span class="font-normal">cimdata Bildungsakademie GmbH</span> <br /> <span class="text-sm font-normal">2023 - 2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Content Marketing Management <br /> <span class="font-normal">Webmasters Europe e.V. <br /> <span class="text-sm font-normal">2022</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Content Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2021 - 2022</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Project Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2017</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Bachelor of Arts in Jewish Studies, History  <br /> <span class="font-normal">HfJS Heidelberg, Ruprecht-Karls-Universität Heidelberg</span> <br /> <span class="text-sm font-normal">2005 - 2011</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Skills"
+    subtitle="Explore the diverse skills that enable me to craft thoughtful, inclusive designs, focused on delivering user-centered solutions with empathy and impact."
+    columns={3}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Project Management',
+        description:
+          'Certified Scrum Master with expertise in agile methodologies, task coordination, and ensuring timely project delivery, backed by experience in publishing and project coordination.',
+      },
+      {
+        title: 'Communication',
+        description:
+          'Skilled in engaging diverse audiences, stakeholders, and teams, developed through experience in publishing, social work, and content marketing.',
+      },
+      {
+        title: 'Empathy and People Skills',
+        description:
+          'Deeply empathetic, with strong interpersonal skills honed through caregiving and working with individuals with special needs, vital for understanding user needs.',
+      },
+      {
+        title: 'Bridging Design and Development',
+        description:
+          'Proficient in HTML, CSS, and web design fundamentals, ensuring seamless collaboration with developers to deliver functional and technically feasible designs.',
+      },
+      {
+        title: 'Staying Ahead with Curiosity',
+        description:
+          'Constantly exploring new tools, design systems, and technologies to bring innovative, forward-thinking solutions to every project.',
+      },
+      {
+        title: 'Content Creation and Marketing',
+        description:
+          'Experienced in creating impactful content and marketing strategies, leveraging expertise in content marketing and brand design.',
+      },
+      {
+        title: 'UX/UI Design',
+        description:
+          'Skilled in user experience and interface design, with expertise in wireframing, prototyping, and creating user-centered solutions. Proficient in Figma, Sketch, and Adobe XD.',
+      },
+      {
+        title: 'Research and Analytical Skills',
+        description:
+          'Strong research and analytical abilities, developed through academic training and a content marketing course, allowing me to gather insights and make data-driven design decisions.',
+      },
+      {
+        title: 'Accessibility and Inclusive Design',
+        description:
+          'Focused on creating user-centered solutions that prioritize accessibility and neurodiversity, ensuring digital products are inclusive and empowering for all users.',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    id="portfolio"
+    title="Designing for Inclusion"
+    subtitle="Explore my portfolio, where empathy and innovation come together to craft digital experiences that are accessible, intuitive, and empowering for all users."
+    isReversed
+    items={[
+      {
+        title: 'Description:',
+        description:
+          'Designed FocusBuddy, a macOS app aimed at helping individuals, particularly those with ADHD or productivity challenges, stay focused and accountable during work sessions. The app features tools like a Pomodoro timer, focus-enhancing music, and a collaborative space to connect with accountability partners.',
+      },
+      {
+        title: 'Role:',
+        description:
+          'Led the end-to-end design process, including user research, ideation, prototyping, and testing. Focused on creating a clean, user-friendly interface tailored to the needs of neurodivergent users.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/FocusBuddy.png',
+      alt: 'Tech Design Image',
+    }}
+    callToAction={{
+      text: 'Go to the project',
+      icon: 'tabler:chevron-right',
+      href: '/focusbuddy-case-study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+        Project 1: <br /><span class="text-2xl">FocusBuddy: Boosting Focus and Accountability</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Description:',
+        description:
+          'Developed BrushingBuddy, a mobile app aimed at supporting users in building better oral hygiene routines. The app uses gamification and music integration to make brushing more engaging while catering to neurodivergent users with a simple, distraction-free design.',
+      },
+      {
+        title: 'Role:',
+        description: `Led the end-to-end product design process, including user research, ideation, prototyping, and usability testing. Designed a minimalist, user-friendly interface to reduce cognitive load and increase routine adherence.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/BrushingBuddy.png',
+      alt: 'Art and Music Poster Image',
+    }}
+    callToAction={{
+      text: 'Go to the project',
+      icon: 'tabler:chevron-right',
+      href: '/brushbuddy-case-study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+        Project 2: <br /><span class="text-2xl">BrushingBuddy: Simplifying Oral Care Routines</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    isAfterContent={true}
+    items={[
+      {
+        title: 'Description:',
+        description: `Designed a website and mobile app for Das Metta, a Munich-based cafe, bakery, and yoga space. The goal was to improve online visibility, highlight unique offerings like gluten-free and vegan products, and provide a seamless booking system for yoga classes.`,
+      },
+      {
+        title: 'Role:',
+        description: `Created UX designs for the homepage, online store, and mobile app. Focused on responsive layouts, clear navigation, and mobile-first features to enhance usability for diverse customers.`,
+      },
+    ]}
+    image={{
+      src: '~/assets/images/Metta.png',
+      alt: 'Fashion e-commerce Image',
+    }}
+    callToAction={{
+      text: 'Go to the project',
+      icon: 'tabler:chevron-right',
+      href: '/metacafe-case-study',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+        Project 3: <br /><span class="text-2xl">Das Metta: Redesigning a Cafe & Yoga Space</span>
+      </h3>
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Discover Insights in My Case Studies"
+    information={`Dive into detailed case studies showcasing inclusive UX design, digital innovation, and creative strategies.
+                    Each project highlights unique challenges, solutions, and lessons learned to inspire and inform.
+                    Explore how thoughtful design can make a meaningful impact.
+            `}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="contact"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email Me',
+        href: `mailto:${email}`, // Update this line to use the imported email
+      },
+      {
+        variant: 'secondary',
+        text: 'Find Me on LinkedIn',
+        href: 'https://www.linkedin.com/in/lylehmann/',
+        target: '_blank',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Let's Connect </Fragment>
+
+    <Fragment slot="subtitle">
+      Passionate about creating inclusive, user-centered designs? <br class="hidden md:inline" /> Let's team up to make a
+      real impact.
+    </Fragment>
+  </CallToAction>
+</Layout>

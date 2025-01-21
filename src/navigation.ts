@@ -123,10 +123,12 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Pages',
+      title: 'Quick Links',
       links: [
         { text: 'Home', href: '/' },
+        { text: 'Portfolio', href: '/blog' },
         { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ],
     },
   ],
