@@ -3,6 +3,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import ContactInfo from '~/components/widgets/ContactInfo.astro';
 
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+
 const metadata = {
   title: 'Impressum',
   description: 'Impressum page',
@@ -14,16 +16,15 @@ const metadata = {
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/#' },
-        { text: 'About', href: '/#about' },
-        { text: 'Resume', href: '/#resume' },
-        { text: 'Porfolio', href: '/#portfolio' },
-        { text: 'Contact', href: '/#contact' },
+        { text: 'Home'},
+        { text: 'Porfolio', href: '/blog' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#contact',
+          text: 'Contact me',
+          href: `mailto:${email}`,
         },
       ]}
       isSticky

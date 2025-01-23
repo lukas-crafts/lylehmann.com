@@ -14,6 +14,8 @@ import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
 
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+
 export const prerender = true;
 
 export const getStaticPaths = (async () => {
@@ -51,22 +53,22 @@ const metadata = merge(
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/#' },
-        { text: 'About', href: '/#about' },
-        { text: 'Resume', href: '/#resume' },
-        { text: 'Porfolio', href: '/#portfolio' },
-        { text: 'Contact', href: '/#contact' },
+        { text: 'Home'},
+        { text: 'Porfolio', href: '/blog' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#contact',
+          text: 'Contact me',
+          href: `mailto:${email}`,
         },
       ]}
       isSticky
       showToggleTheme
     />
   </Fragment>
+
   <SinglePost post={{ ...post, image: image }} url={url}>
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
