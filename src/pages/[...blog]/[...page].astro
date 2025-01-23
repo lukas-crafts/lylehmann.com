@@ -10,6 +10,8 @@ import Header from '~/components/widgets/Header.astro';
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
 
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+
 export const prerender = true;
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -41,24 +43,25 @@ const metadata = {
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/#' },
-        { text: 'About', href: '/#about' },
-        { text: 'Resume', href: '/#resume' },
-        { text: 'Porfolio', href: '/#portfolio' },
-        { text: 'Contact', href: '/#contact' },
+        { text: 'Home', href: '/' },
+        { text: 'Porfolio'},
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#contact',
+          text: 'Contact me',
+          href: `mailto:${email}`,
         },
       ]}
       isSticky
       showToggleTheme
     />
   </Fragment>
+
+  <!-- Blog List ***************** -->
   <section class="relative max-w-4xl px-6 py-12 mx-auto sm:px-6 sm:py-16 lg:py-20">
-    <Headline subtitle="Exploring Inclusive UX Design, Strategy, and Digital Innovation"> Case Studies </Headline>
+    <Headline subtitle="Dive into my journey of designing user-centered solutions that combine accessibility, creativity, and technology."> Case Studies <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Inclusive UX Design and Digital Innovation</span> </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--
