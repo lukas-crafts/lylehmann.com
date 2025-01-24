@@ -6,18 +6,42 @@ import Hero from '~/components/widgets/Hero.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Content from '~/components/widgets/Content.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
-const metadata = {
-  title: 'Home - Lukas Yair Lehmann | UX Designer | Accessibility',
-  ignoreTitleTemplate: true,
-  description: 'Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs.',
-  keywords: 'UX Designer, Accessibility, Lukas Yair Lehmann, UX Design, User Experience, Inclusive Design, Neurodiversity, Digital Solutions, Design Portfolio',
-};
 ---
 
-<Layout metadata={metadata}>
+<Seo
+      title="Home - Lukas Yair Lehmann | UX Designer | Accessibility"
+      description="Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs."
+      keywords={["UX Designer", "Accessibility", "Lukas Yair Lehmann", "UX Design", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio"]}
+      icon="/favicon.ico"
+/>
+
+<Schema
+            item={
+                {
+                    "@context": "https://schema.org",
+                    "@type": "WebSite",
+                    name: "Lukas Yair Lehmann | UX Designer",
+                    url: "https://lylehmann.com",
+                    description: "Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs.",
+                    author: {
+                        "@type": "Person",
+                        name: "Lukas Yair Lehmann",
+                        alternativeName: "Lukas Lehmann",
+                        jobTitle: "UX Designer",
+                        url: "https://lylehmann.com",
+                        sameAs: ["https://www.linkedin.com/in/lylehmann/", "https://github.com/lylehmann"],
+                        email: email, // Use the imported email variable here
+                            }
+                        }
+                    }
+                />
+
+<Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
@@ -30,7 +54,7 @@ const metadata = {
       actions={[
         {
           text: 'Meet me',
-          href: `https://calendly.com/lylehmann`,
+          href: 'https://calendly.com/lylehmann',
           target: '_blank',
         },
       ]}
