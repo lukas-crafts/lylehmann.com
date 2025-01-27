@@ -4,18 +4,61 @@ import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
-
-const metadata = {
-  title: 'About -  Lukas Yair Lehmann | UX Designer | Accessibility',
-  description: 'Learn more about Lukas Yair Lehmann, a UX designer with a focus on accessibility and inclusive design.',
-  keywords: 'Lukas Yair Lehmann, UX Designer, Accessibility, Inclusive Design, User Experience, User Interface, Design, Portfolio, About',
-  ignoreTitleTemplate: true,
-};
 ---
 
-<Layout metadata={metadata}>
+<Seo
+  title="About - Lukas Yair Lehmann | UX Designer & Accessibility Advocate"
+  description="Learn more about Lukas Yair Lehmann, a UX Designer dedicated to creating accessible and inclusive digital experiences. Discover his journey, skills, and passion for user-centered design."
+  keywords={["UX Designer", "Accessibility Advocate", "Lukas Yair Lehmann", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience", "Accessibility Expert"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: "About me - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/about",
+    mainEntity: {
+      "@id": "https://lylehmann.com/#person",
+      name: "Lukas Yair Lehmann",
+      jobTitle: "UX Designer",
+      url: "https://lylehmann.com",
+      sameAs: [
+        "https://www.linkedin.com/in/lylehmann/",
+        "https://github.com/lylehmann",
+      ],
+      email: email,
+      description: "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
+      knowsAbout: [
+        "UX Design",
+        "User Experience",
+        "Inclusive Design",
+        "Neurodiversity",
+        "Accessibility",
+        "Digital Solutions",
+        "Content Strategy",
+        "Design Thinking",
+        "Web Development",
+        "Project Management",
+        "Agile Methodologies",
+        "Design Thinking",
+        "User Research",
+        "Prototyping",
+        "Usability Testing",
+        "Information Architecture",
+        "Interaction Design",
+      ],
+    }
+  }}
+/>
+
+<Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header

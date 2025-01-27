@@ -7,17 +7,111 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
-const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
 
-const metadata = {
-  title: "Resume - Lukas Yair Lehmann | UX Designer | Accessibility'",
-  ignoreTitleTemplate: true,
-  description: "Lukas Yair Lehmann's resume page presents his expertise, skills, and certifications in UX design and accessibility for inclusive digital experiences",
-  keywords: ["UX Designer, Accessibility, Inclusive Design, User Experience, Lukas Yair Lehmann, Resume, Portfolio, UX Design Skills, UX Design Experience, UX Certifications, Wireframing, Prototyping, Figma, Sketch, Adobe XD, HTML, CSS, Agile, Scrum Master, WCAG, User-Centered Design, Web design, App design, digital products, User-Centered Design, Accessible Web Design Berlin, Inclusive UX Design"]
-};
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 ---
 
-<Layout metadata={metadata}>
+<Seo
+  title="Resume - Lukas Yair Lehmann | UX Designer & Accessibility Advocate"
+  description="Explore the resume of Lukas Yair Lehmann, a UX Designer dedicated to creating accessible and inclusive digital experiences. Discover his skills, experience, and passion for user-centered design."
+  keywords={["UX Designer", "Accessibility Advocate", "Lukas Yair Lehmann", "Resume", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience", "Accessibility Expert"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Resume - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/resume",
+    description: "Explore the resume of Lukas Yair Lehmann, a UX Designer dedicated to creating accessible and inclusive digital experiences. Discover his skills, experience, and passion for user-centered design.",
+    mainEntity: {
+      "@id": "https://lylehmann.com/#occupation",
+      "@type": "Occupation",
+      name: "UX Designer",
+      description: "A professional who focuses on the design and usability of digital products, ensuring they are accessible and user-friendly.",
+      occupationalCategory: "15-1255.00",
+      skills: [
+        "User Research",
+        "Prototyping",
+        "Usability Testing",
+        "Information Architecture",
+        "Interaction Design",
+        "Accessibility",
+        "Inclusive Design",
+        "Content Strategy",
+        "Web Development",
+        "Mobile Design",
+        "Responsive Design",
+        "HTML",
+        "CSS",
+        "Astro.js",
+        "Project Management",
+        "Agile Methodologies",
+        "Design Thinking",
+        "Scrum",
+        "User-Centered Design",
+        "Neurodiversity",
+        "Disability Advocacy",
+        "Design Systems",
+        "Design Tools",
+        "Design Software",
+        "Design Principles",
+        "Design Patterns",
+        "Design Guidelines",
+        "Design Best Practices",
+        "Design Trends",
+        "Design History",
+        "Design Theory",
+        "Design Research",
+        "Design Methodologies",
+        "Design Processes",
+        "Design Workflows",
+        "Design Tools",
+        "Design Software",
+        "Figma",
+        "Sketch",
+        "Adobe XD",
+      ],
+      mainEntityOfPage: {
+        "@type": "Person",
+        name: "Lukas Yair Lehmann",
+        jobTitle: "UX Designer",
+        url: "https://lylehmann.com",
+        sameAs: [
+          "https://www.linkedin.com/in/lylehmann/",
+          "https://github.com/lylehmann"
+        ],
+        email: email,
+        description: "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
+        knowsAbout: [
+          "UX Design",
+          "User Experience",
+          "Inclusive Design",
+          "Neurodiversity",
+          "Accessibility",
+          "Digital Solutions",
+          "Content Strategy",
+          "Design Thinking",
+          "Web Development",
+          "Project Management",
+          "Agile Methodologies",
+          "Design Thinking",
+          "User Research",
+          "Prototyping",
+          "Usability Testing",
+          "Information Architecture",
+          "Interaction Design"
+        ]
+      }
+    }
+  }}
+/>
+
+<Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
