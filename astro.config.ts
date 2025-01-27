@@ -19,6 +19,8 @@ import playformCompress from '@playform/compress';
 
 import robotsTxt from 'astro-robots-txt';
 
+import purgecss from 'astro-purgecss';
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = false;
@@ -26,12 +28,14 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  build: {
+    inlineStylesheets: 'never',
+  },
   output: 'static',
 
   site: 'https://lylehmann.com',
 
   integrations: [
-    robotsTxt(),
     tailwind({
       applyBaseStyles: false,
     }),
@@ -77,6 +81,23 @@ export default defineConfig({
     }),
     playformCompress(),
     robotsTxt(),
+    purgecss({
+      fontFace: true,
+      keyframes: true,
+      variables: true,
+      safelist: ['random', 'yep', 'button', /^nav/],
+      blocklist: ['usedClass', /^nav/],
+      content: [
+        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (read SSR docs below)
+      ],
+      extractors: [
+        {
+          // Example using a taiwindcss compatible class extractor
+          extractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
+          extensions: ['astro', 'html'],
+        },
+      ],
+    }),
   ],
 
   image: {
