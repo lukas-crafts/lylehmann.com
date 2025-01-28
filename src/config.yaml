@@ -1,6 +1,6 @@
 site:
   name: lylehmann
-  site: 'https://www.lylehmann.com'
+  site: 'https://lylehmann.com'
   base: '/'
   trailingSlash: false
 
