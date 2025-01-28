@@ -13,8 +13,12 @@ import { getStaticPathsBlogPost, blogPostRobots } from '~/utils/blog';
 import { findImage } from '~/utils/images';
 import type { MetaData } from '~/types';
 import RelatedPosts from '~/components/blog/RelatedPosts.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
+import Twitter from 'node_modules/astro-seo-meta/dist/Twitter.astro';
 
-const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+const email = import.meta.env.PUBLIC_EMAIL;
+const authorName = import.meta.env.PUBLIC_AUTHOR_NAME; // Add this line to import the author's name from the .env.local file
 
 export const prerender = true;
 
@@ -48,12 +52,48 @@ const metadata = merge(
 ) as MetaData;
 ---
 
+<Seo
+  title={post.title}
+  description={post.excerpt}
+  keywords={post.tags?.map(tag => tag.title)}
+  icon="~/assets/favicons/favicon.ico"
+  robots="index, follow"
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://lylehmann.com#webpage",
+    },
+    "headline": post.title,
+    "description": post.excerpt,
+    "thumbnail": image,
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Lukas Yair Lehmann",
+        "@id": "https://lylehmann.com#person",
+      },
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Lukas Yair Lehmann",
+    },
+    "datePublished": post.publishDate.toISOString(),
+    "articleSection": post.category?.title || '',
+    "keywords": post.tags?.map((tag) => tag.title) || [],
+  }}
+/>
+
 <Layout metadata={metadata}>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/'},
+        { text: 'Home', href: '/' },
         { text: 'Porfolio', href: '/blog' },
         { text: 'About', href: '/about' },
         { text: 'Resume', href: '/resume' },
