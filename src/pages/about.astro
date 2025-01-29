@@ -16,6 +16,16 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   keywords={["UX Designer", "Accessibility Advocate", "Lukas Yair Lehmann", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience"]}
   icon="~/assets/favicons/favicon.ico"
   robots='index, follow'
+  facebook={{
+    image: "~/assets/images/hero-image.jpeg", // Replace with a default image path
+    url: "https://lylehmann.com/about",
+    type: "website",
+  }}
+  twitter={{
+    image: "~/assets/images/hero-image.jpeg", // Replace with a default image path
+    site: "@lylehmann",
+    card: "summary_large_image",
+  }}
 />
 
 <Schema
@@ -55,6 +65,27 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         "Interaction Design",
       ],
     }
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About",
+        item: "https://lylehmann.com/about",
+      },
+    ],
   }}
 />
 
