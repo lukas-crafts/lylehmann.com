@@ -40,6 +40,22 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
                         }
                     }
                 />
+                <Schema
+                    item={
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            itemListElement: [
+                                {
+                                    "@type": "ListItem",
+                                    position: 1,
+                                    name: "Home",
+                                    item: "https://lylehmann.com"
+                                }
+                            ]
+                        }
+                    }
+                />
 
 <Layout>
   <!-- Header Widget ***************** -->

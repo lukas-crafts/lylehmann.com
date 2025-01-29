@@ -7,7 +7,9 @@ import Content from '~/components/widgets/Content.astro';
 import { Seo } from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
 
-const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+const fileStats = import.meta.glob('/src/pages/about.astro', { eager: true }) as Record<string, { birthtime: string, mtime: string }[]>;
+const dateCreated = new Date(fileStats['/src/pages/about.astro'][0].birthtime).toISOString();
+const dateModified = new Date(fileStats['/src/pages/about.astro'][0].mtime).toISOString();
 ---
 
 <Seo
@@ -31,38 +33,19 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
 <Schema
   item={{
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About me - Lukas Yair Lehmann | UX Designer",
-    url: "https://lylehmann.com/about",
-    mainEntity: {
+    "@type": "ProfilePage",
+    "dateCreated": dateCreated,
+    "dateModified": dateModified,
+    "mainEntity": {
       "@type": "Person",
-      "@id": "https://lylehmann.com/#person",
-      name: "Lukas Yair Lehmann",
-      jobTitle: "UX Designer",
-      url: "https://lylehmann.com",
-      sameAs: [
+      "name": "Lukas Yair Lehmann",
+      "alternateName": "Lukas Lehmann",
+      "identifier": "lylehmann",
+      "description": "UX Designer and Accessibility Advocate",
+      "image": "https://lylehmann.com/assets/images/hero-image.jpeg",
+      "sameAs": [
         "https://www.linkedin.com/in/lylehmann/",
         "https://github.com/lylehmann",
-      ],
-      email: email,
-      knowsAbout: [
-        "UX Design",
-        "User Experience",
-        "Inclusive Design",
-        "Neurodiversity",
-        "Accessibility",
-        "Digital Solutions",
-        "Content Strategy",
-        "Design Thinking",
-        "Web Development",
-        "Project Management",
-        "Agile Methodologies",
-        "Design Thinking",
-        "User Research",
-        "Prototyping",
-        "Usability Testing",
-        "Information Architecture",
-        "Interaction Design",
       ],
     }
   }}
@@ -114,7 +97,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   <!-- Hero Widget ******************* -->
 
   <Hero>
-    <Fragment slot="title"> From Empathy to Innovation <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Crafting Inclusive Digital Experiences with Impact</Fragment>
+    <Fragment slot="title"> From Empathy to Innovation <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Crafting Inclusive Digital Experiences with Impact</span></Fragment>
   </Hero>
 
   <!-- Content Widget **************** -->
