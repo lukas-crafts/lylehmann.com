@@ -6,10 +6,6 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import { Seo } from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
-
-const fileStats = import.meta.glob('/src/pages/about.astro', { eager: true }) as Record<string, { birthtime: string, mtime: string }[]>;
-const dateCreated = new Date(fileStats['/src/pages/about.astro'][0].birthtime).toISOString();
-const dateModified = new Date(fileStats['/src/pages/about.astro'][0].mtime).toISOString();
 ---
 
 <Seo
@@ -34,8 +30,8 @@ const dateModified = new Date(fileStats['/src/pages/about.astro'][0].mtime).toIS
   item={{
     "@context": "https://schema.org",
     "@type": "ProfilePage",
-    "dateCreated": dateCreated,
-    "dateModified": dateModified,
+    "dateCreated": "2025-15-01",
+    "dateModified": "2025-01-29",
     "mainEntity": {
       "@type": "Person",
       "name": "Lukas Yair Lehmann",
