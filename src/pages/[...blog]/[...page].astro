@@ -32,7 +32,7 @@ const currentPage = page.currentPage ?? 1;
 
 <Seo
   title="Portfolio - Lukas Yair Lehmann | UX Designer & Accessibility"
-  description="Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann’s blog. Explore case studies, solutions, and process."
+  description="Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann's blog. Explore case studies, solutions, and process."
   keywords={["UX Design", "Accessibility", "Inclusive Design", "Digital Innovation", "User Experience", "Design Process", "Case Studies", "Creative Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience"]}
   icon="~/assets/favicons/favicon.ico"
   robots={blogListRobots}
@@ -56,6 +56,27 @@ const currentPage = page.currentPage ?? 1;
       ],
       email: email,
     },
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: "https://lylehmann.com/blog",
+      },
+    ],
   }}
 />
 
