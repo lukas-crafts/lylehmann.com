@@ -126,7 +126,7 @@ export const footerData = {
       title: 'Quick Links',
       links: [
         { text: 'Home', href: '/' },
-        { text: 'Portfolio', href: '/blog' },
+        { text: 'Portfolio', href: '/portfolio' },
         { text: 'About', href: '/about' },
         { text: 'Resume', href: '/resume' },
       ],

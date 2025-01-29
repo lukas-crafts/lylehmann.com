@@ -37,7 +37,7 @@ const { page } = Astro.props as Props;
   robots="index, follow"
   facebook={{
     image: "~/assets/images/hero-image.jpeg", // Replace with a default image path
-    url: "https://lylehmann.com/blog",
+    url: "https://lylehmann.com/portfolio",
     type: "website",
   }}
   twitter={{
@@ -52,7 +52,7 @@ const { page } = Astro.props as Props;
     "@context": "https://schema.org",
     "@type": "Blog",
     name: "Portfolio - Lukas Yair Lehmann | UX Designer",
-    url: "https://lylehmann.com/blog",
+    url: "https://lylehmann.com/portfolio",
     mainEntity: {
       "@type": "Person",
       "@id": "https://lylehmann.com/#person",
@@ -83,7 +83,7 @@ const { page } = Astro.props as Props;
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: "https://lylehmann.com/blog",
+        item: "https://lylehmann.com/portfolio",
       },
     ],
   }}
@@ -95,7 +95,7 @@ const { page } = Astro.props as Props;
     <Header
       links={[
         { text: 'Home', href: '/' },
-        { text: 'Porfolio', href: '/blog' },
+        { text: 'Porfolio', href: '/portfolio' },
         { text: 'About', href: '/about' },
         { text: 'Resume', href: '/resume' },
       ]}
