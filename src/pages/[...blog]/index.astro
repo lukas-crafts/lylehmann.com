@@ -55,35 +55,48 @@ const metadata = merge(
 <Seo
   title={post.title}
   description={post.excerpt}
-  keywords={post.tags?.map(tag => tag.title)}
+  keywords={post.tags?.map((tag) => tag.title)}
   icon="~/assets/favicons/favicon.ico"
   robots="index, follow"
 />
 
 <Schema
   item={{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "https://lylehmann.com#webpage",
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': 'https://lylehmann.com#webpage',
     },
-    "headline": post.title,
-    "description": post.excerpt,
-    "author": [
+    headline: post.title,
+    description: post.excerpt,
+    author: [
       {
-        "@type": "Person",
-        "name": "Lukas Yair Lehmann",
-        "@id": "https://lylehmann.com#person",
+        '@type': 'Person',
+        name: 'Lukas Yair Lehmann',
+        '@id': 'https://lylehmann.com#person',
       },
     ],
-    "publisher": {
-      "@type": "Organization",
-      "name": "Lukas Yair Lehmann",
+    publisher: {
+      '@type': 'Organization',
+      name: 'Lukas Yair Lehmann',
     },
-    "datePublished": post.publishDate.toISOString(),
-    "articleSection": post.category?.title || '',
-    "keywords": post.tags?.map((tag) => tag.title) || [],
+    datePublished: post.publishDate.toISOString(),
+    dateModified: post.updateDate?.toISOString(),
+    articleSection: post.category?.title || '',
+    keywords: post.tags?.map((tag) => tag.title) || [],
+  }}
+/>
+
+<Schema
+  item={{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://lylehmann.com' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://lylehmann.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: post.permalink },
+    ],
   }}
 />
 
