@@ -68,27 +68,15 @@ const image = (await findImage(post.image)) as string | undefined;
   item={{
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
-    mainEntityOfPage: {
-      '@type': 'WebPage',
-      '@id': 'https://lylehmann.com#webpage',
+    "headline": post.title,
+    "image": post.image,
+    "datePublished": post.publishDate.toISOString(),
+    "dateModified": post.updateDate?.toISOString(),
+    "author": {
+      "@type": "Person",
+      "name": "Lukas Yair Lehmann",
+      "url": "https://lylehmann.com/about",
     },
-    headline: post.title,
-    description: post.excerpt,
-    author: [
-      {
-        '@type': 'Person',
-        name: 'Lukas Yair Lehmann',
-        '@id': 'https://lylehmann.com#person',
-      },
-    ],
-    publisher: {
-      '@type': 'Organization',
-      name: 'Lukas Yair Lehmann',
-    },
-    datePublished: post.publishDate.toISOString(),
-    dateModified: post.updateDate?.toISOString(),
-    articleSection: post.category?.title || '',
-    keywords: post.tags?.map((tag) => tag.title) || [],
   }}
 />
 
