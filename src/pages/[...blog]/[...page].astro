@@ -6,11 +6,11 @@ import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 import Header from '~/components/widgets/Header.astro';
-import { Seo } from 'astro-seo-meta';
+import { Seo} from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
 // import PostTags from "~/components/blog/Tags.astro";
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { getStaticPathsBlogList } from '~/utils/blog';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
@@ -23,7 +23,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
-const currentPage = page.currentPage ?? 1;
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
@@ -32,10 +31,10 @@ const currentPage = page.currentPage ?? 1;
 
 <Seo
   title="Portfolio - Lukas Yair Lehmann | UX Designer & Accessibility"
-  description="Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann’s blog. Explore case studies, solutions, and process."
+  description="Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann's blog. Explore case studies, solutions, and process."
   keywords={["UX Design", "Accessibility", "Inclusive Design", "Digital Innovation", "User Experience", "Design Process", "Case Studies", "Creative Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience"]}
   icon="~/assets/favicons/favicon.ico"
-  robots={blogListRobots}
+  robots="index, follow"
 />
 
 <Schema
@@ -56,6 +55,27 @@ const currentPage = page.currentPage ?? 1;
       ],
       email: email,
     },
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: "https://lylehmann.com/blog",
+      },
+    ],
   }}
 />
 
