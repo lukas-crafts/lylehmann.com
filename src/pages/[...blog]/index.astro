@@ -86,7 +86,7 @@ const image = (await findImage(post.image)) as string | undefined;
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://lylehmann.com' },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://lylehmann.com/blog' },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://lylehmann.com/portfolio' },
       { '@type': 'ListItem', position: 3, name: post.title, item: post.permalink },
     ],
   }}
@@ -99,7 +99,7 @@ const image = (await findImage(post.image)) as string | undefined;
     <Header
       links={[
         { text: 'Home', href: '/' },
-        { text: 'Porfolio', href: '/blog' },
+        { text: 'Porfolio', href: '/portfolio' },
         { text: 'About', href: '/about' },
         { text: 'Resume', href: '/resume' },
       ]}
