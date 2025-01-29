@@ -6,11 +6,11 @@ import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
 import Header from '~/components/widgets/Header.astro';
-import { SEO} from 'astro-seo';
+import { Seo} from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
 // import PostTags from "~/components/blog/Tags.astro";
 
-import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+import { getStaticPathsBlogList } from '~/utils/blog';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
@@ -23,30 +23,18 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { page } = Astro.props as Props;
-const currentPage = page.currentPage ?? 1;
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
 
 ---
 
-<SEO
+<Seo
   title="Portfolio - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann's blog. Explore case studies, solutions, and process."
   keywords={["UX Design", "Accessibility", "Inclusive Design", "Digital Innovation", "User Experience", "Design Process", "Case Studies", "Creative Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience"]}
   icon="~/assets/favicons/favicon.ico"
   robots="index, follow"
-  openGraph={{
-    basic: {
-      type: "website",
-      url: "https://lylehmann.com/blog",
-      title: "Portfolio - Lukas Yair Lehmann | UX Designer",
-      image: "https://lylehmann.com/assets/images/hero-image.jpeg",
-    },
-    optional: {
-      description: "Discover UX design, accessibility, and digital innovation insights on Lukas Yair Lehmann's blog. Explore case studies, solutions, and process.",
-    },
-  }}
 />
 
 <Schema
