@@ -31,38 +31,19 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
 <Schema
   item={{
     "@context": "https://schema.org",
-    "@type": "AboutPage",
-    name: "About me - Lukas Yair Lehmann | UX Designer",
-    url: "https://lylehmann.com/about",
-    mainEntity: {
+    "@type": "ProfilePage",
+    "dateCreated": ,
+    "dateModified": ,
+    "mainEntity": {
       "@type": "Person",
-      "@id": "https://lylehmann.com/#person",
-      name: "Lukas Yair Lehmann",
-      jobTitle: "UX Designer",
-      url: "https://lylehmann.com",
-      sameAs: [
+      "name": "Lukas Yair Lehmann",
+      "alternateName": "Lukas Lehmann",
+      "identifier": "lylehmann",
+      "description": "UX Designer and Accessibility Advocate",
+      "image": "https://lylehmann.com/assets/images/hero-image.jpeg",
+      "sameAs": [
         "https://www.linkedin.com/in/lylehmann/",
         "https://github.com/lylehmann",
-      ],
-      email: email,
-      knowsAbout: [
-        "UX Design",
-        "User Experience",
-        "Inclusive Design",
-        "Neurodiversity",
-        "Accessibility",
-        "Digital Solutions",
-        "Content Strategy",
-        "Design Thinking",
-        "Web Development",
-        "Project Management",
-        "Agile Methodologies",
-        "Design Thinking",
-        "User Research",
-        "Prototyping",
-        "Usability Testing",
-        "Information Architecture",
-        "Interaction Design",
       ],
     }
   }}
