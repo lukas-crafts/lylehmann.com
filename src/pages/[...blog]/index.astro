@@ -53,12 +53,12 @@ const image = (await findImage(post.image)) as string | undefined;
   icon="~/assets/favicons/favicon.ico"
   robots="index, follow"
   facebook={{
-    image: image,
+    image: post.image,
     url: post.permalink,
     type: "article",
   }}
   twitter={{
-    image: image,
+    image: post.image,
     site: '@lylehmann',
     card: 'summary_large_image',
   }}
