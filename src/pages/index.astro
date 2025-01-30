@@ -9,12 +9,19 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import { Seo } from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
 
+import heroImage from '~/assets/images/lylehmann.png';
+import inclusiveDesign from '~/assets/images/inclusive-design.png';
+import focusBuddy from '~/assets/images/FocusBuddy.png';
+import brushingBuddy from '~/assets/images/BrushingBuddy.png';
+import metaCafe from '~/assets/images/Metta.png';
+import myJourney from '~/assets/images/my-journey.jpg';
+
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
 ---
 
 <Seo
-      title="Home - Lukas Yair Lehmann | UX Designer | Accessibility"
+      title="Lukas Yair Lehmann | UX Designer | Accessibility | Berlin"
       description="Creating accessible digital experiences for everyone. From UX design to disability advocacy, I build inclusive solutions that meet diverse user needs."
       keywords={["UX Designer", "Accessibility", "Lukas Yair Lehmann", "UX Design", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio"]}
       icon="~/assets/favicons/favicon.ico"
@@ -26,7 +33,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
                 {
                     "@context": "https://schema.org",
                     "@type": "WebSite",
-                    name: "Lukas Yair Lehmann | UX Designer",
+                    name: "Lukas Yair Lehmann | UX Designer | Accessibility | Berlin",
                     url: "https://lylehmann.com",
                     author: {
                         "@id": "https://lylehmann.com/#person",
@@ -90,7 +97,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       },
       { text: 'Learn About Me', href: '/about' },
     ]}
-    image={{ src: '~/assets/images/hero-image.jpeg', alt: 'Lukas Lehmann', width: 800, height: 800 }}
+    image={{ src: heroImage, alt: "Lukas Lehmann" }}
   >
     <Fragment slot="title"> Hi, I'm Lukas 👋 <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Inclusive UX Designer Creating Accessible Digital Experiences</span></Fragment>
 
@@ -118,7 +125,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         description: '<span class="font-semibold">User-Centered Problem Solving</span>',
       },
     ]}
-    image={{ src: '~/assets/images/inclusive-design.png', alt: 'People Having a Meeting at the Office' }}
+    image={{ src: inclusiveDesign, alt: 'People Having a Meeting at the Office' }}
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
@@ -155,13 +162,13 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       },
     ]}
     image={{
-      src: '~/assets/images/FocusBuddy.png',
+      src: focusBuddy,
       alt: 'FocusBuddy app main screen showing focus and accountability features',
     }}
     callToAction={{
       text: 'View Case Study',
       icon: 'tabler:chevron-right',
-      href: '/focusbuddy-case-study',
+      href: '/portfolio/focusbuddy-case-study',
     }}
   >
     <Fragment slot="content">
@@ -188,13 +195,13 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       },
     ]}
     image={{
-      src: '~/assets/images/BrushingBuddy.png',
+      src: brushingBuddy,
       alt: 'BrushingBuddy app showing gamification and music integration features',
     }}
     callToAction={{
       text: 'View Case Study',
       icon: 'tabler:chevron-right',
-      href: '/brushbuddy-case-study',
+      href: '/portfolio/brushbuddy-case-study',
     }}
   >
     <Fragment slot="content">
@@ -220,13 +227,13 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       },
     ]}
     image={{
-      src: '~/assets/images/Metta.png',
+      src: metaCafe,
       alt: 'Das Metta cafe, bakery, and yoga space',
     }}
     callToAction={{
       text: 'View Case Study',
       icon: 'tabler:chevron-right',
-      href: '/metacafe-case-study',
+      href: '/portfolio/metacafe-case-study',
     }}
   >
     <Fragment slot="content">
@@ -251,7 +258,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         },
       },
     ]}
-    image={{ src: '~/assets/images/my-journey.jpg', alt: 'Wood, curvy street with cars' }}
+    image={{ src: myJourney, alt: 'Wood, curvy street with cars' }}
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">

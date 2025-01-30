@@ -6,6 +6,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import { Seo } from 'astro-seo-meta';
 import { Schema } from 'astro-seo-schema';
+
+import myJourney from '~/assets/images/my-journey.jpg';
 ---
 
 <Seo
@@ -127,7 +129,7 @@ import { Schema } from 'astro-seo-schema';
         },
       },
     ]}
-    image={{ src: '~/assets/images/my-journey.jpg', alt: 'A wood, curvy street with cars' }}
+    image={{ src: myJourney, alt: 'A wood, curvy street with cars' }}
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
