@@ -41,6 +41,22 @@
   .dark .border-default {
     border-color: var(--color-border-default);
   }
+
+  /* Sticky Header Styles für Light Mode */
+  header[data-aw-sticky-header] {
+    @apply shadow-md;
+    background-color: hsla(var(--color-bg-default-hsl), 0.95);
+  }
+
+  /* Sticky Header Styles für Dark Mode */
+  /* Stelle sicher, dass du --color-bg-default-dark-hsl in deinem globalen CSS definierst, z.B.: 
+     :root {
+       --color-bg-default-dark-hsl: 210, 16%, 20%;
+     }
+  */
+  .dark header[data-aw-sticky-header] {
+    background-color: hsla(var(--color-bg-default-dark-hsl, 210, 16%, 20%), 0.95);
+  }
 }
 
 @layer components {
@@ -155,6 +171,7 @@
 /* Global Dark Mode Selections */
 :root {
   color-scheme: light dark;
+  --color-bg-default-hsl: 210, 16%, 92%;
 }
 
 /* Optional: Smooth Dark Mode Transition */
