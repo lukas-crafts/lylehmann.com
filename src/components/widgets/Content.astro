@@ -15,9 +15,9 @@ const {
   items = [],
   columns,
   image = await Astro.slots.render('image'),
+  defaultIcon, // optional; falls nicht definiert, wird kein defaultIcon übergeben
   isReversed = false,
   isAfterContent = false,
-
   id,
   isDark = false,
   classes = {},
@@ -29,6 +29,7 @@ const {
   id={id}
   isDark={isDark}
   containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
+  bg={bg}
 >
   <Headline
     title={title}
@@ -45,9 +46,13 @@ const {
       <div class="self-center md:basis-1/2">
         {content && <div class="mb-12 text-lg" set:html={content} />}
         {callToAction && callToAction.href && (
-          <div class="mt-[-40px] mb-8">
-            <!-- Nur die btn-primary Klasse wird verwendet -->
-            <a href={callToAction.href} class="btn-primary">
+          <div class="mt-[-40px] mb-8 flex items-center">
+            {callToAction.icon && callToAction.icon !== 'tabler:check' && (
+              <span class="flex-shrink-0 mr-2">
+                <i class={callToAction.icon}></i>
+              </span>
+            )}
+            <a href={callToAction.href} class="link">
               {callToAction.text}
             </a>
           </div>
@@ -55,14 +60,14 @@ const {
         <ItemGrid
           items={items}
           columns={columns}
-          defaultIcon="tabler:check"
+          {...(defaultIcon ? { defaultIcon } : {})}
           classes={{
             container: 'gap-y-4 md:gap-y-8',
             panel: 'max-w-none',
             title: 'text-lg font-medium leading-6 dark:text-heading ml-2 rtl:ml-0 rtl:mr-2',
             description: 'text-muted ml-2 rtl:ml-0 rtl:mr-2',
             icon: 'flex h-7 w-7 items-center justify-center rounded-full bg-accent dark:bg-accent text-default p-1',
-            action: 'text-lg font-medium leading-6 dark:text-heading ml-2 rtl:ml-0 rtl:mr-2',
+            action: 'link text-lg font-medium leading-6 ml-2 rtl:ml-0 rtl:mr-2',
           }}
         />
       </div>

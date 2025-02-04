@@ -17,6 +17,7 @@ import metaCafe from '~/assets/images/Metta.png';
 import myJourney from '~/assets/images/my-journey.jpg';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+const defaultIcon = "tabler:chevron-right";
 ---
 
 <Seo
@@ -161,6 +162,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     id="portfolio"
     title="Explore My Work"
     isReversed
+    defaultIcon={defaultIcon}
     items={[
       {
         title: 'Challenge',
@@ -193,6 +195,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   <Content
     isReversed
     isAfterContent={true}
+    defaultIcon={defaultIcon}
     items={[
       {
         title: 'Challenge:',
@@ -225,6 +228,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   <Content
     isReversed
     isAfterContent={true}
+    defaultIcon={defaultIcon}
     items={[
       {
         title: 'Challenge:',
@@ -253,6 +257,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   </Content>
 
   <!-- About Me Widget **************** -->
+
   <!-- Content Widget **************** -->
 
   <Content
@@ -262,6 +267,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       {
         callToAction: {
           text: 'Learn More About Me ',
+          defaultIcon: 'tabler:chevron-right',
           icon: 'tabler:chevron-right',
           href: '/about',
         },
