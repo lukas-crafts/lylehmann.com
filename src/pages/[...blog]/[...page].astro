@@ -113,7 +113,7 @@ const { page } = Astro.props as Props;
 
   <!-- Blog List ***************** -->
   <section class="relative max-w-4xl px-6 py-12 mx-auto sm:px-6 sm:py-16 lg:py-20">
-    <Headline subtitle="Explore user-centered solutions that blend accessibility, creativity, and technology. Discover case studies showcasing inclusive UX design and digital innovation."> Portfolio <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Inclusive UX Design and Accessibility</span> </Headline>
+    <Headline subtitle="Explore user-centered solutions that blend accessibility, creativity, and technology. Discover case studies showcasing inclusive UX design and digital innovation."> Portfolio <br> <span class="text-4xl font-semibold">Inclusive UX Design and Accessibility</span> </Headline>
     <BlogList posts={page.data} />
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
     <!--
