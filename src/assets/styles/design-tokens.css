@@ -1,0 +1,117 @@
+:root {
+  /* Font Families */
+  --aw-font-sans: 'Inter Variable';
+  --aw-font-serif: 'Inter Variable';
+  --aw-font-heading: 'Inter Variable';
+
+  /* Primary Colors - Adjusted for better contrast */
+  --aw-color-primary: hsl(14, 85%, 50%); /* Deeper orange for better contrast */
+  --aw-color-secondary: hsl(231, 55%, 45%); /* Adjusted indigo */
+  --aw-color-accent: hsl(45, 95%, 45%); /* Darker amber for better visibility */
+
+  /* Text Colors - Ensuring 4.5:1 minimum contrast ratio */
+  --aw-color-text-heading: hsl(0, 0%, 10%); /* Darker for better contrast */
+  --aw-color-text-default: hsl(0, 0%, 20%); /* Main text color */
+  --aw-color-text-muted: hsl(0, 0%, 45%); /* Meets contrast requirements */
+  --aw-color-text-muted-light: hsl(0, 0%, 55%);
+  --aw-color-text-page: hsl(0, 0%, 20%);
+
+  /* Background Colors - Improved contrast pairs */
+  --aw-color-bg-page: hsl(0, 0%, 100%);
+  --aw-color-bg-page-dark: hsl(0, 0%, 10%);
+  --aw-color-bg-custom-light: hsl(351, 90%, 97%);
+  --aw-color-bg-custom-dark: hsl(204, 25%, 35%);
+  --aw-color-bg-neutral: hsl(0, 0%, 90%);
+  --aw-color-bg-neutral-dark: hsl(0, 0%, 35%);
+  --aw-color-bg-header-light: hsla(0, 0%, 100%, 0.95);
+  --aw-color-bg-header-dark: hsla(231, 80%, 5%, 0.95);
+  --aw-color-border-header-dark: hsla(0, 0%, 50%, 0.25);
+
+  /* Button Colors - Enhanced for accessibility */
+  --aw-color-button-primary-bg: var(--aw-color-primary);
+  --aw-color-button-primary-bg-hover: hsl(14, 85%, 45%);
+  --aw-color-button-primary-text: hsl(0, 0%, 100%);
+  --aw-color-button-primary-text-hover: hsl(0, 0%, 100%);
+  --aw-color-button-primary-border: var(--aw-color-primary);
+  --aw-color-button-primary-border-hover: hsl(14, 85%, 45%);
+
+  --aw-color-button-secondary-bg: transparent;
+  --aw-color-button-secondary-bg-hover: hsl(0, 0%, 90%);
+  --aw-color-button-secondary-text: hsl(0, 0%, 20%);
+  --aw-color-button-secondary-text-hover: hsl(0, 0%, 10%);
+  --aw-color-button-secondary-border: hsl(0, 0%, 20%);
+  --aw-color-button-secondary-border-hover: hsl(0, 0%, 30%);
+
+  --aw-color-button-tertiary-bg: transparent;
+  --aw-color-button-tertiary-bg-hover: transparent;
+  --aw-color-button-tertiary-text: hsl(0, 0%, 45%);
+  --aw-color-button-tertiary-text-hover: hsl(0, 0%, 20%);
+  --aw-color-button-tertiary-border: transparent;
+  --aw-color-button-tertiary-border-hover: transparent;
+
+  /* Selection Colors */
+  ::selection {
+    background-color: hsl(45, 95%, 45%);
+    color: hsl(0, 0%, 100%);
+  }
+
+  /* Box Shadow */
+  --aw-box-shadow-light: 0 0.375rem 1.5rem 0 hsla(213, 15%, 60%, 0.15);
+  --aw-box-shadow-dark: none;
+}
+
+.dark {
+  /* Primary Colors - Adjusted for dark mode contrast */
+  --aw-color-primary: hsl(14, 90%, 60%); /* Brighter orange for dark mode */
+  --aw-color-secondary: hsl(231, 60%, 60%); /* Brighter indigo */
+  --aw-color-accent: hsl(45, 95%, 50%); /* Brighter amber */
+
+  /* Text Colors - Ensuring 4.5:1 minimum contrast against dark backgrounds */
+  --aw-color-text-heading: hsl(0, 0%, 100%);
+  --aw-color-text-default: hsl(0, 0%, 90%);
+  --aw-color-text-muted: hsl(0, 0%, 75%);
+  --aw-color-text-muted-light: hsl(0, 0%, 65%);
+  --aw-color-text-page: hsl(0, 0%, 90%);
+
+  /* Background Colors - Dark mode specific */
+  --aw-color-bg-page: hsl(220, 20%, 10%); /* Slightly blue-tinted dark */
+  --aw-color-bg-custom-light: hsl(351, 90%, 97%);
+  --aw-color-bg-custom-dark: hsl(204, 25%, 35%);
+  --aw-color-bg-neutral: hsl(220, 15%, 85%);
+  --aw-color-bg-neutral-dark: hsl(220, 15%, 35%);
+  --aw-color-bg-header-light: hsla(0, 0%, 100%, 0.95);
+  --aw-color-bg-header-dark: hsla(220, 80%, 5%, 0.95);
+  --aw-color-border-header-dark: hsla(220, 15%, 50%, 0.25);
+
+  /* Button Colors - Enhanced for dark mode */
+  --aw-color-button-primary-bg: var(--aw-color-primary);
+  --aw-color-button-primary-bg-hover: hsl(14, 90%, 55%);
+  --aw-color-button-primary-text: hsl(0, 0%, 100%);
+  --aw-color-button-primary-text-hover: hsl(0, 0%, 100%);
+  --aw-color-button-primary-border: var(--aw-color-primary);
+  --aw-color-button-primary-border-hover: hsl(14, 90%, 55%);
+
+  --aw-color-button-secondary-bg: transparent;
+  --aw-color-button-secondary-bg-hover: hsla(220, 15%, 25%, 0.5);
+  --aw-color-button-secondary-text: hsl(0, 0%, 90%);
+  --aw-color-button-secondary-text-hover: hsl(0, 0%, 100%);
+  --aw-color-button-secondary-border: hsl(0, 0%, 70%);
+  --aw-color-button-secondary-border-hover: hsl(0, 0%, 80%);
+
+  --aw-color-button-tertiary-bg: transparent;
+  --aw-color-button-tertiary-bg-hover: transparent;
+  --aw-color-button-tertiary-text: hsl(0, 0%, 65%);
+  --aw-color-button-tertiary-text-hover: hsl(0, 0%, 80%);
+  --aw-color-button-tertiary-border: transparent;
+  --aw-color-button-tertiary-border-hover: transparent;
+
+  /* Selection Colors */
+  ::selection {
+    background-color: hsl(45, 95%, 50%);
+    color: hsl(220, 20%, 10%);
+  }
+
+  /* Box Shadow */
+  --aw-box-shadow-light: 0 0.375rem 1.5rem 0 hsla(220, 15%, 10%, 0.3);
+  --aw-box-shadow-dark: none;
+}

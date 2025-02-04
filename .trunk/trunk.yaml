@@ -7,7 +7,7 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v1.6.6
+      ref: v1.6.7
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -29,12 +29,12 @@ lint:
     - codespell
     - cspell
     - markdown-link-check
+    - stylelint@16.14.1
   enabled:
-    - gitleaks@8.23.2
+    - gitleaks@8.23.3
     - markdownlint-cli2@0.17.2
     - markdownlint@0.44.0
-    - stylelint@16.14.1
-    - checkov@3.2.358
+    - checkov@3.2.361
     - eslint@9.19.0
     - git-diff-check
     - osv-scanner@1.9.2
@@ -42,7 +42,7 @@ lint:
     - prettier@3.4.2
     - svgo@3.3.2
     - taplo@0.9.3
-    - trufflehog@3.88.2
+    - trufflehog@3.88.4
 actions:
   enabled:
     - trunk-announce

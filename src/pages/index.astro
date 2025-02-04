@@ -17,59 +17,64 @@ import metaCafe from '~/assets/images/Metta.png';
 import myJourney from '~/assets/images/my-journey.jpg';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
-
 ---
 
 <Seo
-      title="Lukas Yair Lehmann | UX Designer | Accessibility | Berlin"
-      description="Creating accessible digital experiences for everyone. From UX design to disability advocacy, I build inclusive solutions that meet diverse user needs."
-      keywords={["UX Designer", "Accessibility", "Lukas Yair Lehmann", "UX Design", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio"]}
-      icon="~/assets/favicons/favicon.ico"
-      robots='index, follow'
+  title="Lukas Yair Lehmann | UX Designer | Accessibility | Berlin"
+  description="Creating accessible digital experiences for everyone. From UX design to disability advocacy, I build inclusive solutions that meet diverse user needs."
+  keywords={[
+    'UX Designer',
+    'Accessibility',
+    'Lukas Yair Lehmann',
+    'UX Design',
+    'User Experience',
+    'Inclusive Design',
+    'Neurodiversity',
+    'Digital Solutions',
+    'Design Portfolio',
+  ]}
+  icon="~/assets/favicons/favicon.ico"
+  robots="index, follow"
 />
 
 <Schema
-            item={
-                {
-                    "@context": "https://schema.org",
-                    "@type": "WebSite",
-                    name: "Lukas Yair Lehmann | UX Designer | Accessibility | Berlin",
-                    url: "https://lylehmann.com",
-                    author: {
-                        "@id": "https://lylehmann.com/#person",
-                        "@type": "Person",
-                        name: "Lukas Yair Lehmann",
-                        jobTitle: "UX Designer",
-                        url: "https://lylehmann.com",
-                        sameAs: ["https://www.linkedin.com/in/lylehmann/", "https://github.com/lylehmann"],
-                        email: email, // Use the imported email variable here
-                            }
-                        }
-                    }
-                />
-                <Schema
-                    item={
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            itemListElement: [
-                                {
-                                    "@type": "ListItem",
-                                    position: 1,
-                                    name: "Home",
-                                    item: "https://lylehmann.com"
-                                }
-                            ]
-                        }
-                    }
-                />
+  item={{
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Lukas Yair Lehmann | UX Designer | Accessibility | Berlin',
+    url: 'https://lylehmann.com',
+    author: {
+      '@id': 'https://lylehmann.com/#person',
+      '@type': 'Person',
+      name: 'Lukas Yair Lehmann',
+      jobTitle: 'UX Designer',
+      url: 'https://lylehmann.com',
+      sameAs: ['https://www.linkedin.com/in/lylehmann/', 'https://github.com/lylehmann'],
+      email: email, // Use the imported email variable here
+    },
+  }}
+/>
+<Schema
+  item={{
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://lylehmann.com',
+      },
+    ],
+  }}
+/>
 
 <Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/'},
+        { text: 'Home', href: '/' },
         { text: 'Porfolio', href: '/portfolio' },
         { text: 'About', href: '/about' },
         { text: 'Resume', href: '/resume' },
@@ -97,9 +102,12 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       },
       { text: 'Learn About Me', href: '/about' },
     ]}
-    image={{ src: heroImage, alt: "Lukas Lehmann" }}
+    image={{ src: heroImage, alt: 'Lukas Lehmann' }}
   >
-    <Fragment slot="title"> Hi, I'm Lukas 👋 <br> <span class="text-4xl font-normal">Inclusive UX Designer Creating Accessible Digital Experiences</span></Fragment>
+    <Fragment slot="title">
+      Hi, I'm Lukas 👋 <br />
+      <span class="text-4xl font-normal">Inclusive UX Designer Creating Accessible Digital Experiences</span></Fragment
+    >
 
     <Fragment slot="subtitle">
       I specialize in designing inclusive and user-friendly solutions, with a focus on accessibility and neurodiversity.
@@ -114,11 +122,11 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     items={[
       {
         icon: 'tabler:empathize',
-        description: '<span class="font-semibold">Empathy-driven Design</span>'
+        description: '<span class="font-semibold">Empathy-driven Design</span>',
       },
       {
         icon: 'tabler:accessible',
-        description:'<span class="font-semibold">Accessibility Advocacy</span>',
+        description: '<span class="font-semibold">Accessibility Advocacy</span>',
       },
       {
         icon: 'tabler:ux-circle',
@@ -129,17 +137,19 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+      <h2 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         Designing for Inclusion, Innovation, and Impact
       </h2>
 
       <p>
-        With a background in disability work, website and project coordination as well as in UX design, I create digital solutions that are not only functional but also truly accessible. My mission is to ensure that every user - regardless of ability or neurodiversity - feels empowered and supported when interacting with technology.
+        With a background in disability work, website and project coordination as well as in UX design, I create digital
+        solutions that are not only functional but also truly accessible. My mission is to ensure that every user -
+        regardless of ability or neurodiversity - feels empowered and supported when interacting with technology.
       </p>
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
     </Fragment>
   </Content>
 
@@ -152,13 +162,11 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     items={[
       {
         title: 'Challenge',
-        description:
-          ' Staying productive with ADHD, as student and in the home office.',
+        description: ' Staying productive with ADHD, as student and in the home office.',
       },
       {
         title: 'Solution:',
-        description:
-          'A macOS app that fosters focus, accountability, and connection.',
+        description: 'A macOS app that fosters focus, accountability, and connection.',
       },
     ]}
     image={{
@@ -172,7 +180,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     }}
   >
     <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         FocusBuddy:<br /><span class="text-2xl">A Safe Space for Focus and Accountability</span>
       </h3>
     </Fragment>
@@ -186,8 +194,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     items={[
       {
         title: 'Challenge:',
-        description:
-          'Helping neurodivergent individuals with oral hygiene.',
+        description: 'Helping neurodivergent individuals with oral hygiene.',
       },
       {
         title: 'Solution:',
@@ -205,7 +212,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     }}
   >
     <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         BrushingBuddy: <br /><span class="text-2xl"> Simplifying Oral Care Routines</span>
       </h3>
     </Fragment>
@@ -237,7 +244,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     }}
   >
     <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
+      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
         Meta Cafe: <br /><span class="text-2xl">Bridging Digital and Physical Experiences in Munich</span>
       </h3>
     </Fragment>
@@ -262,17 +269,19 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight dark:text-white sm:text-3xl">
-        From Empathy to Innovation: <br> My Journey into UX Design
+      <h2 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
+        From Empathy to Innovation: <br /> My Journey into UX Design
       </h2>
 
       <p>
-        I started my career in disability work, where I learned the importance of empathy and accessibility. From there, I transitioned into UX design, combining my diverse experiences with technical skills to create meaningful digital solutions. Curious about my story?
+        I started my career in disability work, where I learned the importance of empathy and accessibility. From there,
+        I transitioned into UX design, combining my diverse experiences with technical skills to create meaningful
+        digital solutions. Curious about my story?
       </p>
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
     </Fragment>
   </Content>
 
@@ -286,48 +295,39 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     items={[
       {
         title: 'Design Tools',
-        description:
-          'Figma, Adobe XD, Sketch',
+        description: 'Figma, Adobe XD, Sketch',
       },
       {
         title: 'Web Development Skills',
-        description:
-          'HTML, CSS, WordPress',
+        description: 'HTML, CSS, WordPress',
       },
       {
         title: 'Methodologies',
-        description:
-          'Agile, Scrum, Design Thinking, Service Design',
+        description: 'Agile, Scrum, Design Thinking, Service Design',
       },
       {
         title: 'Specialties',
-        description:
-          'Accessibility, Inclusive UX/UI, User-Centered Design',
+        description: 'Accessibility, Inclusive UX/UI, User-Centered Design',
       },
       {
         title: 'Research',
-        description:
-          'User Research, Usability Testing, A/B Testing',
+        description: 'User Research, Usability Testing, A/B Testing',
       },
       {
         title: 'Project Management',
-        description:
-          'Jira, Trello, Asana, Microsoft Project',
+        description: 'Jira, Trello, Asana, Microsoft Project',
       },
       {
         title: 'Analytics',
-        description:
-          'Google Analytics, Microsoft Clarity',
+        description: 'Google Analytics, Microsoft Clarity',
       },
       {
         title: 'Design Systems',
-        description:
-          'Creating and maintaining design systems',
+        description: 'Creating and maintaining design systems',
       },
       {
         title: 'Collaboration',
-        description:
-          'Cross-functional teamwork, stakeholder management',
+        description: 'Cross-functional teamwork, stakeholder management',
       },
     ]}
   />
@@ -353,10 +353,11 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     <Fragment slot="title"> Let's Build Something Amazing Together</Fragment>
 
     <Fragment slot="subtitle">
-      I'm excited to work on meaningful projects. If you need an inclusive UX designer or a creative partner, let's connect and make something great.
+      I'm excited to work on meaningful projects. If you need an inclusive UX designer or a creative partner, let's
+      connect and make something great.
     </Fragment>
     <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
     </Fragment>
   </CallToAction>
 </Layout>
