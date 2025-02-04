@@ -1,118 +1,102 @@
 :root {
   /* Font Families */
-  --aw-font-sans: 'Inter Variable';
-  --aw-font-serif: 'Inter Variable';
-  --aw-font-heading: 'Inter Variable';
+  --font-sans: 'Inter Variable';
+  --font-serif: 'Inter Variable';
+  --font-heading: 'Inter Variable';
 
-  /* Primary Colors - Adjusted for better contrast */
-  --aw-color-primary: hsl(14, 85%, 50%); /* Deeper orange for better contrast */
-  --aw-color-secondary: hsl(231, 55%, 45%); /* Adjusted indigo */
-  --aw-color-accent: hsl(45, 95%, 45%); /* Darker amber for better visibility */
+  /* Brand Colors */
+  --color-brand-primary: hsl(14, 85%, 50%);     /* Deep Orange */
+  --color-brand-secondary: hsl(231, 55%, 45%);  /* Indigo */
+  --color-brand-accent: hsl(45, 95%, 45%);      /* Amber */
 
-  /* Text Colors - Ensuring 4.5:1 minimum contrast ratio */
-  --aw-color-text-heading: hsl(0, 0%, 10%); /* Darker for better contrast */
-  --aw-color-text-default: hsl(0, 0%, 20%); /* Main text color */
-  --aw-color-text-muted: hsl(0, 0%, 45%); /* Meets contrast requirements */
-  --aw-color-text-muted-light: hsl(0, 0%, 55%);
-  --aw-color-text-page: hsl(0, 0%, 20%);
+  /* Text Colors */
+  --color-text-heading: hsl(0, 0%, 10%);        /* Very dark for headings */
+  --color-text-body: hsl(0, 0%, 20%);           /* Standard body text */
+  --color-text-muted: hsl(0, 0%, 40%);          /* Subdued text */
+  --color-text-subtle: hsl(0, 0%, 30%);         /* Even more subtle, for hints/captions */
+  --color-text-inverse: hsl(0, 0%, 100%);       /* Text on dark backgrounds */
 
-  /* Background Colors - Improved contrast pairs */
-  --aw-color-bg-page: hsl(0, 0%, 100%);
-  --aw-color-bg-page-dark: hsl(0, 0%, 10%);
-  --aw-color-bg-custom-light: hsl(0, 0%, 97%);
-  --aw-color-bg-custom-dark: hsl(0, 0%, 35%);
-  --aw-color-bg-neutral: hsl(0, 0%, 90%);
-  --aw-color-bg-neutral-dark: hsl(0, 0%, 35%);
-  --aw-color-bg-header-light: hsla(0, 0%, 100%, 0.95);
-  --aw-color-bg-header-dark: hsla(0, 0%, 5%, 0.95);
-  --aw-color-border-header-light: hsla(0, 0%, 90%, 0.25);
-  --aw-color-border-header-dark: hsla(0, 0%, 50%, 0.25);
+  /* Background Colors */
+  --color-bg-default: hsl(0, 0%, 100%);         /* Main page background */
+  --color-bg-subtle: hsl(0, 0%, 97%);           /* Slight off-white */
+  --color-bg-muted: hsl(0, 0%, 90%);            /* Light grey background */
+  --color-bg-emphasis: hsl(0, 0%, 85%);         /* More pronounced background */
 
-  /* Button Colors - Enhanced for accessibility */
-  --aw-color-button-primary-bg: var(--aw-color-primary);
-  --aw-color-button-primary-bg-hover: hsl(14, 85%, 45%);
-  --aw-color-button-primary-text: hsl(14, 85%, 100%);
-  --aw-color-button-primary-text-hover: hsl(14, 85%, 95%);
-  --aw-color-button-primary-border: var(--aw-color-primary);
-  --aw-color-button-primary-border-hover: hsl(14, 85%, 45%);
+  /* Interaction Colors */
+  --color-interactive-primary: var(--color-brand-primary);
+  --color-interactive-primary-hover: hsl(14, 85%, 45%);
+  --color-interactive-secondary: transparent;
+  --color-interactive-secondary-hover: hsl(0, 0%, 90%);
 
-  --aw-color-button-secondary-bg: transparent;
-  --aw-color-button-secondary-bg-hover: hsl(0, 0%, 90%);
-  --aw-color-button-secondary-text: hsl(0, 0%, 20%);
-  --aw-color-button-secondary-text-hover: hsl(0, 0%, 10%);
-  --aw-color-button-secondary-border: hsl(0, 0%, 20%);
-  --aw-color-button-secondary-border-hover: hsl(0, 0%, 30%);
+  /* Border Colors */
+  --color-border-default: hsl(0, 0%, 80%);
+  --color-border-muted: hsl(0, 0%, 70%);
 
-  --aw-color-button-tertiary-bg: transparent;
-  --aw-color-button-tertiary-bg-hover: transparent;
-  --aw-color-button-tertiary-text: hsl(0, 0%, 45%);
-  --aw-color-button-tertiary-text-hover: hsl(0, 0%, 20%);
-  --aw-color-button-tertiary-border: transparent;
-  --aw-color-button-tertiary-border-hover: transparent;
+  /* State Colors */
+  --color-state-success: hsl(120, 50%, 45%);
+  --color-state-warning: hsl(35, 90%, 55%);
+  --color-state-error: hsl(0, 80%, 50%);
+  --color-state-info: hsl(210, 70%, 50%);
 
-  /* Selection Colors */
+  /* Overlay & Transparency */
+  --color-overlay-light: hsla(0, 0%, 100%, 0.95);
+  --color-overlay-dark: hsla(0, 0%, 5%, 0.95);
+
+  /* Shadows & Depth */
+  --shadow-default: 0 0.375rem 1.5rem 0 hsla(0, 15%, 60%, 0.15);
+  
+  /* Selection Highlight */
   ::selection {
     background-color: hsl(45, 95%, 45%);
     color: hsl(0, 0%, 100%);
   }
-
-  /* Box Shadow */
-  --aw-box-shadow-light: 0 0.375rem 1.5rem 0 hsla(213, 15%, 60%, 0.15);
-  --aw-box-shadow-dark: none;
 }
 
 .dark {
-  /* Primary Colors - Adjusted for dark mode contrast */
-  --aw-color-primary: hsl(14, 90%, 60%); /* Brighter orange for dark mode */
-  --aw-color-secondary: hsl(231, 60%, 60%); /* Brighter indigo */
-  --aw-color-accent: hsl(45, 95%, 50%); /* Brighter amber */
+  /* Brand Colors in Dark Mode */
+  --color-brand-primary: hsl(14, 90%, 60%);     /* Brighter Orange */
+  --color-brand-secondary: hsl(231, 60%, 60%);  /* Brighter Indigo */
+  --color-brand-accent: hsl(45, 95%, 50%);      /* Brighter Amber */
 
-  /* Text Colors - Ensuring 4.5:1 minimum contrast against dark backgrounds */
-  --aw-color-text-heading: hsl(0, 0%, 100%);
-  --aw-color-text-default: hsl(0, 0%, 90%);
-  --aw-color-text-muted: hsl(0, 0%, 75%);
-  --aw-color-text-muted-light: hsl(0, 0%, 65%);
-  --aw-color-text-page: hsl(0, 0%, 90%);
+  /* Text Colors for Dark Mode */
+  --color-text-heading: hsl(0, 0%, 100%);       /* Pure white for headings */
+  --color-text-body: hsl(0, 0%, 90%);           /* Slightly off-white body text */
+  --color-text-muted: hsl(0, 0%, 60%);          /* Subdued text */
+  --color-text-subtle: hsl(0, 0%, 50%);         /* Even more subtle */
+  --color-text-inverse: hsl(0, 0%, 10%);        /* Text on light backgrounds */
 
-  /* Background Colors - Dark mode specific */
-  --aw-color-bg-page: hsl(220, 20%, 10%); /* Slightly blue-tinted dark */
-  --aw-color-bg-custom-light: hsl(351, 90%, 97%);
-  --aw-color-bg-custom-dark: hsl(204, 25%, 35%);
-  --aw-color-bg-neutral: hsl(220, 15%, 85%);
-  --aw-color-bg-neutral-dark: hsl(220, 15%, 35%);
-  --aw-color-bg-header-light: hsla(0, 0%, 100%, 0.95);
-  --aw-color-bg-header-dark: hsla(220, 80%, 5%, 0.95);
-  --aw-color-border-header-dark: hsla(220, 15%, 50%, 0.25);
+  /* Background Colors for Dark Mode */
+  --color-bg-default: hsl(220, 15%, 10%);       /* Dark background with blue tint */
+  --color-bg-subtle: hsl(220, 15%, 15%);        /* Slightly lighter dark background */
+  --color-bg-muted: hsl(220, 15%, 20%);         /* Muted dark background */
+  --color-bg-emphasis: hsl(220, 15%, 25%);      /* Emphasized dark background */
 
-  /* Button Colors - Enhanced for dark mode */
-  --aw-color-button-primary-bg: var(--aw-color-primary);
-  --aw-color-button-primary-bg-hover: hsl(14, 90%, 55%);
-  --aw-color-button-primary-text: hsl(0, 0%, 100%);
-  --aw-color-button-primary-text-hover: hsl(0, 0%, 100%);
-  --aw-color-button-primary-border: var(--aw-color-primary);
-  --aw-color-button-primary-border-hover: hsl(14, 90%, 55%);
+  /* Interaction Colors in Dark Mode */
+  --color-interactive-primary: var(--color-brand-primary);
+  --color-interactive-primary-hover: hsl(14, 90%, 55%);
+  --color-interactive-secondary: transparent;
+  --color-interactive-secondary-hover: hsla(0, 0%, 25%, 0.5);
 
-  --aw-color-button-secondary-bg: transparent;
-  --aw-color-button-secondary-bg-hover: hsla(220, 15%, 25%, 0.5);
-  --aw-color-button-secondary-text: hsl(0, 0%, 90%);
-  --aw-color-button-secondary-text-hover: hsl(0, 0%, 100%);
-  --aw-color-button-secondary-border: hsl(0, 0%, 70%);
-  --aw-color-button-secondary-border-hover: hsl(0, 0%, 80%);
+  /* Border Colors for Dark Mode */
+  --color-border-default: hsl(0, 0%, 40%);
+  --color-border-muted: hsl(0, 0%, 30%);
 
-  --aw-color-button-tertiary-bg: transparent;
-  --aw-color-button-tertiary-bg-hover: transparent;
-  --aw-color-button-tertiary-text: hsl(0, 0%, 65%);
-  --aw-color-button-tertiary-text-hover: hsl(0, 0%, 80%);
-  --aw-color-button-tertiary-border: transparent;
-  --aw-color-button-tertiary-border-hover: transparent;
+  /* State Colors in Dark Mode */
+  --color-state-success: hsl(120, 50%, 55%);
+  --color-state-warning: hsl(35, 90%, 65%);
+  --color-state-error: hsl(0, 80%, 60%);
+  --color-state-info: hsl(210, 70%, 60%);
 
-  /* Selection Colors */
+  /* Overlay & Transparency in Dark Mode */
+  --color-overlay-light: hsla(0, 0%, 100%, 0.95);
+  --color-overlay-dark: hsla(0, 0%, 5%, 0.95);
+
+  /* Shadows & Depth in Dark Mode */
+  --shadow-default: 0 0.375rem 1.5rem 0 hsla(220, 15%, 10%, 0.3);
+  
+  /* Selection Highlight in Dark Mode */
   ::selection {
     background-color: hsl(45, 95%, 50%);
-    color: hsl(220, 20%, 10%);
+    color: hsl(220, 15%, 10%);
   }
-
-  /* Box Shadow */
-  --aw-box-shadow-light: 0 0.375rem 1.5rem 0 hsla(220, 15%, 10%, 0.3);
-  --aw-box-shadow-dark: none;
 }
