@@ -1,0 +1,399 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
+
+const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
+---
+
+<Seo
+  title="Resume - Lukas Yair Lehmann | UX Designer & Accessibility"
+  description="View Lukas Yair Lehmann/'s resume, a UX designer focused on accessible, inclusive experiences. Discover his skills, experience, and passion."
+  keywords={["UX Designer", "Accessibility", "Lukas Yair Lehmann", "Resume", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "UX Design Skills", "UX Design Experience"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Resume - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/resume",
+    mainEntity: {
+      "@id": "https://lylehmann.com/#occupation",
+      "@type": "Occupation",
+      name: "UX Designer",
+      description: "A professional who focuses on the design and usability of digital products, ensuring they are accessible and user-friendly.",
+      occupationalCategory: "15-1255.00",
+      skills: [
+        "User Research",
+        "Prototyping",
+        "Usability Testing",
+        "Information Architecture",
+        "Interaction Design",
+        "Accessibility",
+        "Inclusive Design",
+        "Content Strategy",
+        "Web Development",
+        "Mobile Design",
+        "Responsive Design",
+        "HTML",
+        "CSS",
+        "Astro.js",
+        "Project Management",
+        "Agile Methodologies",
+        "Design Thinking",
+        "Scrum",
+        "User-Centered Design",
+        "Neurodiversity",
+        "Disability Advocacy",
+        "Design Systems",
+        "Design Tools",
+        "Design Software",
+        "Design Principles",
+        "Design Patterns",
+        "Design Guidelines",
+        "Design Best Practices",
+        "Design Trends",
+        "Design History",
+        "Design Theory",
+        "Design Research",
+        "Design Methodologies",
+        "Design Processes",
+        "Design Workflows",
+        "Design Tools",
+        "Design Software",
+        "Figma",
+        "Sketch",
+        "Adobe XD",
+      ],
+      mainEntity: {
+        "@type": "Person",
+        name: "Lukas Yair Lehmann",
+        jobTitle: "UX Designer",
+        url: "https://lylehmann.com",
+        sameAs: [
+          "https://www.linkedin.com/in/lylehmann/",
+          "https://github.com/lylehmann"
+        ],
+        email: email,
+        description: "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
+        knowsAbout: [
+          "UX Design",
+          "User Experience",
+          "Inclusive Design",
+          "Neurodiversity",
+          "Accessibility",
+          "Digital Solutions",
+          "Content Strategy",
+          "Design Thinking",
+          "Web Development",
+          "Project Management",
+          "Agile Methodologies",
+          "Design Thinking",
+          "User Research",
+          "Prototyping",
+          "Usability Testing",
+          "Information Architecture",
+          "Interaction Design"
+        ]
+      }
+    },
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Resume",
+        item: "https://lylehmann.com/resume"
+      },
+    ]
+  }}
+/>
+
+<Layout>
+  <!-- Header Widget ***************** -->
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'Porfolio', href: '/portfolio' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
+      ]}
+      actions={[
+        {
+          text: 'Meet me',
+          href: `https://calendly.com/lylehmann`,
+          target: '_blank',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero Widget ******************* -->
+
+  <Hero
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Download PDF', href: '/assets/Lukas-Lehmann-Resume.pdf', download: true
+      },
+      { text: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/lukas-yair-lehmann-460544199/', target: '_blank' },
+    ]}
+  >
+    <Fragment slot="title"> Resume <br> <span class="text-4xl font-semibold text-blue-600 dark:text-blue-300">Lukas Lehmann - UX Designer Specializing in Accessibility</span> </Fragment>
+
+    <Fragment slot="subtitle">
+      With a unique blend of technical expertise, empathy, and a passion for accessibility, I design inclusive digital experiences that empower users of all abilities. Whether it's a website, app, or product, my goal is to create solutions that work for everyone.
+    </Fragment>
+  </Hero>
+
+  <!-- Steps Widget ****************** -->
+  <Steps
+    id="work"
+    title="Work experience"
+    items={[
+      {
+        title:
+          'Career Transition to UX/UI Design <br /> <span class="font-normal">Training & Certification, Berlin, Germany</span> <br /> <span class="text-sm font-normal">2020 - Present</span>',
+        description: `
+        <li>Certified in <strong>UX/UI Design, Scrum,</strong> and <strong>Content Marketing</strong>.</li>
+        <li>Adapted to challenges like <strong>ADHD and jaw surgery</strong>, enhancing problem-solving skills.</li>
+        <li>Used <strong>Figma, Adobe XD, and Sketch</strong> for <strong>inclusive design</strong>.</li>
+        <li>Improved skills in <strong>HTML, CSS,</strong> and <strong>CMS platforms</strong> to enhance design functionality.</li>
+        <li>Applied <strong>agile methods</strong> and <strong>user-centered design thinking</strong> across projects.</li>
+        `,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Production Editor - Books <br /> <span class="font-normal">De Gruyter, Berlin, Germany</span> <br /> <span class="text-sm font-normal">2018 - 2022</span>',
+        description: `
+        <li>Managed book projects, from handover to delivery, ensuring <strong>high quality</strong> and timely publication.</li>
+        <li>Collaborated with <strong>authors, editors, and designers</strong> to refine content and design.</li>
+        <li>Ensured <strong>consistency</strong> in style and formatting across books.</li>`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Relocation and Career Development<br /> <span class="font-normal">Heilbad Heiligenstadt, Germany</span> <br /> <span class="text-sm font-normal">2016 - 2018</span>',
+        description: `
+        <li>Strengthened skills in <strong>Classic and Agile Project Management</strong> and <strong>Design Thinking.</strong></li>
+        <li>Completed courses on <strong>project and team management.</strong></strong></li>.`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Full Service Management Associate<br /> <span class="font-normal">Innodata, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2014 - 2016</span>',
+        description: `
+        <li>Coordinated journal production, overseeing tasks like <strong>typesetting</strong>, editing, and <strong>data management</strong>.</li>
+        <li>Managed <strong>client relationships</strong> and <strong>project timelines</strong> to ensure high-quality deliverables.</li>
+        <li>Developed <strong>problem-solving</strong> and organizational expertise.</li>
+        `,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Webmaster<br /> <span class="font-normal">Leo Baeck Institute, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2014 - 2015</span>',
+        description: `
+        <li>Led a <strong>website overhaul</strong>, improving <strong>user experience</strong> and information architecture.</li>
+        <li>Trained staff in <strong>WordPress</strong> and optimized website management.</li>
+        `,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Caregiver<br /> <span class="font-normal">Shekel, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2011 - 2014</span>',
+        description: `
+        <li>Supported individuals with special needs, developing strong communication skills based on <strong>empathy </strong>and respect.</li>
+        <li>Gained valuable insights into <strong>accessibility</strong> and their diverse needs.</li>`,
+        icon: 'tabler:briefcase',
+      },
+      {
+        title:
+          'Webmaster<br /> <span class="font-normal">Hochschule für Jüdische Studien, Heidelberg, Germany </span> <br /> <span class="text-sm font-normal">2006 - 2008</span>',
+        description: `
+        <li>Maintained website content using <strong>HTML</strong> and <strong>CSS</strong> to ensure a functional and user-friendly experience. </li>.`,
+        icon: 'tabler:briefcase',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="volunteering"
+    title="Volunteer Experience"
+    items={[
+      {
+        title: `Caregiver<br /> <span class="font-normal">Saint Vincent Ein Kerem, Jerusalem, Israel</span> <br /> <span class="text-sm font-normal">2003 - 2005</span>`,
+        description: `
+        <li>Supported children and teenagers with special needs, developing strong <strong>problem-solving</strong> and interpersonal skills.</li>
+        <li>Gained early exposure to <strong>accessibility and inclusivity</strong>, shaping a career-long passion for user-centered solutions.</li>
+        `,
+        icon: 'tabler:heart-handshake',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Steps Widget ****************** -->
+
+  <Steps
+    id="education"
+    title="Certifications & Education"
+    items={[
+      {
+        title: `Certificate in Product UX Design <br /> <span class="font-normal">WBS Coding School</span> <br /> <span class="text-sm font-normal">2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Scrum Master (PSM-I) <br /> <span class="font-normal">Scrum.org</span> <br /> <span class="text-sm font-normal">2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in UX/UI Design, Branded UX / Interaction Design <br /> <span class="font-normal">cimdata Bildungsakademie GmbH</span> <br /> <span class="text-sm font-normal">2023 - 2024</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Content Marketing Management <br /> <span class="font-normal">Webmasters Europe e.V. <br /> <span class="text-sm font-normal">2022</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Content Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2021 - 2022</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Certificate in Project Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2017</span>`,
+        icon: 'tabler:school',
+      },
+      {
+        title: `Bachelor of Arts in Jewish Studies, History  <br /> <span class="font-normal">HfJS Heidelberg, Ruprecht-Karls-Universität Heidelberg</span> <br /> <span class="text-sm font-normal">2005 - 2011</span>`,
+        icon: 'tabler:school',
+      },
+    ]}
+    classes={{ container: 'max-w-3xl' }}
+  />
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    title="Key Skills & Expertise"
+    subtitle="Explore the skills that drive my ability to create inclusive, user-centered designs and impactful digital solutions."
+    columns={2}
+    defaultIcon="tabler:point-filled"
+    items={[
+      {
+        title: 'Project Management',
+        description: `
+            <li>Certified Scrum Master (PSM-I) with experience in <strong>Agile workflows</strong>.</li>
+            <li>Skilled in tools like Jira and Asana to manage tasks and keep projects on track.</li>
+            <li>Organized and able to deliver projects on time.</li>
+        `,
+      },
+      {
+        title: 'UX/UI Design',
+        description: `
+            <li>Experienced in creating <strong> wireframes, prototypes</strong>, and user-friendly designs.</li>
+            <li>Proficient in tools like <strong>Figma, Sketch</strong>, and <strong>Adobe XD.</strong></li>
+            <li>Focused on making designs simple, clear, and easy to use.</li>
+          `,
+      },
+      {
+        title: 'Accessibility and Inclusive Design',
+        description: `
+            <li>Skilled in designing for <strong>all users</strong>, including those with disabilities.</li>
+            <li>Knowledge of accessibility standards like <strong>WCAG</strong>.</li>
+            <li>Experienced in testing designs to make them work for everyone.</li>
+          `,
+      },
+      {
+        title: 'Front-End Development',
+        description: `
+            <li>Proficient in <strong> HTML, CSS</strong>, and WordPress.</li>
+            <li>Skilled in creating responsive, mobile-friendly websites.</li>
+            <li>Knowledge of improving website speed and SEO.</li>
+          `,
+      },
+      {
+        title: 'Strategic Thinking and Problem-Solving',
+        description: `
+            <li>Skilled at seeing the big picture and finding creative ways to solve challenges.</li>
+            <li>Adaptable to changing situations, bringing <strong>fresh ideas to complex problems</strong>.</li>
+          `,
+      },
+      {
+        title: 'Empathy and Communication',
+        description: `
+            <li>Strong <strong>empathy skills</strong>, prioritizing user needs in design</li>
+            <li>Clear communicator, skilled at explaining ideas in simple, approachable ways.</li>
+            <li>Collaborative, fostering trust and strong relationships with individuals from all backgrounds.</li>
+          `,
+      },
+    ]}
+  />
+
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogLatestPosts
+    title="Latest Case Studies"
+    information="Explore my latest case studies to see how I've applied my skills to real-world projects."
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="contact"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Email me',
+        href: `mailto:${email}`, // Update this line to use the imported email
+      },
+      {
+        variant: 'tertiary',
+        text: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/lylehmann/',
+        target: '_blank',
+      },
+      {
+        variant: 'tertiary',
+        text: 'GitHub',
+        href: 'https://www.github.com/lylehmann/',
+        target: '_blank',
+      },
+    ]}
+  >
+    <Fragment slot="title"> Let's Connect </Fragment>
+
+    <Fragment slot="subtitle">
+      Passionate about creating inclusive, user-centered designs? <br class="hidden md:inline" /> Let's team up to make a
+      real impact.
+    </Fragment>
+  </CallToAction>
+</Layout>

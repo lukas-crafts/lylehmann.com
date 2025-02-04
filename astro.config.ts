@@ -16,7 +16,10 @@ import astrowind from './vendor/integration';
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
 
 import playformCompress from '@playform/compress';
-import clarity from '@kbyte-tech/astro-clarity';
+
+import robotsTxt from 'astro-robots-txt';
+
+import purgecss from 'astro-purgecss';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -25,15 +28,14 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
+  build: {
+    inlineStylesheets: 'never',
+  },
   output: 'static',
 
   site: 'https://lylehmann.com',
 
   integrations: [
-    clarity({
-      enabled: true,
-      projectId: 'c0e89zmgud',
-    }),
     tailwind({
       applyBaseStyles: false,
     }),
@@ -78,6 +80,24 @@ export default defineConfig({
       config: './src/config.yaml',
     }),
     playformCompress(),
+    robotsTxt(),
+    purgecss({
+      fontFace: true,
+      keyframes: true,
+      variables: true,
+      safelist: ['random', 'yep', 'button', /^nav/],
+      blocklist: ['usedClass', /^nav/],
+      content: [
+        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (read SSR docs below)
+      ],
+      extractors: [
+        {
+          // Example using a taiwindcss compatible class extractor
+          extractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
+          extensions: ['astro', 'html'],
+        },
+      ],
+    }),
   ],
 
   image: {

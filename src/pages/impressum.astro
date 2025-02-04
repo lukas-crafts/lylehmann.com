@@ -2,28 +2,82 @@
 import Layout from '~/layouts/PageLayout.astro';
 import Header from '~/components/widgets/Header.astro';
 import ContactInfo from '~/components/widgets/ContactInfo.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
 
-const metadata = {
-  title: 'Impressum',
-  description: 'Impressum page',
-};
+const address = import.meta.env.PUBLIC_ADDRESS;
+const phone = import.meta.env.PUBLIC_PHONE_NUMBER;
+const email = import.meta.env.PUBLIC_EMAIL;
 ---
 
-<Layout metadata={metadata}>
+<Seo
+  title="Impressum - Lukas Yair Lehmann | UX Designer & Accessibility"
+  description="Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate. Find out how to get in touch and learn more about his work."
+  keywords={["Impressum", "Legal Information", "Contact", "Lukas Yair Lehmann", "UX Designer", "Accessibility Advocate", "User Experience", "Inclusive Design"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Impressum - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/impressum",
+    "description": "Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate.",
+    mainEntity: {
+      "@id": "https://lylehmann.com/#person",
+      "@type": "Person",
+      name: "Lukas Yair Lehmann",
+      jobTitle: "UX Designer",
+      address: address,
+      telephone: phone,
+      email: email,
+      url: "https://lylehmann.com",
+      sameAs: [
+        "https://www.linkedin.com/in/lylehmann/",
+        "https://github.com/lylehmann",
+      ],
+    }
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Impressum",
+        item: "https://lylehmann.com/impressum"
+      }
+    ]
+  }}
+/>
+
+<Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/#' },
-        { text: 'About', href: '/#about' },
-        { text: 'Resume', href: '/#resume' },
-        { text: 'Porfolio', href: '/#portfolio' },
-        { text: 'Contact', href: '/#contact' },
+        { text: 'Home', href: '/'},
+        { text: 'Porfolio', href: '/portfolio' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#contact',
+          text: 'Meet me',
+          href: `https://calendly.com/lylehmann`,
+          target: '_blank',
         },
       ]}
       isSticky

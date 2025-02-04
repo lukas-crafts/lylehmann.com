@@ -2,27 +2,98 @@
 import Layout from '~/layouts/PageLayout.astro';
 import ContactInfo from '~/components/widgets/ContactInfo.astro';
 import Header from '~/components/widgets/Header.astro';
-const metadata = {
-  title: 'Datenschutzerkl&auml;rung',
-  description: 'Privacy policy page',
-};
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
+
+const email = import.meta.env.PUBLIC_EMAIL;
 ---
 
-<Layout metadata={metadata}>
+
+<Seo
+  title="Privacy Policy - Lukas Yair Lehmann | UX Designer & Accessibility"
+  description="Read Lukas Yair Lehmann's privacy policy to learn how we collect, use, and protect your data. Understand our practices and your rights."
+  keywords={["Privacy Policy", "Data Protection", "Personal Information", "Lukas Yair Lehmann", "UX Designer", "Accessibility Advocate", "User Experience", "Inclusive Design"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Privacy Policy - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/privacy",
+    mainEntity: {
+      "@id": "https://lylehmann.com/#person",
+      "@type": "Person",
+      name: "Lukas Yair Lehmann",
+      jobTitle: "UX Designer",
+      url: "https://lylehmann.com",
+      sameAs: [
+        "https://www.linkedin.com/in/lylehmann/",
+        "https://github.com/lylehmann"
+      ],
+      email: email,
+      description: "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
+      knowsAbout: [
+        "UX Design",
+        "User Experience",
+        "Inclusive Design",
+        "Neurodiversity",
+        "Accessibility",
+        "Digital Solutions",
+        "Content Strategy",
+        "Design Thinking",
+        "Web Development",
+        "Project Management",
+        "Agile Methodologies",
+        "Design Thinking",
+        "User Research",
+        "Prototyping",
+        "Usability Testing",
+        "Information Architecture",
+        "Interaction Design"
+      ]
+    }
+  }}
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://lylehmann.com"
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Privacy Policy",
+        item: "https://lylehmann.com/privacy"
+      }
+    ]
+  }}
+/>
+
+<Layout>
   <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/#' },
-        { text: 'About', href: '/#about' },
-        { text: 'Resume', href: '/#resume' },
-        { text: 'Porfolio', href: '/#portfolio' },
-        { text: 'Contact', href: '/#contact' },
+        { text: 'Home', href: '/'},
+        { text: 'Porfolio', href: '/portfolio' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
       ]}
       actions={[
         {
-          text: 'Hire me',
-          href: '#contact',
+          text: 'Meet me',
+          href: `https://calendly.com/lylehmann`,
+          target: '_blank',
         },
       ]}
       isSticky
