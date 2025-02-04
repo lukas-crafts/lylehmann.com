@@ -50,6 +50,11 @@
     background-color: hsl(45, 95%, 45%);
     color: hsl(0, 0%, 100%);
   }
+
+  /* Definiert Primärfarben – wir setzen primary-hover gleich primary, damit Link-Farbe und Hover übereinstimmen */
+  --color-primary: #1d4ed8; /* Standard Primärfarbe */
+  --color-primary-hover: #1d4ed8; /* Hover-Farbe = Primärfarbe */
+  /* ... weitere Design Tokens ... */
 }
 
 .dark {
