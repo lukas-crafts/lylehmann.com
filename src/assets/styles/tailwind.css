@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Stärkere Spezifität für Aufzählungszeichen */
+  ul:not([class]) > li::marker {
+    color: var(--color-brand-primary);
+  }
+
+  /* SVG Icons in Primärfarbe */
+  svg {
+    stroke: var(--color-brand-primary) !important;
+    color: var(--color-brand-primary) !important;
+    fill: var(--color-brand-primary) !important;
+  }
+}
+
 @layer utilities {
   /* Eigene Hover-Farbe für Links */
   .text-primary-hover {
