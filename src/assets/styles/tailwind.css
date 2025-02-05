@@ -21,7 +21,7 @@
 @layer utilities {
   /* Eigene Hover-Farbe für Links */
   .text-primary-hover {
-    color: var(--color-primary-hover, #0056b3); /* Fallback falls --color-primary-hover nicht definiert ist */
+    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
   }
   
   /* Page Background Utilities */
@@ -80,12 +80,14 @@
 
 @layer components {
   /* Link Component: nutzt die in design-tokens.css definierten Interaktionsfarben */
-  .link {
+  .link,
+  a {
     @apply inline-block font-medium transition-colors duration-200;
-    color: var(--color-interactive-primary);
+    color: var(--color-brand-primary);
   }
-  .link:hover {
-    color: var(--color-interactive-primary-hover);
+  .link:hover,
+  a:hover {
+    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
   }
 
   /* Button Components with Dark Mode */
@@ -95,23 +97,25 @@
 
   .btn-primary {
     @apply font-semibold btn;
-    color: var(--color-text-inverse);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
     background-color: var(--color-interactive-primary);
     border-color: var(--color-interactive-primary);
   }
 
   .btn-primary:hover {
     background-color: var(--color-interactive-primary-hover);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
   }
 
   .dark .btn-primary {
-    color: var(--color-text-inverse);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
     background-color: var(--color-interactive-primary);
     border-color: var(--color-interactive-primary);
   }
 
   .dark .btn-primary:hover {
     background-color: var(--color-interactive-primary-hover);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
   }
 
   .btn-secondary {
