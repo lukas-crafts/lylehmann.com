@@ -127,6 +127,7 @@
 
   .btn-secondary:hover {
     background-color: var(--color-interactive-secondary-hover);
+    color: var(--color-text-body-hover);
   }
 
   .dark .btn-secondary {
@@ -137,6 +138,7 @@
 
   .dark .btn-secondary:hover {
     background-color: var(--color-interactive-secondary-hover);
+    color: var(--color-text-body-hover);
   }
 
   .btn-tertiary {
@@ -197,6 +199,10 @@
   .dark .badge-info {
     background-color: var(--color-state-info);
     color: var(--color-text-inverse);
+  }
+
+  .active {
+    @apply font-semibold text-black dark:text-white;
   }
 }
 
