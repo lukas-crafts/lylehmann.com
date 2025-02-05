@@ -11,9 +11,9 @@ import { Schema } from 'astro-seo-schema';
 
 import heroImage from '~/assets/images/lylehmann.png';
 import inclusiveDesign from '~/assets/images/inclusive-design.png';
-import focusBuddy from '~/assets/images/FocusBuddy.png';
-import brushingBuddy from '~/assets/images/BrushingBuddy.png';
-import metaCafe from '~/assets/images/Metta.png';
+import focusBuddy from '~/assets/images/FocusBuddy-home-hero.png';
+import brushingBuddy from '~/assets/images/BrushingBuddy-home-hero.png';
+import MettaCafe from '~/assets/images/METTA-home-hero.png';
 import myJourney from '~/assets/images/my-journey.jpg';
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
@@ -240,18 +240,18 @@ const defaultIcon = "tabler:chevron-right";
       },
     ]}
     image={{
-      src: metaCafe,
+      src: MettaCafe,
       alt: 'Das Metta cafe, bakery, and yoga space',
     }}
     callToAction={{
       text: 'View Case Study',
       icon: 'tabler:chevron-right',
-      href: '/portfolio/metacafe-case-study',
+      href: '/portfolio/mettacafe-case-study',
     }}
   >
     <Fragment slot="content">
       <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        Meta Cafe: <br /><span class="text-2xl">Bridging Digital and Physical Experiences in Munich</span>
+        Metta Cafe: <br /><span class="text-2xl">Bridging Digital and Physical Experiences in Munich</span>
       </h3>
     </Fragment>
   </Content>
