@@ -135,6 +135,7 @@ export const footerData = {
   secondaryLinks: [
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
     { text: 'Impressum', href: getPermalink('/impressum') },
+    { text: 'Colophon', href: getPermalink('/colophon') },
   ],
   socialLinks: [
     {
