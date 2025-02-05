@@ -1,0 +1,141 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import { Seo } from 'astro-seo-meta';
+import { Schema } from 'astro-seo-schema';
+
+import websiteImage from '~/assets/images/website-screenshot.png'; // Add this import
+---
+
+<Seo
+  title="Colophon - Lukas Yair Lehmann | UX Designer & Accessibility"
+  description="Erfahren Sie, wie die Website von Lukas Yair Lehmann erstellt wurde, einschließlich der verwendeten Technologien und Hosting-Plattform."
+  keywords={["Colophon", "Technologien", "Hosting", "Quellcode", "Lukas Yair Lehmann"]}
+  icon="~/assets/favicons/favicon.ico"
+  robots='index, follow'
+/>
+
+<Schema
+  item={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Colophon - Lukas Yair Lehmann | UX Designer",
+    url: "https://lylehmann.com/colophon",
+  }}
+/>
+
+<Layout>
+  <Fragment slot="header">
+    <Header
+      links={[
+        { text: 'Home', href: '/' },
+        { text: 'Porfolio', href: '/portfolio' },
+        { text: 'About', href: '/about' },
+        { text: 'Resume', href: '/resume' },
+      ]}
+      actions={[
+        {
+          text: 'Meet me',
+          href: 'https://calendly.com/lylehmann',
+          target: '_blank',
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <Hero
+    image={{ src: websiteImage, alt: 'Screenshot of lylehmann.com website' }}
+  >
+    <Fragment slot="title">
+      Colophon <br />
+      <span class="text-4xl font-normal">How This Site Was Built</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Discover the technologies, tools, and practices used to create this accessible and performant website.
+    </Fragment>
+  </Hero>
+
+  <Features3
+    title="Development Philosophy"
+    subtitle="This website embodies modern web development principles and practices, focusing on creating an accessible, performant, and user-centered experience."
+    columns={2}
+    items={[
+      {
+        title: 'IndieWeb Principles',
+        description: 'Built following IndieWeb principles, emphasizing ownership, independence, and interoperability of content.',
+        icon: 'tabler:world',
+      },
+      {
+        title: 'Clean Architecture',
+        description: 'Organized with a component-based architecture and semantic markup for maintainability and clarity.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Performance First',
+        description: 'Optimized for speed with static generation and minimal client-side JavaScript.',
+        icon: 'tabler:speedboat',
+      },
+      {
+        title: 'User-Centered',
+        description: 'Designed with a focus on user experience, ensuring content is accessible and easy to navigate.',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+
+  <Features3
+    title="Technologies & Tools"
+    columns={2}
+    items={[
+      {
+        title: 'Framework',
+        description: '<strong>Astro</strong> - A modern static site generator that delivers lightning-fast performance through partial hydration.',
+        icon: 'tabler:brand-astro',
+      },
+      {
+        title: 'Styling',
+        description: '<strong>Tailwind CSS</strong> - A utility-first CSS framework for rapid UI development with full customization capabilities.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Hosting & Deployment',
+
+        description: '<strong>Vercel</strong> - A platform optimized for frontend frameworks and static sites, providing global CDN distribution.',
+        icon: 'tabler:cloud',
+      },
+      {
+        title: 'Version Control',
+        description: '<strong>Git & GitHub</strong> - Industry-standard version control system for tracking changes and collaboration.',
+        icon: 'tabler:brand-github',
+      },
+    ]}
+  />
+
+  <Features3
+    title="Core Features"
+    columns={3}
+    items={[
+      {
+        title: 'Accessibility',
+        description: 'WCAG 2.1 AA compliant with semantic HTML and ARIA attributes',
+        icon: 'tabler:accessible',
+      },
+      {
+        title: 'Performance',
+        description: 'Optimized assets and minimal JavaScript for fast loading',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'SEO',
+        description: 'Structured data and meta tags for better visibility',
+        icon: 'tabler:search',
+      },
+    ]}
+  />
+</Layout>
