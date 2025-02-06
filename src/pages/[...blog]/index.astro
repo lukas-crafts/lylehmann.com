@@ -119,5 +119,4 @@ const image = (await findImage(post.image)) as string | undefined;
     {post.Content ? <post.Content /> : <Fragment set:html={post.content || ''} />}
   </SinglePost>
   <ToBlogLink />
-  <RelatedPosts post={post} />
 </Layout>
