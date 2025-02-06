@@ -52,6 +52,11 @@
     color: var(--color-text-muted);
   }
 
+  /* Utility-Klasse für Primary Text in Light und Dark Mode */
+  .text-primary {
+    color: var(--color-brand-primary) !important;
+  }
+
   /* Border Utilities */
   .border-default {
     border-color: var(--color-border-default);
