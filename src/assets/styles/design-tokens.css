@@ -22,6 +22,10 @@
   --color-bg-muted: hsl(0, 0%, 90%);            /* Light grey background */
   --color-bg-emphasis: hsl(0, 0%, 85%);         /* More pronounced background */
 
+  /* Hero Section Background Colors */
+  --color-hero-bg-light: hsl(14, 85%, 80%); /* Deep Orange */
+  --color-hero-bg-dark: hsl(14, 90%, 90%);  /* Brighter Orange */
+
   /* Interaction Colors */
   --color-interactive-primary: var(--color-brand-primary);
   --color-interactive-primary-hover: hsl(14, 85%, 45%);
@@ -75,6 +79,10 @@
   --color-bg-subtle: hsl(220, 15%, 15%);        /* Slightly lighter dark background */
   --color-bg-muted: hsl(220, 15%, 20%);         /* Muted dark background */
   --color-bg-emphasis: hsl(220, 15%, 25%);      /* Emphasized dark background */
+
+  /* Hero Section Background Colors in Dark Mode */
+  --color-hero-bg-light: hsl(14, 85%, 50%); /* Deep Orange */
+  --color-hero-bg-dark: hsl(14, 90%, 60%);  /* Brighter Orange */
 
   /* Interaction Colors in Dark Mode */
   --color-interactive-primary: var(--color-brand-primary);

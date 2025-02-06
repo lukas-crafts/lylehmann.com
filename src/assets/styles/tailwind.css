@@ -204,11 +204,28 @@
   .active {
     @apply font-semibold text-black dark:text-white;
   }
+
+  .hover-effect {
+    @apply transition-colors duration-200;
+  }
+
+  .hover-effect:hover {
+    @apply text-primary-hover; /* Apply the desired hover color */
+  }
+
+  .bg-hero-light {
+    background-color: var(--color-hero-bg-light);
+  }
+
+  .dark .bg-hero-dark {
+    background-color: var(--color-hero-bg-dark);
+  }
 }
 
 /* Global Dark Mode Selections */
 :root {
   color-scheme: light dark;
+
   --color-bg-default-hsl: 210, 16%, 92%;
 }
 
