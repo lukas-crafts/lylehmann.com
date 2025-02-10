@@ -16,6 +16,7 @@ import DListItem from '~/components/ui/DListItem.astro';
 import ToggleTheme from '~/components/common/ToggleTheme.astro';
 import Hero from '~/components/widgets/Hero-blogPost.astro';
 import HeroImage from '~/assets/images/Azulverdoso-blog-hero.png';
+import BrandColors from '~/assets/images/Azulverdoso-colors.jpg';
 import Note from '~/components/widgets/Note.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Steps2 from '~/components/widgets/Steps2.astro';
@@ -24,6 +25,7 @@ import Features2 from '~/components/widgets/Features2.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
+import Content from '~/components/widgets/Content.astro';
 
 ## Overview
 
@@ -97,8 +99,6 @@ This case study explores the collaborative journey of designing Azulverdoso's we
 
 ---
 
-![Putting of Clear Coat on a Pot](https://images.pexels.com/photos/8066102/pexels-photo-8066102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)
-
 <Steps
   title="The Design Process"
   items={[
@@ -126,16 +126,18 @@ This case study explores the collaborative journey of designing Azulverdoso's we
       icon: 'tabler:test-pipe',
     },
   ]}
+  image={{
+    src: 'https://images.pexels.com/photos/8066102/pexels-photo-8066102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    alt: 'Putting of Clear Coat on a Pot',
+  }}
 />
 
 ---
 
-![Azulverdoso's Brand Colors](~/assets/images/azulverdoso-colors.jpg)
-
-<Features
+<Content
+  isReversed
   title="UI Design Elements"
   subtitle="Key components and design choices for Azulverdoso's website"
-  columns={2}
   items={[
     {
       title: 'Brand Colors',
@@ -168,6 +170,10 @@ This case study explores the collaborative journey of designing Azulverdoso's we
       icon: 'tabler:info-circle',
     },
   ]}
+  image={{
+    src: BrandColors,
+    alt: 'Azulverdoso Brand Colors',
+  }}
 />
 
 ---
