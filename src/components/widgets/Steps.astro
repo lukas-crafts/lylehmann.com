@@ -21,16 +21,8 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
-  <div class:list={[
-    'flex flex-col gap-8 md:gap-12',
-    { 'md:flex-row-reverse': isReversed },
-    { 'md:flex-row': image }
-  ]}>
-    <div class:list={[
-      'md:py-4 md:self-center',
-      { 'md:basis-1/2': image },
-      { 'w-full': !image }
-    ]}>
+  <div class="flex flex-col gap-8 md:gap-12">
+    <div class="w-full md:py-4">
       <Headline
         title={title}
         subtitle={subtitle}
@@ -38,22 +30,14 @@ const {
         classes={{
           container: 'text-left rtl:text-right',
           title: 'text-3xl lg:text-4xl',
-          // Feste muted Textfarbe für beide Modi
           subtitle: 'text-muted dark:text-muted',
           ...((classes?.headline as object) ?? {}),
         }}
       />
-      <Timeline
-        items={items}
-        classes={{
-          // Icons erhalten nun einen konsistenten, muted Stil in Light & Dark Mode
-          icon: 'border border-muted bg-transparent text-muted dark:text-muted',
-          ...((classes?.items as object) ?? {})
-        }}
-      />
     </div>
+    
     {image && (
-      <div class="relative md:basis-1/2">
+      <div class="relative w-full">
         {typeof image === 'string' ? (
           <Fragment set:html={image} />
         ) : (
@@ -69,5 +53,13 @@ const {
         )}
       </div>
     )}
+
+    <Timeline
+      items={items}
+      classes={{
+        icon: 'border border-muted bg-transparent text-muted dark:text-muted',
+        ...((classes?.items as object) ?? {})
+      }}
+    />
   </div>
 </WidgetWrapper>

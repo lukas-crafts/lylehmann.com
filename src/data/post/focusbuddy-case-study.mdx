@@ -27,6 +27,7 @@ import Features3 from '~/components/widgets/Features3.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 
+
 ## Overview
 
 FocusBuddy is a macOS app designed to help individuals with ADHD and autism stay focused, accountable, and connected. The app provides a safe space for users to structure their work, find focus-enhancing music, and connect with an online community for support and encouragement.
@@ -118,11 +119,14 @@ This case study explores the journey of designing FocusBuddy, from identifying k
 />
 ---
 
-![Stairway representing the journey of design thinking](/assets/images/journey.jpg)
-
 <Steps
   title="The Journey"
   subtitle="Building FocusBuddy was a deeply personal process. <br>I used the <strong>Design Thinking Methodology</strong> to guide each step."
+  image={{
+    src: 'https://images.pexels.com/photos/614484/pexels-photo-614484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2q',
+    alt: 'FocusBuddy app interface showcasing key features',
+  }}
+  columns={1} 
   items={[
     {
       title: 'Empathize',
