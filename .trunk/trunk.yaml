@@ -29,7 +29,7 @@ lint:
     - codespell
     - cspell
     - markdown-link-check
-    - stylelint@16.14.1
+    - stylelint
   enabled:
     - gitleaks@8.23.3
     - markdownlint-cli2@0.17.2
