@@ -35,8 +35,6 @@ lint:
     - cspell
     - markdown-link-check
     - stylelint
-    - eslint
-    - prettier
   enabled:
     - biome@1.9.4
     - gitleaks@8.27.2
