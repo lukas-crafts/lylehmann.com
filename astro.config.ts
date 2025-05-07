@@ -88,8 +88,23 @@ export default defineConfig({
       safelist: ['random', 'yep', 'button', /^nav/],
       blocklist: ['usedClass', /^nav/],
       content: [
-        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources (read SSR docs below)
+        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources
+        process.cwd() + '/dist/**/*.html', // Include all HTML files in dist directory
+        process.cwd() + '/dist/*.html',    // Include root HTML files like 404.html
       ],
+      // Custom options to handle special files like 404.html
+      options: {
+        // Skip purging the 404.html file to avoid errors
+        skippedFiles: ['404.html'],
+        // Disable looking for files in directories that don't exist
+        rejected: false,
+        // Only process files that actually exist
+        dynamicAttributes: ['data-processed'],
+        // Force the inclusion of 404.html in special handling
+        variables: {
+          specialPages: ['404.html']
+        }
+      },
       extractors: [
         {
           // Example using a taiwindcss compatible class extractor
