@@ -24,6 +24,7 @@ module.exports = {
       },
 
       boxShadow: {
+        'md': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
         '3xl': '0 0 0 3px var(--aw-color-primary)',
         '4xl': '0 0 0 4px var(--aw-color-primary)',
         '5xl': '0 0 0 5px var(--aw-color-primary)',
