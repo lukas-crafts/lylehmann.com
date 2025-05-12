@@ -80,10 +80,11 @@ export default defineConfig({
     playformCompress(),
     robotsTxt(),
     purgecss({
+      // Enable the purgecss integration
       fontFace: true,
       keyframes: true,
       variables: true,
-      safelist: ['random', 'yep', 'button', /^nav/],
+      safelist: ['random', 'yep', 'button', /^nav/, 'astro-icon', 'astro-icon-*', 'astro-icon-*', 'astro-icon-*', 'astro-icon-*', 'shadow-md'],
       blocklist: ['usedClass', /^nav/],
       content: [
         process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources

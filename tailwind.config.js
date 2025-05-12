@@ -2,7 +2,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import plugin from 'tailwindcss/plugin';
 import typographyPlugin from '@tailwindcss/typography';
 
-export default {
+module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,json,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -21,6 +21,12 @@ export default {
 
       animation: {
         fade: 'fadeInUp 1s both',
+      },
+
+      boxShadow: {
+        '3xl': '0 0 0 3px var(--aw-color-primary)',
+        '4xl': '0 0 0 4px var(--aw-color-primary)',
+        '5xl': '0 0 0 5px var(--aw-color-primary)',
       },
 
       keyframes: {
