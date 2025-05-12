@@ -1,8 +1,6 @@
-@import './design-tokens.css';
+@import './design-tokens.css' layer(base);
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 @layer base {
   /* Stärkere Spezifität für Aufzählungszeichen */
@@ -19,10 +17,7 @@
 }
 
 @layer utilities {
-  /* Eigene Hover-Farbe für Links */
-  .text-primary-hover {
-    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
-  }
+  /* Hover styles defined directly */
   
   /* Page Background Utilities */
   .bg-page {
@@ -87,7 +82,7 @@
   /* Link Component: nutzt die in design-tokens.css definierten Interaktionsfarben */
   .link,
   a {
-    @apply inline-block font-medium transition-colors duration-200;
+    @apply inline-block font-[500] transition-colors duration-200;
     color: var(--color-brand-primary);
   }
   .link:hover,
@@ -96,15 +91,26 @@
   }
 
   /* Button Components with Dark Mode */
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-medium text-center text-base leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
+  /* Common Button Styles - shared utility classes */
+  .btn-base {
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
+    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
+    @screen md {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .btn-primary {
-    @apply font-semibold btn;
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer font-[600];
     color: var(--color-text-inverse); /* Invertierte Textfarbe */
     background-color: var(--color-interactive-primary);
     border-color: var(--color-interactive-primary);
+    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
+    @screen md {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .btn-primary:hover {
@@ -124,10 +130,15 @@
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
     color: var(--color-text-body);
     background-color: var(--color-interactive-secondary);
     border-color: var(--color-border-default);
+    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
+    @screen md {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .btn-secondary:hover {
@@ -147,9 +158,14 @@
   }
 
   .btn-tertiary {
-    @apply border-none shadow-none btn;
+    @apply inline-flex items-center justify-center rounded-full bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer border-none shadow-none;
     color: var(--color-text-muted);
     background-color: var(--color-bg-subtle);
+    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
+    @screen md {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .btn-tertiary:hover {
@@ -207,7 +223,7 @@
   }
 
   .active {
-    @apply font-semibold text-black dark:text-white;
+    @apply font-[600] text-[#000000] dark:text-[#ffffff];
   }
 
   .hover-effect {
@@ -215,7 +231,7 @@
   }
 
   .hover-effect:hover {
-    @apply text-primary-hover; /* Apply the desired hover color */
+    color: var(--color-brand-primary); /* Apply the desired hover color directly */
   }
 
   .bg-hero-light {
