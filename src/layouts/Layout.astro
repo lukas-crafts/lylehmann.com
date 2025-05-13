@@ -1,6 +1,8 @@
 ---
-import '~/assets/styles/tailwind.css';
-import '~/assets/styles/design-tokens.css';
+// Import order is important - design-tokens must come before tailwind
+import "../styles/global.css";
+// import "../styles/design-tokens.css";
+// import "../styles/tailwind.css";
 
 import { I18N } from 'astrowind:config';
 
@@ -26,7 +28,7 @@ const { language, textDirection } = I18N;
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection} class="2xl:text-[20px] motion-safe:scroll-smooth">
   <head>
     <CommonMeta />
     <Favicons />
@@ -37,24 +39,31 @@ const { language, textDirection } = I18N;
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Google Tag Manager -->
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});let f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PVL67MM');</script>
-    <!-- End Google Tag Manager -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PVL67MM');</script>
+<!-- End Google Tag Manager -->
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
 
-  <body class="antialiased tracking-tight text-default bg-page">
-    <!-- Google Tag Manager (noscript) -->
+  <body class:list={[
+      "flex min-h-screen flex-col antialiased tracking-tight text-default bg-page",
+      "motion-safe:transition-colors motion-safe:duration-300" // Add smooth transitions
+    ]}>
+
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVL67MM"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-    <slot />
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div class="flex flex-col flex-1 motion-safe:opacity-100">
+      <slot />
+    </div>
 
     <BasicScripts />
   </body>

@@ -1,11 +1,14 @@
 # Custom Dictionary Words
 astrowind
 birthtime
+Entfernen
 Gispert
 Kroll
 Lukas
 lylehmann
 Meta
+mettacafe
+Nolt
 onwidget
 partytown
 pixabay

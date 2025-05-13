@@ -1,8 +1,16 @@
-@import './design-tokens.css' layer(base);
+@import './design-tokens.css';
 
-@import 'tailwindcss';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
+  /* Global settings */
+  :root {
+    color-scheme: light dark;
+    --color-bg-default-hsl: 210, 16%, 92%;
+  }
+
   /* Stärkere Spezifität für Aufzählungszeichen */
   ul:not([class]) > li::marker {
     color: var(--color-brand-primary);
@@ -10,21 +18,19 @@
 
   /* SVG Icons in Primärfarbe */
   svg {
-    stroke: var(--color-brand-primary) !important;
-    color: var(--color-brand-primary) !important;
-    fill: var(--color-brand-primary) !important;
+    @apply stroke-[color:var(--color-brand-primary)] text-[color:var(--color-brand-primary)] fill-[color:var(--color-brand-primary)];
   }
 }
 
 @layer utilities {
   /* Hover styles defined directly */
-  
+
   /* Page Background Utilities */
   .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
   }
-  
+
   .dark .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
@@ -34,7 +40,7 @@
   .text-page {
     color: var(--color-text-body);
   }
-  
+
   .dark .text-page {
     color: var(--color-text-body);
   }
@@ -42,9 +48,17 @@
   .text-muted {
     color: var(--color-text-muted);
   }
-  
+
   .dark .text-muted {
     color: var(--color-text-muted);
+  }
+
+  .text-inverse {
+    color: var(--color-text-inverse);
+  }
+
+  .dark .text-inverse {
+    color: var(--color-text-inverse);
   }
 
   /* Utility-Klasse für Primary Text in Light und Dark Mode */
@@ -56,14 +70,16 @@
   .border-default {
     border-color: var(--color-border-default);
   }
-  
+
   .dark .border-default {
     border-color: var(--color-border-default);
   }
 
   /* Sticky Header Styles für Light Mode */
   header[data-aw-sticky-header] {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
     background-color: hsla(var(--color-bg-default-hsl), 0.95);
   }
 
@@ -90,95 +106,47 @@
     color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
   }
 
-  /* Button Components with Dark Mode */
-  /* Common Button Styles - shared utility classes */
-  .btn-base {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
-    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
-    @screen md {
-      padding-left: 2rem;
-      padding-right: 2rem;
+  /* Button Components with optimized inheritance and responsive design */
+  [class*='btn-'] {
+    @apply inline-flex items-center justify-center rounded-full border
+           font-[500] text-[16px] leading-[1.375]
+           py-[14px] px-[24px]
+           focus:ring-2 focus:ring-offset-2 cursor-pointer
+           transition-[all_200ms_cubic-bezier(0.4,0,1,1)];
+  }
+
+  /* Responsive styles */
+  @screen md {
+    [class*='btn-'] {
+      @apply px-[32px];
     }
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer font-[600];
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-    background-color: var(--color-interactive-primary);
-    border-color: var(--color-interactive-primary);
-    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
-    @screen md {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    @apply font-[600] text-[#ffffff];
+    background-color: hsl(var(--color-brand-primary-hsl));
+    border-color: hsl(var(--color-brand-primary-hsl));
   }
 
   .btn-primary:hover {
-    background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    background-color: hsl(var(--color-brand-primary-hsl) / 0.9);
   }
 
-  .dark .btn-primary {
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-    background-color: var(--color-interactive-primary);
-    border-color: var(--color-interactive-primary);
-  }
-
-  .dark .btn-primary:hover {
-    background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-  }
-
+  /* Button secondary */
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
-    color: var(--color-text-body);
-    background-color: var(--color-interactive-secondary);
-    border-color: var(--color-border-default);
-    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
-    @screen md {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    @apply bg-transparent
+           border-[color:var(--color-border-default)]
+           text-[color:var(--color-text-body)]
+           hover:bg-[color:var(--color-interactive-secondary-hover)]
+           hover:text-[color:var(--color-text-body-hover)];
   }
 
-  .btn-secondary:hover {
-    background-color: var(--color-interactive-secondary-hover);
-    color: var(--color-text-body-hover);
-  }
-
-  .dark .btn-secondary {
-    color: var(--color-text-body);
-    background-color: var(--color-interactive-secondary);
-    border-color: var(--color-border-default);
-  }
-
-  .dark .btn-secondary:hover {
-    background-color: var(--color-interactive-secondary-hover);
-    color: var(--color-text-body-hover);
-  }
-
+  /* Button tertiary */
   .btn-tertiary {
-    @apply inline-flex items-center justify-center rounded-full bg-transparent font-[500] text-center text-[1rem] leading-[1.375] transition py-[0.875rem] px-[1.5rem] ease-[cubic-bezier(0.4,0,1,1)] duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer border-none shadow-none;
-    color: var(--color-text-muted);
-    background-color: var(--color-bg-subtle);
-    /* Apply larger padding on medium screens with standard CSS media query instead of Tailwind's responsive utilities */
-    @screen md {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-
-  .btn-tertiary:hover {
-    background-color: var(--color-bg-muted);
-  }
-
-  .dark .btn-tertiary {
-    color: var(--color-text-muted);
-    background-color: var(--color-bg-subtle);
-  }
-
-  .dark .btn-tertiary:hover {
-    background-color: var(--color-bg-muted);
+    @apply border-none
+           bg-[color:var(--color-bg-subtle)]
+           text-[color:var(--color-text-muted)]
+           hover:bg-[color:var(--color-bg-muted)];
   }
 
   /* State and Contextual Components */
@@ -227,7 +195,7 @@
   }
 
   .hover-effect {
-    @apply transition-colors duration-200;
+    @apply transition-[colors_200ms_cubic-bezier(0.4,0,1,1)];
   }
 
   .hover-effect:hover {
@@ -244,19 +212,14 @@
 }
 
 /* Global Dark Mode Selections */
-:root {
-  color-scheme: light dark;
-
-  --color-bg-default-hsl: 210, 16%, 92%;
-}
 
 /* Optional: Smooth Dark Mode Transition */
 @media (prefers-reduced-motion: no-preference) {
   html:not(.dark) {
-    transition: color 300ms, background-color 300ms;
+    @apply transition-[color_300ms,background-color_300ms];
   }
-  
+
   html.dark {
-    transition: color 300ms, background-color 300ms;
+    @apply transition-[color_300ms,background-color_300ms];
   }
 }
