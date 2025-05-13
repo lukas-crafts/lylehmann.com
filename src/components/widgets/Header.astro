@@ -103,7 +103,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                         <a
                           class:list={[
                             'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
+                            { 'active': href2 === currentPath },
                           ]}
                           href={href2}
                         >
@@ -117,7 +117,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
                 <a
                   class:list={[
                     'hover:text-link dark:hover:text-white px-4 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
+                    { 'active': href === currentPath },
                   ]}
                   href={href}
                 >

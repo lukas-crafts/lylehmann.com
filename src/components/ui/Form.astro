@@ -13,7 +13,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
           name && (
             <div class="mb-6">
               {label && (
-                <label for={name} class="block text-sm font-500">
+                <label for={name} class="block text-sm font-medium">
                   {label}
                 </label>
               )}
@@ -33,7 +33,7 @@ const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } 
   {
     textarea && (
       <div>
-        <label for="textarea" class="block text-sm font-500">
+        <label for="textarea" class="block text-sm font-medium">
           {textarea.label}
         </label>
         <textarea

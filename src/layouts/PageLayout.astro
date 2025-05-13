@@ -15,17 +15,13 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
-  <div class="flex flex-col min-h-screen">
-    <slot name="header">
-      <Header {...headerData} isSticky showRssFeed showToggleTheme />
-    </slot>
-    <main class="flex-1">
-      <slot />
-    </main>
-    <div class="motion-safe:opacity-100 !animate-none relative z-10">
-      <slot name="footer">
-        <Footer {...footerData} />
-      </slot>
-    </div>
-  </div>
+  <slot name="header">
+    <Header {...headerData} isSticky showRssFeed showToggleTheme />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer {...footerData} />
+  </slot>
 </Layout>

@@ -4,21 +4,6 @@ import { SITE, APP_BLOG } from 'astrowind:config';
 
 import { trim } from '~/utils/utils';
 
-// Type definitions for menu objects
-export interface MenuLinkItem {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
-  active?: boolean;
-  type?: 'home' | 'blog' | 'page' | 'post' | 'asset' | 'category' | 'tag';
-  url?: string;
-}
-
-export type MenuItem = MenuLinkItem | { [key: string]: MenuItem | MenuItem[] };
-
-export type Menu = MenuItem[] | { [key: string]: MenuItem | MenuItem[] };
-
 export const trimSlash = (s: string) => trim(trim(s, '/'));
 const createPath = (...params: string[]) => {
   const paths = params
@@ -119,34 +104,31 @@ export const getAsset = (path: string): string =>
 const definitivePermalink = (permalink: string): string => createPath(BASE_PATHNAME, permalink);
 
 /** */
-export const applyGetPermalinks = (menu: Menu = {}): Menu => {
+export const applyGetPermalinks = (menu: object = {}) => {
   if (Array.isArray(menu)) {
-    return menu.map((item) => applyGetPermalinks(item as Menu)) as Menu;
+    return menu.map((item) => applyGetPermalinks(item));
   } else if (typeof menu === 'object' && menu !== null) {
-    const obj: Record<string, MenuItem | MenuItem[]> = {};
+    const obj = {};
     for (const key in menu) {
-      const item = (menu as Record<string, MenuItem | MenuItem[]>)[key];
-
       if (key === 'href') {
-        if (typeof item === 'string') {
-          obj[key] = { href: getPermalink(item) } as MenuLinkItem;
-        } else if (typeof item === 'object') {
-          const menuItem = item as MenuLinkItem;
-          if (menuItem.type === 'home') {
-            obj[key] = { href: getHomePermalink() } as MenuLinkItem;
-          } else if (menuItem.type === 'blog') {
-            obj[key] = { href: getBlogPermalink() } as MenuLinkItem;
-          } else if (menuItem.type === 'asset') {
-            obj[key] = { href: getAsset(menuItem.url || '') } as MenuLinkItem;
-          } else if (menuItem.url) {
-            obj[key] = { href: getPermalink(menuItem.url, menuItem.type) } as MenuLinkItem;
+        if (typeof menu[key] === 'string') {
+          obj[key] = getPermalink(menu[key]);
+        } else if (typeof menu[key] === 'object') {
+          if (menu[key].type === 'home') {
+            obj[key] = getHomePermalink();
+          } else if (menu[key].type === 'blog') {
+            obj[key] = getBlogPermalink();
+          } else if (menu[key].type === 'asset') {
+            obj[key] = getAsset(menu[key].url);
+          } else if (menu[key].url) {
+            obj[key] = getPermalink(menu[key].url, menu[key].type);
           }
         }
       } else {
-        obj[key] = applyGetPermalinks(item as Menu);
+        obj[key] = applyGetPermalinks(menu[key]);
       }
     }
-    return obj as Menu;
+    return obj;
   }
   return menu;
 };
