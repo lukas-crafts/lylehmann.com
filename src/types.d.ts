@@ -189,6 +189,7 @@ export interface CallToAction extends Omit<HTMLAttributes<'a'>, 'slot'> {
   icon?: string;
   classes?: Record<string, string>;
   type?: 'button' | 'submit' | 'reset';
+  defaultIcon?: string;
 }
 
 export interface ItemGrid {
@@ -215,10 +216,12 @@ export interface Form {
 }
 
 // WIDGETS
-export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' | 'classes'> {
+export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark'> {
   content?: string;
   actions?: string | CallToAction[];
+  rightContent?: AstroComponentFactory | JSX.Element | string | unknown; // More specific type for React/Astro components
   image?: string | unknown;
+  classes?: Record<string, string>;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
@@ -277,12 +280,13 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
   content?: string;
-  image?: string | unknown;
+  image?: ImageMetadata | string | unknown;
   items?: Array<Item>;
   columns?: number;
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;
+  defaultIcon?: string;
 }
 
 export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {}

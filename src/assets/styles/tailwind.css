@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 @layer base {
+  /* Global settings */
+  :root {
+    color-scheme: light dark;
+    --color-bg-default-hsl: 210, 16%, 92%;
+  }
+
   /* Stärkere Spezifität für Aufzählungszeichen */
   ul:not([class]) > li::marker {
     color: var(--color-brand-primary);
@@ -12,24 +18,19 @@
 
   /* SVG Icons in Primärfarbe */
   svg {
-    stroke: var(--color-brand-primary) !important;
-    color: var(--color-brand-primary) !important;
-    fill: var(--color-brand-primary) !important;
+    @apply stroke-[color:var(--color-brand-primary)] text-[color:var(--color-brand-primary)] fill-[color:var(--color-brand-primary)];
   }
 }
 
 @layer utilities {
-  /* Eigene Hover-Farbe für Links */
-  .text-primary-hover {
-    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
-  }
-  
+  /* Hover styles defined directly */
+
   /* Page Background Utilities */
   .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
   }
-  
+
   .dark .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
@@ -39,7 +40,7 @@
   .text-page {
     color: var(--color-text-body);
   }
-  
+
   .dark .text-page {
     color: var(--color-text-body);
   }
@@ -47,9 +48,17 @@
   .text-muted {
     color: var(--color-text-muted);
   }
-  
+
   .dark .text-muted {
     color: var(--color-text-muted);
+  }
+
+  .text-inverse {
+    color: var(--color-text-inverse);
+  }
+
+  .dark .text-inverse {
+    color: var(--color-text-inverse);
   }
 
   /* Utility-Klasse für Primary Text in Light und Dark Mode */
@@ -61,14 +70,16 @@
   .border-default {
     border-color: var(--color-border-default);
   }
-  
+
   .dark .border-default {
     border-color: var(--color-border-default);
   }
 
   /* Sticky Header Styles für Light Mode */
   header[data-aw-sticky-header] {
-    @apply shadow-md;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -2px rgba(0, 0, 0, 0.1);
     background-color: hsla(var(--color-bg-default-hsl), 0.95);
   }
 
@@ -87,7 +98,7 @@
   /* Link Component: nutzt die in design-tokens.css definierten Interaktionsfarben */
   .link,
   a {
-    @apply inline-block font-medium transition-colors duration-200;
+    @apply inline-block font-[500] transition-colors duration-200;
     color: var(--color-brand-primary);
   }
   .link:hover,
@@ -95,74 +106,47 @@
     color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
   }
 
-  /* Button Components with Dark Mode */
-  .btn {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-medium text-center text-base leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
+  /* Button Components with optimized inheritance and responsive design */
+  [class*='btn-'] {
+    @apply inline-flex items-center justify-center rounded-full border
+           font-[500] text-[16px] leading-[1.375]
+           py-[14px] px-[24px]
+           focus:ring-2 focus:ring-offset-2 cursor-pointer
+           transition-[all_200ms_cubic-bezier(0.4,0,1,1)];
+  }
+
+  /* Responsive styles */
+  @screen md {
+    [class*='btn-'] {
+      @apply px-[32px];
+    }
   }
 
   .btn-primary {
-    @apply font-semibold btn;
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-    background-color: var(--color-interactive-primary);
-    border-color: var(--color-interactive-primary);
+    @apply font-[600] text-[#ffffff];
+    background-color: hsl(var(--color-brand-primary-hsl));
+    border-color: hsl(var(--color-brand-primary-hsl));
   }
 
   .btn-primary:hover {
-    background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    background-color: hsl(var(--color-brand-primary-hsl) / 0.9);
   }
 
-  .dark .btn-primary {
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-    background-color: var(--color-interactive-primary);
-    border-color: var(--color-interactive-primary);
-  }
-
-  .dark .btn-primary:hover {
-    background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
-  }
-
+  /* Button secondary */
   .btn-secondary {
-    @apply btn;
-    color: var(--color-text-body);
-    background-color: var(--color-interactive-secondary);
-    border-color: var(--color-border-default);
+    @apply bg-transparent
+           border-[color:var(--color-border-default)]
+           text-[color:var(--color-text-body)]
+           hover:bg-[color:var(--color-interactive-secondary-hover)]
+           hover:text-[color:var(--color-text-body-hover)];
   }
 
-  .btn-secondary:hover {
-    background-color: var(--color-interactive-secondary-hover);
-    color: var(--color-text-body-hover);
-  }
-
-  .dark .btn-secondary {
-    color: var(--color-text-body);
-    background-color: var(--color-interactive-secondary);
-    border-color: var(--color-border-default);
-  }
-
-  .dark .btn-secondary:hover {
-    background-color: var(--color-interactive-secondary-hover);
-    color: var(--color-text-body-hover);
-  }
-
+  /* Button tertiary */
   .btn-tertiary {
-    @apply border-none shadow-none btn;
-    color: var(--color-text-muted);
-    background-color: var(--color-bg-subtle);
-  }
-
-  .btn-tertiary:hover {
-    background-color: var(--color-bg-muted);
-  }
-
-  .dark .btn-tertiary {
-    color: var(--color-text-muted);
-    background-color: var(--color-bg-subtle);
-  }
-
-  .dark .btn-tertiary:hover {
-    background-color: var(--color-bg-muted);
+    @apply border-none
+           bg-[color:var(--color-bg-subtle)]
+           text-[color:var(--color-text-muted)]
+           hover:bg-[color:var(--color-bg-muted)];
   }
 
   /* State and Contextual Components */
@@ -207,15 +191,15 @@
   }
 
   .active {
-    @apply font-semibold text-black dark:text-white;
+    @apply font-[600] text-[#000000] dark:text-[#ffffff];
   }
 
   .hover-effect {
-    @apply transition-colors duration-200;
+    @apply transition-[colors_200ms_cubic-bezier(0.4,0,1,1)];
   }
 
   .hover-effect:hover {
-    @apply text-primary-hover; /* Apply the desired hover color */
+    color: var(--color-brand-primary); /* Apply the desired hover color directly */
   }
 
   .bg-hero-light {
@@ -228,19 +212,14 @@
 }
 
 /* Global Dark Mode Selections */
-:root {
-  color-scheme: light dark;
-
-  --color-bg-default-hsl: 210, 16%, 92%;
-}
 
 /* Optional: Smooth Dark Mode Transition */
 @media (prefers-reduced-motion: no-preference) {
   html:not(.dark) {
-    transition: color 300ms, background-color 300ms;
+    @apply transition-[color_300ms,background-color_300ms];
   }
-  
+
   html.dark {
-    transition: color 300ms, background-color 300ms;
+    @apply transition-[color_300ms,background-color_300ms];
   }
 }

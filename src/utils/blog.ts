@@ -1,7 +1,7 @@
 import type { PaginateFunction } from 'astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import type { Post } from '~/types';
+import type { Post, Taxonomy } from '~/types';
 import { APP_BLOG } from 'astrowind:config';
 import { cleanSlug, trimSlash, BLOG_BASE, POST_PERMALINK_PATTERN, CATEGORY_BASE, TAG_BASE } from './permalinks';
 
@@ -198,16 +198,17 @@ export const getStaticPathsBlogCategory = async ({ paginate }: { paginate: Pagin
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
   const posts = await fetchPosts();
-  const categories = {};
-  posts.map((post) => {
+  const categories: Record<string, Post['category']> = {};
+
+  posts.forEach((post) => {
     if (post.category?.slug) {
-      categories[post.category?.slug] = post.category;
+      categories[post.category.slug] = post.category;
     }
   });
 
   return Array.from(Object.keys(categories)).flatMap((categorySlug) =>
     paginate(
-      posts.filter((post) => post.category?.slug && categorySlug === post.category?.slug),
+      posts.filter((post) => post.category?.slug && categorySlug === post.category.slug),
       {
         params: { category: categorySlug, blog: CATEGORY_BASE || undefined },
         pageSize: blogPostsPerPage,
@@ -222,11 +223,14 @@ export const getStaticPathsBlogTag = async ({ paginate }: { paginate: PaginateFu
   if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
 
   const posts = await fetchPosts();
-  const tags = {};
-  posts.map((post) => {
+  const tags: Record<string, Taxonomy> = {};
+
+  posts.forEach((post) => {
     if (Array.isArray(post.tags)) {
-      post.tags.map((tag) => {
-        tags[tag?.slug] = tag;
+      post.tags.forEach((tag) => {
+        if (tag?.slug) {
+          tags[tag.slug] = tag;
+        }
       });
     }
   });
