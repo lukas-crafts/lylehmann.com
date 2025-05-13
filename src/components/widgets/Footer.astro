@@ -26,25 +26,23 @@ export interface Props {
 const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
-<footer class:list={[
-  { dark: theme === 'dark' },
-  'relative z-10 border-t border-gray-200 dark:border-slate-800 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100',
-  'motion-safe:opacity-100 !animate-none',
-  'print:static print:opacity-100' // Ensure visibility in print mode
-]}>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 motion-safe:opacity-100 !animate-none">
-    <nav class="grid grid-cols-12 gap-4 sm:gap-8">
+<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
+  <div class="absolute inset-0 pointer-events-none dark:bg-dark" aria-hidden="true"></div>
+  <div
+    class="relative px-4 mx-auto max-w-7xl sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+  >
+    <div class="grid grid-cols-12 gap-4 py-8 gap-y-8 sm:gap-8 md:py-12">
       <div class="col-span-12 lg:col-span-4">
         <div class="mb-2">
           <a class="inline-block text-xl font-bold" href={getHomePermalink()}>{SITE?.name}</a>
         </div>
-        <div class="text-sm text-gray-600 dark:text-gray-400 flex gap-1">
+        <div class="flex gap-1 text-sm text-muted">
           {
             secondaryLinks.map(({ text, href }, index) => (
               <>
                 {index !== 0 ? ' · ' : ''}
                 <a
-                  class="hover:text-gray-700 dark:hover:text-gray-300 transition duration-150 ease-in-out hover:underline"
+                  class="transition duration-150 ease-in-out text-muted hover:text-gray-700 dark:text-gray-400 hover:underline"
                   href={href}
                   set:html={text}
                 />
@@ -58,11 +56,11 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           <div class="col-span-6 md:col-span-3 lg:col-span-2">
             <div class="mb-2 font-medium dark:text-gray-300">{title}</div>
             {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="text-sm space-y-2">
+              <ul class="text-sm">
                 {links.map(({ text, href, ariaLabel }) => (
-                  <li>
+                  <li class="mb-2">
                     <a
-                      class="text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition duration-150 ease-in-out hover:underline"
+                      class="transition duration-150 ease-in-out text-muted hover:text-gray-700 hover:underline dark:text-gray-400"
                       href={href}
                       aria-label={ariaLabel}
                     >
@@ -75,24 +73,32 @@ const { socialLinks = [], secondaryLinks = [], links = [], footNote = '', theme 
           </div>
         ))
       }
-    </nav>
-    <div class="mt-8 md:flex md:items-center md:justify-between">
-      <div class="flex space-x-4">
-        {
-          socialLinks?.map(({ ariaLabel, href, icon }) => (
-            <a
-              class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary rounded-lg p-2.5 transition duration-150 ease-in-out"
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={ariaLabel}
-            >
-              {icon && <Icon name={icon} class="w-5 h-5" />}
-            </a>
-          ))
-        }
+    </div>
+    <div class="py-6 md:flex md:items-center md:justify-between md:py-8">
+      {
+        socialLinks?.length ? (
+          <ul class="flex mb-4 -ml-2 md:order-1 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
+            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
+              <li>
+                <a
+                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+                  aria-label={ariaLabel}
+                  href={href}
+                >
+                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                  <Fragment set:html={text} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          ''
+        )
+      }
+
+      <div class="mr-4 text-sm dark:text-muted">
+        <Fragment set:html={footNote} />
       </div>
-      <div class="mt-4 md:mt-0 text-sm text-gray-600 dark:text-gray-400" set:html={footNote} />
     </div>
   </div>
 </footer>

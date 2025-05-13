@@ -6,13 +6,10 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"],
-      "@/*": ["src/*"],
-      "~/types": ["src/types.d.ts"]
+      "~/*": ["src/*"]
     },
-    "types": ["astro/client"],
-    "typeRoots": ["./node_modules/@types", "./src"]
+    "types": ["astro/client"]
   },
-  "include": [".astro/types.d.ts", "src/**/*", "src/**/*.d.ts"],
+  "include": [".astro/types.d.ts", "src/**/*"],
   "exclude": ["dist/"]
 }
