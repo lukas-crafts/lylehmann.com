@@ -1,0 +1,75 @@
+{
+  "css.customData": ["./vscode.tailwind.json"],
+  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
+  "files.associations": {
+    "*.mdx": "markdown"
+  },
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "yaml.schemas": {
+    "./.vscode/astrowind/config-schema.json": "/src/config.yaml"
+  },
+  "eslint.useFlatConfig": true,
+  "terminal.explorerKind": "external",
+  "terminal.sourceControlRepositoriesKind": "external",
+  "cSpell.words": [
+    "Bildungsakademie",
+    "brushbuddy",
+    "cimdata",
+    "Cimdata",
+    "focusbuddy",
+    "github",
+    "Heilbad",
+    "Heiligenstadt",
+    "Hochschule",
+    "impressum",
+    "Impressum",
+    "Innodata",
+    "Jüdische",
+    "Karls",
+    "Kerem",
+    "linkedin",
+    "Linkedin",
+    "metacafe",
+    "neurodivergent",
+    "neurodiverse",
+    "neurodiversity",
+    "Neurodiversity",
+    "omnichannel",
+    "Porfolio",
+    "Ruprecht",
+    "saas",
+    "Studien",
+    "tabler",
+    "Universität",
+    "WBSCS",
+    "wireframing",
+    "Yair"
+  ],
+  "cssvar.files": ["/src/assets/styles/*.css"],
+  "cssvar.extensions": [
+    "css",
+    "scss",
+    "sass",
+    "less",
+    "postcss",
+    "astro",
+    "vue",
+    "svelte",
+    "astro",
+    "ts",
+    "tsx",
+    "js",
+    "jsx"
+  ],
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:lylehmann.com}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
+    }
+  }
+}

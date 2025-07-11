@@ -1,0 +1,269 @@
+---
+publishDate: 2024-09-06T00:00:00Z
+title: BrushBuddy - Simplifying Oral Care Routines
+excerpt: Explore my inclusive design-driven app that aids neurodivergent individuals in improving oral hygiene through gamification, music, and routines.
+image: ~/assets/images/BrushingBuddy-blog-hero.png
+ogImage: ~/assets/images/BrushingBuddy-blog-hero.png
+cover: ~/assets/images/BrushingBuddy-blog-hero.png
+category: Case Studies
+tags:
+  - UX Design
+  - Accessibility
+  - Mobile Apps
+metadata:
+  canonical: https://www.lylehmann.com/portfolio/brushbuddy-case-study
+---
+
+import DListItem from '~/components/ui/DListItem.astro';
+import ToggleTheme from '~/components/common/ToggleTheme.astro';
+import Hero from '~/components/widgets/Hero-blogPost.astro';
+import HeroImage from '~/assets/images/BrushingBuddy-blog-hero.png';
+import Note from '~/components/widgets/Note.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Steps2 from '~/components/widgets/Steps2.astro';
+import Features from '~/components/widgets/Features.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+
+## Overview
+
+**BrushBuddy** is a mobile app designed to simplify oral care routines for neurodivergent individuals. By integrating gamification, music, and accessible design principles, the app helps users develop and maintain healthier brushing habits in a fun, stress-free way.
+
+This case study explores my journey designing BrushBuddy, from identifying the challenges of oral hygiene for neurodivergent individuals to delivering a user-centered solution.
+
+| **Role**       | **Details**                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| **Me**         | UX/UI Designer leading the project end-to-end.                                   |
+| **Users**      | Neurodivergent individuals, particularly those with ADHD.                        |
+| **Peers**      | User testers who provided feedback throughout the design process.                |
+| **Timeframe**  | August 26 - September 6, 2024.                                                   |
+| **Tools Used** | Figma, Google Forms (for surveys), Slack (for interviews and usability testing). |
+
+---
+
+<Hero
+  isReversed
+  title="Designing for a Daily Challenge"
+  items={[
+    {
+      title: 'Inspired by Everyday Struggles',
+      description:
+        'Oral hygiene is a universal task, yet many struggle with it due to distraction, boredom, or a lack of structure. For neurodivergent individuals, these challenges can be even greater.',
+    },
+    {
+      title: 'Rooted in Personal Stories',
+      description:
+        'Through interviews with ADHD community members, I uncovered the barriers they face, such as difficulty maintaining focus and lack of motivation. These insights informed every aspect of BrushBuddy.',
+    },
+    {
+      title: 'Empathy-Driven Design',
+      description:
+        'Combining user feedback with research into gamification and habit-building psychology, I designed BrushBuddy to make brushing both effective and enjoyable.',
+    },
+  ]}
+   image={{
+      src: 'https://images.pexels.com/photos/8154395/pexels-photo-8154395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      alt: 'A young woman having challenges with staying focused while brushing her teeth.',
+    }}
+>
+    <Fragment slot="subtitle">
+      Oral care routines may seem simple, but they can be a source of stress for neurodivergent individuals. BrushBuddy transforms brushing into a structured, engaging, and rewarding activity.
+    </Fragment>
+
+ <Fragment slot="bg">
+      <div class="absolute inset-0 bg-[var(--color-hero-bg-light)] dark:bg-[var(--color-hero-bg-dark)]"></div>
+    </Fragment>
+
+</Hero>
+
+<Features
+  title="Key Challenges Identified"
+  items={[
+    {
+      title: 'Difficulty Staying Focused',
+      description: 'Maintaining focus for the recommended two minutes was a common struggle.',
+      icon: 'tabler:zoom-question',
+      color: 'red',
+    },
+    {
+      title: 'Lack of Motivation',
+      description: 'Many users found brushing boring and uninspiring.',
+      icon: 'tabler:zzz',
+      color: 'orange',
+    },
+    {
+      title: 'Overwhelming Complexity',
+      description: 'Existing apps were often cluttered or too complex to use consistently.',
+      icon: 'tabler:brain',
+      color: 'yellow',
+    },
+  ]}
+/>
+
+<Stats
+  title="What Users Needed Most"
+  stats={[
+    { title: 'Simple Reminders & Routines', amount: '80%' },
+    { title: 'Gamification & Rewards', amount: '60%' },
+    { title: 'Music Integration' },
+  ]}
+/>
+
+---
+
+<Steps
+  title="The Journey"
+  subtitle="Building BrushBuddy was guided by the Design Thinking Methodology."
+  items={[
+    {
+      title: 'Empathize',
+      description: `
+        - Conducted interviews with neurodivergent individuals to map their challenges. <br>
+        - Surveyed users to identify pain points and explore habit-forming techniques.
+      `,
+      icon: 'tabler:user-heart',
+    },
+    {
+      title: 'Define',
+      description: `
+        - Created personas like "The Overwhelmed User" to distill diverse user needs. <br>
+        - Framed problem statements to focus on simplicity, engagement, and accessibility.
+      `,
+      icon: 'tabler:pencil',
+    },
+    {
+      title: 'Ideate',
+      description: `
+        - Designed gamification features, like streaks and rewards, to motivate users. <br>
+        - Proposed music playlists to make brushing more enjoyable.
+      `,
+      icon: 'tabler:bulb',
+    },
+    {
+      title: 'Prototype & Test',
+      description: `
+        - Developed low to high-fidelity wireframes. <br>
+        - Iteratively tested designs with ADHD community members to refine functionality.
+      `,
+      icon: 'tabler:lego',
+    },
+  ]}
+/>
+
+---
+
+<Features3
+  title="Defining Moments"
+  subtitle="Key insights that shaped the BrushBuddy experience"
+  highlight="Empathy at the Core"
+  image={{
+    src: 'https://images.pexels.com/photos/6627277/pexels-photo-6627277.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    alt: 'A dentist showing a patient how to brush their teeth properly.',
+  }}
+  items={[
+    {
+      title: 'Customization for Neurodivergent Users',
+      description:
+        'User feedback emphasized the need for flexibility, leading to personalized reminders, a simplified UI, and adaptable gamification features.',
+      icon: 'tabler:settings',
+      color: 'success',
+    },
+    {
+      title: 'Music as a Motivator',
+      description:
+        'Curated playlists transformed brushing into an engaging activity, with options for calming or upbeat tracks to suit user preferences.',
+      icon: 'tabler:playlist',
+      color: 'primary',
+    },
+    {
+      title: 'Simplicity Over Complexity',
+      description:
+        'A minimalist design reduced cognitive load, with clear instructions and intuitive navigation replacing cluttered, overwhelming interfaces.',
+      icon: 'tabler:artboard',
+      color: 'secondary',
+    },
+  ]}
+/>
+
+---
+
+<Features2
+  title="Key Features"
+  subtitle="Designing for Simplicity and Engagement"
+  columns={2}
+  items={[
+    {
+      title: 'Gamified Streaks',
+      description: 'Encourage consistency with rewards for regular brushing.',
+      icon: 'tabler:list-check',
+    },
+    {
+      title: 'Customizable Reminders',
+      description: 'Help users stay on track with personalized notifications.',
+      icon: 'tabler:bell-ringing',
+    },
+    {
+      title: 'Music Playlists',
+      description: 'Add enjoyment with calming or upbeat tracks tailored to brushing.',
+      icon: 'tabler:headphones',
+    },
+    {
+      title: 'Simple UI',
+      description: 'Minimalist design ensures ease of use for all age groups.',
+      icon: 'tabler:artboard',
+    },
+  ]}
+/>
+
+---
+
+<Steps
+  id="roadmap"
+  title="What's Next?"
+  subtitle="Future Improvements for BrushBuddy"
+  items={[
+    {
+      title: 'Enhanced Gamification',
+      description: 'Adding more badges and social sharing to boost user motivation.',
+      icon: 'tabler:device-gamepad-2',
+      classes: { container: 'bg-primary-50 dark:bg-gray-800' },
+    },
+    {
+      title: 'Expanded Playlists',
+      description: 'Including more genres and ambient soundscapes.',
+      icon: 'tabler:playlist',
+      classes: { container: 'bg-primary-100 dark:bg-gray-700' },
+    },
+    {
+      title: 'Family Features',
+      description: 'Creating shared progress trackers for families to encourage group participation.',
+      icon: 'tabler:users-group',
+      classes: { container: 'bg-primary-200 dark:bg-gray-600' },
+    },
+  ]}
+/>
+
+---
+
+<FAQs
+  title="What I Learned"
+  subtitle="Key takeaways from the BrushBuddy project"
+  items={[
+    {
+      title: 'What did this project teach you about accessibility?',
+      description: 'Simplifying design is critical for reducing barriers and creating inclusive tools.',
+    },
+    {
+      title: 'How did gamification impact user engagement?',
+      description:
+        'Gamification proved to be a powerful motivator, transforming a mundane task into a rewarding experience.',
+    },
+    {
+      title: 'What does empathy mean in this project?',
+      description:
+        'Empathy means understanding users deeply, recognizing their pain points, and delivering meaningful solutions.',
+    },
+  ]}
+/>

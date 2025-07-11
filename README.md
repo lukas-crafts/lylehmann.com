@@ -56,10 +56,10 @@ Clone this theme locally and run any of the following commands in your terminal:
 
 | Command           | Action                                       |
 | :---------------- | :------------------------------------------- |
-| `npm install`     | Installs dependencies                        |
-| `npm run dev`     | Starts local dev server at `localhost:4321`  |
-| `npm run build`   | Build your production site to `./dist/`      |
-| `npm run preview` | Preview your build locally, before deploying |
+| `pnpm install`     | Installs dependencies                        |
+| `pnpm run dev`     | Starts local dev server at `localhost:4321`  |
+| `pnpm run build`   | Build your production site to `./dist/`      |
+| `pnpm run preview` | Preview your build locally, before deploying |
 
 ## Accessible Astro projects
 
@@ -95,9 +95,9 @@ We want to express our heartfelt gratitude to everyone who contributes to making
 - **The web community** for embracing and promoting web accessibility
 - **You, the developer** for choosing to make your projects more accessible
 
-<a href="https://github.com/incluud/accessible-astro-starter/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=incluud/accessible-astro-starter" />
-</a><br /><br />
+[Contributors](https://github.com/incluud/accessible-astro-starter/graphs/contributors)
+
+![Contributors to Accessible Astro Starter](https://contrib.rocks/image?repo=incluud/accessible-astro-starter)
 
 Together, we're not just building documentation or components – we're creating a more inclusive and accessible web for everyone. Every contribution, whether it's code, documentation, bug reports, or feedback, helps move us closer to this goal. ✨
 

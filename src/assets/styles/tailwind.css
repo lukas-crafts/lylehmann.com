@@ -1,0 +1,246 @@
+@import './design-tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Stärkere Spezifität für Aufzählungszeichen */
+  ul:not([class]) > li::marker {
+    color: var(--color-brand-primary);
+  }
+
+  /* SVG Icons in Primärfarbe */
+  svg {
+    stroke: var(--color-brand-primary) !important;
+    color: var(--color-brand-primary) !important;
+    fill: var(--color-brand-primary) !important;
+  }
+}
+
+@layer utilities {
+  /* Eigene Hover-Farbe für Links */
+  .text-primary-hover {
+    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
+  }
+  
+  /* Page Background Utilities */
+  .bg-page {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-body);
+  }
+  
+  .dark .bg-page {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-body);
+  }
+
+  /* Text Color Utilities */
+  .text-page {
+    color: var(--color-text-body);
+  }
+  
+  .dark .text-page {
+    color: var(--color-text-body);
+  }
+
+  .text-muted {
+    color: var(--color-text-muted);
+  }
+  
+  .dark .text-muted {
+    color: var(--color-text-muted);
+  }
+
+  /* Utility-Klasse für Primary Text in Light und Dark Mode */
+  .text-primary {
+    color: var(--color-brand-primary) !important;
+  }
+
+  /* Border Utilities */
+  .border-default {
+    border-color: var(--color-border-default);
+  }
+  
+  .dark .border-default {
+    border-color: var(--color-border-default);
+  }
+
+  /* Sticky Header Styles für Light Mode */
+  header[data-aw-sticky-header] {
+    @apply shadow-md;
+    background-color: hsla(var(--color-bg-default-hsl), 0.95);
+  }
+
+  /* Sticky Header Styles für Dark Mode */
+  /* Stelle sicher, dass du --color-bg-default-dark-hsl in deinem globalen CSS definierst, z.B.: 
+     :root {
+       --color-bg-default-dark-hsl: 210, 16%, 20%;
+     }
+  */
+  .dark header[data-aw-sticky-header] {
+    background-color: hsla(var(--color-bg-default-dark-hsl, 210, 16%, 20%), 0.95);
+  }
+}
+
+@layer components {
+  /* Link Component: nutzt die in design-tokens.css definierten Interaktionsfarben */
+  .link,
+  a {
+    @apply inline-block font-medium transition-colors duration-200;
+    color: var(--color-brand-primary);
+  }
+  .link:hover,
+  a:hover {
+    color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
+  }
+
+  /* Button Components with Dark Mode */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-medium text-center text-base leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply font-semibold btn;
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    background-color: var(--color-interactive-primary);
+    border-color: var(--color-interactive-primary);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-interactive-primary-hover);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+  }
+
+  .dark .btn-primary {
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    background-color: var(--color-interactive-primary);
+    border-color: var(--color-interactive-primary);
+  }
+
+  .dark .btn-primary:hover {
+    background-color: var(--color-interactive-primary-hover);
+    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+  }
+
+  .btn-secondary {
+    @apply btn;
+    color: var(--color-text-body);
+    background-color: var(--color-interactive-secondary);
+    border-color: var(--color-border-default);
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--color-interactive-secondary-hover);
+    color: var(--color-text-body-hover);
+  }
+
+  .dark .btn-secondary {
+    color: var(--color-text-body);
+    background-color: var(--color-interactive-secondary);
+    border-color: var(--color-border-default);
+  }
+
+  .dark .btn-secondary:hover {
+    background-color: var(--color-interactive-secondary-hover);
+    color: var(--color-text-body-hover);
+  }
+
+  .btn-tertiary {
+    @apply border-none shadow-none btn;
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-subtle);
+  }
+
+  .btn-tertiary:hover {
+    background-color: var(--color-bg-muted);
+  }
+
+  .dark .btn-tertiary {
+    color: var(--color-text-muted);
+    background-color: var(--color-bg-subtle);
+  }
+
+  .dark .btn-tertiary:hover {
+    background-color: var(--color-bg-muted);
+  }
+
+  /* State and Contextual Components */
+  .badge-success {
+    background-color: var(--color-state-success);
+    color: var(--color-text-inverse);
+  }
+
+  .dark .badge-success {
+    background-color: var(--color-state-success);
+    color: var(--color-text-inverse);
+  }
+
+  .badge-warning {
+    background-color: var(--color-state-warning);
+    color: var(--color-text-body);
+  }
+
+  .dark .badge-warning {
+    background-color: var(--color-state-warning);
+    color: var(--color-text-body);
+  }
+
+  .badge-error {
+    background-color: var(--color-state-error);
+    color: var(--color-text-inverse);
+  }
+
+  .dark .badge-error {
+    background-color: var(--color-state-error);
+    color: var(--color-text-inverse);
+  }
+
+  .badge-info {
+    background-color: var(--color-state-info);
+    color: var(--color-text-inverse);
+  }
+
+  .dark .badge-info {
+    background-color: var(--color-state-info);
+    color: var(--color-text-inverse);
+  }
+
+  .active {
+    @apply font-semibold text-black dark:text-white;
+  }
+
+  .hover-effect {
+    @apply transition-colors duration-200;
+  }
+
+  .hover-effect:hover {
+    @apply text-primary-hover; /* Apply the desired hover color */
+  }
+
+  .bg-hero-light {
+    background-color: var(--color-hero-bg-light);
+  }
+
+  .dark .bg-hero-dark {
+    background-color: var(--color-hero-bg-dark);
+  }
+}
+
+/* Global Dark Mode Selections */
+:root {
+  color-scheme: light dark;
+
+  --color-bg-default-hsl: 210, 16%, 92%;
+}
+
+/* Optional: Smooth Dark Mode Transition */
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.dark) {
+    transition: color 300ms, background-color 300ms;
+  }
+  
+  html.dark {
+    transition: color 300ms, background-color 300ms;
+  }
+}
