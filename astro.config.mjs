@@ -16,11 +16,7 @@ export default defineConfig({
 		icon(),
 		compress(),
 		sentry({
-			dsn: "https://8b57e87cb872bb5986980f35e78830e1@o4509649548935168.ingest.de.sentry.io/4509649551097936",
-			tracesSampleRate: 0,
-			replaysSessionSampleRate: 0,
-			replaysOnErrorSampleRate: 0,
-			sendDefaultPii: true,
+			dsn: process.env.SENTRY_DSN,
 			sourceMapsUploadOptions: {
 				project: "javascript-astro",
 				authToken: process.env.SENTRY_AUTH_TOKEN,
