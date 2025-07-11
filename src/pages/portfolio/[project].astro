@@ -1,47 +1,47 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import PageHeader from '@components/PageHeader.astro'
-import SocialShares from '@components/SocialShares.astro'
-import { getCollection, render } from 'astro:content'
-import type { CollectionEntry } from 'astro:content'
+import { getCollection, render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import PageHeader from "@components/PageHeader.astro";
+import SocialShares from "@components/SocialShares.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection('projects')
+	const projects = await getCollection("projects");
 
-  const projectImages = [
-    { src: '/projects/project-image-1.png' },
-    { src: '/projects/project-image-2.png' },
-    { src: '/projects/project-image-3.png' },
-    { src: '/projects/project-image-4.png' },
-    { src: '/projects/project-image-5.png' },
-    { src: '/projects/project-image-6.png' },
-  ]
+	const projectImages = [
+		{ src: "/projects/project-image-1.png" },
+		{ src: "/projects/project-image-2.png" },
+		{ src: "/projects/project-image-3.png" },
+		{ src: "/projects/project-image-4.png" },
+		{ src: "/projects/project-image-5.png" },
+		{ src: "/projects/project-image-6.png" },
+	];
 
-  return projects.map((project, index) => {
-    const projectWithImage = {
-      ...project,
-      featuredImage: projectImages[index % projectImages.length].src,
-    }
+	return projects.map((project, index) => {
+		const projectWithImage = {
+			...project,
+			featuredImage: projectImages[index % projectImages.length].src,
+		};
 
-    return {
-      params: { project: project.id },
-      props: { project: projectWithImage },
-    }
-  })
+		return {
+			params: { project: project.id },
+			props: { project: projectWithImage },
+		};
+	});
 }
 
 interface Props {
-  project: CollectionEntry<'projects'> & { featuredImage: string }
+	project: CollectionEntry<"projects"> & { featuredImage: string };
 }
 
-const { project } = Astro.props
-const { Content } = await render(project)
+const { project } = Astro.props;
+const { Content } = await render(project);
 
 const author = {
-  name: project.data.author,
-  image: '/projects/project-image-1.png',
-  bio: 'Project Creator',
-}
+	name: project.data.author,
+	image: "/projects/project-image-1.png",
+	bio: "Project Creator",
+};
 ---
 
 <DefaultLayout title={project.data.title} description={project.data.description} url={project.data.title}>

@@ -1,58 +1,71 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import PageHeader from '@components/PageHeader.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import { getCollection } from 'astro:content'
-import type { GetStaticPaths, Page } from 'astro'
-import type { CollectionEntry } from 'astro:content'
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import PageHeader from "@components/PageHeader.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import { Card, Notification, Pagination } from "accessible-astro-components";
+import type { GetStaticPaths, Page } from "astro";
 
 // Import images directly for optimization
-import projectImage1 from '@assets/images/projects/project-image-1.png'
-import projectImage2 from '@assets/images/projects/project-image-2.png'
-import projectImage3 from '@assets/images/projects/project-image-3.png'
-import projectImage4 from '@assets/images/projects/project-image-4.png'
-import projectImage5 from '@assets/images/projects/project-image-5.png'
-import projectImage6 from '@assets/images/projects/project-image-6.png'
+import projectImage1 from "@assets/images/projects/project-image-1.png";
+import projectImage2 from "@assets/images/projects/project-image-2.png";
+import projectImage3 from "@assets/images/projects/project-image-3.png";
+import projectImage4 from "@assets/images/projects/project-image-4.png";
+import projectImage5 from "@assets/images/projects/project-image-5.png";
+import projectImage6 from "@assets/images/projects/project-image-6.png";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = await getCollection('projects')
+	const projects = await getCollection("projects");
 
-  const projectImages = [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5, projectImage6]
+	const projectImages = [
+		projectImage1,
+		projectImage2,
+		projectImage3,
+		projectImage4,
+		projectImage5,
+		projectImage6,
+	];
 
-  const projectsWithImages = projects.map((project, index) => {
-    return {
-      ...project,
-      featuredImage: projectImages[index % projectImages.length],
-    }
-  })
+	const projectsWithImages = projects.map((project, index) => {
+		return {
+			...project,
+			featuredImage: projectImages[index % projectImages.length],
+		};
+	});
 
-  return paginate(projectsWithImages, { pageSize: 6 })
-}) satisfies GetStaticPaths
+	return paginate(projectsWithImages, { pageSize: 6 });
+}) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<'projects'> & { featuredImage: any }>
+	page: Page<CollectionEntry<"projects"> & { featuredImage: any }>;
 }
 
-const { page } = Astro.props
+const { page } = Astro.props;
 
 // Prepare pagination props
-const currentPage = page.currentPage
-const totalPages = Math.ceil(page.total / page.size)
+const currentPage = page.currentPage;
+const totalPages = Math.ceil(page.total / page.size);
 ---
 
 <DefaultLayout
   title="Portfolio"
-  description="A showcase of projects built with Astro Content Collections, demonstrating dynamic content management."
+  description="My portfolio showcases a range of work in UX design, web engineering, and accessible front-end development Each project highlights my design process, technical implementation, and how I solve real-world problems with clarity and structure."
 >
   <PageHeader
     title="Portfolio"
-    subtitle='A showcase of projects built with Astro Content Collections, demonstrating dynamic content management and organization. Learn more about <a href="https://docs.astro.build/en/guides/content-collections/">Astro Content Collections</a> in the official documentation.'
+    subtitle='My portfolio showcases a range of work in UX design, web engineering, and accessible front-end development. Each project highlights my design process, technical implementation, and how I solve real-world problems with clarity and structure.'
     bgType="bordered"
   />
   <section class="my-12">
     <div class="container">
+            <Notification type="warning" role="warning">
+    <p>
+      This portfolio is a work in progress. I am currently updating it with new projects and case studies. Stay tuned for more!
+    </p>
+  </Notification>
+  <br>
       <p class="text-sm"><em>Project {page.start + 1} through {page.end + 1} of {page.total} total projects</em></p>
-      <ul class="my-3 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul class="gap-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-3">
         {
           page.data.map((project) => (
             <li>
@@ -68,7 +81,7 @@ const totalPages = Math.ceil(page.total / page.size)
           ))
         }
       </ul>
-      <div class="mt-12 grid place-content-center">
+      <div class="place-content-center grid mt-12">
         <Pagination
           firstPage={page.url.prev ? '/portfolio' : null}
           previousPage={page.url.prev ? page.url.prev : null}

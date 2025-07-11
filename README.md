@@ -50,6 +50,18 @@ A ready-to-use, SEO and accessibility-focused Astro starter template. Built with
 - Accessible button and hyperlink styling with clear focus states
 - Styled `<kbd>` element for keyboard shortcut documentation
 
+---
+
+## Entwicklung & Codequalität
+
+Dieses Projekt nutzt [Biome](https://biomejs.dev/) als einzigen Formatter und Linter. 
+
+- Installiere die VS Code Extensions `biomejs.biome` und `astro-build.astro-vscode` (werden automatisch empfohlen)
+- Keine weiteren Formatter oder Linter (wie Prettier, ESLint, Stylelint) nötig
+- Die Formatierung und Codequalität werden beim Speichern automatisch angewendet
+
+---
+
 ## Getting started
 
 Clone this theme locally and run any of the following commands in your terminal:

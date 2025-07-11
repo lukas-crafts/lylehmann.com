@@ -1,7 +1,7 @@
 ---
-import Navigation from '../components/Navigation.astro'
-import { DarkMode, SkipLink } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+import { DarkMode, SkipLink } from "accessible-astro-components";
+import { Icon } from "astro-icon/components";
+import Navigation from "../components/Navigation.astro";
 
 /**
  * Header Component
@@ -12,52 +12,32 @@ import { Icon } from 'astro-icon/components'
 
 <header>
   <SkipLink />
-  <Navigation>
+<Navigation>
     <li class="menu-item">
       <a href="/">Home</a>
     </li>
     <li class="menu-item">
-      <a href="/blog/">Blog</a>
+      <a href="/process/">Process</a>
     </li>
     <li class="menu-item">
       <a href="/portfolio/">Portfolio</a>
     </li>
-    <li class="menu-item has-dropdown">
-      <button aria-haspopup="true" aria-expanded="false">
-        Theme features
-        <Icon name="lucide:chevron-down" size="32" />
-      </button>
-      <ul class="dropdown-menu">
-        <li class="submenu-item">
-          <a href="/accessibility-statement">Accessibility statement</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/accessible-components">Accessible components</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/color-contrast-checker">Color contrast checker</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/markdown-page/">Markdown page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/mdx-page/">MDX page</a>
-        </li>
-        <li class="submenu-item">
-          <a href="/404-page">404 page</a>
-        </li>
-      </ul>
+        <li class="menu-item">
+      <a href="/blog/">Blog</a>
+    </li>
+    <li class="menu-item">
+      <a href="/impressum">Contact</a>
     </li>
     <li class="menu-item highlight">
-      <a href="https://accessible-astro.incluud.dev/">Docs </a>
+      <a href="https://accessible-astro.incluud.dev/">CV</a>
     </li>
-    <li class="menu-item type-icon animate-rotate">
-      <a href="https://github.com/markteekman/accessible-astro-starter">
-        <Icon name="lucide:github" />
-        <span class="sr-only">Go to the GitHub page</span>
+    <li class="animate-rotate menu-item type-icon">
+      <a href="https://www.linkedin.com/in/lylehmann/" target="_blank">
+        <Icon name="lucide:linkedin" />
+        <span class="sr-only">Go to the LinkedIn page</span>
       </a>
     </li>
-    <li class="menu-item type-icon animate-rotate">
+    <li class="animate-rotate menu-item type-icon">
       <DarkMode>
         <Icon name="lucide:moon" slot="light" />
         <Icon name="lucide:sun" slot="dark" />

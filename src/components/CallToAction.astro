@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * CallToAction Component
@@ -7,34 +7,39 @@ import { Icon } from 'astro-icon/components'
  * @description A prominent call-to-action section with a title and link
  */
 interface Props {
-  /**
-   * The title text to display
-   * @default "Get this theme on GitHub"
-   */
-  title?: string
-  /**
-   * The URL the button should link to
-   * @default "https://github.com/incluud/accessible-astro-starter"
-   */
-  link?: string
-  /**
-   * The text to display on the button
-   * @default "Get Started"
-   */
-  linkText?: string
+	/**
+	 * The title text to display
+	 * @default "Get this theme on GitHub"
+	 */
+	title?: string;
+	/**
+	 * The URL the button should link to
+	 * @default "https://github.com/incluud/accessible-astro-starter"
+	 */
+	link?: string;
+	/**
+	 * The text to display on the button
+	 * @default "Get Started"
+	 */
+	linkText?: string;
 }
 
 const {
-  title = 'Get this theme on GitHub',
-  link = 'https://github.com/incluud/accessible-astro-starter',
-  linkText = 'Use this theme',
-} = Astro.props
+	title = "Hire Me",
+	link = "/impressum",
+	linkText = "Contact Me",
+} = Astro.props;
 ---
 
 <div class="container">
-  <div class="call-to-action mt-24 mb-32 flex flex-col items-center gap-12 rounded-xl px-12 py-20 md:px-24">
-    <h2 class="text-center text-3xl md:text-6xl">{title}</h2>
-    <a href={link} class="text-center text-2xl">
+  <div class="flex flex-col items-center gap-12 call-to-action mt-24 mb-32 px-12 md:px-24 py-20 rounded-xl">
+    <h2 class="text-3xl md:text-6xl text-center">{title}</h2>
+    <p class="text-lg md:text-2xl text-center">
+      I'm actively seeking roles as a Webmaster, UX Engineer, or UX Product Designer,
+      where I can leverage my skills in web development and user experience design to create accessible and engaging digital experiences.
+      If you're looking for a passionate and dedicated professional to join your team, I'd love to hear from you!
+    </p>
+    <a href={link} class="text-2xl text-center">
       {linkText}
       <Icon name="lucide:arrow-right" />
     </a>

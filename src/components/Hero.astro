@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
 /**
  * Hero Component
@@ -8,30 +8,29 @@ import { Image } from 'astro:assets'
  * @description A component that displays a hero section with a title, description, and image
  */
 interface Props {
-  /**
-   * The source URL for the image
-   */
-  src?: string
+	/**
+	 * The source URL for the image
+	 */
+	src?: string;
 }
 
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
+const { src = "/lukasyairlehmann-hero-img.jpeg" }: Props = Astro.props;
 ---
 
-<section class="hero my-24">
+<section class="my-1 hero">
   <div class="container">
-    <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
-      <div class="flex flex-col items-center gap-8 md:items-start">
-        <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-          <slot><span class="text-gradient">Accessible</span> Starter for Astro</slot>
+    <div class="items-center gap-24 grid grid-cols-1 lg:grid-cols-2">
+      <div class="flex flex-col items-center md:items-start gap-8">
+        <h1 class="text-6xl lg:text-8xl md:text-left text-center">
+          <slot><span class="text-gradient">Web & UX Engineer</span> / Designer</slot>
         </h1>
-        <div class="flex flex-col gap-3 min-[500px]:flex-row">
-          <a class="button has-icon" href="https://github.com/incluud/accessible-astro-starter">
-            <Icon name="lucide:star" />
-            Star on GitHub
-          </a>
-          <a class="button has-icon color-secondary" href="https://accessible-astro.incluud.dev/">
-            <Icon name="lucide:bookmark" />
-            Read the docs
+        <p class="text-2xl md:text-left text-center">
+          I combine technical know-how, a user-centered approach, and a strong visual sensibility to build accessible, scalable websites and digital tools.
+        </p>
+        <div class="flex min-[500px]:flex-row flex-col gap-3">
+          <a class="button has-icon" href="/portfolio">
+            <Icon name="lucide:rocket" />
+            Explore My Work
           </a>
         </div>
       </div>

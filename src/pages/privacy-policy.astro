@@ -1,0 +1,391 @@
+---
+import { Accordion, AccordionItem } from "accessible-astro-components";
+import { Icon } from "astro-icon/components";
+import PageHeader from "../components/PageHeader.astro";
+import DefaultLayout from "../layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="Privacy Policy">
+	<section class="my-12">
+		<PageHeader
+			title="Privacy Policy"
+			subtitle="The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data that can be used to identify you personally. Detailed information on data protection can be found in the full privacy policy below."
+			bgType="bordered"
+		/>
+	</section>
+	<section class="mt-32 mb-12">
+		<div class="container">
+			<div class="gap-32 grid grid-cols-1 md:grid-cols-2">
+				<div class="space-content">
+					<h2>Data Collection on This Website</h2>
+					<Accordion>
+						<AccordionItem title="Who is responsible for data collection on this website?">
+							<p>
+								Data processing on this website is carried out by the website operator. Contact details can be found in
+								the section "Information on the Responsible Party" in this privacy policy.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="How do we collect your data?">
+							<p>
+								Some data is collected when you provide it to us-for example, data entered into a contact form. Other
+								data is collected automatically or with your consent when you visit the website. This includes technical
+								data (e.g., browser type, operating system, or time of page access). This data is collected
+								automatically as soon as you enter the website.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="What do we use your data for?">
+							<p>
+								Some of the data is collected to ensure the website functions without errors. Other data may be used to
+								analyze user behavior. If the website allows contracts to be initiated or concluded, the provided data
+								may be used for contract offers, orders, or other service requests.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="What rights do you have regarding your data?">
+							<p>
+								You have the right to receive information about the origin, recipients, and purpose of your stored
+								personal data at any time, free of charge. You also have the right to request correction or deletion of
+								your data. If you have given consent to data processing, you can revoke this at any time for the future.
+								You also have the right, under certain conditions, to request the restriction of processing your
+								personal data. Additionally, you may lodge a complaint with the relevant supervisory authority.
+							</p>
+							<br />
+							<p>You can contact us at any time with questions about data protection.</p>
+						</AccordionItem>
+						<AccordionItem title="Analytics and Third-Party Tools">
+							<p>
+								Your browsing behavior may be analyzed when visiting this website, mainly through analytics programs.
+								For details, please refer to the full privacy policy below.
+							</p>
+						</AccordionItem>
+					</Accordion>
+				</div>
+				<div class="space-content">
+					<h2>Hosting</h2>
+					<Accordion>
+						<AccordionItem name="exclusive" title="External Hosting" variant="chevron">
+							<p>
+								This website is hosted by an external service provider (host). The personal data collected on this
+								website is stored on the host's servers. This may include IP addresses, contact requests, metadata and
+								communications, contract data, contact details, names, website access, and other data generated via the
+								website.
+							</p>
+							<br />
+							<p>
+								The host is used for the purpose of fulfilling contracts with our potential and existing customers (Art.
+								6(1)(b) GDPR) and in the interest of providing a secure, fast, and efficient online offering through a
+								professional provider (Art. 6(1)(f) GDPR).
+							</p>
+							<br />
+
+							<p>
+								Our host will only process your data to the extent necessary to fulfill its service obligations and will
+								follow our instructions regarding this data.
+							</p>
+						</AccordionItem>
+						<AccordionItem name="exclusive" title="We use the following host" variant="chevron">
+							<address>
+								Vercel Inc.<br />
+								440 N Barranca Avenue #4133<br />
+								Covina, CA 91723<br />
+								United States
+							</address>
+						</AccordionItem>
+						<AccordionItem name="exclusive" title="Order Processing Agreement" variant="chevron">
+							<p>
+								We have entered into a data processing agreement (DPA) with the above provider. This is a contract
+								required under data protection law, which ensures that the provider processes the personal data of our
+								website visitors only in accordance with our instructions and in compliance with the GDPR.
+							</p>
+						</AccordionItem>
+					</Accordion>
+				</div>
+				<div class="space-content">
+					<h2>General Notes and Mandatory Information</h2>
+					<Accordion>
+						<AccordionItem title="Data Protection">
+							<p>
+								The operators of these pages take the protection of your personal data very seriously. We treat your
+								personal data confidentially and in accordance with statutory data protection regulations and this
+								privacy policy.
+							</p>
+							<br />
+							<p>
+								When you use this website, various personal data is collected. Personal data is any data that can be
+								used to personally identify you. This privacy policy explains what data we collect and what we use it
+								for. It also explains how and for what purpose this happens.
+							</p>
+							<br />
+							<p>
+								We point out that data transmission on the Internet (e.g. when communicating by email) may have security
+								gaps. Complete protection of data against access by third parties is not possible.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="Controller Information">
+							<p>The controller responsible for data processing on this website is:</p>
+							<br />
+							<address>
+								Lukas Lehmann<br />
+								Auguste-Viktoria-Str. 6A<br />
+								14193 Berlin<br />
+								Germany<br />
+								E-Mail: <a href="mailto:lukasyairlehmann@gmail.com">lukasyairlehmann[at]gmail.com</a>
+							</address>
+							<br />
+							<p>
+								We point out that data transmission on the Internet (e.g. when communicating by email) may have security
+								gaps. Complete protection of data against access by third parties is not possible.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="Storage Duration">
+							<p>
+								Unless a more specific storage period has been stated in this privacy policy, your personal data will
+								remain with us until the purpose for the data processing no longer applies. If you make a legitimate
+								request for deletion or revoke your consent to data processing, your data will be deleted-provided we
+								have no other legally permissible reasons for storing your personal data (e.g. retention periods under
+								tax or commercial law); in the latter case, the data will be deleted once these reasons no longer apply.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="General Information on Legal Bases for Data Processing on This Website">
+							<p>
+								If you have consented to data processing, we process your personal data on the basis of Art. 6(1)(a)
+								GDPR or Art. 9(2)(a) GDPR if special categories of data are processed according to Art. 9(1) GDPR. In
+								the case of explicit consent to the transfer of personal data to third countries, data processing is
+								also based on Art. 49(1)(a) GDPR. If you have consented to the storage of cookies or access to
+								information in your device (e.g. via device fingerprinting), the processing is also based on § 25(1)
+								TTDSG. Consent can be revoked at any time.
+							</p>
+							<br />
+							<p>
+								If your data is necessary for the fulfillment of a contract or for pre-contractual measures, we process
+								it based on Art. 6(1)(b) GDPR. Furthermore, we process your data if necessary for compliance with a
+								legal obligation based on Art. 6(1)(c) GDPR. Data processing may also occur on the basis of our
+								legitimate interest according to Art. 6(1)(f) GDPR. The relevant legal bases in each individual case are
+								explained in the following sections of this privacy policy.
+							</p>
+							<br />
+							<p>You can contact us at any time with questions about data protection.</p>
+						</AccordionItem>
+						<AccordionItem
+							title="Notice on Data Transfers to Third Countries with Inadequate Data Protection and Transfers to US Companies Not Certified under the DPF"
+						>
+							<p>
+								We use tools provided by companies based in countries that are not considered to offer an adequate level
+								of data protection under EU law, including US-based providers not certified under the EU-US Data Privacy
+								Framework (DPF). When such tools are active, your personal data may be transferred to and processed in
+								these countries. Please note that in such countries, a level of data protection comparable to that in
+								the EU cannot be guaranteed.
+							</p>
+							<br />
+							<p>
+								That said, the USA is generally considered a safe third country with a level of data protection
+								comparable to the EU. Data transfers to the US are permissible if the recipient is certified under the
+								DPF or provides suitable additional safeguards. You can find more information on data transfers to third
+								countries and the recipients of such data in this privacy policy.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="Recipients of Personal Data">
+							<p>
+								As part of our business operations, we work with various external parties. This sometimes requires the
+								transfer of personal data. We only share your personal data with external parties when it is necessary
+								to fulfill a contract, when we are legally obligated to do so (e.g., with tax authorities), when we have
+								a legitimate interest under Art. 6(1)(f) GDPR, or when another legal basis allows the transfer. If we
+								engage data processors, your data will only be shared based on a valid data processing agreement. In
+								cases of joint processing, we conclude a joint processing agreement.
+							</p>
+						</AccordionItem>
+						<AccordionItem title="Revocation of Your Consent to Data Processing">
+							<p>
+								Many data processing operations are only possible with your explicit consent. You may revoke any given
+								consent at any time. The lawfulness of the data processing carried out until the revocation remains
+								unaffected.
+							</p>
+						</AccordionItem>
+						<AccordionItem
+							title="Right to Object to Data Collection in Special Cases and Direct Marketing (Art. 21 GDPR)"
+						>
+							<p>
+								If your data is processed based on Art. 6(1)(e) or (f) GDPR, you have the right to object at any time
+								for reasons arising from your particular situation, including profiling based on these provisions. The
+								legal basis for each processing activity is outlined in this privacy policy. If you object, we will no
+								longer process your personal data unless we can demonstrate compelling legitimate grounds that override
+								your interests, rights, and freedoms or the processing is necessary for legal claims (Art. 21(1) GDPR).
+							</p>
+							<br />
+							<p>
+								If your personal data is processed for direct marketing purposes, you have the right to object at any
+								time. This also applies to profiling related to such marketing. Once you object, your data will no
+								longer be used for direct marketing (Art. 21(2) GDPR).
+							</p>
+						</AccordionItem>
+            <AccordionItem title="Right to Lodge a Complaint with the Competent Supervisory Authority">
+              <p>
+                If you believe that your rights under the GDPR have been violated, you have the right to lodge a complaint with a supervisory authority, particularly in the member state of your habitual residence, workplace, or where the alleged violation occurred. This is without prejudice to other administrative or judicial remedies.
+              </p>
+            </AccordionItem>
+            <AccordionItem title="Right to Data Portability">
+              <p>
+                You have the right to receive the data we process based on your consent or a contract in a commonly used, machine-readable format. You may also request the transfer of this data directly to another controller, provided it is technically feasible.
+              </p>
+            </AccordionItem>
+            <AccordionItem title="Access, Rectification, and Erasure">
+              <p>
+                You have the right, under applicable law, to receive information about your stored personal data, its origin, recipients, and purpose at any time free of charge. You may also request correction or deletion of this data. For this and other questions about personal data, feel free to contact us at any time.
+              </p>
+            </AccordionItem>
+            <AccordionItem title="Right to Restrict Processing">
+              <p>
+                You have the right to request restriction of the processing of your personal data. You can do so in the following cases:
+              </p>
+              <ul>
+                <li>
+                  If you contest the accuracy of your personal data, we will restrict processing for a period allowing us to verify the accuracy of the data.
+                </li>
+                <li>
+                  If the processing is unlawful, you may request restriction instead of deletion.
+                </li>
+                <li>
+                  If we no longer need the data but you require it to establish, exercise, or defend legal claims.
+                </li>
+                <li>
+                  If you have objected under Art. 21(1) GDPR and the balancing of interests is pending.
+                </li>
+              </ul>
+              <p>
+                When processing is restricted, such data may only be stored and processed with your consent or for legal claims or to protect the rights of another person or for reasons of important public interest in the EU or a Member State.
+              </p>
+            </AccordionItem>
+            <AccordionItem title="SSL or TLS Encryption">
+              <p>
+                For security and to protect confidential content (e.g., orders or inquiries), this website uses SSL or TLS encryption. You can recognize an encrypted connection by the change in the browser address from <q>http://</q> to <q>https://</q> and the lock icon in your browser bar.
+              </p>
+              <br>
+              <p>
+                When SSL or TLS encryption is enabled, transmitted data cannot be read by third parties.
+              </p>
+            </AccordionItem>
+            <AccordionItem title="Objection to Unsolicited Emails">
+              <p>
+                You have the right, under applicable law, to receive information about your stored personal data, its origin, recipients, and purpose at any time free of charge. You may also request correction or deletion of this data. For this and other questions about personal data, feel free to contact us at any time.
+              </p>
+            </AccordionItem>
+          </Accordion>
+          </div>
+						<div class="space-content">
+							<h2>Data Collection on This Website</h2>
+							<Accordion>
+								<AccordionItem name="exclusive" title="Cookies" variant="chevron">
+									<p>
+										Our websites use so-called "cookies." Cookies are small data packets that do not harm your device. They are stored either temporarily for the duration of a session (session cookies) or permanently (persistent cookies). Session cookies are automatically deleted after your visit. Persistent cookies remain stored on your device until you delete them yourself or your browser deletes them automatically.
+									</p>
+                  <br />
+									<p>
+										Cookies can be set by us (first-party cookies) or by third-party companies (third-party cookies). Third-party cookies enable the integration of certain services provided by third parties on the website (e.g., cookies for processing payment services).
+									</p>
+                  <br />
+									<p>
+										Cookies serve various functions. Many cookies are technically necessary, as certain website functions would not work without them (e.g., the shopping cart or video display). Other cookies may be used to analyze user behavior or for advertising purposes.
+									</p>
+                  <br />
+                  <p>
+                    Necessary cookies-those used for the electronic communication process, to provide functions you request (e.g., the shopping cart), or to optimize the website (e.g., audience measurement)-are stored based on Art. 6(1)(f) GDPR unless another legal basis is specified. The website operator has a legitimate interest in storing necessary cookies for the technically error-free and optimized provision of services. If consent was requested for the storage of cookies or similar recognition technologies, processing takes place solely on the basis of this consent (Art. 6(1)(a) GDPR and § 25(1) TDDDG); consent can be withdrawn at any time.
+                  </p>
+                  <br />
+                  <p>
+                    You can configure your browser to notify you about the setting of cookies, allow cookies only in individual cases, block them for specific cases or in general, and activate automatic deletion of cookies when closing the browser. Disabling cookies may limit the functionality of this website.
+                  </p>
+                  <br />
+                  <p>
+                    You can find more information about which cookies and services are used on this website in this privacy policy.
+                  </p>
+								</AccordionItem>
+								<AccordionItem name="exclusive" title="Contact Form" variant="chevron">
+									<p>
+                    If you send us inquiries via the contact form, your details from the form, including the contact information you provide, will be stored to process your inquiry and in case of follow-up questions. We do not share this data without your consent.
+                  </p>
+                  <br />
+                  <p>
+                    Processing of this data is based on Art. 6(1)(b) GDPR if your inquiry is related to contract performance or necessary for pre-contractual measures. In all other cases, the processing is based on our legitimate interest in effectively handling your inquiry (Art. 6(1)(f) GDPR) or your consent (Art. 6(1)(a) GDPR), if requested. Consent can be withdrawn at any time.
+                  </p>
+                  <br />
+                  <p>
+                    The data you enter in the contact form remains with us until you request deletion, revoke your consent, or the purpose for storage no longer applies (e.g., after your inquiry has been resolved). Mandatory legal provisions-especially retention periods-remain unaffected.
+                  </p>
+								</AccordionItem>
+                <AccordionItem name="exclusive" title="Inquiries via Email, Phone, or Fax" variant="chevron">
+                  <p>
+                    If you contact us via email, phone, or fax, your inquiry, including all resulting personal data (e.g., name, inquiry), will be stored and processed by us for the purpose of handling your request. We do not share this data without your consent.
+                  </p>
+                  <br />
+                  <p>
+                    The processing of this data is based on Art. 6(1)(b) GDPR if your request is related to a contract or required for pre-contractual measures. In all other cases, processing is based on our legitimate interest in effectively processing inquiries (Art. 6(1)(f) GDPR) or your consent (Art. 6(1)(a) GDPR), if obtained. Consent can be withdrawn at any time.
+                  </p>
+                  <br />
+                  <p>
+                    The data you send to us in contact inquiries will remain with us until you request deletion, revoke your consent, or the storage purpose no longer applies. Mandatory legal requirements-especially statutory retention periods-remain unaffected.
+                  </p>
+							</Accordion>
+            </Div>
+            <div class="space-content">
+							<h2>Plugins and Tools</h2>
+              <Accordion>
+                <AccordionItem name="exclusive" title="Font Awesome" variant="chevron">
+                  <p>
+                    This site uses Font Awesome for consistent display of fonts and icons. Provider: Fonticons, Inc., 6 Porter Road Apartment 3R, Cambridge, Massachusetts, USA.
+                  </p>
+                  <br />
+                  <p>
+                    When you visit a page, your browser loads the necessary fonts into its cache to display texts, fonts, and icons correctly. For this, your browser needs to connect to Font Awesome's servers. This gives Font Awesome knowledge that your IP address accessed our website.
+                  </p>
+                  <br />
+                  <p>
+                    The use of Font Awesome is based on Art. 6(1)(f) GDPR. We have a legitimate interest in a uniform appearance of our website. If consent was requested, processing occurs solely based on Art. 6(1)(a) GDPR and § 25(1) TDDDG, to the extent that consent includes storage of cookies or access to information on your device (e.g., device fingerprinting) under TDDDG. Consent can be withdrawn at any time.
+                  </p>
+                  <br />
+                  <p>
+                    If your browser does not support Font Awesome, a standard font will be used instead.
+                  </p>
+                  <br />
+                  <p>
+                    For more information about Font Awesome, visit <a href="https://fontawesome.com/privacy" target="_blank">fontawesome.com/privacy</a>.
+                  </p>
+                </AccordionItem>
+                <AccordionItem name="exclusive" title="Google Analytics" variant="chevron">
+                  <p>
+                    This website uses Google Analytics, a web analytics service provided by Google Ireland Limited ("Google"), Gordon House, Barrow Street, Dublin 4, Ireland. Google Analytics uses cookies to help analyze how users interact with the site. The information generated by the cookie about your use of this website is usually transmitted to and stored on a Google server in the USA.
+                  </p>
+                  <br />
+                  <p>
+                    The use of Google Analytics is based on Art. 6(1)(a) GDPR and § 25(1) TDDDG, provided consent has been given. Consent can be withdrawn at any time. Data processing may involve the transfer of personal data to the USA. Google is certified under the EU-U.S. Data Privacy Framework.
+                  </p>
+                  <br />
+                  <p>
+                    More information: <a href="https://support.google.com/analytics/answer/6004245" target="_blank">https://support.google.com/analytics/answer/6004245</a>
+                  </p>
+                </AccordionItem>
+                <AccordionItem name="exclusive" title="Google Tag Manager" variant="chevron">
+                  <p>
+                    This website uses Google Tag Manager, a tag management system provided by Google. Tag Manager itself does not process personal data. It facilitates the integration and management of other tools and services (e.g., Google Analytics). For details on those services, refer to the relevant sections of this privacy policy.
+                  </p>
+                  <br />
+                  <p>
+                    The use of Google Tag Manager is based on our legitimate interest in managing website tags efficiently (Art. 6(1)(f) GDPR).
+                  </p>
+                </AccordionItem>
+                <AccordionItem name="exclusive" title="Microsoft Clarity" variant="chevron">
+                  <p>
+                    We use Microsoft Clarity to gain insights into user behavior (e.g., clicks, scrolls, and interactions) via session recordings and heatmaps. Provider: Microsoft Corporation, One Microsoft Way, Redmond, WA 98052-6399, USA.
+                  </p>
+                  <br />
+                  <p>
+                    The use of Clarity is based on your consent (Art. 6(1)(a) GDPR and § 25(1) TDDDG). Data may be transferred to the USA under the EU-U.S. Data Privacy Framework. Consent can be withdrawn at any time.
+                  </p>
+                  <br />
+                  <p>
+                    More information: <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">https://privacy.microsoft.com/en-us/privacystatement</a>.
+                  </p>
+              </Accordion>
+						</div>
+				</div>
+			</div>
+		</div>
+	</section></DefaultLayout

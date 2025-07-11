@@ -1,5 +1,5 @@
 # build output
-dist
+dist/
 
 # dependencies
 node_modules/
@@ -11,23 +11,22 @@ yarn-debug.log*
 yarn-error.log*
 
 # environment variables
-.env
-.env.production
+.env*
 
 # macOS-specific files
 .DS_Store
 
 # vscode settings and dictionaries
-.vscode
+.vscode/
 
 # webstorm settings and dictionaries
-.idea
+.idea/
 
 # package lock
 package-lock.json
 
 # astro build files
-.astro
+.astro/
 
 # cursor rules
 .cursor/rules

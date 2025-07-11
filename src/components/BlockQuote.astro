@@ -1,18 +1,18 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 interface Props {
-  /**
-   * The quote content that will be displayed
-   */
-  children: any
-  /**
-   * The name of the person who said the quote
-   */
-  author?: string
+	/**
+	 * The quote content that will be displayed
+	 */
+	children: any;
+	/**
+	 * The name of the person who said the quote
+	 */
+	author?: string;
 }
 
-const { author } = Astro.props
+const { author } = Astro.props;
 ---
 
 <blockquote class="border-primary-500 border-l-4 pl-4">

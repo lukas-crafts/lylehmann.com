@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
 
 /**
  * BreakoutImage Component
@@ -7,17 +7,17 @@ import { Image } from 'astro:assets'
  * @description A component for displaying a landscape image that breaks out of the container
  */
 interface Props {
-  /**
-   * The image source
-   */
-  src: string
-  /**
-   * The image alt text
-   */
-  alt: string
+	/**
+	 * The image source
+	 */
+	src: string;
+	/**
+	 * The image alt text
+	 */
+	alt: string;
 }
 
-const { src, alt = '' } = Astro.props
+const { src, alt = "" } = Astro.props;
 ---
 
 <div class="relative -mx-4 my-8 md:-mx-8 lg:-mx-[120px]">

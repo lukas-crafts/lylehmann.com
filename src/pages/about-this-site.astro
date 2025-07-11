@@ -1,0 +1,87 @@
+---
+import BlockQuote from "@components/BlockQuote.astro";
+import Feature from "@components/Feature.astro";
+import PageHeader from "@components/PageHeader.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import { Accordion, AccordionItem } from "accessible-astro-components";
+---
+
+<DefaultLayout title="About This Site">
+	<PageHeader
+		title="About This Site"
+		subtitle="Discover the technologies, tools, and practices used to create this accessible and performant website."
+		bgType="bordered"
+	/>
+
+	<section aria-labelledby="dev-philosophy" class="my-32 container narrow">
+		<h2 class="mb-16 text-6xl" id="dev-philosophy">Development Philosophy</h2>
+		<p class="text-2xl">This site is built with performance, accessibility, and user experience at its core. It follows IndieWeb principles and uses clean, component-based architecture.</p>
+	</section>
+
+	<section aria-labelledby="core-tech" class="my-32 container narrow">
+		<h2 class="mb-16 text-6xl" id="core-tech" >Core Technologies</h2>
+    <div class="gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 my-16">
+    <Feature
+      icon="lucide:code"
+      title="Frontend Development"
+    >
+      Modern JavaScript, TypeScript, and Astro for a fast, component-driven architecture.
+    </Feature>
+
+    <Feature
+      icon="lucide:palette"
+      title="Styling"
+    >
+      Tailwind CSS for utility-first styling, ensuring a responsive and consistent design across devices.
+    </Feature>
+    <Feature
+      icon="lucide:database"
+      title="Icons & Assets"
+    >
+      Astro Icon & Lucide for scalable vector icons, ensuring crisp visuals at any size, and optimized SVGs for performance.
+    </Feature>
+    <Feature
+      icon="lucide:database"
+      title="Data Management"
+    >
+      Markdown and JSON for content management, allowing for easy updates and version control.
+    </Feature>
+    <Feature
+      icon="lucide:terminal"
+      title="Versioning"
+    >
+      Git for version control, ensuring a reliable history of changes and collaboration.
+    </Feature>
+    <Feature
+      icon="lucide:server"
+      title="Hosting & Deployment"
+    >
+      Deployed on Vercel for fast, global delivery with automatic optimizations and serverless functions.
+    </Feature>
+    </div>
+    </section>
+
+	<section aria-labelledby="standarts" class="my-32 container narrow">
+		<h2 class="mb-16 text-6xl" id="standards">Standards & Best Practices</h2>
+    <Accordion class="mt-4">
+      <AccordionItem title="Accessibility" id="accessibility">
+        <p>WCAG 2.2 Level AA compliance across the experience.</p>
+      </AccordionItem>
+      <AccordionItem title="SEO Optimization" id="seo">
+        <p>Semantic HTML, metadata, and structured content for better search visibility.</p>
+      </AccordionItem>
+      <AccordionItem title="Performance" id="performance">
+        <p>Optimized images, lazy loading, and minimal JavaScript for fast load times.</p>
+      </AccordionItem>
+      <AccordionItem title="User-Centered Design" id="security">
+        <p>The site is crafted with the user in mind - clear navigation, readable content, and accessible interactions.</p>
+      </AccordionItem>
+    </Accordion>
+	</section>
+
+	<section aria-labelledby="blockquote" class="my-32 container narrow">
+    <BlockQuote>
+      This site reflects not just how I build, but how I think: open, accessible, and human-centered.
+    </BlockQuote>
+	</section>
+</DefaultLayout>

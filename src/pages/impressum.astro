@@ -1,0 +1,66 @@
+---
+import PageHeader from "@components/PageHeader.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout title="Legal Disclosure (Impressum)">
+  <PageHeader
+    title="Legal Disclosure (Impressum)"
+    subtitle="Information in accordance with &sect; 5 TMG:"
+    bgType="neutral"
+  />
+
+  <section class="my-16 container">
+    <div class="space-content">
+      <h2>Contact</h2>
+      <address>
+        <p>
+          Lukas Yair Lehmann
+          <br />
+          Auguste-Viktoria-Straße 6A
+          <br />
+          14193 Berlin
+          <br />
+          Germany
+        </p>
+        <br>
+        <p>
+          <strong>Phone:</strong> +49 160 97243774‬
+          <br />
+          <strong>E-Mail</strong>
+          <a href="mailto:lukasyairlehmann@gmail.com">lukasyairlehmann@gmail.com</a>
+        </p>
+      </address>
+    </div>
+  </section>
+
+  <style>
+    .tag {
+      display: inline-block;
+      margin-inline-end: 0.5rem;
+      border-radius: var(--radius-xs);
+      padding: 0.2rem 0.5rem;
+      font-weight: 700;
+    }
+
+    .excellent {
+      background-color: rgb(9, 126, 87);
+      color: white;
+    }
+
+    .good {
+      background-color: rgb(41, 168, 126);
+      color: black;
+    }
+
+    .fair {
+      background-color: rgb(219, 141, 31);
+      color: black;
+    }
+
+    .poor {
+      background-color: rgb(221, 39, 54);
+      color: white;
+    }
+  </style>
+</DefaultLayout>

@@ -1,53 +1,55 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import PageHeader from '@components/PageHeader.astro'
-import SocialShares from '@components/SocialShares.astro'
-import BreakoutImage from '@components/BreakoutImage.astro'
-import { Image } from 'astro:assets'
+import { Image } from "astro:assets";
+import BreakoutImage from "@components/BreakoutImage.astro";
+import PageHeader from "@components/PageHeader.astro";
+import SocialShares from "@components/SocialShares.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
 
 export async function getStaticPaths() {
-  const data = await fetch('https://jsonplaceholder.typicode.com/posts').then((response) => response.json())
+	const data = await fetch("https://jsonplaceholder.typicode.com/posts").then(
+		(response) => response.json(),
+	);
 
-  const postImages = [
-    { src: '/posts/post-image-1.png' },
-    { src: '/posts/post-image-2.png' },
-    { src: '/posts/post-image-3.png' },
-    { src: '/posts/post-image-4.png' },
-    { src: '/posts/post-image-5.png' },
-    { src: '/posts/post-image-6.png' },
-  ]
+	const postImages = [
+		{ src: "/posts/post-image-1.png" },
+		{ src: "/posts/post-image-2.png" },
+		{ src: "/posts/post-image-3.png" },
+		{ src: "/posts/post-image-4.png" },
+		{ src: "/posts/post-image-5.png" },
+		{ src: "/posts/post-image-6.png" },
+	];
 
-  function truncateTitle(title) {
-    const words = title.split(' ')
-    const truncated = words.slice(0, 4).join(' ')
-    return {
-      full: title,
-      truncated: truncated,
-    }
-  }
+	function truncateTitle(title) {
+		const words = title.split(" ");
+		const truncated = words.slice(0, 4).join(" ");
+		return {
+			full: title,
+			truncated: truncated,
+		};
+	}
 
-  return data.map((post) => {
-    const titleObj = truncateTitle(post.title)
+	return data.map((post) => {
+		const titleObj = truncateTitle(post.title);
 
-    const postWithImage = {
-      ...post,
-      featuredImage: postImages[post.id % postImages.length].src,
-      title: titleObj.truncated,
-    }
+		const postWithImage = {
+			...post,
+			featuredImage: postImages[post.id % postImages.length].src,
+			title: titleObj.truncated,
+		};
 
-    return {
-      params: { post: titleObj.truncated.replaceAll(' ', '-').toLowerCase() },
-      props: { post: postWithImage },
-    }
-  })
+		return {
+			params: { post: titleObj.truncated.replaceAll(" ", "-").toLowerCase() },
+			props: { post: postWithImage },
+		};
+	});
 }
 
-const { post } = Astro.props
+const { post } = Astro.props;
 const author = {
-  name: 'A11Y Person',
-  image: '/posts/post-image-1.png',
-  bio: 'Pasionate accessibility advocate',
-}
+	name: "A11Y Person",
+	image: "/posts/post-image-1.png",
+	bio: "Pasionate accessibility advocate",
+};
 ---
 
 <DefaultLayout title={post.title} description={post.body} url={post.title}>

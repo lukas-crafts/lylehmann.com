@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * Feature Component
@@ -7,17 +7,17 @@ import { Icon } from 'astro-icon/components'
  * @description A component that displays a feature with an icon, title, and description
  */
 interface Props {
-  /**
-   * The icon to display
-   */
-  icon: string
-  /**
-   * The title to display
-   */
-  title: string
+	/**
+	 * The icon to display
+	 */
+	icon: string;
+	/**
+	 * The title to display
+	 */
+	title: string;
 }
 
-const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
+const { icon = "mdi:rocket", title = "Title" }: Props = Astro.props;
 ---
 
 <div class="feature flex flex-col gap-4">

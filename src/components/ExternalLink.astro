@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * ExternalLink Component
@@ -7,17 +7,17 @@ import { Icon } from 'astro-icon/components'
  * @description ExternalLink description
  */
 interface Props {
-  /**
-   * Additional classes to apply to the ExternalLink
-   */
-  class?: string
-  /**
-   * The URL to link to
-   */
-  href: string
+	/**
+	 * Additional classes to apply to the ExternalLink
+	 */
+	class?: string;
+	/**
+	 * The URL to link to
+	 */
+	href: string;
 }
 
-const { class: className, href } = Astro.props
+const { class: className, href } = Astro.props;
 ---
 
 <a href={href} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">

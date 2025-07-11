@@ -1,0 +1,114 @@
+---
+import BlockQuote from "@components/BlockQuote.astro";
+import Feature from "@components/Feature.astro";
+import PageHeader from "@components/PageHeader.astro";
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import {
+	Accordion,
+	AccordionItem,
+	Notification,
+} from "accessible-astro-components";
+import { Icon } from "astro-icon/components";
+---
+
+<DefaultLayout title="Process">
+	<PageHeader
+		title="My Process: From Insight to Implementation"
+		subtitle="My approach blends user-centered design with technical execution - using a sprint-based structure to move quickly from research to real results. Drawing from the Design Sprint framework, each project moves through five key phases to align stakeholders, validate ideas, and deliver accessible, scalable digital products."
+	/>
+
+  <section aria-labelledby="process" class="my-32 container narrow">
+		<h2 class="mb-16 text-6xl" id="standards">The Process</h2>
+    <Accordion class="mt-4">
+      <AccordionItem title="Understand" id="understand">
+        <p>Before sketching anything, I gather context: user needs, business goals, content requirements, and technical constraints. This phase combines stakeholder interviews, desk research, and accessibility analysis to ensure we're solving the right problem.</p>
+        <br>
+        <Notification type="info" role="none">
+          <Icon name="lucide:info"/>
+          <p><strong>Techniques:</strong> Lean UX Canvas, stakeholder analysis, user research, analytics review, accessibility audits, competitive analysis</p>
+        </Notification>
+      </AccordionItem>
+      <AccordionItem title="Ideate" id="ideate">
+        <p>Once the challenge is clear, I explore solutions. This phase involves idea sketching, mapping user journeys, and identifying key interaction flows — always considering responsive behavior and content hierarchy.</p>
+        <br>
+        <Notification type="info" role="none">
+          <Icon name="lucide:info"/>
+          <p><strong>Outputs:</strong> user flows, wireframes, storyboards, low-fidelity sketches</p>
+        </Notification>
+      </AccordionItem>
+      <AccordionItem title="Decide" id="decide">
+        <p>From multiple ideas, we align around one strong direction. Through structured decision-making, feedback rounds, and content prioritization, we select a solution that meets both user and stakeholder needs.</p>
+         <br>
+        <Notification type="info" role="none">
+          <Icon name="lucide:info"/>
+          <p><strong>Methods:</strong> dot voting, design critique, navigation strategy, mobile-first planning</p>
+        </Notification>
+      </AccordionItem>
+      <AccordionItem title="Prototype" id="prototype">
+        <p>I quickly create interactive prototypes to simulate the user experience and test usability. This ensures we gather feedback before investing time in development.</p>
+        <br>
+        <Notification type="info" role="none">
+          <Icon name="lucide:info"/>
+          <p><strong>Tools:</strong> Figma, Sketch, Adobe XD for high-fidelity prototypes; Zeplin for design handoff</p>
+        </Notification>
+      </AccordionItem>
+      <AccordionItem title="Test" id="test">
+        <p>Through usability testing - either moderated or lightweight - I collect user feedback, accessibility insights, and technical constraints. Iteration happens early and often, before anything ships.</p>
+        <br>
+        <Notification type="info" role="none">
+          <Icon name="lucide:info"/>
+          <p><strong>Practices:</strong> usability testing, a11y checks, think-aloud protocols, heuristic evaluation</p>
+        </Notification>
+      </AccordionItem>
+    </Accordion>
+	</section>
+
+    <section aria-labelledby="process" class="my-32 container narrow">
+		<h3 class="mb-16 text-6xl" id="process">From Sprint to Launch</h3>
+		<p class="text-2xl">Depending on the project, I either hand off refined designs or implement the front-end myself using HTML, CSS, and WordPress. I prioritize accessibility, performance, and semantic structure - ensuring clean code and maintainable systems.</p>
+	</section>
+
+	<section aria-labelledby="tools-techniques" class="my-32 container narrow">
+		<h2 class="mb-16 text-6xl" id="tools-techniques" >Tools & Techniques</h2>
+    <div class="gap-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 my-16">
+    <Feature
+      icon="lucide:app-window"
+      title="Design & Prototyping"
+    >
+      Figma, Sketch, Adobe XD
+    </Feature>
+
+    <Feature
+      icon="lucide:users"
+      title="Research & Testing"
+    >
+      Interviews, card sorting, usability testing, accessibility audits
+    </Feature>
+    <Feature
+      icon="lucide:code"
+      title="Development"
+    >
+      HTML, CSS, WordPress, TYPO3, semantic HTML, ARIA
+    </Feature>
+    <Feature
+      icon="lucide:heart-handshake"
+      title="Collaboration"
+    >
+      Miro, Jira, Confluence, Trello
+    </Feature>
+    <Feature
+      icon="lucide:rocket"
+      title="Frameworks & Methods"
+    >
+      Design Sprint, Design Thinking, Lean UX, Agile (Scrum)
+    </Feature>
+    </div>
+    </section>
+
+	<section aria-labelledby="blockquote" class="my-32 container narrow">
+    <h2 class="mb-16 text-6xl" id="blockquote">Why This Process Works</h2>
+    <BlockQuote>
+      The sprint-based process brings speed, clarity, and structure to UX design. It's inclusive, testable, and grounded in real user feedback. With technical skills layered in, I help bridge the gap between research and real-world implementation.
+    </BlockQuote>
+	</section>
+</DefaultLayout>

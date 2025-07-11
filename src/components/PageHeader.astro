@@ -1,7 +1,11 @@
 ---
-import { Avatar, Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
-import { Image } from 'astro:assets'
-import sanitizeHtml from 'sanitize-html'
+import { Image } from "astro:assets";
+import {
+	Avatar,
+	Breadcrumbs,
+	BreadcrumbsItem,
+} from "accessible-astro-components";
+import sanitizeHtml from "sanitize-html";
 
 /**
  * PageHeader Component
@@ -9,55 +13,63 @@ import sanitizeHtml from 'sanitize-html'
  * @description PageHeader description
  */
 interface Props {
-  /**
-   * Additional classes to apply to the PageHeader
-   */
-  class?: string
-  /**
-   * The featured image of the page
-   */
-  featuredImage?: string
-  /**
-   * The title of the page
-   */
-  title: string
-  /**
-   * The subtitle of the page
-   * @description Can contain HTML content (will be sanitized)
-   */
-  subtitle?: string
-  /**
-   * The background color of the page header
-   * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' | undefined}
-   * @default undefined - Uses the default background color
-   */
-  /**
-   * The author of the page
-   */
-  author?: {
-    name: string
-    image: string
-    bio: string
-  }
-  bgType?: 'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered'
-  /**
-   * Whether to show the breadcrumbs
-   */
-  showBreadcrumbs?: boolean
+	/**
+	 * Additional classes to apply to the PageHeader
+	 */
+	class?: string;
+	/**
+	 * The featured image of the page
+	 */
+	featuredImage?: string;
+	/**
+	 * The title of the page
+	 */
+	title: string;
+	/**
+	 * The subtitle of the page
+	 * @description Can contain HTML content (will be sanitized)
+	 */
+	subtitle?: string;
+	/**
+	 * The background color of the page header
+	 * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' | undefined}
+	 * @default undefined - Uses the default background color
+	 */
+	/**
+	 * The author of the page
+	 */
+	author?: {
+		name: string;
+		image: string;
+		bio: string;
+	};
+	bgType?: "primary" | "secondary" | "neutral" | "gradient" | "bordered";
+	/**
+	 * Whether to show the breadcrumbs
+	 */
+	showBreadcrumbs?: boolean;
 }
 
-const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, author } = Astro.props
+const {
+	class: className,
+	title,
+	subtitle,
+	bgType,
+	showBreadcrumbs = true,
+	featuredImage,
+	author,
+} = Astro.props;
 
 // Sanitize subtitle HTML if present
 const sanitizedSubtitle: string = subtitle
-  ? sanitizeHtml(subtitle, {
-      allowedTags: ['b', 'i', 'em', 'strong', 'a', 'span', 'br'],
-      allowedAttributes: {
-        a: ['href', 'title', 'target', 'rel'],
-        span: ['class'],
-      },
-    })
-  : ''
+	? sanitizeHtml(subtitle, {
+			allowedTags: ["b", "i", "em", "strong", "a", "span", "br"],
+			allowedAttributes: {
+				a: ["href", "title", "target", "rel"],
+				span: ["class"],
+			},
+		})
+	: "";
 ---
 
 <section class:list={[className, 'page-header']}>
