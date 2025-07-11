@@ -1,6 +1,6 @@
 ---
-import { Icon } from 'astro-icon/components'
-import { Image } from 'astro:assets'
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
 
 /**
  * Hero Component
@@ -11,10 +11,10 @@ interface Props {
   /**
    * The source URL for the image
    */
-  src?: string
+  src?: string;
 }
 
-const { src = '/astronaut-hero-img.webp' }: Props = Astro.props
+const { src = "/astronaut-hero-img.webp" }: Props = Astro.props;
 ---
 
 <section class="hero my-24">

@@ -1,24 +1,14 @@
 ---
-import { Media } from 'accessible-astro-components'
+const { imgSrc, reverseImg = false } = Astro.props;
+---
+---
+import { Media } from "accessible-astro-components";
 
 /**
  * ContentMedia Component
  *
  * @description A component that displays content alongside media, with the option to reverse the image position
  */
-interface Props {
-  /**
-   * The source URL for the image
-   */
-  imgSrc: string
-  /**
-   * Whether to display the image on the right side instead of the left
-   * @default false
-   */
-  reverseImg?: boolean
-}
-
-const { imgSrc, reverseImg = false }: Props = Astro.props
 ---
 
 <section class="my-64">

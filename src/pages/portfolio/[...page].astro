@@ -1,43 +1,50 @@
 ---
-import DefaultLayout from '@layouts/DefaultLayout.astro'
-import PageHeader from '@components/PageHeader.astro'
-import { Card, Pagination } from 'accessible-astro-components'
-import { getCollection } from 'astro:content'
-import type { GetStaticPaths, Page } from 'astro'
-import type { CollectionEntry } from 'astro:content'
+import DefaultLayout from "@layouts/DefaultLayout.astro";
+import PageHeader from "@components/PageHeader.astro";
+import { Card, Pagination } from "accessible-astro-components";
+import { getCollection } from "astro:content";
+import type { GetStaticPaths, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
 
 // Import images directly for optimization
-import projectImage1 from '@assets/images/projects/project-image-1.png'
-import projectImage2 from '@assets/images/projects/project-image-2.png'
-import projectImage3 from '@assets/images/projects/project-image-3.png'
-import projectImage4 from '@assets/images/projects/project-image-4.png'
-import projectImage5 from '@assets/images/projects/project-image-5.png'
-import projectImage6 from '@assets/images/projects/project-image-6.png'
+import projectImage1 from "@assets/images/projects/project-image-1.png";
+import projectImage2 from "@assets/images/projects/project-image-2.png";
+import projectImage3 from "@assets/images/projects/project-image-3.png";
+import projectImage4 from "@assets/images/projects/project-image-4.png";
+import projectImage5 from "@assets/images/projects/project-image-5.png";
+import projectImage6 from "@assets/images/projects/project-image-6.png";
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = await getCollection('projects')
+  const projects = await getCollection("projects");
 
-  const projectImages = [projectImage1, projectImage2, projectImage3, projectImage4, projectImage5, projectImage6]
+  const projectImages = [
+    projectImage1,
+    projectImage2,
+    projectImage3,
+    projectImage4,
+    projectImage5,
+    projectImage6,
+  ];
 
   const projectsWithImages = projects.map((project, index) => {
     return {
       ...project,
       featuredImage: projectImages[index % projectImages.length],
-    }
-  })
+    };
+  });
 
-  return paginate(projectsWithImages, { pageSize: 6 })
-}) satisfies GetStaticPaths
+  return paginate(projectsWithImages, { pageSize: 6 });
+}) satisfies GetStaticPaths;
 
 interface Props {
-  page: Page<CollectionEntry<'projects'> & { featuredImage: any }>
+  page: Page<CollectionEntry<"projects"> & { featuredImage: any }>;
 }
 
-const { page } = Astro.props
+const { page } = Astro.props;
 
 // Prepare pagination props
-const currentPage = page.currentPage
-const totalPages = Math.ceil(page.total / page.size)
+const currentPage = page.currentPage;
+const totalPages = Math.ceil(page.total / page.size);
 ---
 
 <DefaultLayout

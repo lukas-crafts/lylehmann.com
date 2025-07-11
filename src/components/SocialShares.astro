@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * SocialShares Component
@@ -11,10 +11,10 @@ interface Props {
    * The URL to share
    * @default Current page URL
    */
-  url?: string
+  url?: string;
 }
 
-const { url = Astro.url.href } = Astro.props
+const { url = Astro.url.href } = Astro.props;
 ---
 
 <ul class="ml-[-10px] flex flex-wrap gap-3 pt-4">

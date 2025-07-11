@@ -1,14 +1,18 @@
-import { getRssString } from '@astrojs/rss';
+import { getRssString } from "@astrojs/rss";
 
-import { SITE, METADATA, APP_BLOG } from 'astrowind:config';
-import { fetchPosts } from '~/utils/blog';
-import { getPermalink } from '~/utils/permalinks';
+// Statische Werte als Ersatz für astrowind:config
+const SITE = { name: "lylehmann.com", trailingSlash: true };
+const METADATA = { description: "Blog und Portfolio von Lyle Lehmann" };
+const APP_BLOG = { isEnabled: true };
+
+import { fetchPosts } from "~/utils/blog";
+import { getPermalink } from "~/utils/permalinks";
 
 export const GET = async () => {
   if (!APP_BLOG.isEnabled) {
     return new Response(null, {
       status: 404,
-      statusText: 'Not found',
+      statusText: "Not found",
     });
   }
 
@@ -16,11 +20,11 @@ export const GET = async () => {
 
   const rss = await getRssString({
     title: `${SITE.name}’s Blog`,
-    description: METADATA?.description || '',
+    description: METADATA?.description || "",
     site: import.meta.env.SITE,
 
     items: posts.map((post) => ({
-      link: getPermalink(post.permalink, 'post'),
+      link: getPermalink(post.permalink, "post"),
       title: post.title,
       description: post.excerpt,
       pubDate: post.publishDate,
@@ -31,7 +35,7 @@ export const GET = async () => {
 
   return new Response(rss, {
     headers: {
-      'Content-Type': 'application/xml',
+      "Content-Type": "application/xml",
     },
   });
 };

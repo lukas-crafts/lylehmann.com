@@ -1,7 +1,11 @@
 ---
-import { Avatar, Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
-import { Image } from 'astro:assets'
-import sanitizeHtml from 'sanitize-html'
+import {
+  Avatar,
+  Breadcrumbs,
+  BreadcrumbsItem,
+} from "accessible-astro-components";
+import { Image } from "astro:assets";
+import sanitizeHtml from "sanitize-html";
 
 /**
  * PageHeader Component
@@ -12,20 +16,20 @@ interface Props {
   /**
    * Additional classes to apply to the PageHeader
    */
-  class?: string
+  class?: string;
   /**
    * The featured image of the page
    */
-  featuredImage?: string
+  featuredImage?: string;
   /**
    * The title of the page
    */
-  title: string
+  title: string;
   /**
    * The subtitle of the page
    * @description Can contain HTML content (will be sanitized)
    */
-  subtitle?: string
+  subtitle?: string;
   /**
    * The background color of the page header
    * @type {'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered' | undefined}
@@ -35,29 +39,37 @@ interface Props {
    * The author of the page
    */
   author?: {
-    name: string
-    image: string
-    bio: string
-  }
-  bgType?: 'primary' | 'secondary' | 'neutral' | 'gradient' | 'bordered'
+    name: string;
+    image: string;
+    bio: string;
+  };
+  bgType?: "primary" | "secondary" | "neutral" | "gradient" | "bordered";
   /**
    * Whether to show the breadcrumbs
    */
-  showBreadcrumbs?: boolean
+  showBreadcrumbs?: boolean;
 }
 
-const { class: className, title, subtitle, bgType, showBreadcrumbs = true, featuredImage, author } = Astro.props
+const {
+  class: className,
+  title,
+  subtitle,
+  bgType,
+  showBreadcrumbs = true,
+  featuredImage,
+  author,
+} = Astro.props;
 
 // Sanitize subtitle HTML if present
 const sanitizedSubtitle: string = subtitle
   ? sanitizeHtml(subtitle, {
-      allowedTags: ['b', 'i', 'em', 'strong', 'a', 'span', 'br'],
+      allowedTags: ["b", "i", "em", "strong", "a", "span", "br"],
       allowedAttributes: {
-        a: ['href', 'title', 'target', 'rel'],
-        span: ['class'],
+        a: ["href", "title", "target", "rel"],
+        span: ["class"],
       },
     })
-  : ''
+  : "";
 ---
 
 <section class:list={[className, 'page-header']}>

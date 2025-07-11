@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ViewTransitions } from "astro:transitions";
 
 /**
  * SiteMeta Component
@@ -10,28 +10,28 @@ interface Props {
   /**
    * The title of the page
    */
-  title: string
+  title: string;
   /**
    * The description of the page
    */
-  description: string
+  description: string;
   /**
    * The URL of the page
    */
-  url: string
+  url: string;
   /**
    * The image path for social sharing
    */
-  image: string
+  image: string;
   /**
    * The author of the page
    */
-  author?: string
+  author?: string;
 }
 
-const { title, description, url, image, author = 'Mark Teekman' } = Astro.props
+const { title, description, url, image, author = "Mark Teekman" } = Astro.props;
 
-let subtitle = 'Accessible Astro Starter'
+let subtitle = "Accessible Astro Starter";
 ---
 
 <!-- general meta -->

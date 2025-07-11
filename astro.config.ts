@@ -1,39 +1,49 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import path from "path";
+import { fileURLToPath } from "url";
 
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
-import mdx from '@astrojs/mdx';
-import partytown from '@astrojs/partytown';
-import icon from 'astro-icon';
-import compress from 'astro-compress';
-import type { AstroIntegration } from 'astro';
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
+import icon from "astro-icon";
+import compress from "astro-compress";
+import type { AstroIntegration } from "astro";
 
-import astrowind from './vendor/integration';
+import astrowind from "./vendor/integration";
 
-import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin, lazyImagesRehypePlugin } from './src/utils/frontmatter';
+import {
+  readingTimeRemarkPlugin,
+  responsiveTablesRehypePlugin,
+  lazyImagesRehypePlugin,
+} from "./src/utils/frontmatter";
 
-import playformCompress from '@playform/compress';
+import playformCompress from "@playform/compress";
 
-import robotsTxt from 'astro-robots-txt';
+import robotsTxt from "astro-robots-txt";
 
-import purgecss from 'astro-purgecss';
+import purgecss from "astro-purgecss";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const hasExternalScripts = false;
-const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroIntegration)[] = []) =>
-  hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
+const whenExternalScripts = (
+  items: (() => AstroIntegration) | (() => AstroIntegration)[] = [],
+) =>
+  hasExternalScripts
+    ? Array.isArray(items)
+      ? items.map((item) => item())
+      : [items()]
+    : [];
 
 export default defineConfig({
   build: {
-    inlineStylesheets: 'never',
+    inlineStylesheets: "never",
   },
-  output: 'static',
+  output: "static",
 
-  site: 'https://lylehmann.com',
+  site: "https://lylehmann.com",
 
   integrations: [
     tailwind({
@@ -45,29 +55,29 @@ export default defineConfig({
     mdx(),
     icon({
       include: {
-        tabler: ['*'],
-        'flat-color-icons': [
-          'template',
-          'gallery',
-          'approval',
-          'document',
-          'advertising',
-          'currency-exchange',
-          'voice-presentation',
-          'business-contact',
-          'database',
+        tabler: ["*"],
+        "flat-color-icons": [
+          "template",
+          "gallery",
+          "approval",
+          "document",
+          "advertising",
+          "currency-exchange",
+          "voice-presentation",
+          "business-contact",
+          "database",
         ],
       },
     }),
     ...whenExternalScripts(() =>
       partytown({
-        config: { forward: ['dataLayer.push'] },
-      })
+        config: { forward: ["dataLayer.push"] },
+      }),
     ),
     compress({
       CSS: true,
       HTML: {
-        'html-minifier-terser': {
+        "html-minifier-terser": {
           removeAttributeQuotes: false,
         },
       },
@@ -77,7 +87,7 @@ export default defineConfig({
       Logger: 1,
     }),
     astrowind({
-      config: './src/config.yaml',
+      config: "./src/config.yaml",
     }),
     playformCompress(),
     robotsTxt(),
@@ -85,38 +95,39 @@ export default defineConfig({
       fontFace: true,
       keyframes: true,
       variables: true,
-      safelist: ['random', 'yep', 'button', /^nav/],
-      blocklist: ['usedClass', /^nav/],
+      safelist: ["random", "yep", "button", /^nav/],
+      blocklist: ["usedClass", /^nav/],
       content: [
-        process.cwd() + '/src/**/*.{astro,vue}', // Watching astro and vue sources
-        process.cwd() + '/dist/**/*.html', // Include all HTML files in dist directory
-        process.cwd() + '/dist/*.html',    // Include root HTML files like 404.html
+        process.cwd() + "/src/**/*.{astro,vue}", // Watching astro and vue sources
+        process.cwd() + "/dist/**/*.html", // Include all HTML files in dist directory
+        process.cwd() + "/dist/*.html", // Include root HTML files like 404.html
       ],
       // Custom options to handle special files like 404.html
       options: {
         // Skip purging the 404.html file to avoid errors
-        skippedFiles: ['404.html'],
+        skippedFiles: ["404.html"],
         // Disable looking for files in directories that don't exist
         rejected: false,
         // Only process files that actually exist
-        dynamicAttributes: ['data-processed'],
+        dynamicAttributes: ["data-processed"],
         // Force the inclusion of 404.html in special handling
         variables: {
-          specialPages: ['404.html']
-        }
+          specialPages: ["404.html"],
+        },
       },
       extractors: [
         {
           // Example using a taiwindcss compatible class extractor
-          extractor: (content) => content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
-          extensions: ['astro', 'html'],
+          extractor: (content) =>
+            content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
+          extensions: ["astro", "html"],
         },
       ],
     }),
   ],
 
   image: {
-    domains: ['cdn.pixabay.com'],
+    domains: ["cdn.pixabay.com"],
   },
 
   markdown: {
@@ -127,7 +138,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, './src'),
+        "~": path.resolve(__dirname, "./src"),
       },
     },
   },

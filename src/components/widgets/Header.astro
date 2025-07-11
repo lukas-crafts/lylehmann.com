@@ -1,13 +1,13 @@
 ---
-import { Icon } from 'astro-icon/components';
-import Logo from '~/components/Logo.astro';
-import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import Button from '~/components/ui/Button.astro';
+import { Icon } from "astro-icon/components";
+import Logo from "~/components/Logo.astro";
+import ToggleTheme from "~/components/common/ToggleTheme.astro";
+import ToggleMenu from "~/components/common/ToggleMenu.astro";
+import Button from "~/components/ui/Button.astro";
 
-import { getHomePermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
-import type { CallToAction } from '~/types';
+import { getHomePermalink } from "~/utils/permalinks";
+import { trimSlash, getAsset } from "~/utils/permalinks";
+import type { CallToAction } from "~/types";
 
 interface Link {
   text?: string;
@@ -33,7 +33,7 @@ export interface Props {
 }
 
 const {
-  id = 'header',
+  id = "header",
   links = [],
   actions = [],
   isSticky = false,
@@ -41,17 +41,14 @@ const {
   isFullWidth = false,
   showToggleTheme = false,
   showRssFeed = false,
-  position = 'center',
+  position = "center",
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
 ---
 
 <header
-  class:list={[
-    { sticky: isSticky, relative: !isSticky, dark: isDark },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
-  ]}
+  class:list={[{ sticky: isSticky, relative: !isSticky, dark: isDark }, 'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out', isSticky ? 'shadow-md' : '']}
   {...isSticky ? { 'data-aw-sticky-header': true } : {}}
   {...id ? { id } : {}}
 >

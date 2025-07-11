@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * Feature Component
@@ -10,14 +10,14 @@ interface Props {
   /**
    * The icon to display
    */
-  icon: string
+  icon: string;
   /**
    * The title to display
    */
-  title: string
+  title: string;
 }
 
-const { icon = 'mdi:rocket', title = 'Title' }: Props = Astro.props
+const { icon = "mdi:rocket", title = "Title" }: Props = Astro.props;
 ---
 
 <div class="feature flex flex-col gap-4">

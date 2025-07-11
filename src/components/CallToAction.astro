@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
 /**
  * CallToAction Component
@@ -11,24 +11,24 @@ interface Props {
    * The title text to display
    * @default "Get this theme on GitHub"
    */
-  title?: string
+  title?: string;
   /**
    * The URL the button should link to
    * @default "https://github.com/incluud/accessible-astro-starter"
    */
-  link?: string
+  link?: string;
   /**
    * The text to display on the button
    * @default "Get Started"
    */
-  linkText?: string
+  linkText?: string;
 }
 
 const {
-  title = 'Get this theme on GitHub',
-  link = 'https://github.com/incluud/accessible-astro-starter',
-  linkText = 'Use this theme',
-} = Astro.props
+  title = "Get this theme on GitHub",
+  link = "https://github.com/incluud/accessible-astro-starter",
+  linkText = "Use this theme",
+} = Astro.props;
 ---
 
 <div class="container">

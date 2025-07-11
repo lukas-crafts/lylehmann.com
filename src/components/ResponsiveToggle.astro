@@ -8,10 +8,10 @@ interface Props {
   /**
    * Additional classes to apply to the ResponsiveToggle
    */
-  class?: string
+  class?: string;
 }
 
-const { class: className } = Astro.props
+const { class: className } = Astro.props;
 ---
 
 <button class:list={[className, 'responsive-toggle']} aria-expanded="false" aria-label="Open menu navigation">

@@ -1,16 +1,16 @@
 ---
-import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
-import Header from '~/components/widgets/Header.astro';
-import { Seo} from 'astro-seo-meta';
-import { Schema } from 'astro-seo-schema';
+import Layout from "~/layouts/PageLayout.astro";
+import BlogList from "~/components/blog/List.astro";
+import Headline from "~/components/blog/Headline.astro";
+import Pagination from "~/components/blog/Pagination.astro";
+import Header from "~/components/widgets/Header.astro";
+import { Seo } from "astro-seo-meta";
+import { Schema } from "astro-seo-schema";
 // import PostTags from "~/components/blog/Tags.astro";
 
-import { getStaticPathsBlogList } from '~/utils/blog';
+import { getStaticPathsBlogList } from "~/utils/blog";
 
 const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
 
@@ -26,7 +26,6 @@ const { page } = Astro.props as Props;
 
 // const allCategories = await findCategories();
 // const allTags = await findTags();
-
 ---
 
 <Seo

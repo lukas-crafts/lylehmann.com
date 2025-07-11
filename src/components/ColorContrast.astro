@@ -1,50 +1,59 @@
 ---
 interface Props {
-  class?: string
+  class?: string;
 }
 
-const { class: className } = Astro.props
+const { class: className } = Astro.props;
 
-import { Tabs, TabsList, TabsTab, TabsPanel } from 'accessible-astro-components'
+import {
+  Tabs,
+  TabsList,
+  TabsTab,
+  TabsPanel,
+} from "accessible-astro-components";
 
 interface ColorGroup {
-  name: string
-  prefix: string
-  values: number[]
+  name: string;
+  prefix: string;
+  values: number[];
 }
 
 interface Theme {
-  name: string
-  id: string
-  description: string
-  textColor: string
-  bgVar: string
+  name: string;
+  id: string;
+  description: string;
+  textColor: string;
+  bgVar: string;
 }
 
 // Define color variants to test
 const colorGroups: ColorGroup[] = [
-  { name: 'Primary', prefix: 'primary', values: [100, 200, 300, 400, 500] },
-  { name: 'Secondary', prefix: 'secondary', values: [100, 200, 300, 400, 500] },
-  { name: 'Neutral', prefix: 'neutral', values: [100, 200, 300, 400, 500, 600, 700, 800, 900] },
-]
+  { name: "Primary", prefix: "primary", values: [100, 200, 300, 400, 500] },
+  { name: "Secondary", prefix: "secondary", values: [100, 200, 300, 400, 500] },
+  {
+    name: "Neutral",
+    prefix: "neutral",
+    values: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+  },
+];
 
 // Define themes to test
 const themes: Theme[] = [
   {
-    name: 'Light Mode',
-    id: 'light-mode',
-    description: 'Dark text on colored backgrounds',
-    textColor: '#1A1A1A',
-    bgVar: 'var(--color-neutral-100)',
+    name: "Light Mode",
+    id: "light-mode",
+    description: "Dark text on colored backgrounds",
+    textColor: "#1A1A1A",
+    bgVar: "var(--color-neutral-100)",
   },
   {
-    name: 'Dark Mode',
-    id: 'dark-mode',
-    description: 'Light text on colored backgrounds',
-    textColor: '#FFFFFF',
-    bgVar: 'var(--color-neutral-900)',
+    name: "Dark Mode",
+    id: "dark-mode",
+    description: "Light text on colored backgrounds",
+    textColor: "#FFFFFF",
+    bgVar: "var(--color-neutral-900)",
   },
-]
+];
 ---
 
 <div class={`color-contrast ${className || ''}`}>
