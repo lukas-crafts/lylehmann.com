@@ -1,376 +1,133 @@
 ---
 import Layout from "~/layouts/PageLayout.astro";
-
 import Header from "~/components/widgets/Header.astro";
-import Hero from "~/components/widgets/Hero.astro";
-import Features3 from "~/components/widgets/Features3.astro";
-import Content from "~/components/widgets/Content.astro";
+import Hero2 from "~/components/widgets/Hero2.astro";
+import Headline from "~/components/ui/Headline.astro";
+import ItemGrid2 from "~/components/ui/ItemGrid2.astro";
 import CallToAction from "~/components/widgets/CallToAction.astro";
-import { Seo } from "astro-seo-meta";
-import { Schema } from "astro-seo-schema";
+import { projects } from "../data/projects";
+import type { Item } from "../types";
+const email = import.meta.env.PUBLIC_EMAIL;
 
-import heroImage from "~/assets/images/lylehmann.png";
-import inclusiveDesign from "~/assets/images/inclusive-design.png";
-import focusBuddy from "~/assets/images/FocusBuddy-home-hero.png";
-import brushingBuddy from "~/assets/images/BrushingBuddy-home-hero.png";
-import MettaCafe from "~/assets/images/METTA-home-hero.png";
-import myJourney from "~/assets/images/my-journey.jpg";
-
-const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email from the .env.local file
-const defaultIcon = "tabler:chevron-right";
+const skills: Item[] = [
+  {
+    icon: 'tabler:layout-dashboard',
+    title: 'UX & Product',
+    description: `I make websites and apps easy to use, so you always know what to do next.`
+  },
+  {
+    icon: 'tabler:code',
+    title: 'Frontend',
+    description: `I build websites that look good and work fast on any device.`
+  },
+  {
+    icon: 'tabler:robot',
+    title: 'AI & Automation',
+    description: `I add smart features that help you get things done quicker and easier.`
+  },
+  {
+    icon: 'tabler:accessible',
+    title: 'Accessibility',
+    description: `I make sure everyone can use what I build, no matter who they are.`
+  },
+];
 ---
 
-<Seo
-  title="Lukas Yair Lehmann | UX Designer | Accessibility | Berlin"
-  description="Designing inclusive digital experiences that empower diverse users through thoughtful, accessible UX solutions."
-  keywords={[
-    'UX Designer',
-    'Accessibility',
-    'Lukas Yair Lehmann',
-    'UX Design',
-    'User Experience',
-    'Inclusive Design',
-    'Neurodiversity',
-    'Digital Solutions',
-    'Design Portfolio',
-  ]}
-  icon="~/assets/favicons/favicon.ico"
-  robots="index, follow"
-/>
-
-<Schema
-  item={{
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Lukas Yair Lehmann | UX Designer | Accessibility | Berlin',
-    url: 'https://lylehmann.com',
-    author: {
-      '@id': 'https://lylehmann.com/#person',
-      '@type': 'Person',
-      name: 'Lukas Yair Lehmann',
-      jobTitle: 'UX Designer',
-      url: 'https://lylehmann.com',
-      sameAs: ['https://www.linkedin.com/in/lylehmann/', 'https://github.com/lylehmann'],
-      email: email, // Use the imported email variable here
-    },
-  }}
-/>
-<Schema
-  item={{
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: 'https://lylehmann.com',
-      },
-    ],
-  }}
-/>
-
 <Layout>
-  <!-- Header Widget ***************** -->
   <Fragment slot="header">
     <Header
-      links={[
-        { text: 'Home', href: '/' },
-        { text: 'Porfolio', href: '/portfolio' },
-        { text: 'About', href: '/about' },
-        { text: 'Resume', href: '/resume' },
-      ]}
-      actions={[
-        {
-          text: 'Meet me',
-          href: 'https://calendly.com/lylehmann',
-          target: '_blank',
-        },
-      ]}
+      links={[{ text: 'Home', href: '/' }, { text: 'Portfolio', href: '/portfolio' }, { text: 'About', href: '/about' }]}
       isSticky
       showToggleTheme
     />
   </Fragment>
 
-  <!-- Hero Widget ******************* -->
-
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Explore My Portfolio',
-        href: '/portfolio',
-      },
-      { text: 'Learn About Me', href: '/about' },
-    ]}
-    image={{ src: heroImage, alt: 'Lukas Lehmann' }}
-    classes={{ container: 'bg-custom-light dark:bg-custom-dark' }}
-  >
-    <Fragment slot="title">
-      Hi, I'm Lukas 👋 <br />
-      <span class="text-4xl font-normal">Inclusive Product Designer | Accessibility</span></Fragment
-    >
-
-    <Fragment slot="subtitle" aria-description="Professional focus">
-      Designing inclusive digital experiences that empower users of all abilities <br> through thoughtful, accessible product design.
-  </p>
-  </p>
-    </Fragment>
-  </Hero>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    id="value"
-    columns={1}
-    items={[
-      {
-        icon: 'tabler:empathize',
-        description: '<span class="font-semibold">Empathy-driven Design</span>',
-      },
-      {
-        icon: 'tabler:accessible',
-        description: '<span class="font-semibold">Accessibility Advocacy</span>',
-      },
-      {
-        icon: 'tabler:ux-circle',
-        description: '<span class="font-semibold">User-Centered Problem Solving</span>',
-      },
-      {
-      icon: 'tabler:code',
-      description: '<span class="font-semibold">Code Awareness</span>',
-    },
-    ]}
-    image={{ src: inclusiveDesign, alt: 'People Having a Meeting at the Office' }}
-    classes={{ container: 'flex flex-col-reverse md:flex-row' }}
-  >
-    <Fragment slot="content">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        Designing for Inclusion, Innovation, and Impact
-      </h2>
-
-      <p>
-        With a background in disability work, website and project coordination as well as in UX design, I create digital
-        solutions that are not only functional but also truly accessible. My mission is to ensure that every user -
-        regardless of ability or neurodiversity - feels empowered and supported when interacting with technology.
-      </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    id="portfolio"
-    title="Explore My Work"
-    isReversed
-    defaultIcon={defaultIcon}
-    items={[
-      {
-        title: 'Challenge',
-        description: ' Staying productive with ADHD, as student and in the home office.',
-      },
-      {
-        title: 'Solution:',
-        description: 'A macOS app that fosters focus, accountability, and connection.',
-      },
-    ]}
-    image={{
-      src: focusBuddy,
-      alt: 'FocusBuddy app main screen showing focus and accountability features',
-    }}
-    callToAction={{
-      text: 'View Case Study',
-      icon: 'tabler:chevron-right',
-      href: '/portfolio/focusbuddy-case-study',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        FocusBuddy:<br /><span class="text-2xl">A Safe Space for Focus and Accountability</span>
-      </h3>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent={true}
-    defaultIcon={defaultIcon}
-    items={[
-      {
-        title: 'Challenge:',
-        description: 'Helping neurodivergent individuals with oral hygiene.',
-      },
-      {
-        title: 'Solution:',
-        description: `A gamified mobile app with music and routines for personalized care.`,
-      },
-    ]}
-    image={{
-      src: brushingBuddy,
-      alt: 'BrushBuddy app showing gamification and music integration features',
-    }}
-    callToAction={{
-      text: 'View Case Study',
-      icon: 'tabler:chevron-right',
-      href: '/portfolio/brushbuddy-case-study',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        BrushBuddy: <br /><span class="text-2xl"> Simplifying Oral Care Routines</span>
-      </h3>
-    </Fragment>
-  </Content>
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    isReversed
-    isAfterContent={true}
-    defaultIcon={defaultIcon}
-    items={[
-      {
-        title: 'Challenge:',
-        description: `Bringing a unique café-bakery-yoga venue online.`,
-      },
-      {
-        title: 'Solution:',
-        description: `Engaging digital experiences through web and mobile design.`,
-      },
-    ]}
-    image={{
-      src: MettaCafe,
-      alt: 'Das Metta cafe, bakery, and yoga space',
-    }}
-    callToAction={{
-      text: 'View Case Study',
-      icon: 'tabler:chevron-right',
-      href: '/portfolio/mettacafe-case-study',
-    }}
-  >
-    <Fragment slot="content">
-      <h3 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        Metta Cafe: <br /><span class="text-2xl">Bridging Digital and Physical Experiences in Munich</span>
-      </h3>
-    </Fragment>
-  </Content>
-
-  <!-- About Me Widget **************** -->
-
-  <!-- Content Widget **************** -->
-
-  <Content
-    id="about"
-    columns={1}
-    items={[
-      {
-        callToAction: {
-          text: 'Learn More About Me ',
-          defaultIcon: 'tabler:chevron-right',
-          icon: 'tabler:chevron-right',
-          href: '/about',
-        },
-      },
-    ]}
-    image={{ src: myJourney, alt: 'Wood, curvy street with cars' }}
-    classes={{ container: 'flex flex-col-reverse md:flex-row' }}
-  >
-    <Fragment slot="content">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        From Empathy to Innovation: <br /> My Journey into UX Design
-      </h2>
-
-      <p>
-        I started my career in disability work, where I learned the importance of empathy and accessibility. From there,
-        I transitioned into UX design, combining my diverse experiences with technical skills to create meaningful
-        digital solutions. Curious about my story?
-      </p>
-    </Fragment>
-
-    <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
-    </Fragment>
-  </Content>
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Skills That Bring Ideas to Life"
-    subtitle="With a strong foundation in UX product design, accessibility, and design tools, I bridge creativity and functionality to deliver impactful solutions. <br> <br> Here is how I can help your project succeed:"
-    columns={3}
-    defaultIcon="tabler:point-filled"
-    items={[
-      {
-        title: 'Design Tools',
-        description: 'Figma, Adobe XD, Sketch',
-      },
-      {
-        title: 'Web Development Skills',
-        description: 'HTML, CSS, WordPress',
-      },
-      {
-        title: 'Methodologies',
-        description: 'Agile, Scrum, Design Thinking, Service Design',
-      },
-      {
-        title: 'Specialties',
-        description: 'Accessibility, Inclusive UX/UI, User-Centered Design',
-      },
-      {
-        title: 'Research',
-        description: 'User Research, Usability Testing, A/B Testing',
-      },
-      {
-        title: 'Project Management',
-        description: 'Jira, Trello, Asana, Microsoft Project',
-      },
-      {
-        title: 'Analytics',
-        description: 'Google Analytics, Microsoft Clarity',
-      },
-      {
-        title: 'Design Systems',
-        description: 'Creating and maintaining design systems',
-      },
-      {
-        title: 'Collaboration',
-        description: 'Cross-functional teamwork, stakeholder management',
-      },
-    ]}
+  <!-- Hero Section -->
+  <Hero2
+    title="Designing for Humans. Building for the Web."
+    subtitle="I turn complex challenges into digital products people love to use—combining design, code, and AI to deliver results that matter."
+    actions={[{
+      variant: 'primary',
+      text: "Let's Work Together",
+      href: 'mailto:lylehmann@gmail.com',
+      icon: 'tabler:mail',
+    }, {
+      variant: 'secondary',
+      text: 'View Portfolio',
+      href: '/portfolio',
+      icon: 'tabler:layout-grid',
+    }]}
+    image={{ src: '/assets/images/lylehmann.png', alt: 'Lukas Lehmann' }}
   />
 
-  <!-- CallToAction Widget *********** -->
+  <!-- Skills/Outcomes Section -->
+  <section class="mx-auto mt-40 mb-[12rem] lg:mb-[16rem] px-4 max-w-5xl">
+    <Headline title="What I Do" />
+    <ItemGrid2 items={skills} columns={4} />
+  </section>
 
+  <!-- D: Desire - Projects Section -->
+  <section class="mx-auto mb-20 px-4 max-w-6xl">
+    <Headline title="Selected Projects" />
+    <p class="mb-8 text-[var(--color-text-body)] text-lg text-center">Real results for real teams.</p>
+    <div class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {[
+        projects.find(p => p.id === "focusbuddy-case-study"),
+        projects.find(p => p.id === "brushbuddy-case-study"),
+        projects.find(p => p.id === "mettacafe-case-study")
+      ].filter((p): p is typeof projects[number] => !!p).map((project) => (
+        <div
+          class="flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-8 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern"
+        >
+          {(project.cover || project.image) && (
+            <img
+              src={project.cover || project.image}
+              alt={project.title && project.title.trim() ? project.title : 'Project cover'}
+              class="bg-[var(--color-bg-muted)] mb-6 rounded-xl w-full h-48 object-cover"
+              loading="lazy"
+            />
+          )}
+          <div>
+            <h3 class="mb-2 font-bold text-white text-xl lg:text-2xl">
+              {project.id === 'focusbuddy-case-study' && 'FocusBuddy'}
+              {project.id === 'brushbuddy-case-study' && 'BrushBuddy'}
+              {project.id === 'mettacafe-case-study' && 'Metta Cafe'}
+              {project.id === 'azulverdoso-case-study' && 'Azulverdoso'}
+              {project.id === 'lieferando-case-study' && 'Lieferando'}
+              {project.id === 'fashion-museum-case-study' && 'Fashion Museum'}
+            </h3>
+            <p class="mb-4 text-[var(--color-text-body)] text-sm lg:text-base">{project.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {(project.tags || []).map((tag) => (
+                <span class="bg-[var(--color-interactive-secondary-hover)] px-2 py-0.5 border border-[var(--color-border-default)] rounded-full font-medium text-[var(--color-text-body)] text-xs">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div class="mt-auto pt-2">
+            <a href={`/portfolio/${project.id}`} class="inline-block focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-primary hover:underline transition">View Case Study</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
   <CallToAction
-    id="contact"
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Find Me on LinkedIn',
-        href: 'https://www.linkedin.com/in/lylehmann/',
-        target: '_blank',
-      },
-      {
-        variant: 'secondary',
-        text: 'Email Me',
-        href: `mailto:${email}`, // Update this line to use the imported email
-      },
-    ]}
-  >
-    <Fragment slot="title"> Let's Build Something Amazing Together</Fragment>
-
-    <Fragment slot="subtitle">
-      I'm excited to work on meaningful projects. If you need an inclusive UX designer or a creative partner, let's
-      connect and make something great.
-    </Fragment>
-    <Fragment slot="bg">
-      <div class="absolute inset-0 gap-1 bg-custom-light dark:bg-custom-dark"></div>
-    </Fragment>
-  </CallToAction>
+    title="Ready to ship your next product?"
+    subtitle="Let’s talk."
+    actions={[{
+      text: 'Find Me on LinkedIn',
+      href: 'https://www.linkedin.com/in/lylehmann/',
+      variant: 'outline',
+      color: 'indigo',
+      target: '_blank',
+    }, {
+      text: 'Email Me',
+      href: 'mailto:lylehmann@gmail.com',
+      variant: 'solid',
+      color: 'indigo',
+    }]}
+  />
 </Layout>

@@ -3,7 +3,7 @@ import slugify from "limax";
 // Statische Werte als Ersatz für astrowind:config
 const SITE = {
   site: "https://lylehmann.com",
-  trailingSlash: true,
+  trailingSlash: false,
   base: "/",
 };
 const APP_BLOG = {
@@ -43,9 +43,9 @@ export const POST_PERMALINK_PATTERN = trimSlash(
 /** */
 export const getCanonical = (path = ""): string | URL => {
   const url = String(new URL(path, SITE.site));
-  if (SITE.trailingSlash == false && path && url.endsWith("/")) {
+  if (SITE.trailingSlash === false && path && url.endsWith("/")) {
     return url.slice(0, -1);
-  } else if (SITE.trailingSlash == true && path && !url.endsWith("/")) {
+  } else if (SITE.trailingSlash === true && path && !url.endsWith("/")) {
     return url + "/";
   }
   return url;

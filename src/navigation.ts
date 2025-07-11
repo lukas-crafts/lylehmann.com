@@ -135,7 +135,7 @@ export const footerData = {
       title: "Quick Links",
       links: [
         { text: "Home", href: "/" },
-        { text: "Portfolio", href: "/portfolio" },
+        { text: "Portfolio", href: getPermalink("/portfolio") },
         { text: "About", href: "/about" },
         { text: "Resume", href: "/resume" },
       ],

@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 const { href } = Astro.props;
 ---
 
-<a href={href} class:list={[className, 'external-link']} target="_blank" rel="noopener noreferrer">
+<a href={href} class="external-link" target="_blank" rel="noopener noreferrer">
   <slot />
   <Icon name="lucide:external-link" />
   <span class="sr-only">Opens in a new tab</span>

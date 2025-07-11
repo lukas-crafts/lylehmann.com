@@ -10,6 +10,7 @@ import partytown from "@astrojs/partytown";
 import icon from "astro-icon";
 import compress from "astro-compress";
 import type { AstroIntegration } from "astro";
+import react from "@astrojs/react";
 
 import astrowind from "./vendor/integration";
 
@@ -45,7 +46,10 @@ export default defineConfig({
 
   site: "https://lylehmann.com",
 
+  trailingSlash: 'never',
+
   integrations: [
+    react(),
     tailwind({
       applyBaseStyles: false,
     }),
@@ -139,6 +143,9 @@ export default defineConfig({
     resolve: {
       alias: {
         "~": path.resolve(__dirname, "./src"),
+        "@components": path.resolve(__dirname, "./src/components"),
+        "@layouts": path.resolve(__dirname, "./src/layouts"),
+        "@assets": path.resolve(__dirname, "./src/assets"),
       },
     },
   },

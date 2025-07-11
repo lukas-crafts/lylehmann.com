@@ -41,7 +41,25 @@ const _image = await findImage(props.src);
 
 let image: ImageType | undefined = undefined;
 
-if (
+if (typeof _image === "string" && _image.startsWith("/")) {
+  // Public folder image: use as-is, no optimization
+  image = {
+    src: _image,
+    attributes: {
+      width: props.width,
+      height: props.height,
+      alt: props.alt,
+      loading: props.loading,
+      decoding: props.decoding,
+      style: props.style,
+      // Only spread allowed attributes, not src
+      ...(() => {
+        const { src, ...rest } = props;
+        return rest;
+      })(),
+    },
+  };
+} else if (
   typeof _image === "string" &&
   (_image.startsWith("http://") || _image.startsWith("https://")) &&
   isUnpicCompatible(_image)
