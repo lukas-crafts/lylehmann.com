@@ -1,0 +1,24 @@
+---
+import LandingLayout from "~/layouts/LandingLayout.astro";
+import PortfolioFilter from "../../components/PortfolioFilter.tsx";
+import { projects } from "../../data/projects";
+
+const relevantTags = [
+  'UX Design',
+  'Web App',
+  'Accessibility',
+  'Mobile App',
+];
+---
+
+<LandingLayout metadata={{ title: 'Portfolio', description: 'A showcase of real projects and case studies.' }}>
+  <section class="bg-page py-16 md:py-24">
+    <div class="mx-auto px-4 container">
+      <div class="mb-12 text-center">
+        <h1 class="mb-4 font-bold text-4xl md:text-5xl" id="portfolio-heading">Portfolio</h1>
+        <p class="text-muted text-lg">A showcase of real projects and case studies.</p>
+      </div>
+      <PortfolioFilter client:load projects={projects} tags={relevantTags} />
+    </div>
+  </section>
+</LandingLayout> 

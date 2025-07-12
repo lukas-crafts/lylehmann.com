@@ -1,0 +1,24 @@
+---
+import { Icon } from "astro-icon/components";
+
+/**
+ * ExternalLink Component
+ *
+ * @description ExternalLink description
+ */
+const { href } = Astro.props;
+---
+
+<a href={href} class="external-link" target="_blank" rel="noopener noreferrer">
+  <slot />
+  <Icon name="lucide:external-link" />
+  <span class="sr-only">Opens in a new tab</span>
+</a>
+
+<style>
+  .external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3xs);
+  }
+</style>

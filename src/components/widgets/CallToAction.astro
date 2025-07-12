@@ -1,8 +1,8 @@
 ---
-import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import type { CallToAction, Widget } from '~/types';
-import Headline from '~/components/ui/Headline.astro';
-import Button from '~/components/ui/Button.astro';
+import WidgetWrapper from "../ui/WidgetWrapper.astro";
+import type { CallToAction, Widget } from "~/types";
+import Headline from "~/components/ui/Headline.astro";
+import Button from "~/components/ui/Button.astro";
 
 interface Props extends Widget {
   title?: string;
@@ -13,15 +13,15 @@ interface Props extends Widget {
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
-  actions = await Astro.slots.render('actions'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
+  tagline = await Astro.slots.render("tagline"),
+  actions = await Astro.slots.render("actions"),
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
+  bg = await Astro.slots.render("bg"),
 } = Astro.props;
 ---
 
@@ -31,7 +31,7 @@ const {
   containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`}
   bg={bg}
 >
-  <div class="max-w-3xl p-6 mx-auto text-center border rounded-md shadow-xl dark:shadow-none border-default">
+  <div class="shadow-xl dark:shadow-none mx-auto p-6 border border-default rounded-md max-w-3xl text-center">
     <Headline
       title={title}
       subtitle={subtitle}
@@ -43,11 +43,11 @@ const {
       }}
     />
     {actions && (
-      <div class="flex flex-col max-w-xs gap-4 m-auto mt-6 sm:max-w-md flex-nowrap sm:flex-row sm:justify-center">
+      <div class="flex sm:flex-row flex-col sm:justify-center gap-4 m-auto mt-6">
         {Array.isArray(actions)
           ? actions.map((action) => (
-              <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
+              <div class="flex">
+                <Button {...(action || {})} />
               </div>
             ))
           : <Fragment set:html={actions} />}
