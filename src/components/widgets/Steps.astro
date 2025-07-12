@@ -21,8 +21,13 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
+<<<<<<< HEAD
+  <div class="flex flex-col gap-8 md:gap-12">
+    <div class="w-full md:py-4">
+=======
   <div class:list={['flex flex-col gap-8 md:gap-12', { 'md:flex-row-reverse': isReversed }, { 'md:flex-row': image }]}>
     <div class:list={['md:py-4 md:self-center', { 'md:basis-1/2': image }, { 'w-full': !image }]}>
+>>>>>>> main
       <Headline
         title={title}
         subtitle={subtitle}
@@ -30,6 +35,39 @@ const {
         classes={{
           container: 'text-left rtl:text-right',
           title: 'text-3xl lg:text-4xl',
+<<<<<<< HEAD
+          subtitle: 'text-muted dark:text-muted',
+          ...((classes?.headline as object) ?? {}),
+        }}
+      />
+    </div>
+    
+    {image && (
+      <div class="relative w-full">
+        {typeof image === 'string' ? (
+          <Fragment set:html={image} />
+        ) : (
+          <Image
+            class="w-full mx-auto rounded-lg shadow-lg"
+            width={500}
+            height={500}
+            widths={[400, 768]}
+            sizes="(max-width: 768px) 100vw, 432px"
+            layout="responsive"
+            {...image}
+          />
+        )}
+      </div>
+    )}
+
+    <Timeline
+      items={items}
+      classes={{
+        icon: 'border border-muted bg-transparent text-muted dark:text-muted',
+        ...((classes?.items as object) ?? {})
+      }}
+    />
+=======
           ...((classes?.headline as object) ?? {}),
         }}
       />
@@ -55,5 +93,6 @@ const {
         </div>
       )
     }
+>>>>>>> main
   </div>
 </WidgetWrapper>
