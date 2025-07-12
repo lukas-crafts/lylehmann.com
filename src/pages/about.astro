@@ -1,13 +1,13 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
+import Layout from "~/layouts/PageLayout.astro";
 
-import Header from '~/components/widgets/Header.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Content from '~/components/widgets/Content.astro';
-import { Seo } from 'astro-seo-meta';
-import { Schema } from 'astro-seo-schema';
+import Header from "~/components/widgets/Header.astro";
+import Hero from "~/components/widgets/Hero.astro";
+import Content from "~/components/widgets/Content.astro";
+import { Seo } from "astro-seo-meta";
+import { Schema } from "astro-seo-schema";
 
-import myJourney from '~/assets/images/my-journey.jpg';
+import myJourney from "~/assets/images/my-journey.jpg";
 ---
 
 <Seo
@@ -76,16 +76,8 @@ import myJourney from '~/assets/images/my-journey.jpg';
     <Header
       links={[
         { text: 'Home', href: '/' },
-        { text: 'Porfolio', href: '/portfolio' },
-        { text: 'About', href: '/about' },
-        { text: 'Resume', href: '/resume' },
-      ]}
-      actions={[
-        {
-          text: 'Meet me',
-          href: `https://calendly.com/lylehmann`,
-          target: '_blank',
-        },
+        { text: 'Portfolio', href: '/portfolio' },
+        { text: 'About', href: '/about' }
       ]}
       isSticky
       showToggleTheme
@@ -95,7 +87,7 @@ import myJourney from '~/assets/images/my-journey.jpg';
   <!-- Hero Widget ******************* -->
 
   <Hero>
-    <Fragment slot="title"> From Empathy to Innovation <br> <span class="text-4xl font-semibold">Crafting Inclusive Digital Experiences with Impact</span></Fragment>
+    <Fragment slot="title">From Empathy to Innovation<br><span class="font-semibold text-4xl">Crafting Inclusive Digital Products & Experiences with Impact</span></Fragment>
   </Hero>
 
   <!-- Content Widget **************** -->
@@ -133,31 +125,18 @@ import myJourney from '~/assets/images/my-journey.jpg';
     classes={{ container: 'flex flex-col-reverse md:flex-row' }}
   >
     <Fragment slot="content">
-      <h2 class="mb-2 text-2xl font-bold tracking-tight sm:text-3xl">
-        My Journey into UX Design: <br> Empathy, Innovation, and Impact
+      <h2 class="mb-2 font-bold text-2xl sm:text-3xl tracking-tight">
+        Turning Challenges Into Digital Solutions<br><span class="font-medium text-xl">My Journey in Frontend & Product Engineering</span>
       </h2>
-      <p>
-        I started my career in disability support, helping people with special needs. This taught me empathy, clear
-        communication, and the value of accessibility-lessons I use in my design work today.
-      </p>
+      <p>Hi, I’m Lukas. My story starts in disability support, where I learned the power of empathy and clear communication. Helping people with special needs taught me to see the world through different eyes—and to build things that work for everyone.</p>
       <br />
-      <p>
-        Later, as a webmaster, I improved websites, organized content, and trained teams. This gave me strong technical
-        skills and a focus on creating user-friendly solutions.
-      </p>
+      <p>Curious about technology, I became a webmaster. I fixed broken sites, made them easier to use, and showed teams how to do the same. I loved making the web a friendlier place.</p>
       <br />
-      <p>
-        In publishing, I managed projects and teams, building skills in organization and problem-solving. My ADHD
-        diagnosis was a turning point. It inspired me to move from publishing to UX design-a field where I can combine
-        creativity and problem-solving to make an impact.
-      </p>
+      <p>In publishing, I coordinated projects and worked with different people to get things done. When I was diagnosed with ADHD, it changed how I saw my own strengths. I realized my creativity and drive to help others could make a real impact in tech.</p>
       <br />
-      <p>
-        Now, I combine my diverse experiences with UX/UI design training to create accessible and user-friendly digital
-        solutions that truly work for everyone.
-      </p>
+      <p>Today, I use everything I’ve learned—empathy, tech skills, and a love for problem-solving—to design and build digital products that are simple, accessible, and truly helpful for everyone.</p>
       <br />
-      <p>Curious to learn more? Let's connect!</p>
+      <p>If you want to build something that makes a difference, let’s talk!</p>
     </Fragment>
 
     <Fragment slot="bg">

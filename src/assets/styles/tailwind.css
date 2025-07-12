@@ -1,4 +1,4 @@
-@import './design-tokens.css';
+@import './design-tokens.css' layer(base);
 
 @tailwind base;
 @tailwind components;
@@ -23,13 +23,13 @@
   .text-primary-hover {
     color: var(--color-brand-primary); /* Gleiche Farbe für Hover */
   }
-  
+
   /* Page Background Utilities */
   .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
   }
-  
+
   .dark .bg-page {
     background-color: var(--color-bg-default);
     color: var(--color-text-body);
@@ -39,7 +39,7 @@
   .text-page {
     color: var(--color-text-body);
   }
-  
+
   .dark .text-page {
     color: var(--color-text-body);
   }
@@ -47,7 +47,7 @@
   .text-muted {
     color: var(--color-text-muted);
   }
-  
+
   .dark .text-muted {
     color: var(--color-text-muted);
   }
@@ -61,25 +61,23 @@
   .border-default {
     border-color: var(--color-border-default);
   }
-  
+
   .dark .border-default {
     border-color: var(--color-border-default);
   }
 
   /* Sticky Header Styles für Light Mode */
+  /* Entfernt @apply shadow-md, da in Tailwind CSS 4 nicht erlaubt. Die Klasse shadow-md muss direkt im HTML verwendet werden. */
   header[data-aw-sticky-header] {
-    @apply shadow-md;
     background-color: hsla(var(--color-bg-default-hsl), 0.95);
   }
 
   /* Sticky Header Styles für Dark Mode */
-  /* Stelle sicher, dass du --color-bg-default-dark-hsl in deinem globalen CSS definierst, z.B.: 
-     :root {
-       --color-bg-default-dark-hsl: 210, 16%, 20%;
-     }
-  */
   .dark header[data-aw-sticky-header] {
-    background-color: hsla(var(--color-bg-default-dark-hsl, 210, 16%, 20%), 0.95);
+    background-color: hsla(
+      var(--color-bg-default-dark-hsl, 210, 16%, 20%),
+      0.95
+    );
   }
 }
 
@@ -87,8 +85,12 @@
   /* Link Component: nutzt die in design-tokens.css definierten Interaktionsfarben */
   .link,
   a {
-    @apply inline-block font-medium transition-colors duration-200;
+    /* Entferne @apply font-medium, inline-block, transition-colors, duration-200 */
     color: var(--color-brand-primary);
+    display: inline-block;
+    font-weight: 500;
+    transition-property: color;
+    transition-duration: 200ms;
   }
   .link:hover,
   a:hover {
@@ -97,34 +99,50 @@
 
   /* Button Components with Dark Mode */
   .btn {
-    @apply inline-flex items-center justify-center rounded-full border bg-transparent font-medium text-center text-base leading-snug transition py-3.5 px-6 md:px-8 ease-in duration-200 focus:ring-2 focus:ring-offset-2 cursor-pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    border-width: 1px;
+    background-color: transparent;
+    font-weight: 500;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.375;
+    transition-property: all;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    transition-duration: 200ms;
+    cursor: pointer;
+    /* Fokus-Effekte bitte direkt als Tailwind-Klassen im HTML verwenden: focus:ring-2 focus:ring-offset-2 */
   }
 
   .btn-primary {
-    @apply font-semibold btn;
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    font-weight: 600;
+    color: var(--color-text-inverse);
     background-color: var(--color-interactive-primary);
     border-color: var(--color-interactive-primary);
   }
 
   .btn-primary:hover {
     background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    color: var(--color-text-inverse);
   }
 
   .dark .btn-primary {
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    color: var(--color-text-inverse);
     background-color: var(--color-interactive-primary);
     border-color: var(--color-interactive-primary);
   }
 
   .dark .btn-primary:hover {
     background-color: var(--color-interactive-primary-hover);
-    color: var(--color-text-inverse); /* Invertierte Textfarbe */
+    color: var(--color-text-inverse);
   }
 
   .btn-secondary {
-    @apply btn;
     color: var(--color-text-body);
     background-color: var(--color-interactive-secondary);
     border-color: var(--color-border-default);
@@ -147,7 +165,8 @@
   }
 
   .btn-tertiary {
-    @apply border-none shadow-none btn;
+    border: none;
+    box-shadow: none;
     color: var(--color-text-muted);
     background-color: var(--color-bg-subtle);
   }
@@ -165,57 +184,21 @@
     background-color: var(--color-bg-muted);
   }
 
-  /* State and Contextual Components */
-  .badge-success {
-    background-color: var(--color-state-success);
-    color: var(--color-text-inverse);
-  }
-
-  .dark .badge-success {
-    background-color: var(--color-state-success);
-    color: var(--color-text-inverse);
-  }
-
-  .badge-warning {
-    background-color: var(--color-state-warning);
-    color: var(--color-text-body);
-  }
-
-  .dark .badge-warning {
-    background-color: var(--color-state-warning);
-    color: var(--color-text-body);
-  }
-
-  .badge-error {
-    background-color: var(--color-state-error);
-    color: var(--color-text-inverse);
-  }
-
-  .dark .badge-error {
-    background-color: var(--color-state-error);
-    color: var(--color-text-inverse);
-  }
-
-  .badge-info {
-    background-color: var(--color-state-info);
-    color: var(--color-text-inverse);
-  }
-
-  .dark .badge-info {
-    background-color: var(--color-state-info);
-    color: var(--color-text-inverse);
-  }
-
   .active {
-    @apply font-semibold text-black dark:text-white;
+    font-weight: 600;
+    color: #000;
+  }
+  .dark .active {
+    color: #fff;
   }
 
   .hover-effect {
-    @apply transition-colors duration-200;
+    transition-property: color;
+    transition-duration: 200ms;
   }
 
   .hover-effect:hover {
-    @apply text-primary-hover; /* Apply the desired hover color */
+    color: var(--color-brand-primary);
   }
 
   .bg-hero-light {
@@ -237,10 +220,14 @@
 /* Optional: Smooth Dark Mode Transition */
 @media (prefers-reduced-motion: no-preference) {
   html:not(.dark) {
-    transition: color 300ms, background-color 300ms;
+    transition:
+      color 300ms,
+      background-color 300ms;
   }
-  
+
   html.dark {
-    transition: color 300ms, background-color 300ms;
+    transition:
+      color 300ms,
+      background-color 300ms;
   }
 }

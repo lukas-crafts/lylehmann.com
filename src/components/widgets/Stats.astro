@@ -1,19 +1,19 @@
 ---
-import type { Stats as Props } from '~/types';
-import WidgetWrapper from '../ui/WidgetWrapper.astro';
-import Headline from '../ui/Headline.astro';
-import { Icon } from 'astro-icon/components';
+import type { Stats as Props } from "~/types";
+import WidgetWrapper from "../ui/WidgetWrapper.astro";
+import Headline from "../ui/Headline.astro";
+import { Icon } from "astro-icon/components";
 
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
   tagline,
   stats = [],
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
+  bg = await Astro.slots.render("bg"),
 } = Astro.props;
 ---
 

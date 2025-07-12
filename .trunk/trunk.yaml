@@ -1,21 +1,26 @@
-# This file controls the behavior of Trunk: https://docs.trunk.io/cli
-# To learn more about the format of this file, see https://docs.trunk.io/reference/trunk-yaml
+---
+# trunk.yaml – Konfiguration für Trunk
+# Weitere Infos: https://docs.trunk.io/cli
+# Formatreferenz: https://docs.trunk.io/reference/trunk-yaml
 version: 0.1
 cli:
-  version: 1.22.9
-# Trunk provides extensibility via plugins. (https://docs.trunk.io/plugins)
+  version: 1.24.0
+
+# Plugins für Trunk: https://docs.trunk.io/plugins
 plugins:
   sources:
     - id: trunk
-      ref: v1.6.7
+      ref: v1.7.1
       uri: https://github.com/trunk-io/plugins
-# Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
+
+# Runtimes für Tools: https://docs.trunk.io/runtimes
 runtimes:
   enabled:
     - go@1.21.0
-    - node@18.20.5
+    - node@22.16.0
     - python@3.10.8
-# This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
+
+# Linter-Konfiguration: https://docs.trunk.io/check/configuration
 lint:
   ignore:
     - linters: [ALL]
@@ -30,19 +35,24 @@ lint:
     - cspell
     - markdown-link-check
     - stylelint
+<<<<<<< HEAD
+=======
+    - eslint
+    - prettier
+>>>>>>> main
   enabled:
-    - gitleaks@8.23.3
-    - markdownlint-cli2@0.17.2
-    - markdownlint@0.44.0
-    - checkov@3.2.361
-    - eslint@9.19.0
+    - biome@1.9.4
+    - gitleaks@8.27.2
+    - markdownlint-cli2@0.18.1
+    - markdownlint@0.45.0
+    - checkov@3.2.450
     - git-diff-check
-    - osv-scanner@1.9.2
-    - oxipng@9.1.3
-    - prettier@3.4.2
-    - svgo@3.3.2
+    - osv-scanner@2.0.3
+    - oxipng@9.1.5
+    - svgo@4.0.0
     - taplo@0.9.3
-    - trufflehog@3.88.4
+    - trufflehog@3.89.2
+
 actions:
   enabled:
     - trunk-announce
