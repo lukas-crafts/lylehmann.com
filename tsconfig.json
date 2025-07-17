@@ -6,10 +6,19 @@
     "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@layouts/*": ["src/layouts/*"],
+      "@assets/*": ["src/assets/*"],
+      "astrowind:config": ["src/generated/astrowind-config.ts"]
     },
-    "types": ["astro/client"]
+    "types": ["astro/client", "vitest/globals"]
   },
-  "include": [".astro/types.d.ts", "src/**/*"],
-  "exclude": ["dist/"]
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*",
+    "vitest.config.ts",
+    "vitest.setup.ts"
+  ],
+  "exclude": ["dist/", "node_modules/"]
 }

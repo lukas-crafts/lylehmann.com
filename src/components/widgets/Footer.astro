@@ -1,7 +1,29 @@
 ---
-import { Icon } from "astro-icon/components";
-import { SITE } from "astrowind:config";
-import { getHomePermalink } from "~/utils/permalinks";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  ExternalLink,
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Search,
+  Sun,
+  Tag,
+  Twitter,
+  User,
+  X,
+} from "lucide-astro";
+import { SITE } from "../../generated/astrowind-config";
+import { getHomePermalink } from "../../utils/permalinks";
 
 interface Link {
   text?: string;
@@ -91,7 +113,10 @@ const {
                   aria-label={ariaLabel}
                   href={href}
                 >
-                  {icon && <Icon name={icon} class="w-5 h-5" />}
+                  {icon === "tabler:brand-linkedin" && <Linkedin class="w-5 h-5" />}
+                  {icon === "tabler:mail" && <Mail class="w-5 h-5" />}
+                  {icon === "tabler:brand-github" && <Github class="w-5 h-5" />}
+                  {icon === "tabler:brand-twitter" && <Twitter class="w-5 h-5" />}
                   <Fragment set:html={text} />
                 </a>
               </li>

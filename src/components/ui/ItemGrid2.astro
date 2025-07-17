@@ -1,8 +1,31 @@
 ---
-import type { ItemGrid as Props } from "~/types";
-import { Icon } from "astro-icon/components";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  ExternalLink,
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Search,
+  Sun,
+  Tag,
+  Twitter,
+  User,
+  X,
+} from "lucide-astro";
 import { twMerge } from "tailwind-merge";
+import type { ItemGrid as Props } from "../../types";
 import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 
 const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
 

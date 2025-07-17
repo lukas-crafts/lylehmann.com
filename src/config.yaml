@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: lylehmann
     images:
-      - url: '~/assets/images/hero-image.jpeg'
+      - url: '~/assets/images/lylehmann.jpeg'
         width: 1200
         height: 628
     type: website

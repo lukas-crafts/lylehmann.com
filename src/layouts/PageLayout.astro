@@ -1,11 +1,11 @@
 ---
-import Layout from "~/layouts/Layout.astro";
-import Header from "~/components/widgets/Header.astro";
-import Footer from "~/components/widgets/Footer.astro";
+import Footer from "../components/widgets/Footer.astro";
+import Header from "../components/widgets/Header.astro";
+import Layout from "../layouts/Layout.astro";
 
-// import { headerData, footerData } from "~/navigation";
+// import { headerData, footerData } from "../navigation";
 
-import type { MetaData } from "~/types";
+import type { MetaData } from "../types";
 
 export interface Props {
   metadata?: MetaData;
@@ -13,24 +13,37 @@ export interface Props {
   actions?: Array<{ text: string; href: string; target?: string }>;
 }
 
-const { metadata, links = [
-  { text: 'Home', href: '/' },
-  { text: 'Portfolio', href: '/portfolio' },
-  { text: 'About', href: '/about' },
-], actions = [] } = Astro.props;
+const {
+  metadata,
+  links = [
+    { text: "Home", href: "/" },
+    { text: "Portfolio", href: "/portfolio" },
+    { text: "About", href: "/about" },
+  ],
+  actions = [],
+} = Astro.props;
 
 const footerLinks = [
-  { title: 'Navigation', links: [
-    { text: 'Home', href: '/' },
-    { text: 'Portfolio', href: '/portfolio' },
-  ]},
+  {
+    title: "Navigation",
+    links: [
+      { text: "Home", href: "/" },
+      { text: "Portfolio", href: "/portfolio" },
+    ],
+  },
 ];
-const footerSecondaryLinks = [
-  { text: 'Privacy', href: '/privacy' },
-];
+const footerSecondaryLinks = [{ text: "Privacy", href: "/privacy" }];
 const footerSocialLinks = [
-  { icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/lylehmann/', ariaLabel: 'LinkedIn' },
-  { icon: 'tabler:mail', href: 'mailto:lylehmann@gmail.com', ariaLabel: 'Email' },
+  {
+    icon: "tabler:brand-linkedin",
+    href: "https://www.linkedin.com/in/lylehmann/",
+    ariaLabel: "LinkedIn",
+  },
+  {
+    icon: "tabler:mail",
+    href: "mailto:lylehmann@gmail.com",
+    ariaLabel: "Email",
+  },
 ];
 ---
 

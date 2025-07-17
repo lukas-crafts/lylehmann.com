@@ -1,13 +1,13 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { findImage } from "~/utils/images";
+import { findImage } from "../../utils/images";
 import {
-  getImagesOptimized,
   astroAsseetsOptimizer,
-  unpicOptimizer,
-  isUnpicCompatible,
+  getImagesOptimized,
   type ImageProps,
-} from "~/utils/images-optimization";
+  isUnpicCompatible,
+  unpicOptimizer,
+} from "../../utils/images-optimization";
 
 type Props = ImageProps;
 type ImageType = {
@@ -22,11 +22,11 @@ if (props.alt === undefined || props.alt === null) {
 }
 
 if (typeof props.width === "string") {
-  props.width = parseInt(props.width);
+  props.width = Number.parseInt(props.width);
 }
 
 if (typeof props.height === "string") {
-  props.height = parseInt(props.height);
+  props.height = Number.parseInt(props.height);
 }
 
 if (!props.loading) {
@@ -39,7 +39,7 @@ if (!props.decoding) {
 
 const _image = await findImage(props.src);
 
-let image: ImageType | undefined = undefined;
+let image: ImageType | undefined;
 
 if (typeof _image === "string" && _image.startsWith("/")) {
   // Public folder image: use as-is, no optimization

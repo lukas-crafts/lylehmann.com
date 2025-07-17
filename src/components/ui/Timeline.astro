@@ -1,13 +1,32 @@
 ---
-import { Icon } from "astro-icon/components";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  ExternalLink,
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Search,
+  Sun,
+  Tag,
+  Twitter,
+  User,
+  X,
+} from "lucide-astro";
 import { twMerge } from "tailwind-merge";
-import type { Item } from "~/types";
-
-export interface Props {
-  items?: Array<Item>;
-  defaultIcon?: string;
-  classes?: Record<string, string>;
-}
+import type { Timeline as Props } from "../../types";
+import { formatDate } from "../../utils/utils";
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 
 const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
 

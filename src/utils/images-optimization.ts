@@ -1,8 +1,7 @@
 import { getImage } from "astro:assets";
-import { transformUrl, parseUrl } from "unpic";
-
 import type { ImageMetadata } from "astro";
 import type { HTMLAttributes } from "astro/types";
+import { parseUrl, transformUrl } from "unpic";
 
 type Layout =
   | "fixed"
@@ -80,10 +79,10 @@ const parseAspectRatio = (
 
     if (match) {
       const [, num, den] = match.map(Number);
-      if (den && !isNaN(num)) return num / den;
+      if (den && !Number.isNaN(num)) return num / den;
     } else {
-      const numericValue = parseFloat(aspectRatio);
-      if (!isNaN(numericValue)) return numericValue;
+      const numericValue = Number.parseFloat(aspectRatio);
+      if (!Number.isNaN(numericValue)) return numericValue;
     }
   }
 
@@ -103,16 +102,16 @@ export const getSizes = (
   switch (layout) {
     // If screen is wider than the max size, image width is the max size,
     // otherwise it's the width of the screen
-    case `constrained`:
+    case "constrained":
       return `(min-width: ${width}px) ${width}px, 100vw`;
 
     // Image is always the same width, whatever the size of the screen
-    case `fixed`:
+    case "fixed":
       return `${width}px`;
 
     // Image is always the width of the screen
-    case `fullWidth`:
-      return `100vw`;
+    case "fullWidth":
+      return "100vw";
 
     default:
       return undefined;

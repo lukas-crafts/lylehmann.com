@@ -1,7 +1,29 @@
 ---
-import { Icon } from "astro-icon/components";
-
-import { UI } from "astrowind:config";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  ExternalLink,
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Search,
+  Sun,
+  Tag,
+  Twitter,
+  User,
+  X,
+} from "lucide-astro";
+import Icon from "../../components/ui/Icon.astro";
+import { UI } from "../../generated/astrowind-config";
 
 export interface Props {
   label?: string;
@@ -21,7 +43,7 @@ const {
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
+    <button type="button" class={className} aria-label={label} data-theme-toggle>
       <Icon name={iconName} class={iconClass} />
     </button>
   )

@@ -1,8 +1,57 @@
 ---
-import type { ItemGrid as Props } from "~/types";
+import {
+  Accessibility,
+  Apple,
+  ArrowLeft,
+  ArrowRight,
+  Bell,
+  Blocks,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  Cloud,
+  Diamond,
+  ExternalLink,
+  Facebook,
+  Github,
+  Globe,
+  Grid3x3,
+  Heart,
+  Inbox,
+  Layout,
+  Lightbulb,
+  Linkedin,
+  Mail,
+  MapPin,
+  Megaphone,
+  Menu,
+  MessageCircle,
+  Moon,
+  Music,
+  Palette,
+  Pencil,
+  Phone,
+  Plug,
+  Rocket,
+  Scale,
+  Search,
+  Settings,
+  Smartphone,
+  Sparkles,
+  Sun,
+  Tag,
+  Timer,
+  Twitter,
+  User,
+  Users,
+  X,
+  ZoomIn,
+} from "lucide-astro";
 import { twMerge } from "tailwind-merge";
+import type { ItemGrid as Props } from "../../types";
 import Button from "./Button.astro";
-import { Icon } from "astro-icon/components";
+import Icon from "./Icon.astro";
 
 const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
 

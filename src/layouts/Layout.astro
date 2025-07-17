@@ -1,21 +1,18 @@
 ---
-import "~/assets/styles/tailwind.css";
-import "~/assets/styles/design-tokens.css";
-
-import { I18N } from "astrowind:config";
-
-import CommonMeta from "~/components/common/CommonMeta.astro";
-import Favicons from "~/components/Favicons.astro";
-import CustomStyles from "~/components/CustomStyles.astro";
-import ApplyColorMode from "~/components/common/ApplyColorMode.astro";
-import Metadata from "~/components/common/Metadata.astro";
-import SiteVerification from "~/components/common/SiteVerification.astro";
-import BasicScripts from "~/components/common/BasicScripts.astro";
+import "../assets/styles/tailwind.css";
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from "astro:transitions";
+import CustomStyles from "../components/CustomStyles.astro";
+// import ApplyColorMode from "../components/common/ApplyColorMode.astro";
+import BasicScripts from "../components/common/BasicScripts.astro";
+import CommonMeta from "../components/common/CommonMeta.astro";
+import Metadata from "../components/common/Metadata.astro";
+import SiteVerification from "../components/common/SiteVerification.astro";
+import Favicons from "../components/Favicons.astro";
+import { I18N } from "../generated/astrowind-config";
 
-import type { MetaData as MetaDataType } from "~/types";
+import type { MetaData as MetaDataType } from "../types";
 
 export interface Props {
   metadata?: MetaDataType;
@@ -31,28 +28,32 @@ const { language, textDirection } = I18N;
     <CommonMeta />
     <Favicons />
     <CustomStyles />
-    <ApplyColorMode />
+    {/* <ApplyColorMode client:load /> */}
     <Metadata {...metadata} />
     <SiteVerification />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta name="robots" content="index, follow" />
 
     <!-- Google Tag Manager -->
+    {import.meta.env.PROD && (
       <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});let f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PVL67MM');</script>
+    )}
     <!-- End Google Tag Manager -->
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
 
-  <body class="antialiased tracking-tight text-default bg-page">
+  <body class="bg-page text-page antialiased tracking-tight">
     <!-- Google Tag Manager (noscript) -->
+    {import.meta.env.PROD && (
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVL67MM"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    )}
   <!-- End Google Tag Manager (noscript) -->
     <slot />
 

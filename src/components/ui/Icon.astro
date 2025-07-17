@@ -1,0 +1,99 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import {
+  Accessibility,
+  Apple,
+  Bell,
+  Blocks,
+  Bot,
+  Clock,
+  Cloud,
+  Code,
+  Diamond,
+  Github,
+  Globe,
+  Grid3x3,
+  Heart,
+  Inbox,
+  Layout,
+  LayoutDashboard,
+  LayoutGrid,
+  Lightbulb,
+  Linkedin,
+  Mail,
+  Megaphone,
+  MessageCircle,
+  Music,
+  Palette,
+  Pencil,
+  Plug,
+  Rocket,
+  Scale,
+  Search,
+  Settings,
+  Smartphone,
+  Sparkles,
+  Timer,
+  User,
+  Users,
+  ZoomIn,
+} from "lucide-astro";
+import { twMerge } from "tailwind-merge";
+
+interface Props extends HTMLAttributes<"svg"> {
+  name: string;
+  class?: string;
+}
+
+const { name, class: className, ...props } = Astro.props;
+
+// Map tabler icons to lucide icons
+const iconMap = {
+  "tabler:world": Globe,
+  "tabler:components": Layout,
+  "tabler:speedboat": Rocket,
+  "tabler:users": Users,
+  "tabler:brand-astro": Sparkles,
+  "tabler:brand-tailwind": Palette,
+  "tabler:cloud": Cloud,
+  "tabler:brand-github": Github,
+  "tabler:accessible": Accessibility,
+  "tabler:rocket": Rocket,
+  "tabler:search": Search,
+  "tabler:diamond": Diamond,
+  "tabler:zoom-question": ZoomIn,
+  "tabler:clock-question": Clock,
+  "tabler:bell-question": Bell,
+  "tabler:user-question": User,
+  "tabler:user-heart": Heart,
+  "tabler:pencil": Pencil,
+  "tabler:bulb": Lightbulb,
+  "tabler:lego": Blocks,
+  "tabler:adjustments": Settings,
+  "tabler:music": Music,
+  "tabler:users-group": Users,
+  "tabler:time-duration-10": Timer,
+  "tabler:playlist": Music,
+  "tabler:brand-apple": Apple,
+  "tabler:settings": Settings,
+  "tabler:device-mobile": Smartphone,
+  "tabler:apps": Grid3x3,
+  "tabler:brand-linkedin": Linkedin,
+  "tabler:mail": Mail,
+  "tabler:message": MessageCircle,
+  "tabler:inbox": Inbox,
+  "tabler:plug": Plug,
+  "tabler:scale": Scale,
+  "tabler:speakerphone": Megaphone,
+  // Add missing icons for homepage
+  "tabler:layout-dashboard": LayoutDashboard,
+  "tabler:code": Code,
+  "tabler:robot": Bot,
+  "tabler:layout-grid": LayoutGrid,
+} as const;
+
+// Get the mapped icon component or fallback
+const IconComponent = iconMap[name as keyof typeof iconMap] || Clock;
+---
+
+<IconComponent class={twMerge("w-6 h-6", className)} {...props} />

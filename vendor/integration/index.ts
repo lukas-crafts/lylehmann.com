@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import os from "node:os";
+import path from "node:path";
 import type { AstroConfig, AstroIntegration } from "astro";
 
 import configBuilder, { type Config } from "./utils/configBuilder";
@@ -31,6 +32,29 @@ export default ({
         const { SITE, I18N, METADATA, APP_BLOG, UI, ANALYTICS } =
           configBuilder(rawJsonConfig);
 
+        // Generate a real config file instead of using virtual modules
+        const configContent = `
+export const SITE = ${JSON.stringify(SITE, null, 2)};
+export const I18N = ${JSON.stringify(I18N, null, 2)};
+export const METADATA = ${JSON.stringify(METADATA, null, 2)};
+export const APP_BLOG = ${JSON.stringify(APP_BLOG, null, 2)};
+export const UI = ${JSON.stringify(UI, null, 2)};
+export const ANALYTICS = ${JSON.stringify(ANALYTICS, null, 2)};
+`;
+
+        // Write the config to a real file
+        const configPath = path.join(
+          config.root.pathname,
+          "src/generated/astrowind-config.ts",
+        );
+        const configDir = path.dirname(configPath);
+
+        if (!fs.existsSync(configDir)) {
+          fs.mkdirSync(configDir, { recursive: true });
+        }
+
+        fs.writeFileSync(configPath, configContent, "utf8");
+
         updateConfig({
           site: SITE.site,
           base: SITE.base,
@@ -38,28 +62,11 @@ export default ({
           trailingSlash: SITE.trailingSlash ? "always" : "never",
 
           vite: {
-            plugins: [
-              {
-                name: "vite-plugin-astrowind-config",
-                resolveId(id) {
-                  if (id === virtualModuleId) {
-                    return resolvedVirtualModuleId;
-                  }
-                },
-                load(id) {
-                  if (id === resolvedVirtualModuleId) {
-                    return `
-                    export const SITE = ${JSON.stringify(SITE)};
-                    export const I18N = ${JSON.stringify(I18N)};
-                    export const METADATA = ${JSON.stringify(METADATA)};
-                    export const APP_BLOG = ${JSON.stringify(APP_BLOG)};
-                    export const UI = ${JSON.stringify(UI)};
-                    export const ANALYTICS = ${JSON.stringify(ANALYTICS)};
-                    `;
-                  }
-                },
+            resolve: {
+              alias: {
+                "astrowind:config": configPath,
               },
-            ],
+            },
           },
         });
 
