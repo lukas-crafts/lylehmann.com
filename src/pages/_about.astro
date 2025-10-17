@@ -1,28 +1,26 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
-
-import Header from "~/components/widgets/Header.astro";
-import Hero from "~/components/widgets/Hero.astro";
-import Content from "~/components/widgets/Content.astro";
 import { Seo } from "astro-seo-meta";
 import { Schema } from "astro-seo-schema";
-
-import myJourney from "~/assets/images/my-journey.jpg";
+import myJourney from "../assets/images/my-journey.jpg";
+import Content from "../components/widgets/Content.astro";
+import Header from "../components/widgets/Header.astro";
+import Hero from "../components/widgets/Hero.astro";
+import Layout from "../layouts/PageLayout.astro";
 ---
 
 <Seo
   title="About - Lukas Yair Lehmann | UX Designer & Accessibility Advocate"
   description="Learn about Lukas Yair Lehmann, a UX designer creating accessible, inclusive experiences. Explore his journey, skills, and passion for user-first design."
   keywords={["UX Designer", "Accessibility Advocate", "Lukas Yair Lehmann", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "Design Portfolio", "UX Design Skills", "UX Design Experience"]}
-  icon="~/assets/favicons/favicon.ico"
+  icon="../assets/favicons/favicon.ico"
   robots='index, follow'
   facebook={{
-    image: "~/assets/images/hero-image.jpeg", // Replace with a default image path
+    image: "../assets/images/hero-image.jpeg", // Replace with a default image path
     url: "https://lylehmann.com/about",
     type: "website",
   }}
   twitter={{
-    image: "~/assets/images/hero-image.jpeg", // Replace with a default image path
+    image: "../assets/images/hero-image.jpeg", // Replace with a default image path
     site: "@lylehmann",
     card: "summary_large_image",
   }}

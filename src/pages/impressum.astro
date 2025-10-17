@@ -1,9 +1,9 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
-import Header from "~/components/widgets/Header.astro";
-import ContactInfo from "~/components/widgets/ContactInfo.astro";
 import { Seo } from "astro-seo-meta";
 import { Schema } from "astro-seo-schema";
+import ContactInfo from "../components/widgets/ContactInfo.astro";
+import Header from "../components/widgets/Header.astro";
+import Layout from "../layouts/PageLayout.astro";
 
 const address = import.meta.env.PUBLIC_ADDRESS;
 const phone = import.meta.env.PUBLIC_PHONE_NUMBER;
@@ -14,7 +14,7 @@ const email = import.meta.env.PUBLIC_EMAIL;
   title="Impressum - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate. Find out how to get in touch and learn more about his work."
   keywords={["Impressum", "Legal Information", "Contact", "Lukas Yair Lehmann", "UX Designer", "Accessibility Advocate", "User Experience", "Inclusive Design"]}
-  icon="~/assets/favicons/favicon.ico"
+  icon="../assets/favicons/favicon.ico"
   robots='index, follow'
 />
 

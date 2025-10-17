@@ -1,8 +1,6 @@
-@import './design-tokens.css' layer(base);
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "./design-tokens.css";
+@import "@radix-ui/themes/styles.css";
+@import "tailwindcss";
 
 @layer base {
   /* Stärkere Spezifität für Aufzählungszeichen */

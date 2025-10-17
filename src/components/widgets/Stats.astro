@@ -1,8 +1,31 @@
 ---
-import type { Stats as Props } from "~/types";
-import WidgetWrapper from "../ui/WidgetWrapper.astro";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Calendar,
+  ChevronLeft,
+  ChevronRight,
+  Clock,
+  ExternalLink,
+  Facebook,
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Search,
+  Sun,
+  Tag,
+  Twitter,
+  User,
+  X,
+} from "lucide-astro";
+import type { Stats as Props } from "../../types";
 import Headline from "../ui/Headline.astro";
-import { Icon } from "astro-icon/components";
+import Icon from "../ui/Icon.astro";
+import WidgetWrapper from "../ui/WidgetWrapper.astro";
 
 const {
   title = await Astro.slots.render("title"),

@@ -1,34 +1,38 @@
 ---
-import Layout from "~/layouts/PageLayout.astro";
-import Header from "~/components/widgets/Header.astro";
-import Hero2 from "~/components/widgets/Hero2.astro";
-import Headline from "~/components/ui/Headline.astro";
-import ItemGrid2 from "~/components/ui/ItemGrid2.astro";
-import CallToAction from "~/components/widgets/CallToAction.astro";
+import Headline from "../components/ui/Headline.astro";
+import ItemGrid2 from "../components/ui/ItemGrid2.astro";
+import CallToAction from "../components/widgets/CallToAction.astro";
+import Header from "../components/widgets/Header.astro";
+import Hero2 from "../components/widgets/Hero2.astro";
 import { projects } from "../data/projects";
+import Layout from "../layouts/PageLayout.astro";
 import type { Item } from "../types";
+
 const email = import.meta.env.PUBLIC_EMAIL;
 
 const skills: Item[] = [
   {
-    icon: 'tabler:layout-dashboard',
-    title: 'UX & Product',
-    description: `I make websites and apps easy to use, so you always know what to do next.`
+    icon: "tabler:layout-dashboard",
+    title: "UX & Product",
+    description:
+      "I make websites and apps easy to use, so you always know what to do next.",
   },
   {
-    icon: 'tabler:code',
-    title: 'Frontend',
-    description: `I build websites that look good and work fast on any device.`
+    icon: "tabler:code",
+    title: "Frontend",
+    description: "I build websites that look good and work fast on any device.",
   },
   {
-    icon: 'tabler:robot',
-    title: 'AI & Automation',
-    description: `I add smart features that help you get things done quicker and easier.`
+    icon: "tabler:robot",
+    title: "AI & Automation",
+    description:
+      "I add smart features that help you get things done quicker and easier.",
   },
   {
-    icon: 'tabler:accessible',
-    title: 'Accessibility',
-    description: `I make sure everyone can use what I build, no matter who they are.`
+    icon: "tabler:accessible",
+    title: "Accessibility",
+    description:
+      "I make sure everyone can use what I build, no matter who they are.",
   },
 ];
 ---

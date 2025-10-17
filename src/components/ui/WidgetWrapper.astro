@@ -1,12 +1,12 @@
 ---
 import type { HTMLTag } from "astro/types";
-import type { Widget } from "~/types";
 import { twMerge } from "tailwind-merge";
+import type { Widget } from "../../types";
 import Background from "./Background.astro";
 
 export interface Props extends Widget {
   containerClass?: string;
-  ["as"]?: HTMLTag;
+  as?: HTMLTag;
 }
 
 const {

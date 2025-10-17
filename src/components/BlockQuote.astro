@@ -1,11 +1,18 @@
 ---
+// Icons imported as needed
+
+export interface Props {
+  author?: string;
+}
+
+const { author } = Astro.props;
 ---
 
 <blockquote class="border-primary-500 border-l-4 pl-4">
   <div>
-    <Icon name="lucide:quote" size="2rem" />
+    <span>"</span>
     <slot />
-    <Icon name="lucide:quote" size="2rem" />
+    <span>"</span>
   </div>
   {author && <cite class="block text-sm font-medium">{author}</cite>}
 </blockquote>

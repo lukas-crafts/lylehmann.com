@@ -1,11 +1,11 @@
 ---
-import MarkdownLayout from "~/layouts/MarkdownLayout.astro";
-import { projects } from "../../data/projects";
-import Hero from "../../components/widgets/Hero.astro";
+import FAQs from "../../components/widgets/FAQs.astro";
 import Features from "../../components/widgets/Features.astro";
+import Hero from "../../components/widgets/Hero.astro";
 import Stats from "../../components/widgets/Stats.astro";
 import Steps from "../../components/widgets/Steps.astro";
-import FAQs from "../../components/widgets/FAQs.astro";
+import { projects } from "../../data/projects";
+import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 
 export async function getStaticPaths() {
   return projects.map((project) => ({ params: { id: project.id } }));
@@ -41,4 +41,4 @@ const project = projects.find((p) => p.id === id);
       </p>
     </div>
   </section>
-)} 
+)}

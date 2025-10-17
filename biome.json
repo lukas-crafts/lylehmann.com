@@ -6,7 +6,16 @@
     "useIgnoreFile": false
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": ["src/**/*", "*.{js,ts,tsx,jsx,json}"],
+    "experimentalScannerIgnores": [
+      "node_modules/**",
+      "dist/**",
+      ".astro/**",
+      "**/.cache/**",
+      "**/trunk/**",
+      "vendor/**"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -22,14 +31,6 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "double"
-    }
-  },
-  "assist": {
-    "enabled": true,
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
     }
   }
 }

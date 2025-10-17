@@ -1,4 +1,5 @@
-import { getPermalink, getBlogPermalink, getAsset } from "./utils/permalinks";
+import { getAsset, getBlogPermalink, getPermalink } from "./utils/permalinks";
+
 const email = import.meta.env.PUBLIC_EMAIL; // A
 const currentYear = new Date().getFullYear();
 

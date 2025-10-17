@@ -1,8 +1,13 @@
 :root {
   /* Font Families */
-  --font-sans: "Inter Variable";
-  --font-serif: "Inter Variable";
-  --font-heading: "Inter Variable";
+  --font-sans: "Inter Variable", system-ui, sans-serif;
+  --font-serif: "Inter Variable", system-ui, sans-serif;
+  --font-heading: "Inter Variable", system-ui, sans-serif;
+
+  /* Astro-specific font variables */
+  --aw-font-sans: var(--font-sans);
+  --aw-font-serif: var(--font-serif);
+  --aw-font-heading: var(--font-heading);
 
   /* Brand Colors */
   --color-brand-primary: hsl(14, 85%, 50%); /* Deep Orange */
@@ -55,10 +60,12 @@
     color: hsl(0, 0%, 100%);
   }
 
-  /* Definiert Primärfarben – wir setzen primary-hover gleich primary, damit Link-Farbe und Hover übereinstimmen */
-  --color-primary: #1d4ed8; /* Standard Primärfarbe */
-  --color-primary-hover: #1d4ed8; /* Hover-Farbe = Primärfarbe */
-  /* ... weitere Design Tokens ... */
+  /* Astro-specific variables for compatibility */
+  --aw-color-primary: var(--color-brand-primary);
+  --aw-color-secondary: var(--color-brand-secondary);
+  --aw-color-accent: var(--color-brand-accent);
+  --aw-color-text-default: var(--color-text-body);
+  --aw-color-text-muted: var(--color-text-muted);
 }
 
 .dark {

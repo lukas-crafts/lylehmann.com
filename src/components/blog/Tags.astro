@@ -1,8 +1,7 @@
 ---
-import { getPermalink } from "~/utils/permalinks";
-
-import { APP_BLOG } from "astrowind:config";
-import type { Post } from "~/types";
+import type { Post } from "../../types";
+import { getPermalink } from "../../utils/permalinks";
+import { APP_BLOG } from "../generated/astrowind-config";
 
 export interface Props {
   tags: Post["tags"];

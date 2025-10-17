@@ -1,0 +1,90 @@
+// Generated TypeScript config content from src/config.yaml
+
+export const SITE = {
+  name: "lylehmann",
+  site: "https://lylehmann.com",
+  base: "/",
+  trailingSlash: false,
+  googleSiteVerificationId: "0huXZJ-6uK_goDlERB78YvAOL04Gfh8oBM6dTztEC0Y",
+};
+
+export const I18N = {
+  language: "en",
+  textDirection: "ltr",
+};
+
+export const METADATA = {
+  title: {
+    default: "lylehmann",
+    template: "%s - lylehmann",
+  },
+  description:
+    "Creating accessible digital experiences that work for everyone. From disability advocacy to UX design, building inclusive solutions that embrace user needs.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    site_name: "lylehmann",
+    images: [
+      {
+        url: "~/assets/images/lylehmann.jpeg",
+        width: 1200,
+        height: 628,
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    handle: "@onwidget",
+    site: "@onwidget",
+    cardType: "summary_large_image",
+  },
+};
+
+export const APP_BLOG = {
+  isEnabled: true,
+  postsPerPage: 6,
+  post: {
+    isEnabled: true,
+    permalink: "/portfolio/%slug%", // Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+    robots: {
+      index: true,
+    },
+  },
+  list: {
+    isEnabled: true,
+    pathname: "portfolio", // Blog main path, you can change this to "articles" (/articles)
+    robots: {
+      index: true,
+    },
+  },
+  category: {
+    isEnabled: true,
+    pathname: "category", // Category main path /category/some-category, you can change this to "group" (/group/some-category)
+    robots: {
+      index: true,
+    },
+  },
+  tag: {
+    isEnabled: true,
+    pathname: "tag", // Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+    robots: {
+      index: false,
+    },
+  },
+  isRelatedPostsEnabled: true,
+  relatedPostsCount: 4,
+};
+
+export const UI = {
+  theme: "system", // Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+};
+
+export const ANALYTICS = {
+  vendors: {
+    googleAnalytics: {
+      id: "G-0000000000",
+    },
+  },
+};

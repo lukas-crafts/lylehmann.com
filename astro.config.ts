@@ -1,30 +1,22 @@
-import path from "path";
-import { fileURLToPath } from "url";
-
-import { defineConfig } from "astro/config";
-
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
-import icon from "astro-icon";
-import compress from "astro-compress";
-import type { AstroIntegration } from "astro";
 import react from "@astrojs/react";
-
-import astrowind from "./vendor/integration";
-
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import playformCompress from "@playform/compress";
+import type { AstroIntegration } from "astro";
+import { defineConfig } from "astro/config";
+// import icon from "astro-icon"; // Removed due to compatibility issues
+import purgecss from "astro-purgecss";
+import robotsTxt from "astro-robots-txt";
 import {
+  lazyImagesRehypePlugin,
   readingTimeRemarkPlugin,
   responsiveTablesRehypePlugin,
-  lazyImagesRehypePlugin,
 } from "./src/utils/frontmatter";
-
-import playformCompress from "@playform/compress";
-
-import robotsTxt from "astro-robots-txt";
-
-import purgecss from "astro-purgecss";
+import astrowind from "./vendor/integration";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -46,10 +38,18 @@ export default defineConfig({
 
   site: "https://lylehmann.com",
 
-  trailingSlash: 'never',
+  trailingSlash: "never",
 
   integrations: [
-    react(),
+    react({
+      include: [
+        "**/react/*",
+        "**/*.jsx",
+        "**/*.tsx",
+        "**/components/**/*.tsx",
+        "**/components/**/*.jsx",
+      ],
+    }),
     tailwind({
       applyBaseStyles: false,
     }),
@@ -57,74 +57,54 @@ export default defineConfig({
       // configuration options
     }),
     mdx(),
-    icon({
-      include: {
-        tabler: ["*"],
-        "flat-color-icons": [
-          "template",
-          "gallery",
-          "approval",
-          "document",
-          "advertising",
-          "currency-exchange",
-          "voice-presentation",
-          "business-contact",
-          "database",
-        ],
-      },
-    }),
+    // Removed astro-icon due to compatibility issues - using lucide-astro instead
     ...whenExternalScripts(() =>
       partytown({
         config: { forward: ["dataLayer.push"] },
       }),
     ),
-    compress({
-      CSS: true,
-      HTML: {
-        "html-minifier-terser": {
-          removeAttributeQuotes: false,
-        },
-      },
-      Image: false,
-      JavaScript: true,
-      SVG: false,
-      Logger: 1,
-    }),
     astrowind({
       config: "./src/config.yaml",
     }),
-    playformCompress(),
+    playformCompress({
+      CSS: true,
+      HTML: true,
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+    }),
     robotsTxt(),
     purgecss({
       fontFace: true,
       keyframes: true,
       variables: true,
-      safelist: ["random", "yep", "button", /^nav/],
-      blocklist: ["usedClass", /^nav/],
-      content: [
-        process.cwd() + "/src/**/*.{astro,vue}", // Watching astro and vue sources
-        process.cwd() + "/dist/**/*.html", // Include all HTML files in dist directory
-        process.cwd() + "/dist/*.html", // Include root HTML files like 404.html
+      safelist: [
+        "dark",
+        "light",
+        /^data-/,
+        /^astro-/,
+        /^transition-/,
+        /^swiper/,
+        /^radix/,
       ],
-      // Custom options to handle special files like 404.html
-      options: {
-        // Skip purging the 404.html file to avoid errors
-        skippedFiles: ["404.html"],
-        // Disable looking for files in directories that don't exist
-        rejected: false,
-        // Only process files that actually exist
-        dynamicAttributes: ["data-processed"],
-        // Force the inclusion of 404.html in special handling
-        variables: {
-          specialPages: ["404.html"],
-        },
-      },
+      content: [
+        process.cwd() + "/src/**/*.{astro,tsx,jsx,ts,js,md,mdx}",
+        process.cwd() + "/dist/**/*.html",
+      ],
       extractors: [
         {
-          // Example using a taiwindcss compatible class extractor
-          extractor: (content) =>
-            content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || [],
-          extensions: ["astro", "html"],
+          extractor: (content) => {
+            // Enhanced extractor for Tailwind CSS and custom classes
+            const matches = content.match(/[^<>"'`\s.(){}[\]#:]*[^<>"'`\s.(){}[\]#:]/g) || [];
+            // Also extract from class= attributes specifically
+            const classMatches = content.match(/class(?:Name)?=["']([^"']*)["']/g) || [];
+            const classContent = classMatches.map(match => 
+              match.replace(/class(?:Name)?=["']([^"']*)["']/, '$1')
+            ).join(' ');
+            const classTokens = classContent.split(/\s+/).filter(Boolean);
+            return [...matches, ...classTokens];
+          },
+          extensions: ["astro", "html", "tsx", "jsx"],
         },
       ],
     }),
@@ -142,11 +122,43 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
-        "~": path.resolve(__dirname, "./src"),
-        "@components": path.resolve(__dirname, "./src/components"),
-        "@layouts": path.resolve(__dirname, "./src/layouts"),
-        "@assets": path.resolve(__dirname, "./src/assets"),
+        "@components": path.resolve(__dirname, "src/components"),
+        "@layouts": path.resolve(__dirname, "src/layouts"),
+        "@assets": path.resolve(__dirname, "src/assets"),
+        "astrowind:config": path.resolve(
+          __dirname,
+          "src/generated/astrowind-config.ts",
+        ),
       },
     },
+    esbuild: {
+      target: "es2022",
+      tsconfigRaw: {
+        compilerOptions: {
+          useDefineForClassFields: false,
+        },
+      },
+    },
+    build: {
+      target: "es2022",
+    },
+    plugins: [
+      {
+        name: "disable-typescript-resolution",
+        configResolved(config) {
+          // Disable TypeScript resolution entirely
+          config.esbuild = config.esbuild || {};
+          config.esbuild.tsconfigRaw = {
+            compilerOptions: {
+              allowJs: true,
+              checkJs: false,
+              declaration: false,
+              skipLibCheck: true,
+              skipDefaultLibCheck: true,
+            },
+          };
+        },
+      },
+    ],
   },
 });
