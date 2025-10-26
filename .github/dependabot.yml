@@ -1,0 +1,82 @@
+version: 2
+updates:
+  # Enable npm dependency updates
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 10
+    groups:
+      # Group Astro-related updates together
+      astro:
+        patterns:
+          - "astro*"
+          - "@astrojs/*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group icon libraries together
+      icons:
+        patterns:
+          - "lucide-*"
+          - "@iconify-json/*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group testing tools together
+      testing:
+        patterns:
+          - "vitest*"
+          - "@vitest/*"
+          - "@testing-library/*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group Tailwind packages together
+      tailwind:
+        patterns:
+          - "tailwind*"
+          - "@tailwindcss/*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group React packages together
+      react:
+        patterns:
+          - "react*"
+          - "@types/react*"
+        update-types:
+          - "minor"
+          - "patch"
+      # Group Sentry packages together
+      sentry:
+        patterns:
+          - "@sentry/*"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      # Ignore specific packages if needed
+      # - dependency-name: "package-name"
+      #   versions: ["x.x.x"]
+    labels:
+      - "dependencies"
+      - "automated"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+
+  # Enable GitHub Actions updates
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    labels:
+      - "github-actions"
+      - "automated"
+    commit-message:
+      prefix: "ci"

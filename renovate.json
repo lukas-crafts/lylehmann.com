@@ -1,0 +1,86 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":preserveSemverRanges"
+  ],
+  "schedule": [
+    "before 10am on monday"
+  ],
+  "timezone": "Europe/Berlin",
+  "labels": [
+    "dependencies",
+    "renovate"
+  ],
+  "packageRules": [
+    {
+      "groupName": "Astro packages",
+      "matchPackagePatterns": [
+        "^astro",
+        "^@astrojs/"
+      ],
+      "schedule": [
+        "before 10am on monday"
+      ]
+    },
+    {
+      "groupName": "Vite and related",
+      "matchPackageNames": [
+        "vite",
+        "@vitejs/plugin-react"
+      ]
+    },
+    {
+      "groupName": "Testing tools",
+      "matchPackagePatterns": [
+        "^vitest",
+        "^@vitest/"
+      ]
+    },
+    {
+      "groupName": "Tailwind packages",
+      "matchPackagePatterns": [
+        "^tailwind",
+        "^@tailwindcss/"
+      ]
+    },
+    {
+      "groupName": "React packages",
+      "matchPackagePatterns": [
+        "^react",
+        "^@types/react"
+      ]
+    },
+    {
+      "groupName": "Icon packages",
+      "matchPackagePatterns": [
+        "^lucide-",
+        "^@iconify-json/"
+      ]
+    },
+    {
+      "groupName": "Sentry packages",
+      "matchPackagePatterns": [
+        "^@sentry/"
+      ]
+    },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
+      "automerge": false,
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ]
+  },
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 5
+}
