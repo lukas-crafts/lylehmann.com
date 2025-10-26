@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
-    "@astrojs/rss": "4.0.12",
+    "@astrojs/rss": "4.0.13",
     "@astrojs/sitemap": "3.6.0",
     "@astrolib/analytics": "^0.6.1",
     "@astrolib/seo": "1.0.0-beta.8",
@@ -34,6 +34,7 @@
     "@microsoft/clarity": "^1.0.0",
     "@playform/compress": "^0.2.0",
     "@radix-ui/themes": "^3.2.1",
+    "@sentry/browser": "^10.22.0",
     "@sentry/profiling-node": "^10.20.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.14",
@@ -41,7 +42,7 @@
     "@types/react-dom": "^19.2.2",
     "@types/sanitize-html": "^2.16.0",
     "accessible-astro-components": "^5.0.1",
-    "astro": "5.14.5",
+    "astro": "5.15.1",
     "astro-embed": "^0.9.1",
     "astro-purgecss": "^5.3.0",
     "astro-robots-txt": "^1.0.0",
@@ -52,8 +53,8 @@
     "dotenv": "^17.2.3",
     "limax": "4.2.1",
     "lodash.merge": "^4.6.2",
-    "lucide-astro": "^0.546.0",
-    "lucide-react": "^0.546.0",
+    "lucide-astro": "^0.548.0",
+    "lucide-react": "^0.548.0",
     "marked": "^16.4.1",
     "radix-ui": "^1.4.3",
     "react": "^19.2.0",
@@ -67,7 +68,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "4.3.7",
+    "@astrojs/mdx": "4.3.8",
     "@astrojs/partytown": "2.1.4",
     "@iconify-json/flat-color-icons": "^1.2.3",
     "@iconify-json/tabler": "^1.2.23",
@@ -77,7 +78,7 @@
     "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
     "@types/mdx": "^2.0.13",
-    "@vitest/ui": "^3.2.4",
+    "@vitest/ui": "^4.0.3",
     "astro-compress": "2.3.8",
     "autoprefixer": "^10.4.21",
     "globals": "^16.4.0",
@@ -92,6 +93,7 @@
     "tailwind-merge": "^3.3.1",
     "typescript": "^5.9.3",
     "unist-util-visit": "^5.0.0",
-    "vitest": "^3.2.4"
+    "vite": "^7.1.12",
+    "vitest": "^4.0.3"
   }
 }
