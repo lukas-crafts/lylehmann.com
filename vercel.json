@@ -1,6 +1,8 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "buildCommand": "astro build",
+  "outputDirectory": "dist",
   "headers": [
     {
       "source": "/_astro/(.*)",
