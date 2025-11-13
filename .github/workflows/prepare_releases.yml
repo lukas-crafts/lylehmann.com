@@ -11,6 +11,10 @@ jobs:
   pre-release:
     name: "Prepare Release"
     runs-on: "ubuntu-latest"
+    permissions:
+      contents: write # Required to create releases and tags
+      issues: write # Required to comment on issues
+      pull-requests: write # Required to comment on PRs
 
     steps:
       - uses: "marvinpinto/action-automatic-releases@latest"
