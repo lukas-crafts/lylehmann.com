@@ -10,6 +10,10 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to push commits and tags
+      issues: write # Required to comment on issues
+      pull-requests: write # Required to comment on PRs
     steps:
       - name: Checkout
         uses: actions/checkout@v4
