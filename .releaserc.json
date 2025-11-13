@@ -13,7 +13,7 @@
     [
       "@semantic-release/github",
       {
-        "assets": ["dist/**", "package.json"]
+        "assets": ["package.json"]
       }
     ],
     "@semantic-release/git"
