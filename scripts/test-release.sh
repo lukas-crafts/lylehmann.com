@@ -2,6 +2,7 @@
 #
 # Test script for semantic-release configuration
 # This script tests the release action locally in dry-run mode
+# Updated: 2025-01-14 - Added tag conflict prevention
 #
 
 set -e
