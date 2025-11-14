@@ -5,6 +5,7 @@
 #
 
 set -e
+set -o pipefail
 
 echo "🧪 Testing semantic-release configuration..."
 echo ""
