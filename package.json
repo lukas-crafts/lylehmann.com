@@ -20,7 +20,8 @@
     "fix:biome": "biome check --write .",
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "test:release": "./scripts/test-release.sh"
   },
   "dependencies": {
     "@astrojs/react": "^4.4.0",
