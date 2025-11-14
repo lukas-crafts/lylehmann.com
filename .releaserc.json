@@ -1,5 +1,6 @@
 {
   "branches": ["main", "master"],
+  "tagFormat": "v${version}",
   "plugins": [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
@@ -13,7 +14,9 @@
     [
       "@semantic-release/github",
       {
-        "assets": ["dist/**", "package.json", "CHANGELOG.md"]
+        "assets": ["dist/**", "package.json", "CHANGELOG.md"],
+        "successComment": false,
+        "releasedLabels": false
       }
     ]
   ]
