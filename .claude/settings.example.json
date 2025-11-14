@@ -1,0 +1,26 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/schemas/settings.schema.json",
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(pnpm run:*)",
+      "Bash(pnpm build:*)",
+      "Bash(pnpm check:*)",
+      "Bash(pnpm fix:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(rm:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git fetch:*)",
+      "Bash(git checkout:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh run list:*)",
+      "Read(//Users/lukaslehmann/**)",
+      "WebFetch(domain:docs.astro.build)"
+    ],
+    "deny": []
+  }
+}
