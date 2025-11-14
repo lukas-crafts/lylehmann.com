@@ -54,6 +54,16 @@ echo "🏷️  Recent version tags:"
 git tag -l "v*" | sort -V | tail -5
 echo ""
 
+# Sync tags with remote to avoid conflicts during semantic-release
+echo "🔄 Syncing tags with remote..."
+# Fetch with force to update any existing tags
+if git fetch --tags --force origin 2>&1; then
+    echo -e "${GREEN}✅ Tags synced successfully${NC}"
+else
+    echo -e "${YELLOW}⚠️  Could not fetch tags (may not affect dry-run)${NC}"
+fi
+echo ""
+
 # Run semantic-release in dry-run mode
 echo "🔍 Running semantic-release in dry-run mode..."
 echo ""
@@ -80,13 +90,14 @@ if [ $EXIT_CODE -eq 0 ]; then
         echo -e "${YELLOW}ℹ️  No release would be created (no relevant changes)${NC}"
     fi
 else
-    # Check for expected errors (missing GitHub token in local environment)
-    if grep -q "ENOGHTOKEN" "$LOG_FILE"; then
-        echo -e "${YELLOW}⚠️  GitHub token not found (expected in local environment)${NC}"
+    # Check for expected errors (missing/invalid GitHub token in local environment)
+    if grep -q -E "ENOGHTOKEN|EINVALIDGHTOKEN" "$LOG_FILE"; then
+        echo -e "${YELLOW}⚠️  GitHub token not found or invalid (expected in local environment)${NC}"
         echo -e "${GREEN}✅ Configuration is valid up to GitHub authentication${NC}"
+        EXIT_CODE=0
     else
         echo -e "${RED}❌ Semantic-release dry-run failed${NC}"
-        echo -e "${RED}Check $LOG_FILE for details${NC}"
+        echo -e "${RED}Check the output above for details${NC}"
         exit 1
     fi
 fi
