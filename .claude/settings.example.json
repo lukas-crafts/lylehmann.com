@@ -18,7 +18,7 @@
       "Bash(git checkout:*)",
       "Bash(gh pr create:*)",
       "Bash(gh run list:*)",
-      "Read(//Users/lukaslehmann/**)",
+      "Read(//path/to/your/project/**)",
       "WebFetch(domain:docs.astro.build)"
     ],
     "deny": []
