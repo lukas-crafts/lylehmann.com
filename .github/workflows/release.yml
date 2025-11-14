@@ -31,6 +31,7 @@ jobs:
       - name: Clean up orphaned tags
         run: |
           echo "Removing tags not in current branch history..."
+          echo "This prevents semantic-release from seeing tags from merged branches"
           # Get tags that are not ancestors of HEAD
           git tag --no-merged HEAD | while read tag; do
             echo "Removing orphaned tag: $tag"
