@@ -28,12 +28,23 @@ jobs:
           git fetch --tags --force
           git fetch --prune --unshallow 2>/dev/null || true
 
+      - name: Clean up orphaned tags
+        run: |
+          echo "Removing tags not in current branch history..."
+          # Get tags that are not ancestors of HEAD
+          git tag --no-merged HEAD | while read tag; do
+            echo "Removing orphaned tag: $tag"
+            git tag -d "$tag" || true
+          done
+          echo "Cleanup complete"
+
       - name: Debug - Show tags
         run: |
-          echo "All tags:"
-          git tag --list --sort=-version:refname | head -20
-          echo "Latest tag:"
-          git describe --tags --abbrev=0 2>/dev/null || echo "No tags found"
+          echo "All tags in current branch:"
+          git tag --merged HEAD --list --sort=-version:refname | head -20
+          echo ""
+          echo "Latest version tag:"
+          git tag --merged HEAD --list "v*" --sort=-version:refname | head -1 || echo "No version tags found"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
