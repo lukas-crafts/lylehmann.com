@@ -69,7 +69,7 @@ const computeHeight = (width: number, aspectRatio: number) => {
   return Math.floor(width / aspectRatio);
 };
 
-const ASPECT_RATIO_REGEXP = /(\d+)\s*[/:]\s*(\d+)/;
+const ASPECT_RATIO_REGEXP = /([\d.]+)\s*[/:]\s*([\d.]+)/;
 
 const parseAspectRatio = (
   aspectRatio: number | string | null | undefined,
