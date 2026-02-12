@@ -32,6 +32,6 @@ describe("toUiAmount", () => {
   });
 
   it("should handle rounding edge cases consistently", () => {
-    expect(toUiAmount(999.5)).toBe("999.5"); // Rounds up to 1K
+    expect(toUiAmount(999.5)).toBe("1K"); // Rounds up to 1K
   });
 });
