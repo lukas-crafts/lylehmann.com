@@ -1,4 +1,5 @@
 ---
+import { sanitize } from "../../utils/sanitize";
 import Image from "../../components/common/Image.astro";
 import Button from "../../components/ui/Button.astro";
 import type { Hero as Props } from "../../types";
@@ -18,7 +19,7 @@ const {
 <section class="relative md:-mt-[76px] not-prose bg-page dark:bg-page bg-hero-light dark:bg-hero-dark" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
-      {bg ? <Fragment set:html={bg} /> : null}
+      {bg ? <Fragment set:html={sanitize(bg)} /> : null}
     </slot>
   </div>
   
@@ -31,7 +32,7 @@ const {
           tagline && (
             <p
               class="text-base font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade text-muted"
-              set:html={tagline}
+              set:html={sanitize(tagline)}
             />
           )
         }
@@ -41,7 +42,7 @@ const {
             <h1
               class="mb-4 text-5xl font-bold leading-none tracking-none md:text-6xl font-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
               style="color: var(--color-text-heading);"
-              set:html={title}
+              set:html={sanitize(title)}
             />
           )
         }
@@ -51,7 +52,7 @@ const {
             subtitle && (
               <p
                 class="mb-6 text-xl intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade text-muted"
-                set:html={subtitle}
+                set:html={sanitize(subtitle)}
               />
             )
           }
@@ -69,14 +70,14 @@ const {
                     </div>
                   ))
                 ) : (
-                  <Fragment set:html={actions} />
+                  <Fragment set:html={sanitize(actions)} />
                 )}
               </div>
             )
           }
         </div>
         
-        {content && <Fragment set:html={content} />}
+        {content && <Fragment set:html={sanitize(content)} />}
       </div>
       
       <div
@@ -86,7 +87,7 @@ const {
           image && (
             <div class="relative max-w-5xl m-auto">
               {typeof image === 'string' ? (
-                <Fragment set:html={image} />
+                <Fragment set:html={sanitize(image)} />
               ) : (
                 <Image
                   class="w-full mx-auto rounded-md"
