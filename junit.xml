@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="1" failures="0" errors="0" time="0.001268208">
-    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2025-07-15T20:27:16.376Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001268208">
-        <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.000652625">
+<testsuites name="vitest tests" tests="4" failures="0" errors="0" time="0.00766957">
+    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-02-12T14:28:09.358Z" hostname="devbox" tests="1" failures="0" errors="0" skipped="0" time="0.003585099">
+        <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.001570231">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-02-12T14:28:09.361Z" hostname="devbox" tests="3" failures="0" errors="0" skipped="0" time="0.004084471">
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return the correct blog permalink" time="0.001987857">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return a string" time="0.000322784">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should start with a slash" time="0.000210667">
         </testcase>
     </testsuite>
 </testsuites>
