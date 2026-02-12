@@ -4,7 +4,7 @@ import { APP_BLOG, SITE } from "../generated/astrowind-config";
 
 import { trim } from "../utils/utils";
 
-export const trimSlash = (s: string) => trim(trim(s, "/"));
+export const trimSlash = (s: string) => trim(s, "/");
 const createPath = (...params: string[]) => {
   const paths = params
     .map((el) => trimSlash(el))
