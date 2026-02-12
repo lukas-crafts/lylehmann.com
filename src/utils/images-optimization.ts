@@ -41,7 +41,6 @@ export type ImagesOptimizer = (
 
 /* ******* */
 const config = {
-  // FIXME: Use this when image.width is minor than deviceSizes
   imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
 
   deviceSizes: [
@@ -346,7 +345,7 @@ export async function getImagesOptimized(
   width = (width && Number(width)) || undefined;
   height = (height && Number(height)) || undefined;
 
-  widths ||= config.deviceSizes;
+  widths ||= (width && width < config.deviceSizes[0]) ? [...config.imageSizes, ...config.deviceSizes] : config.deviceSizes;
   sizes ||= getSizes(Number(width) || undefined, layout);
   aspectRatio = parseAspectRatio(aspectRatio);
 
