@@ -18,7 +18,11 @@
   --color-text-heading: hsl(0, 0%, 10%); /* Very dark for headings */
   --color-text-body: hsl(0, 0%, 20%); /* Standard body text */
   --color-text-muted: hsl(0, 0%, 40%); /* Subdued text */
-  --color-text-subtle: hsl(0, 0%, 30%); /* Even more subtle, for hints/captions */
+  --color-text-subtle: hsl(
+    0,
+    0%,
+    30%
+  ); /* Even more subtle, for hints/captions */
   --color-text-inverse: hsl(0, 0%, 100%); /* Text on dark backgrounds */
 
   /* Background Colors */
