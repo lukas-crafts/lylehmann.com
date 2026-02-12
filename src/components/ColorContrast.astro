@@ -173,15 +173,28 @@ const themes: Theme[] = [
       return (lighter + 0.05) / (darker + 0.05)
     }
 
+    // Shared canvas context
+    let sharedCanvas: HTMLCanvasElement | null = null
+    let sharedCtx: CanvasRenderingContext2D | null = null
+
+    function getSharedContext(): CanvasRenderingContext2D | null {
+      if (!sharedCtx) {
+        sharedCanvas = document.createElement('canvas')
+        sharedCtx = sharedCanvas.getContext('2d', { willReadFrequently: true })
+      }
+      return sharedCtx
+    }
+
     // Extract RGB values from a color string
     function extractRGB(colorStr: string): number[] {
-      const canvas: HTMLCanvasElement = document.createElement('canvas')
-      const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d')
+      const ctx = getSharedContext()
       if (!ctx) return [0, 0, 0] // Handle null context
 
+      ctx.fillStyle = '#000000' // Reset color to handle invalid inputs
       ctx.fillStyle = colorStr
 
       // Fill a tiny rectangle with the color
+      ctx.clearRect(0, 0, 1, 1) // Clear previous draw
       ctx.fillRect(0, 0, 1, 1)
 
       // Get the pixel data
