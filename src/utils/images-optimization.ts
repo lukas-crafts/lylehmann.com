@@ -69,13 +69,15 @@ const computeHeight = (width: number, aspectRatio: number) => {
   return Math.floor(width / aspectRatio);
 };
 
+const ASPECT_RATIO_REGEXP = /([\d.]+)\s*[/:]\s*([\d.]+)/;
+
 const parseAspectRatio = (
   aspectRatio: number | string | null | undefined,
 ): number | undefined => {
   if (typeof aspectRatio === "number") return aspectRatio;
 
   if (typeof aspectRatio === "string") {
-    const match = aspectRatio.match(/(\d+)\s*[/:]\s*(\d+)/);
+    const match = aspectRatio.match(ASPECT_RATIO_REGEXP);
 
     if (match) {
       const [, num, den] = match.map(Number);
