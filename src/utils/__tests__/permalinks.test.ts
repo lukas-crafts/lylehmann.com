@@ -29,7 +29,7 @@ vi.mock("../generated/astrowind-config", () => ({
   },
 }));
 
-import { getBlogPermalink, BLOG_BASE } from "../permalinks";
+import { BLOG_BASE, getBlogPermalink } from "../permalinks";
 
 describe("getBlogPermalink", () => {
   it("should return the correct blog permalink", () => {

@@ -4,8 +4,8 @@ import mdx from "@astrojs/mdx";
 import partytown from "@astrojs/partytown";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import playformCompress from "@playform/compress";
+import tailwindcss from "@tailwindcss/vite";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
 // import icon from "astro-icon"; // Removed due to compatibility issues
@@ -50,9 +50,6 @@ export default defineConfig({
         "**/components/**/*.jsx",
       ],
     }),
-    tailwind({
-      applyBaseStyles: false,
-    }),
     sitemap({
       // configuration options
     }),
@@ -95,12 +92,16 @@ export default defineConfig({
         {
           extractor: (content) => {
             // Enhanced extractor for Tailwind CSS and custom classes
-            const matches = content.match(/[^<>"'`\s.(){}[\]#:]*[^<>"'`\s.(){}[\]#:]/g) || [];
+            const matches =
+              content.match(/[^<>"'`\s.(){}[\]#:]*[^<>"'`\s.(){}[\]#:]/g) || [];
             // Also extract from class= attributes specifically
-            const classMatches = content.match(/class(?:Name)?=["']([^"']*)["']/g) || [];
-            const classContent = classMatches.map(match => 
-              match.replace(/class(?:Name)?=["']([^"']*)["']/, '$1')
-            ).join(' ');
+            const classMatches =
+              content.match(/class(?:Name)?=["']([^"']*)["']/g) || [];
+            const classContent = classMatches
+              .map((match) =>
+                match.replace(/class(?:Name)?=["']([^"']*)["']/, "$1"),
+              )
+              .join(" ");
             const classTokens = classContent.split(/\s+/).filter(Boolean);
             return [...matches, ...classTokens];
           },
@@ -143,6 +144,7 @@ export default defineConfig({
       target: "es2022",
     },
     plugins: [
+      tailwindcss(),
       {
         name: "disable-typescript-resolution",
         configResolved(config) {

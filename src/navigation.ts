@@ -173,4 +173,3 @@ export const footerData = {
   ],
   footNote: `&copy; 2024-${currentYear} Lukas Yair Lehmann. All rights reserved.`,
 };
-
