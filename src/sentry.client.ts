@@ -1,7 +1,7 @@
 import * as Sentry from "@sentry/browser";
 
 Sentry.init({
-  dsn: "https://8b57e87cb872bb5986980f35e78830e1@o4509649548935168.ingest.de.sentry.io/4509649551097936",
+  dsn: import.meta.env.PUBLIC_SENTRY_DSN,
   integrations: [
     Sentry.browserTracingIntegration(),
     Sentry.browserProfilingIntegration(),
