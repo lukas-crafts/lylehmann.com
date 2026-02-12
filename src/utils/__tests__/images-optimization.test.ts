@@ -25,14 +25,7 @@ describe('getImagesOptimized', () => {
     // Filtered < 200: 16, 32, 48, 64, 96, 128
     // Plus 100 and 200
 
-    expect(breakpoints).toContain(16);
-    expect(breakpoints).toContain(32);
-    expect(breakpoints).toContain(48);
-    expect(breakpoints).toContain(64);
-    expect(breakpoints).toContain(96);
-    expect(breakpoints).toContain(128);
-    expect(breakpoints).toContain(100);
-    expect(breakpoints).toContain(200);
+    expect(breakpoints).toEqual([16, 32, 48, 64, 96, 100, 128, 200]);
 
     // Should NOT contain 256 (larger than 200)
     expect(breakpoints).not.toContain(256);
