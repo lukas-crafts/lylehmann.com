@@ -8,6 +8,8 @@ import { projects } from "../data/projects";
 import Layout from "../layouts/PageLayout.astro";
 import type { Item } from "../types";
 
+const projectsMap = new Map(projects.map((p) => [p.id, p]));
+
 const email = import.meta.env.PUBLIC_EMAIL;
 
 const skills: Item[] = [
@@ -76,9 +78,9 @@ const skills: Item[] = [
     <p class="mb-8 text-[var(--color-text-body)] text-lg text-center">Real results for real teams.</p>
     <div class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
       {[
-        projects.find(p => p.id === "focusbuddy-case-study"),
-        projects.find(p => p.id === "brushbuddy-case-study"),
-        projects.find(p => p.id === "mettacafe-case-study")
+        projectsMap.get("focusbuddy-case-study"),
+        projectsMap.get("brushbuddy-case-study"),
+        projectsMap.get("mettacafe-case-study")
       ].filter((p): p is typeof projects[number] => !!p).map((project) => (
         <div
           class="flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-8 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern"
