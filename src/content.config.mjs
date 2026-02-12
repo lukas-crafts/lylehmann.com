@@ -9,7 +9,7 @@ const projects = defineCollection({
   loader: glob({ pattern: "**/*.mdx", base: "./src/content/projects" }),
   schema: z
     .object({
-      publishDate: z.string().optional(),
+      publishDate: z.date().optional(),
       title: z.string(),
       excerpt: z.string().optional(),
       image: z.string().optional(),
