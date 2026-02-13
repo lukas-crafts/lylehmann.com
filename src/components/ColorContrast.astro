@@ -146,133 +146,123 @@ const themes: Theme[] = [
 
 <script>
   // Initialize accessibility testing
+  // Shared canvas context and configuration moved to top level for persistence
+  const wcagLevels: Array<{ name: string; ratio: number; className: string }> = [
+    { name: 'AAA', ratio: 7.0, className: 'excellent' },
+    { name: 'AA', ratio: 4.5, className: 'good' },
+    { name: 'AA Large', ratio: 3.0, className: 'fair' },
+    { name: 'Fail', ratio: 0, className: 'poor' },
+  ]
+
+  let sharedCanvas: HTMLCanvasElement | null = null
+  let sharedCtx: CanvasRenderingContext2D | null = null
+
+  function getSharedContext(): CanvasRenderingContext2D | null {
+    if (!sharedCtx) {
+      sharedCanvas = document.createElement('canvas')
+      sharedCtx = sharedCanvas.getContext('2d', { willReadFrequently: true })
+    }
+    return sharedCtx
+  }
+
+  // Calculate relative luminance for RGB color
+  function getLuminance(r: number, g: number, b: number): number {
+    const sRGB: number[] = [r, g, b].map((val) => {
+      val = val / 255
+      return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4)
+    })
+    return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2]
+  }
+
+  // Calculate contrast ratio between two colors
+  function getContrastRatio(rgb1: number[], rgb2: number[]): number {
+    const lum1: number = getLuminance(rgb1[0], rgb1[1], rgb1[2])
+    const lum2: number = getLuminance(rgb2[0], rgb2[1], rgb2[2])
+    const lighter: number = Math.max(lum1, lum2)
+    const darker: number = Math.min(lum1, lum2)
+    return (lighter + 0.05) / (darker + 0.05)
+  }
+
+  // Extract RGB values from a color string
+  function extractRGB(colorStr: string): number[] {
+    const ctx = getSharedContext()
+    if (!ctx) return [0, 0, 0]
+
+    ctx.fillStyle = '#000000'
+    ctx.fillStyle = colorStr
+    ctx.clearRect(0, 0, 1, 1)
+    ctx.fillRect(0, 0, 1, 1)
+
+    const data: Uint8ClampedArray = ctx.getImageData(0, 0, 1, 1).data
+    return [data[0], data[1], data[2]]
+  }
+
+  // Find which WCAG level a contrast ratio meets
+  function getWCAGLevel(ratio: number): {
+    name: string
+    className: string
+    passes: boolean
+    ratio: string
+  } {
+    for (const level of wcagLevels) {
+      if (ratio >= level.ratio) {
+        const isPass = level.name !== 'Fail'
+        return {
+          name: level.name,
+          className: level.className,
+          passes: isPass,
+          ratio: ratio.toFixed(2),
+        }
+      }
+    }
+    return {
+      name: 'Fail',
+      className: 'poor',
+      passes: false,
+      ratio: ratio.toFixed(2),
+    }
+  }
+
+  // Get accurate computed color by rendering it
+  function getComputedColorValue(element: Element, property: string): string {
+    const style: CSSStyleDeclaration = window.getComputedStyle(element)
+    return style.getPropertyValue(property)
+  }
+
+  // Process all color items
+  function processColorItems(): void {
+    const colorItems: NodeListOf<Element> = document.querySelectorAll('.color-item')
+    colorItems.forEach((item) => {
+      const bgColor: string = getComputedColorValue(item, 'background-color')
+      const bgRGB: number[] = extractRGB(bgColor)
+      const themeTextColor: string = item.getAttribute('data-theme-text-color') || '#1A1A1A'
+      const textRGB: number[] = extractRGB(themeTextColor)
+      const contrastRatio: number = getContrastRatio(bgRGB, textRGB)
+      const result = getWCAGLevel(contrastRatio)
+
+      const scoreElement: Element | null = item.querySelector('.contrast-score')
+      if (scoreElement) {
+        scoreElement.textContent = `${result.ratio} ${result.name}`
+        scoreElement.className = `contrast-score ${result.className}`
+      }
+
+      const nameElement: Element | null = item.querySelector('.color-name')
+      if (nameElement && nameElement instanceof HTMLElement) {
+        nameElement.style.color = themeTextColor
+      }
+    })
+  }
+
+  // Initialize accessibility testing
   function initializeContrastChecker(): void {
-    // Set up WCAG levels for testing
-    const wcagLevels: Array<{ name: string; ratio: number; className: string }> = [
-      { name: 'AAA', ratio: 7.0, className: 'excellent' },
-      { name: 'AA', ratio: 4.5, className: 'good' },
-      { name: 'AA Large', ratio: 3.0, className: 'fair' },
-      { name: 'Fail', ratio: 0, className: 'poor' },
-    ]
-
-    // Calculate relative luminance for RGB color
-    function getLuminance(r: number, g: number, b: number): number {
-      const sRGB: number[] = [r, g, b].map((val) => {
-        val = val / 255
-        return val <= 0.03928 ? val / 12.92 : Math.pow((val + 0.055) / 1.055, 2.4)
-      })
-      return 0.2126 * sRGB[0] + 0.7152 * sRGB[1] + 0.0722 * sRGB[2]
-    }
-
-    // Calculate contrast ratio between two colors
-    function getContrastRatio(rgb1: number[], rgb2: number[]): number {
-      const lum1: number = getLuminance(rgb1[0], rgb1[1], rgb1[2])
-      const lum2: number = getLuminance(rgb2[0], rgb2[1], rgb2[2])
-      const lighter: number = Math.max(lum1, lum2)
-      const darker: number = Math.min(lum1, lum2)
-      return (lighter + 0.05) / (darker + 0.05)
-    }
-
-    // Shared canvas context
-    let sharedCanvas: HTMLCanvasElement | null = null
-    let sharedCtx: CanvasRenderingContext2D | null = null
-
-    function getSharedContext(): CanvasRenderingContext2D | null {
-      if (!sharedCtx) {
-        sharedCanvas = document.createElement('canvas')
-        sharedCtx = sharedCanvas.getContext('2d', { willReadFrequently: true })
-      }
-      return sharedCtx
-    }
-
-    // Extract RGB values from a color string
-    function extractRGB(colorStr: string): number[] {
-      const ctx = getSharedContext()
-      if (!ctx) return [0, 0, 0] // Handle null context
-
-      ctx.fillStyle = '#000000' // Reset color to handle invalid inputs
-      ctx.fillStyle = colorStr
-
-      // Fill a tiny rectangle with the color
-      ctx.clearRect(0, 0, 1, 1) // Clear previous draw
-      ctx.fillRect(0, 0, 1, 1)
-
-      // Get the pixel data
-      const data: Uint8ClampedArray = ctx.getImageData(0, 0, 1, 1).data
-      return [data[0], data[1], data[2]]
-    }
-
-    // Find which WCAG level a contrast ratio meets
-    function getWCAGLevel(ratio: number): {
-      name: string
-      className: string
-      passes: boolean
-      ratio: string
-    } {
-      for (const level of wcagLevels) {
-        if (ratio >= level.ratio) {
-          const isPass = level.name !== 'Fail'
-
-          return {
-            name: level.name,
-            className: level.className,
-            passes: isPass,
-            ratio: ratio.toFixed(2),
-          }
-        }
-      }
-      return {
-        name: 'Fail',
-        className: 'poor',
-        passes: false,
-        ratio: ratio.toFixed(2),
-      }
-    }
-
-    // Get accurate computed color by rendering it
-    function getComputedColorValue(element: Element, property: string): string {
-      // Get the computed style
-      const style: CSSStyleDeclaration = window.getComputedStyle(element)
-      return style.getPropertyValue(property)
-    }
-
-    // Process all color items
-    function processColorItems(): void {
-      const colorItems: NodeListOf<Element> = document.querySelectorAll('.color-item')
-
-      colorItems.forEach((item) => {
-        // Get the background color
-        const bgColor: string = getComputedColorValue(item, 'background-color')
-        const bgRGB: number[] = extractRGB(bgColor)
-
-        // Get the text color for this theme section
-        const themeTextColor: string = item.getAttribute('data-theme-text-color') || '#1A1A1A'
-        const textRGB: number[] = extractRGB(themeTextColor)
-
-        // Calculate contrast ratio
-        const contrastRatio: number = getContrastRatio(bgRGB, textRGB)
-        const result = getWCAGLevel(contrastRatio)
-
-        // Update the contrast score
-        const scoreElement: Element | null = item.querySelector('.contrast-score')
-        if (scoreElement) {
-          scoreElement.textContent = `${result.ratio} ${result.name}`
-          scoreElement.className = `contrast-score ${result.className}`
-        }
-
-        // Set the text color for the color name
-        const nameElement: Element | null = item.querySelector('.color-name')
-        if (nameElement && nameElement instanceof HTMLElement) {
-          nameElement.style.color = themeTextColor
-        }
-      })
-    }
-
     // Run contrast check when page loads
     document.addEventListener('astro:page-load', processColorItems)
 
     // Run contrast check when theme changes
     document.addEventListener('astro:after-swap', processColorItems)
+
+    // Initial run
+    processColorItems()
   }
 
   // Initialize the contrast checker
