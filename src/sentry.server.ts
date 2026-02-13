@@ -2,7 +2,7 @@ import * as Sentry from "@sentry/node";
 import { nodeProfilingIntegration } from "@sentry/profiling-node";
 
 Sentry.init({
-  dsn: import.meta.env.PUBLIC_SENTRY_DSN,
+  dsn: import.meta.env.SENTRY_DSN || import.meta.env.PUBLIC_SENTRY_DSN,
   integrations: [nodeProfilingIntegration()],
   tracesSampleRate: 1.0,
   profileSessionSampleRate: 1.0,

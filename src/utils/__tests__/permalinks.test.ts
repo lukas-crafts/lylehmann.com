@@ -29,9 +29,33 @@ vi.mock("../generated/astrowind-config", () => ({
   },
 }));
 
-import { BLOG_BASE, getBlogPermalink } from "../permalinks";
+import { BLOG_BASE, getBlogPermalink, trimSlash, getHomePermalink } from "../permalinks";
+
+describe("trimSlash", () => {
+  it("should remove leading and trailing slashes", () => {
+    expect(trimSlash("/foo/")).toBe("foo");
+    expect(trimSlash("foo/")).toBe("foo");
+    expect(trimSlash("/foo")).toBe("foo");
+    expect(trimSlash("///foo///")).toBe("foo");
+  });
+
+  it("should return empty string if input is only slashes", () => {
+    expect(trimSlash("///")).toBe("");
+  });
+
+  it("should return empty string for empty input", () => {
+    expect(trimSlash("")).toBe("");
+  });
+});
+
+describe("getHomePermalink", () => {
+  it("should return the correct home permalink", () => {
+    expect(getHomePermalink()).toBe("/");
+  });
+});
 
 describe("getBlogPermalink", () => {
+// ... existing tests
   it("should return the correct blog permalink", () => {
     // Based on the mock, BLOG_BASE should be "portfolio"
     // and getBlogPermalink() should return "/portfolio"
