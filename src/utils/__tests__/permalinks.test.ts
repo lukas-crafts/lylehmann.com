@@ -29,7 +29,25 @@ vi.mock("../generated/astrowind-config", () => ({
   },
 }));
 
-import { BLOG_BASE, getBlogPermalink } from "../permalinks";
+import { BLOG_BASE, getAsset, getBlogPermalink } from "../permalinks";
+
+describe("getAsset", () => {
+  it("should return the correct asset link", () => {
+    expect(getAsset("image.png")).toBe("/image.png");
+  });
+
+  it("should handle nested paths", () => {
+    expect(getAsset("assets/images/logo.png")).toBe("/assets/images/logo.png");
+  });
+
+  it("should handle paths with leading slash", () => {
+    expect(getAsset("/styles/main.css")).toBe("/styles/main.css");
+  });
+
+  it("should handle empty path", () => {
+    expect(getAsset("")).toBe("/");
+  });
+});
 
 describe("getBlogPermalink", () => {
   it("should return the correct blog permalink", () => {
