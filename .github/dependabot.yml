@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # Even with "*" in package.json, Dependabot will monitor vulnerabilities
+    # and propose updates to the lockfile or transitive dependencies.
+    open-pull-requests-limit: 5
+    groups:
+      dependencies:
+        applies-to: version-updates
+        patterns:
+          - "*"
+      security-updates:
+        applies-to: security-updates
+        patterns:
+          - "*"
