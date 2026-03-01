@@ -24,6 +24,7 @@ import {
 } from "lucide-astro";
 import { twMerge } from "tailwind-merge";
 import type { ItemGrid as Props } from "../../types";
+import { sanitize } from "../../utils/sanitize";
 import Button from "./Button.astro";
 import Icon from "./Icon.astro";
 
@@ -68,7 +69,10 @@ const {
           )}
           <div class={twMerge('font-bold text-xl', titleClass, itemClasses?.title)}>{title}</div>
           {description && (
-            <p class={twMerge('mt-1 text-muted text-base', descriptionClass, itemClasses?.description)} set:html={description} />
+            <p
+              class={twMerge('mt-1 text-muted text-base', descriptionClass, itemClasses?.description)}
+              set:html={sanitize(description)}
+            />
           )}
           {callToAction && (
             <div class="mt-1">
