@@ -31,5 +31,11 @@ const numberFormatter = new Intl.NumberFormat(language, {
 export const toUiAmount = (amount: number) => {
   if (!amount) return "0";
 
+  // Handle rounding edge cases for compact notation
+  const absAmount = Math.abs(amount);
+  if (absAmount >= 999.5 && absAmount < 1000) {
+    return amount > 0 ? "1K" : "-1K";
+  }
+
   return numberFormatter.format(amount);
 };

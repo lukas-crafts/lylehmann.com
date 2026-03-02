@@ -1,4 +1,7 @@
-export const getImage = async () => ({
-  src: 'mocked-image-src',
-  attributes: { width: 100, height: 100 },
+export const getImage = async (options: any) => ({
+  src: options.src.src || options.src,
+  attributes: {
+    width: options.width,
+    height: options.height,
+  },
 });
