@@ -13,10 +13,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "pnpm run check:astro && pnpm run check:biome",
+    "check": "bun run check:astro && bun run check:biome",
     "check:astro": "astro check",
     "check:biome": "biome check .",
-    "fix": "pnpm run fix:biome",
+    "fix": "bun run fix:biome",
     "fix:biome": "biome check --write .",
     "test": "vitest",
     "test:ui": "vitest --ui",
@@ -101,19 +101,5 @@
     "unist-util-visit": "*",
     "vite": "*",
     "vitest": "*"
-  },
-  "pnpm": {
-    "overrides": {
-      "tar": ">=7.5.2"
-    },
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@sentry-internal/node-cpu-profiler",
-      "esbuild",
-      "sharp",
-      "tree-sitter",
-      "tree-sitter-javascript",
-      "tree-sitter-typescript"
-    ]
   }
 }
