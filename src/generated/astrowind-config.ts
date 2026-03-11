@@ -32,8 +32,8 @@ export const METADATA = {
     ]
   },
   "twitter": {
-    "handle": "@onwidget",
-    "site": "@onwidget",
+    "handle": "@lylehmann",
+    "site": "@lylehmann",
     "cardType": "summary_large_image"
   }
 };

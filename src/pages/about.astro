@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/PageLayout.astro';
+import Hero from '../components/widgets/Hero.astro';
+import Content from '../components/widgets/Content.astro';
+
+const metadata = {
+  title: 'About Me',
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="About me"
+    title="Designing for Humans"
+    subtitle="I'm Lukas Lehmann, a UX Designer and Developer focused on creating accessible and inclusive digital experiences."
+    image={{
+      src: '/assets/images/lylehmann.png',
+      alt: 'Lukas Lehmann',
+    }}
+  />
+
+  <Content
+    isReversed
+    tagline="My Mission"
+    title="Accessibility first"
+    items={[
+      {
+        title: 'Inclusion',
+        description: 'Building products that everyone can use, regardless of their abilities.',
+        icon: 'tabler:accessible',
+      },
+      {
+        title: 'User-Centered',
+        description: 'Focusing on the human at the other end of the screen.',
+        icon: 'tabler:user',
+      },
+      {
+        title: 'Clean Code',
+        description: 'Writing maintainable and performant frontend code.',
+        icon: 'tabler:code',
+      },
+    ]}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">My Journey</h3>
+      <p>
+        With a background in both design and development, I bridge the gap between aesthetics and functionality. 
+        I believe that the best digital products are the ones that fade into the background, enabling users to achieve their goals with ease.
+      </p>
+    </Fragment>
+  </Content>
+</Layout>

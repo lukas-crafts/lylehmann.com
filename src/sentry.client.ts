@@ -9,11 +9,9 @@ export const initSentry = () => {
       dsn: SENTRY_DSN,
       integrations: [
         Sentry.browserTracingIntegration(),
-        Sentry.browserProfilingIntegration(),
       ],
       tracesSampleRate: 1.0,
       tracePropagationTargets: ["localhost", new RegExp(`^${SITE}/api`)],
-      profilesSampleRate: 1.0,
     });
   }
 };

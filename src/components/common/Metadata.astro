@@ -69,4 +69,20 @@ const seoProps: AstroSeoProps = merge(
 );
 ---
 
-<!-- <AstroSeo {...{ ...seoProps, openGraph: await adaptOpenGraphImages(seoProps?.openGraph, Astro.site) }} /> -->
+<title>{seoProps.title}{!ignoreTitleTemplate && seoProps.titleTemplate ? seoProps.titleTemplate.replace('%s', '') : ''}</title>
+<meta name="description" content={seoProps.description} />
+<link rel="canonical" href={seoProps.canonical} />
+<meta name="robots" content={`${seoProps.noindex ? 'noindex' : 'index'}, ${seoProps.nofollow ? 'nofollow' : 'follow'}`} />
+
+{/* OpenGraph */}
+<meta property="og:title" content={seoProps.openGraph.title || seoProps.title} />
+<meta property="og:description" content={seoProps.openGraph.description || seoProps.description} />
+<meta property="og:url" content={seoProps.openGraph.url} />
+<meta property="og:type" content={seoProps.openGraph.type} />
+<meta property="og:site_name" content={seoProps.openGraph.site_name} />
+<meta property="og:locale" content={seoProps.openGraph.locale} />
+
+{/* Twitter */}
+<meta name="twitter:card" content={seoProps.twitter.cardType} />
+{seoProps.twitter.site && <meta name="twitter:site" content={seoProps.twitter.site} />}
+{seoProps.twitter.creator && <meta name="twitter:creator" content={seoProps.twitter.creator} />}
