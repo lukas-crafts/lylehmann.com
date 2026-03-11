@@ -52,6 +52,7 @@
     "class-variance-authority": "*",
     "clsx": "*",
     "dotenv": "*",
+    "install": "^0.13.0",
     "limax": "*",
     "lodash.merge": "*",
     "lucide-astro": "*",
