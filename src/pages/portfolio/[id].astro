@@ -1,44 +1,40 @@
 ---
+import { getCollection, render } from 'astro:content';
 import FAQs from "../../components/widgets/FAQs.astro";
 import Features from "../../components/widgets/Features.astro";
 import Hero from "../../components/widgets/Hero.astro";
 import Stats from "../../components/widgets/Stats.astro";
 import Steps from "../../components/widgets/Steps.astro";
-import { projects } from "../../data/projects";
 import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
 
 export async function getStaticPaths() {
-  return projects.map((project) => ({ params: { id: project.id } }));
+  const projectEntries = await getCollection('projects');
+  return projectEntries.map(entry => ({
+    params: { id: entry.id }, props: { entry },
+  }));
 }
 
-const { id } = Astro.params;
-const project = projects.find((p) => p.id === id);
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const project = entry.data;
 ---
 
-{project ? (
-  <MarkdownLayout title={project.title} description={project.description}>
-    <Hero
-      title={project.hero?.title ?? project.title}
-      subtitle={project.hero?.subtitle}
-      image={project.hero?.image}
-    />
-    {project.features && <Features items={project.features} title="Features" subtitle={project.hero?.subtitle} />}
-    {project.stats && <Stats stats={project.stats} title="Stats" />}
-    {project.steps && <Steps items={project.steps} title="Process" />}
-    {project.designElements && <Features items={project.designElements} isReversed={true} title="Design Elements" />}
-    {project.outcomes && <Stats stats={project.outcomes} title="Outcomes" />}
-    {project.insights && Array.isArray(project.insights) && typeof project.insights[0] === "object" && <Features items={project.insights} columns={2} title="Insights" />}
-    {project.faqs && <FAQs items={project.faqs} title="FAQs" />}
-  </MarkdownLayout>
-) : (
-  <section class="bg-page py-16 md:py-24">
-    <div class="mx-auto px-4 max-w-3xl container">
-      <h1 class="mb-6 font-bold text-primary text-4xl md:text-5xl tracking-tight">
-        Project not found
-      </h1>
-      <p class="mb-8 text-secondary text-lg">
-        The requested project could not be found.
-      </p>
-    </div>
-  </section>
-)}
+<MarkdownLayout title={project.title} description={project.description}>
+  <Hero
+    title={project.hero?.title ?? project.title}
+    subtitle={project.hero?.subtitle}
+    image={project.hero?.image}
+  />
+
+  <div class="mx-auto px-6 py-12 max-w-4xl prose prose-lg dark:prose-invert">
+    <Content />
+  </div>
+
+  {project.features && <Features items={project.features} title="Features" />}
+  {project.stats && <Stats stats={project.stats} title="Stats" />}
+  {project.steps && <Steps items={project.steps} title="Process" />}
+  {project.designElements && <Features items={project.designElements} isReversed={true} title="Design Elements" />}
+  {project.outcomes && <Stats stats={project.outcomes} title="Outcomes" />}
+  {project.insights && <Features items={project.insights} columns={2} title="Insights" />}
+  {project.faqs && <FAQs items={project.faqs} title="FAQs" />}
+</MarkdownLayout>

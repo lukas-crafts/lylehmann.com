@@ -1,41 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import Headline from "../components/ui/Headline.astro";
 import ItemGrid2 from "../components/ui/ItemGrid2.astro";
 import CallToAction from "../components/widgets/CallToAction.astro";
 import Header from "../components/widgets/Header.astro";
 import Hero2 from "../components/widgets/Hero2.astro";
-import { projects } from "../data/projects";
 import Layout from "../layouts/PageLayout.astro";
-import type { Item } from "../types";
 
-const projectsMap = new Map(projects.map((p) => [p.id, p]));
+const allProjects = await getCollection('projects');
+const selectedIds = ["focusbuddy-case-study", "brushbuddy-case-study", "mettacafe-case-study"];
+const projects = allProjects.filter(p => selectedIds.includes(p.id));
 
-const email = import.meta.env.PUBLIC_EMAIL;
-
-const skills: Item[] = [
-  {
-    icon: "tabler:layout-dashboard",
-    title: "UX & Product",
-    description:
-      "I make websites and apps easy to use, so you always know what to do next.",
-  },
-  {
-    icon: "tabler:code",
-    title: "Frontend",
-    description: "I build websites that look good and work fast on any device.",
-  },
-  {
-    icon: "tabler:robot",
-    title: "AI & Automation",
-    description:
-      "I add smart features that help you get things done quicker and easier.",
-  },
-  {
-    icon: "tabler:accessible",
-    title: "Accessibility",
-    description:
-      "I make sure everyone can use what I build, no matter who they are.",
-  },
+const skills = [
+  { icon: "tabler:layout-dashboard", title: "UX & Product", description: "I make websites and apps easy to use." },
+  { icon: "tabler:code", title: "Frontend", description: "I build websites that look good and work fast." },
+  { icon: "tabler:robot", title: "AI & Automation", description: "I add smart features that help you get things done." },
+  { icon: "tabler:accessible", title: "Accessibility", description: "I make sure everyone can use what I build." },
 ];
 ---
 
@@ -48,92 +28,35 @@ const skills: Item[] = [
     />
   </Fragment>
 
-  <!-- Hero Section -->
   <Hero2
     title="Designing for Humans. Building for the Web."
-    subtitle="I turn complex challenges into digital products people love to use—combining design, code, and AI to deliver results that matter."
-    actions={[{
-      variant: 'primary',
-      text: "Let's Work Together",
-      href: 'mailto:lylehmann@gmail.com',
-      icon: 'tabler:mail',
-    }, {
-      variant: 'secondary',
-      text: 'View Portfolio',
-      href: '/portfolio',
-      icon: 'tabler:layout-grid',
-    }]}
+    subtitle="I turn complex challenges into digital products people love to use."
+    actions={[{ variant: 'solid', text: "Let's Work Together", href: 'mailto:lylehmann@gmail.com', icon: 'tabler:mail' }]}
     image={{ src: '/assets/images/lylehmann.png', alt: 'Lukas Lehmann' }}
   />
 
-  <!-- Skills/Outcomes Section -->
-  <section class="mx-auto mt-40 mb-[12rem] lg:mb-[16rem] px-4 max-w-5xl">
+  <section class="mx-auto mt-40 mb-20 px-4 max-w-5xl">
     <Headline title="What I Do" />
     <ItemGrid2 items={skills} columns={4} />
   </section>
 
-  <!-- D: Desire - Projects Section -->
   <section class="mx-auto mb-20 px-4 max-w-6xl">
     <Headline title="Selected Projects" />
-    <p class="mb-8 text-[var(--color-text-body)] text-lg text-center">Real results for real teams.</p>
-    <div class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {[
-        projectsMap.get("focusbuddy-case-study"),
-        projectsMap.get("brushbuddy-case-study"),
-        projectsMap.get("mettacafe-case-study")
-      ].filter((p): p is typeof projects[number] => !!p).map((project) => (
-        <div
-          class="flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-8 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern"
-        >
-          {(project.cover || project.image) && (
-            <img
-              src={project.cover || project.image}
-              alt={project.title && project.title.trim() ? project.title : 'Project cover'}
-              class="bg-[var(--color-bg-muted)] mb-6 rounded-xl w-full h-48 object-cover"
-              loading="lazy"
-            />
-          )}
+    <div class="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      {projects.map((project) => (
+        <div class="flex flex-col justify-between bg-[var(--color-bg-subtle)] p-8 border border-[var(--color-border-default)] rounded-2xl
+       transition-all hover:scale-[1.03]">
+          {project.data.cover && <img src={project.data.cover} alt={project.data.title} class="mb-6 rounded-xl w-full h-48 object-cover"
+       />}
           <div>
-            <h3 class="mb-2 font-bold text-white text-xl lg:text-2xl">
-              {project.id === 'focusbuddy-case-study' && 'FocusBuddy'}
-              {project.id === 'brushbuddy-case-study' && 'BrushBuddy'}
-              {project.id === 'mettacafe-case-study' && 'Metta Cafe'}
-              {project.id === 'azulverdoso-case-study' && 'Azulverdoso'}
-              {project.id === 'lieferando-case-study' && 'Lieferando'}
-              {project.id === 'fashion-museum-case-study' && 'Fashion Museum'}
-            </h3>
-            <p class="mb-4 text-[var(--color-text-body)] text-sm lg:text-base">{project.description}</p>
-            <div class="flex flex-wrap gap-2 mb-4">
-              {(project.tags || []).map((tag) => (
-                <span class="bg-[var(--color-interactive-secondary-hover)] px-2 py-0.5 border border-[var(--color-border-default)] rounded-full font-medium text-[var(--color-text-body)] text-xs">
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <h3 class="mb-2 font-bold text-white text-xl">{project.data.title}</h3>
+            <p class="mb-4 text-sm">{project.data.description ?? project.data.excerpt}</p>
           </div>
-          <div class="mt-auto pt-2">
-            <a href={`/portfolio/${project.id}`} class="inline-block focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-primary hover:underline transition">View Case Study</a>
-          </div>
+          <a href={`/portfolio/${project.id}`} class="font-semibold text-primary hover:underline">View Case Study</a>
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <CallToAction
-    title="Ready to ship your next product?"
-    subtitle="Let’s talk."
-    actions={[{
-      text: 'Find Me on LinkedIn',
-      href: 'https://www.linkedin.com/in/lylehmann/',
-      variant: 'outline',
-      color: 'indigo',
-      target: '_blank',
-    }, {
-      text: 'Email Me',
-      href: 'mailto:lylehmann@gmail.com',
-      variant: 'solid',
-      color: 'indigo',
-    }]}
-  />
+  <CallToAction title="Ready to ship?" subtitle="Let's talk." />
 </Layout>
