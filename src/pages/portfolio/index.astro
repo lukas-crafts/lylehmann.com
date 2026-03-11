@@ -1,8 +1,9 @@
 ---
-import { projects } from "../../data/projects";
+import { getCollection } from "astro:content";
 import LandingLayout from "../../layouts/LandingLayout.astro";
 
-const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
+const projects = await getCollection("projects");
+const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
 ---
 
 <LandingLayout metadata={{ title: 'Portfolio', description: 'A showcase of real projects and case studies.' }}>
@@ -50,11 +51,11 @@ const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
         <!-- Project Grid -->
         <section class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" aria-label="Portfolio projects" id="projects-grid">
           {projects.map((project) => (
-            <div class="project-card flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-6 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.title} data-description={project.description} data-tags={project.tags?.join(',') || ''}>
-              {(project.cover || project.image) && (
+            <div class="project-card flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-6 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.data.title} data-description={project.data.description || project.data.excerpt || ''} data-tags={project.data.tags?.join(',') || ''}>
+              {(project.data.cover || project.data.image) && (
                 <img
-                  src={project.cover || project.image}
-                  alt={project.title || "Project cover"}
+                  src={project.data.cover || project.data.image}
+                  alt={project.data.title || "Project cover"}
                   class="bg-[var(--color-bg-muted)] mb-4 rounded-xl w-full h-48 object-cover"
                   loading="lazy"
                 />
@@ -62,12 +63,12 @@ const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
               <div>
                 <div class="flex items-center mb-4">
                   <h2 class="font-semibold text-2xl">
-                    {project.title || "Project"}
+                    {project.data.title || "Project"}
                   </h2>
                 </div>
-                <p class="mb-4 text-muted">{project.description}</p>
+                <p class="mb-4 text-muted">{project.data.description || project.data.excerpt}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
-                  {(project.tags || []).map((tag) => (
+                  {(project.data.tags || []).map((tag) => (
                     <span class="bg-[var(--color-interactive-secondary-hover)] px-2 py-0.5 border border-[var(--color-border-default)] rounded-full font-medium text-[var(--color-text-body)] text-xs">
                       {tag}
                     </span>
@@ -77,7 +78,7 @@ const allTags = [...new Set(projects.flatMap((p) => p.tags || []))];
               <a
                 href={`/portfolio/${project.id}`}
                 class="inline-block mt-auto focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-[var(--color-brand-primary)] hover:underline"
-                aria-label={`View case study: ${project.title}`}
+                aria-label={`View case study: ${project.data.title}`}
               >
                 View Case Study
               </a>

@@ -112,7 +112,7 @@ export default defineConfig({
   ],
 
   image: {
-    domains: ["cdn.pixabay.com"],
+    remotePatterns: [{ hostname: "cdn.pixabay.com" }, { hostname: "images.pexels.com" }],
   },
 
   markdown: {
@@ -123,6 +123,7 @@ export default defineConfig({
   vite: {
     resolve: {
       alias: {
+        "~": path.resolve(__dirname, "src"),
         "@components": path.resolve(__dirname, "src/components"),
         "@layouts": path.resolve(__dirname, "src/layouts"),
         "@assets": path.resolve(__dirname, "src/assets"),
@@ -145,22 +146,6 @@ export default defineConfig({
     },
     plugins: [
       tailwindcss(),
-      {
-        name: "disable-typescript-resolution",
-        configResolved(config) {
-          // Disable TypeScript resolution entirely
-          config.esbuild = config.esbuild || {};
-          config.esbuild.tsconfigRaw = {
-            compilerOptions: {
-              allowJs: true,
-              checkJs: false,
-              declaration: false,
-              skipLibCheck: true,
-              skipDefaultLibCheck: true,
-            },
-          };
-        },
-      },
     ],
   },
 });

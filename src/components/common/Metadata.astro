@@ -67,6 +67,8 @@ const seoProps: AstroSeoProps = merge(
     twitter: twitter,
   },
 );
+
+const adaptedOpenGraph = await adaptOpenGraphImages(seoProps.openGraph, Astro.site);
 ---
 
 <title>{seoProps.title}{!ignoreTitleTemplate && seoProps.titleTemplate ? seoProps.titleTemplate.replace('%s', '') : ''}</title>
@@ -75,12 +77,20 @@ const seoProps: AstroSeoProps = merge(
 <meta name="robots" content={`${seoProps.noindex ? 'noindex' : 'index'}, ${seoProps.nofollow ? 'nofollow' : 'follow'}`} />
 
 {/* OpenGraph */}
-<meta property="og:title" content={seoProps.openGraph.title || seoProps.title} />
-<meta property="og:description" content={seoProps.openGraph.description || seoProps.description} />
-<meta property="og:url" content={seoProps.openGraph.url} />
-<meta property="og:type" content={seoProps.openGraph.type} />
-<meta property="og:site_name" content={seoProps.openGraph.site_name} />
-<meta property="og:locale" content={seoProps.openGraph.locale} />
+<meta property="og:title" content={adaptedOpenGraph.title || seoProps.title} />
+<meta property="og:description" content={adaptedOpenGraph.description || seoProps.description} />
+<meta property="og:url" content={adaptedOpenGraph.url} />
+<meta property="og:type" content={adaptedOpenGraph.type} />
+<meta property="og:site_name" content={adaptedOpenGraph.site_name} />
+<meta property="og:locale" content={adaptedOpenGraph.locale} />
+
+{adaptedOpenGraph.images?.map((image) => (
+  <>
+    {image?.url && <meta property="og:image" content={image.url} />}
+    {image?.width && <meta property="og:image:width" content={String(image.width)} />}
+    {image?.height && <meta property="og:image:height" content={String(image.height)} />}
+  </>
+))}
 
 {/* Twitter */}
 <meta name="twitter:card" content={seoProps.twitter.cardType} />

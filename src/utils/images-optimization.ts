@@ -252,7 +252,10 @@ export const astroAsseetsOptimizer: ImagesOptimizer = async (
   _height,
   format = undefined,
 ) => {
-  if (!image) {
+  const imgsrc = typeof image === "string" ? image : (image as any)?.src;
+  const isLocalPath = typeof imgsrc === "string" && (imgsrc.startsWith(".") || imgsrc.startsWith("~") || imgsrc.includes("assets/"));
+
+  if (!image || isLocalPath) {
     return [];
   }
 
@@ -381,17 +384,22 @@ export async function getImagesOptimized(
   });
   breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
 
-  const srcset = (
-    await transform(
-      image,
-      breakpoints,
-      Number(width) || undefined,
-      Number(height) || undefined,
-      format,
-    )
-  )
-    .map(({ src, width }) => `${src} ${width}w`)
-    .join(", ");
+  const imgsrc = typeof image === "string" ? image : (image as any)?.src;
+  const isLocalPath = typeof imgsrc === "string" && (imgsrc.startsWith(".") || imgsrc.startsWith("~") || imgsrc.includes("assets/"));
+
+  const srcset = (!image || isLocalPath)
+    ? ""
+    : (
+        await transform(
+          image,
+          breakpoints,
+          Number(width) || undefined,
+          Number(height) || undefined,
+          format,
+        )
+      )
+        .map(({ src, width }) => `${src} ${width}w`)
+        .join(", ");
 
   return {
     src: typeof image === "string" ? image : image.src,

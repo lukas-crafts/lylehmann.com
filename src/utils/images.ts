@@ -1,4 +1,3 @@
-import type { OpenGraph } from "@astrolib/seo";
 import type { ImageMetadata } from "astro";
 import {
   astroAsseetsOptimizer,
@@ -45,24 +44,54 @@ export const findImage = async (
     return imagePath;
   }
 
-  // Relative paths or not "../assets/"
-  if (!imagePath.startsWith("../assets/images")) {
+  // Normalize ~/ or ../../ to ../ (relative to this utility in src/utils/images.ts)
+  let normalizedPath = imagePath;
+  if (normalizedPath.startsWith("~/")) {
+    normalizedPath = normalizedPath.replace("~/", "../");
+  } else if (normalizedPath.startsWith("../../")) {
+    normalizedPath = normalizedPath.replace("../../", "../");
+  }
+
+  if (!normalizedPath.startsWith("../assets/images")) {
     return imagePath;
   }
 
   const images = await fetchLocalImages();
-  const key = imagePath.replace("../", "/src/");
+  if (!images) return null;
 
-  return images && typeof images[key] === "function"
-    ? ((await images[key]()) as { default: ImageMetadata }).default
-    : null;
+  // Try exact key
+  if (typeof images[normalizedPath] === "function") {
+    return ((await images[normalizedPath]()) as { default: ImageMetadata }).default;
+  }
+
+  // Try /src/ variant
+  const altKey = normalizedPath.replace("../", "/src/");
+  if (typeof images[altKey] === "function") {
+    return ((await images[altKey]()) as { default: ImageMetadata }).default;
+  }
+
+  // Fallback: search by filename
+  const filename = normalizedPath.split("/").pop();
+  if (filename) {
+    const foundKey = Object.keys(images).find((k) => k.endsWith("/" + filename));
+    if (foundKey && typeof images[foundKey] === "function") {
+      return ((await images[foundKey]()) as { default: ImageMetadata }).default;
+    }
+  }
+
+  // Final safeguard: if it looks like a local path but wasn't resolved, return null
+  if (imagePath.startsWith("..") || imagePath.startsWith("~") || imagePath.includes("assets/")) {
+    return null;
+  }
+
+  return imagePath;
 };
 
 /** */
 export const adaptOpenGraphImages = async (
-  openGraph: OpenGraph,
+  openGraph: any,
   astroSite: URL | undefined,
-): Promise<OpenGraph> => {
+): Promise<any> => {
   const finalOpenGraph = openGraph || {};
   if (!finalOpenGraph?.images?.length) {
     return finalOpenGraph;
