@@ -34,3 +34,12 @@ pnpm-debug.log*
 node_modules_old/
 node_modules_corrupt/
 node_modules_old_corrupt/
+
+# Python temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
