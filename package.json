@@ -5,7 +5,7 @@
   "type": "module",
   "private": true,
   "engines": {
-    "node": "20.x"
+    "node": ">=22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -28,8 +28,6 @@
     "@astrojs/rss": "*",
     "@astrojs/sitemap": "*",
     "@astrojs/vercel": "*",
-    "@astrolib/analytics": "*",
-    "@astrolib/seo": "*",
     "@biomejs/biome": "*",
     "@fontsource-variable/inter": "*",
     "@iconify-json/lucide": "*",
@@ -43,6 +41,7 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "@types/sanitize-html": "*",
+    "@vercel/speed-insights": "^2.0.0",
     "accessible-astro-components": "*",
     "astro": "*",
     "astro-embed": "*",
