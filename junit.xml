@@ -1,27 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="11" failures="0" errors="0" time="0.002267666">
-    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-12T14:42:30.322Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="11" failures="0" errors="0" skipped="0" time="0.002267666">
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should return the correct asset link" time="0.000647917">
+<testsuites name="vitest tests" tests="5" failures="4" errors="0" time="0.001275958">
+    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-12T15:42:39.108Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001275958">
+        <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.000564375">
         </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle nested paths" time="0.000082458">
+    </testsuite>
+    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-12T15:42:39.109Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
+            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
+            </failure>
         </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle paths with leading slash" time="0.000077625">
+    </testsuite>
+    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-12T15:42:39.110Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
+            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
+            </failure>
         </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle empty path" time="0.000070667">
+    </testsuite>
+    <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-12T15:42:39.110Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
+            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
+            </failure>
         </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should remove leading and trailing slashes" time="0.000116333">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should return empty string if input is only slashes" time="0.000050084">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should return empty string for empty input" time="0.000053291">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getHomePermalink &gt; should return the correct home permalink" time="0.000123916">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return the correct blog permalink" time="0.000084">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return a string" time="0.000076125">
-        </testcase>
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should start with a slash" time="0.000047292">
+    </testsuite>
+    <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-12T15:42:39.111Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
+            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
+            </failure>
         </testcase>
     </testsuite>
 </testsuites>
