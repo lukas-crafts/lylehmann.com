@@ -43,6 +43,7 @@
     "@types/react": "*",
     "@types/react-dom": "*",
     "@types/sanitize-html": "*",
+    "@vercel/speed-insights": "^2.0.0",
     "accessible-astro-components": "*",
     "astro": "*",
     "astro-embed": "*",
