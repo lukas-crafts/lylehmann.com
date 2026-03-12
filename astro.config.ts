@@ -164,22 +164,6 @@ export default defineConfig({
     },
     plugins: [
       tailwindcss(),
-      {
-        name: 'lowercase-filenames',
-        generateBundle(_, bundle) {
-          for (const fileName in bundle) {
-            const lowerCaseFileName = fileName.toLowerCase();
-            if (fileName !== lowerCaseFileName) {
-              const asset = bundle[fileName];
-              if (asset) {
-                asset.fileName = lowerCaseFileName;
-                delete bundle[fileName];
-                bundle[lowerCaseFileName] = asset;
-              }
-            }
-          }
-        }
-      }
     ],
   },
 });
