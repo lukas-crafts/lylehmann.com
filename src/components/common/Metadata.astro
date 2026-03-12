@@ -1,5 +1,5 @@
 ---
-// import type { Props as AstroSeoProps } from "@astrolib/seo";
+import type { Props as AstroSeoProps } from "@astrolib/seo";
 // import { AstroSeo } from "@astrolib/seo";
 import merge from "lodash.merge";
 import { I18N, METADATA, SITE } from "../../generated/astrowind-config";
@@ -84,7 +84,7 @@ const adaptedOpenGraph = await adaptOpenGraphImages(seoProps.openGraph, Astro.si
 <meta property="og:site_name" content={adaptedOpenGraph.site_name} />
 <meta property="og:locale" content={adaptedOpenGraph.locale} />
 
-{adaptedOpenGraph.images?.map((image) => (
+{adaptedOpenGraph.images?.map((image: { url?: string; width?: number; height?: number }) => (
   <>
     {image?.url && <meta property="og:image" content={image.url} />}
     {image?.width && <meta property="og:image:width" content={String(image.width)} />}
@@ -93,6 +93,6 @@ const adaptedOpenGraph = await adaptOpenGraphImages(seoProps.openGraph, Astro.si
 ))}
 
 {/* Twitter */}
-<meta name="twitter:card" content={seoProps.twitter.cardType} />
-{seoProps.twitter.site && <meta name="twitter:site" content={seoProps.twitter.site} />}
-{seoProps.twitter.creator && <meta name="twitter:creator" content={seoProps.twitter.creator} />}
+<meta name="twitter:card" content={seoProps.twitter?.cardType} />
+{seoProps.twitter?.site && <meta name="twitter:site" content={seoProps.twitter.site} />}
+{seoProps.twitter?.creator && <meta name="twitter:creator" content={seoProps.twitter.creator} />}

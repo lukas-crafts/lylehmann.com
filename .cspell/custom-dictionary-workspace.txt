@@ -1,13 +1,20 @@
 # Custom Dictionary Words
+astrolib
 astrowind
 birthtime
+esca
+facebook
 Gispert
+isbn
 Kroll
 Lukas
 lylehmann
 Meta
+noarchive
+noimageindex
 onwidget
 partytown
+pexels
 pixabay
 playform
 three

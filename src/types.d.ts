@@ -1,5 +1,5 @@
-import type { AstroComponentFactory } from "astro/runtime/server/index.js";
-import type { HTMLAttributes, ImageMetadata } from "astro/types";
+import type { AstroComponentFactory } from "astro";
+import type { HTMLAttributes, HTMLInputTypeAttribute, ImageMetadata } from "astro/types";
 
 // Blog-specific types removed. Define project types here if needed.
 
@@ -37,7 +37,7 @@ export interface MetaDataImage {
 
 export interface MetaDataOpenGraph {
   url?: string;
-  siteName?: string;
+  site_name?: string;
   images?: Array<MetaDataImage>;
   locale?: string;
   type?: string;

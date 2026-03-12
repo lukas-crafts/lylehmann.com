@@ -1,5 +1,5 @@
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="astro/client" />
+// Reference removed to satisfy IDE shim
 
 interface ImportMetaEnv {
   readonly PUBLIC_SENTRY_DSN: string;

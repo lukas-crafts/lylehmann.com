@@ -1,25 +1,52 @@
 {
-  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "jsx": "preserve",
     "strict": true,
     "strictNullChecks": true,
-    "allowJs": true,
-    "ignoreDeprecations": "6.0",
+    "ignoreDeprecations": "5.0",
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
-      "astrowind:config": ["src/generated/astrowind-config.ts"]
+      "astrowind:config": ["src/generated/astrowind-config.ts"],
+      "@astrolib/seo": ["deps/@astrolib/seo"],
+      "lodash.merge": ["deps/lodash.merge"],
+      "html-escaper": ["deps/html-escaper"],
+      "@astrojs/vercel": ["deps/@astrojs/vercel"],
+      "@astrojs/mdx": ["deps/integration-shim.ts"],
+      "@astrojs/sitemap": ["deps/integration-shim.ts"],
+      "@astrojs/partytown": ["deps/integration-shim.ts"],
+      "@astrojs/react": ["deps/integration-shim.ts"],
+      "@playform/compress": ["deps/integration-shim.ts"],
+      "@tailwindcss/vite": ["deps/integration-shim.ts"],
+      "astro-purgecss": ["deps/integration-shim.ts"],
+      "astro-robots-txt": ["deps/integration-shim.ts"],
+      "astro/*": ["deps/astro/*"],
+      "astro": ["deps/astro"]
     },
-    "types": ["astro/client", "vitest/globals"]
+    "types": []
   },
+  // Force IDE refresh: 2026-03-12 11:38
   "include": [
+    "deps/shims.d.ts",
     ".astro/types.d.ts",
     "src/**/*",
     "vitest.config.ts",
     "vitest.setup.ts"
   ],
-  "exclude": ["dist/", "node_modules/"]
+  "exclude": ["dist/", "node_modules/", "node_modules_corrupt/", "node_modules_old_corrupt/", ".bun-cache/"]
 }

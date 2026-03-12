@@ -27,6 +27,7 @@
     "@astrojs/react": "*",
     "@astrojs/rss": "*",
     "@astrojs/sitemap": "*",
+    "@astrojs/vercel": "*",
     "@astrolib/analytics": "*",
     "@astrolib/seo": "*",
     "@biomejs/biome": "*",

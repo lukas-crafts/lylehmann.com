@@ -6,6 +6,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import playformCompress from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
+import vercel from "@astrojs/vercel";
 import type { AstroIntegration } from "astro";
 import { defineConfig } from "astro/config";
 // import icon from "astro-icon"; // Removed due to compatibility issues
@@ -41,6 +42,7 @@ export default defineConfig({
   trailingSlash: "never",
 
   integrations: [
+    vercel(),
     react({
       include: [
         "**/react/*",
@@ -90,7 +92,7 @@ export default defineConfig({
       ],
       extractors: [
         {
-          extractor: (content) => {
+          extractor: (content: string) => {
             // Enhanced extractor for Tailwind CSS and custom classes
             const matches =
               content.match(/[^<>"'`\s.(){}[\]#:]*[^<>"'`\s.(){}[\]#:]/g) || [];
@@ -98,7 +100,7 @@ export default defineConfig({
             const classMatches =
               content.match(/class(?:Name)?=["']([^"']*)["']/g) || [];
             const classContent = classMatches
-              .map((match) =>
+              .map((match: string) =>
                 match.replace(/class(?:Name)?=["']([^"']*)["']/, "$1"),
               )
               .join(" ");
@@ -131,6 +133,18 @@ export default defineConfig({
           __dirname,
           "src/generated/astrowind-config.ts",
         ),
+        "@astrolib/seo": path.resolve(__dirname, "deps/@astrolib/seo"),
+        "lodash.merge": path.resolve(__dirname, "deps/lodash.merge"),
+        "html-escaper": path.resolve(__dirname, "deps/html-escaper"),
+        "@astrojs/vercel": path.resolve(__dirname, "deps/@astrojs/vercel"),
+        "@astrojs/mdx": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "@astrojs/sitemap": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "@astrojs/partytown": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "@astrojs/react": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "@playform/compress": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "@tailwindcss/vite": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "astro-purgecss": path.resolve(__dirname, "deps/integration-shim.ts"),
+        "astro-robots-txt": path.resolve(__dirname, "deps/integration-shim.ts"),
       },
     },
     esbuild: {
