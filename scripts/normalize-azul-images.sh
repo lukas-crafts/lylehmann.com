@@ -46,17 +46,7 @@ perl -pi -e 's/Azulverdoso-/azulverdoso-/g' src/content/**/*.mdx src/content/**/
 # Add canonical files if present
 git add -A src/assets/images/azulverdoso* public/assets/images/azulverdoso* || true
 
-# Commit only if there are changes
-if ! git diff --staged --quiet; then
-  git commit -m "chore: normalize Azulverdoso image filenames and imports (lowercase)"
-  git push
-else
-  echo "No tracked changes to commit (index clean)."
-fi
-
-# Force a rebuild on remote by pushing an empty commit
-git commit --allow-empty -m "rebuild: force Vercel cache clear"
-git push
+# Changes have been staged. Please review and commit them manually.
 
 # restore git case behavior
 git config --unset core.ignorecase || true
