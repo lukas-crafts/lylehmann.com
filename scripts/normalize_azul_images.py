@@ -7,6 +7,7 @@ Run from repo root: python3 scripts/normalize_azul_images.py
 import os
 import re
 import shutil
+import shlex
 import subprocess
 from pathlib import Path
 
@@ -18,7 +19,9 @@ TEXT_EXTS = (".mdx", ".md", ".astro", ".js", ".ts", ".jsx", ".tsx")
 
 
 def run(cmd, check=True):
-    return subprocess.run(cmd, shell=True, check=check, capture_output=True, text=True)
+    if isinstance(cmd, str):
+        cmd = shlex.split(cmd)
+    return subprocess.run(cmd, shell=False, check=check, capture_output=True, text=True)
 
 
 def ensure_backup_dir():
@@ -93,15 +96,9 @@ def git_stage_commit_push():
     run("git add -A", check=False)
     diff = run("git diff --staged --quiet", check=False)
     if diff.returncode != 0:
-        run('git commit -m "chore: normalize Azulverdoso image filenames and imports (python)"', check=True)
-        try:
-            run("git push", check=True)
-        except subprocess.CalledProcessError as e:
-            print("git push failed:", e.stdout, e.stderr)
+        print("Staged changes detected. Please commit and push them manually.")
     else:
         print("No staged changes to commit.")
-    run('git commit --allow-empty -m "rebuild: force Vercel cache clear"', check=False)
-    run("git push", check=False)
     run("git config --unset core.ignorecase", check=False)
 
 
