@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="11" failures="0" errors="0" time="0.002098584">
+    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-12T14:32:27.495Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="11" failures="0" errors="0" skipped="0" time="0.002098584">
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should return the correct asset link" time="0.00059525">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle nested paths" time="0.000083417">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle paths with leading slash" time="0.00006825">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getAsset &gt; should handle empty path" time="0.000064417">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should remove leading and trailing slashes" time="0.000110166">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should return empty string if input is only slashes" time="0.000050042">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="trimSlash &gt; should return empty string for empty input" time="0.000048667">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getHomePermalink &gt; should return the correct home permalink" time="0.000113334">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return the correct blog permalink" time="0.000080417">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should return a string" time="0.00006575">
+        </testcase>
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="getBlogPermalink &gt; should start with a slash" time="0.000040458">
+        </testcase>
+    </testsuite>
+</testsuites>
