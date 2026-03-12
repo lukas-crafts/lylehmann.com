@@ -145,9 +145,41 @@ export default defineConfig({
     },
     build: {
       target: "es2022",
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            let name = assetInfo.originalFileName || assetInfo.name || "";
+            // Remove path from name if it exists to avoid nested assets/src/...
+            const basename = name.split('/').pop() || name;
+            return `assets/${basename.toLowerCase()}`;
+          },
+          chunkFileNames: (chunkInfo) => {
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`.toLowerCase();
+          },
+          entryFileNames: (chunkInfo) => {
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`.toLowerCase();
+          },
+        },
+      },
     },
     plugins: [
       tailwindcss(),
+      {
+        name: 'lowercase-filenames',
+        generateBundle(_, bundle) {
+          for (const fileName in bundle) {
+            const lowerCaseFileName = fileName.toLowerCase();
+            if (fileName !== lowerCaseFileName) {
+              const asset = bundle[fileName];
+              if (asset) {
+                asset.fileName = lowerCaseFileName;
+                delete bundle[fileName];
+                bundle[lowerCaseFileName] = asset;
+              }
+            }
+          }
+        }
+      }
     ],
   },
 });

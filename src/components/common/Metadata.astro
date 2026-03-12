@@ -1,11 +1,32 @@
 ---
-import type { Props as AstroSeoProps } from "@astrolib/seo";
-// import { AstroSeo } from "@astrolib/seo";
 import merge from "lodash.merge";
 import { I18N, METADATA, SITE } from "../../generated/astrowind-config";
 import type { MetaData } from "../../types";
 import { adaptOpenGraphImages } from "../../utils/images";
 import { getCanonical } from "../../utils/permalinks";
+
+export interface AstroSeoProps {
+  title?: string;
+  titleTemplate?: string;
+  canonical?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  description?: string;
+  openGraph?: {
+    url?: string;
+    site_name?: string;
+    images?: Array<{ url: string; width?: number; height?: number }>;
+    locale?: string;
+    type?: string;
+    title?: string;
+    description?: string;
+  };
+  twitter?: {
+    cardType?: string;
+    site?: string;
+    creator?: string;
+  };
+}
 
 export interface Props extends MetaData {
   dontUseTitleTemplate?: boolean;
