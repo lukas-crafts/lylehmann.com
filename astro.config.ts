@@ -154,10 +154,10 @@ export default defineConfig({
             return `assets/${basename.toLowerCase()}`;
           },
           chunkFileNames: (chunkInfo) => {
-            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`.toLowerCase();
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`;
           },
           entryFileNames: (chunkInfo) => {
-            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`.toLowerCase();
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`;
           },
         },
       },
