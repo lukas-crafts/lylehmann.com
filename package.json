@@ -66,6 +66,7 @@
     "rehype-raw": "*",
     "sanitize-html": "*",
     "schema-dts": "*",
+    "speed-insights": "vercel/speed-insights",
     "tailwindcss": "*",
     "unpic": "*"
   },

@@ -10,6 +10,7 @@ import CommonMeta from "../components/common/CommonMeta.astro";
 import Metadata from "../components/common/Metadata.astro";
 import SiteVerification from "../components/common/SiteVerification.astro";
 import Favicons from "../components/Favicons.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import { I18N } from "../generated/astrowind-config";
 
 import type { MetaData as MetaDataType } from "../types";
@@ -64,5 +65,6 @@ const { language, textDirection } = I18N;
     <slot />
 
     <BasicScripts />
+    <SpeedInsights />
   </body>
 </html>
