@@ -15,34 +15,19 @@
     "jsx": "preserve",
     "strict": true,
     "strictNullChecks": true,
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "~/*": ["src/*"],
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
-      "astrowind:config": ["src/generated/astrowind-config.ts"],
-      "@astrolib/seo": ["deps/@astrolib/seo"],
-      "lodash.merge": ["deps/lodash.merge"],
-      "html-escaper": ["deps/html-escaper"],
-      "@astrojs/vercel": ["deps/@astrojs/vercel"],
-      "@astrojs/mdx": ["deps/integration-shim.ts"],
-      "@astrojs/sitemap": ["deps/integration-shim.ts"],
-      "@astrojs/partytown": ["deps/integration-shim.ts"],
-      "@astrojs/react": ["deps/integration-shim.ts"],
-      "@playform/compress": ["deps/integration-shim.ts"],
-      "@tailwindcss/vite": ["deps/integration-shim.ts"],
-      "astro-purgecss": ["deps/integration-shim.ts"],
-      "astro-robots-txt": ["deps/integration-shim.ts"],
-      "astro/*": ["deps/astro/*"],
-      "astro": ["deps/astro"]
+      "astrowind:config": ["src/generated/astrowind-config.ts"]
     },
     "types": []
   },
   // Force IDE refresh: 2026-03-12 11:38
   "include": [
-    "deps/shims.d.ts",
     ".astro/types.d.ts",
     "src/**/*",
     "vitest.config.ts",

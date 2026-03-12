@@ -145,6 +145,22 @@ export default defineConfig({
     },
     build: {
       target: "es2022",
+      rollupOptions: {
+        output: {
+          assetFileNames: (assetInfo) => {
+            let name = assetInfo.originalFileName || assetInfo.name || "";
+            // Remove path from name if it exists to avoid nested assets/src/...
+            const basename = name.split('/').pop() || name;
+            return `assets/${basename.toLowerCase()}`;
+          },
+          chunkFileNames: (chunkInfo) => {
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`;
+          },
+          entryFileNames: (chunkInfo) => {
+            return `assets/${chunkInfo.name.toLowerCase()}.[hash].js`;
+          },
+        },
+      },
     },
     plugins: [
       tailwindcss(),
