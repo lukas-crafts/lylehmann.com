@@ -3,6 +3,9 @@ import { APP_BLOG } from "astrowind:config";
 import type { Widget } from "~/types";
 import { findLatestPosts } from "~/utils/blog";
 import { getBlogPermalink } from "~/utils/permalinks";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
+import Grid from '~/components/blog/Grid.astro';
 
 export interface Props extends Widget {
   title?: string;

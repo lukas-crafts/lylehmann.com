@@ -1,5 +1,9 @@
 ---
 import { sanitize } from "~/utils/sanitize";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
+import Button from '~/components/ui/Button.astro';
+import Icon from '~/components/ui/Icon.astro';
 
 const {
   title = await Astro.slots.render("title"),
