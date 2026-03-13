@@ -1,11 +1,4 @@
 ---
-import { sanitize } from "../../utils/sanitize";
-import Button from "../../components/ui/Button.astro";
-import Headline from "../../components/ui/Headline.astro";
-import Icon from "../../components/ui/Icon.astro";
-import WidgetWrapper from "../../components/ui/WidgetWrapper.astro";
-import type { Steps as Props } from "../../types";
-
 const {
   title = await Astro.slots.render("title"),
   subtitle = await Astro.slots.render("subtitle"),

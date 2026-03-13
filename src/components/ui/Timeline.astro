@@ -1,9 +1,5 @@
 ---
-import { twMerge } from "tailwind-merge";
 import type { Timeline as Props } from "../../types";
-import { sanitize } from "../../utils/sanitize";
-import { getFormattedDate } from "../../utils/utils";
-import Icon from "./Icon.astro";
 
 const { items = [], classes = {}, defaultIcon } = Astro.props as Props;
 

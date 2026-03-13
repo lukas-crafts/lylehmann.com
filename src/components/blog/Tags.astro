@@ -1,21 +1,17 @@
 ---
-import type { Post } from "../../types";
-import { getPermalink } from "../../utils/permalinks";
-import { APP_BLOG } from "../../generated/astrowind-config";
+import { getPermalink } from '~/utils/permalinks';
+
+import { APP_BLOG } from 'astrowind:config';
+import type { Post } from '~/types';
 
 export interface Props {
-  tags: Post["tags"];
+  tags: Post['tags'];
   class?: string;
   title?: string | undefined;
   isCategory?: boolean;
 }
 
-const {
-  tags,
-  class: className = "text-sm",
-  title = undefined,
-  isCategory = false,
-} = Astro.props;
+const { tags, class: className = 'text-sm', title = undefined, isCategory = false } = Astro.props;
 ---
 
 {

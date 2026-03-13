@@ -1,16 +1,11 @@
 ---
-import { getCollection, render } from 'astro:content';
-import FAQs from "../../components/widgets/FAQs.astro";
-import Features from "../../components/widgets/Features.astro";
-import Hero from "../../components/widgets/Hero.astro";
-import Stats from "../../components/widgets/Stats.astro";
-import Steps from "../../components/widgets/Steps.astro";
-import MarkdownLayout from "../../layouts/MarkdownLayout.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
-  const projectEntries = await getCollection('projects');
-  return projectEntries.map(entry => ({
-    params: { id: entry.id }, props: { entry },
+  const projectEntries = await getCollection("projects");
+  return projectEntries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
   }));
 }
 

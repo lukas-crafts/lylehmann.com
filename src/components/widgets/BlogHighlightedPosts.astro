@@ -17,16 +17,16 @@ export interface Props extends Widget {
 }
 
 const {
-  title = await Astro.slots.render('title'),
-  linkText = 'View all posts',
+  title = await Astro.slots.render("title"),
+  linkText = "View all posts",
   linkUrl = getBlogPermalink(),
-  information = await Astro.slots.render('information'),
+  information = await Astro.slots.render("information"),
   postIds = [],
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
+  bg = await Astro.slots.render("bg"),
 } = Astro.props;
 
 const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];

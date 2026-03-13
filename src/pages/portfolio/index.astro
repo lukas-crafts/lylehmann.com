@@ -1,6 +1,5 @@
 ---
 import { getCollection } from "astro:content";
-import LandingLayout from "../../layouts/LandingLayout.astro";
 
 const projects = await getCollection("projects");
 ---
@@ -52,11 +51,12 @@ const projects = await getCollection("projects");
           {projects.map((project) => (
             <div class="project-card flex flex-col justify-between bg-(--color-bg-subtle) opacity-100 shadow hover:shadow-xl p-6 border border-(--color-border-default) rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.data.title} data-description={project.data.description || project.data.excerpt || ''} data-tags={project.data.tags?.join(',') || ''}>
               {(project.data.cover || project.data.image) && (
-                <img
+                <Image
                   src={project.data.cover || project.data.image}
                   alt={project.data.title || "Project cover"}
                   class="bg-(--color-bg-muted) mb-4 rounded-xl w-full h-48 object-cover"
-                  loading="lazy"
+                  width={400}
+                  height={200}
                 />
               )}
               <div>

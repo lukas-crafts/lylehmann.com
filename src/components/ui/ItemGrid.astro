@@ -1,10 +1,4 @@
 ---
-import { twMerge } from "tailwind-merge";
-import type { ItemGrid as Props } from "../../types";
-import { sanitize } from "../../utils/sanitize";
-import Button from "./Button.astro";
-import Icon from "./Icon.astro";
-
 const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
 
 const {

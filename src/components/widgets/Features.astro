@@ -1,13 +1,12 @@
 ---
-import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
-import ItemGrid from '~/components/ui/ItemGrid.astro';
-import Headline from '~/components/ui/Headline.astro';
-import type { Features as Props } from '~/types';
-
+import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
+import ItemGrid from "~/components/ui/ItemGrid.astro";
+import Headline from "~/components/ui/Headline.astro";
+import type { Features as Props } from "~/types";
 const {
-  title = await Astro.slots.render('title'),
-  subtitle = await Astro.slots.render('subtitle'),
-  tagline = await Astro.slots.render('tagline'),
+  title = await Astro.slots.render("title"),
+  subtitle = await Astro.slots.render("subtitle"),
+  tagline = await Astro.slots.render("tagline"),
   items = [],
   columns = 2,
 
@@ -16,7 +15,7 @@ const {
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render('bg'),
+  bg = await Astro.slots.render("bg"),
 } = Astro.props;
 ---
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {
   "recommendations": [
     "astro-build.astro-vscode",
@@ -8,16 +7,3 @@
   ],
   "unwantedRecommendations": []
 }
-||||||| empty tree
-=======
-{
-  "recommendations": [
-    "astro-build.astro-vscode",
-    "bradlc.vscode-tailwindcss",
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "unifiedjs.vscode-mdx"
-  ],
-  "unwantedRecommendations": []
-}
->>>>>>> upstream/main

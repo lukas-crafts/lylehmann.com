@@ -1,19 +1,19 @@
 // @vitest-environment jsdom
-import { bench, describe } from 'vitest';
+import { bench, describe } from "vitest";
 
 function extractRGBOriginal(colorStr: string): number[] {
-  const canvas: HTMLCanvasElement = document.createElement('canvas')
-  const ctx: CanvasRenderingContext2D | null = canvas.getContext('2d')
-  if (!ctx) return [0, 0, 0] // Handle null context
+  const canvas: HTMLCanvasElement = document.createElement("canvas");
+  const ctx: CanvasRenderingContext2D | null = canvas.getContext("2d");
+  if (!ctx) return [0, 0, 0]; // Handle null context
 
-  ctx.fillStyle = colorStr
+  ctx.fillStyle = colorStr;
 
   // Fill a tiny rectangle with the color
-  ctx.fillRect(0, 0, 1, 1)
+  ctx.fillRect(0, 0, 1, 1);
 
   // Get the pixel data
-  const data: Uint8ClampedArray = ctx.getImageData(0, 0, 1, 1).data
-  return [data[0], data[1], data[2]]
+  const data: Uint8ClampedArray = ctx.getImageData(0, 0, 1, 1).data;
+  return [data[0], data[1], data[2]];
 }
 
 // Optimized version with reused canvas
@@ -22,8 +22,8 @@ let sharedCtx: CanvasRenderingContext2D | null = null;
 
 function getSharedContext(): CanvasRenderingContext2D | null {
   if (!sharedCanvas) {
-    sharedCanvas = document.createElement('canvas');
-    sharedCtx = sharedCanvas.getContext('2d');
+    sharedCanvas = document.createElement("canvas");
+    sharedCtx = sharedCanvas.getContext("2d");
   }
   return sharedCtx;
 }
@@ -43,15 +43,14 @@ function extractRGBOptimized(colorStr: string): number[] {
   return [data[0], data[1], data[2]];
 }
 
+describe("extractRGB", () => {
+  const color = "#ff0000";
 
-describe('extractRGB', () => {
-  const color = '#ff0000';
-
-  bench('original (new canvas each time)', () => {
+  bench("original (new canvas each time)", () => {
     extractRGBOriginal(color);
   });
 
-  bench('optimized (reuse canvas)', () => {
+  bench("optimized (reuse canvas)", () => {
     extractRGBOptimized(color);
   });
 });
