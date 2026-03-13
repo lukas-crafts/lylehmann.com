@@ -1,5 +1,5 @@
 ---
-import { Seo } from "astro-seo-meta";
+import { AstroSeo as Seo } from "@astrolib/seo";
 import { Schema } from "astro-seo-schema";
 import CallToAction from "../components/widgets/CallToAction.astro";
 import Features3 from "../components/widgets/Features3.astro";
@@ -14,9 +14,20 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
 <Seo
   title="Resume - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="View Lukas Yair Lehmann/'s resume, a UX designer focused on accessible, inclusive experiences. Discover his skills, experience, and passion."
-  keywords={["UX Designer", "Accessibility", "Lukas Yair Lehmann", "Resume", "User Experience", "Inclusive Design", "Neurodiversity", "Digital Solutions", "UX Design Skills", "UX Design Experience"]}
+  keywords={[
+    "UX Designer",
+    "Accessibility",
+    "Lukas Yair Lehmann",
+    "Resume",
+    "User Experience",
+    "Inclusive Design",
+    "Neurodiversity",
+    "Digital Solutions",
+    "UX Design Skills",
+    "UX Design Experience",
+  ]}
   icon="../assets/favicons/favicon.ico"
-  robots='index, follow'
+  robots="index, follow"
 />
 
 <Schema
@@ -29,7 +40,8 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
       "@id": "https://lylehmann.com/#occupation",
       "@type": "Occupation",
       name: "UX Designer",
-      description: "A professional who focuses on the design and usability of digital products, ensuring they are accessible and user-friendly.",
+      description:
+        "A professional who focuses on the design and usability of digital products, ensuring they are accessible and user-friendly.",
       occupationalCategory: "15-1255.00",
       skills: [
         "User Research",
@@ -80,10 +92,11 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         url: "https://lylehmann.com",
         sameAs: [
           "https://www.linkedin.com/in/lylehmann/",
-          "https://github.com/lylehmann"
+          "https://github.com/lylehmann",
         ],
         email: email,
-        description: "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
+        description:
+          "Lukas Yair Lehmann is a UX Designer with a passion for accessibility and inclusive design. He is a strong advocate for neurodiversity and disability rights, and believes that digital solutions should work for everyone. Lukas has a background in design, accessibility, and disability advocacy, and he is committed to creating digital experiences that are accessible, usable, and enjoyable for all users.",
         knowsAbout: [
           "UX Design",
           "User Experience",
@@ -101,9 +114,9 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
           "Prototyping",
           "Usability Testing",
           "Information Architecture",
-          "Interaction Design"
-        ]
-      }
+          "Interaction Design",
+        ],
+      },
     },
   }}
 />
@@ -117,15 +130,15 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://lylehmann.com"
+        item: "https://lylehmann.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Resume",
-        item: "https://lylehmann.com/resume"
+        item: "https://lylehmann.com/resume",
       },
-    ]
+    ],
   }}
 />
 
@@ -134,16 +147,16 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/' },
-        { text: 'Porfolio', href: '/portfolio' },
-        { text: 'About', href: '/about' },
-        { text: 'Resume', href: '/resume' },
+        { text: "Home", href: "/" },
+        { text: "Porfolio", href: "/portfolio" },
+        { text: "About", href: "/about" },
+        { text: "Resume", href: "/resume" },
       ]}
       actions={[
         {
-          text: 'Meet me',
+          text: "Meet me",
           href: `https://calendly.com/lylehmann`,
-          target: '_blank',
+          target: "_blank",
         },
       ]}
       isSticky
@@ -156,16 +169,30 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
   <Hero
     actions={[
       {
-        variant: 'primary',
-        text: 'Download PDF', href: 'https://drive.google.com/file/d/1ZhaG3ftJJ9Ff4ZfFgXW72YWkDIkTgn83/view?usp=share_link', target: '_blank',
+        variant: "primary",
+        text: "Download PDF",
+        href: "https://drive.google.com/file/d/1ZhaG3ftJJ9Ff4ZfFgXW72YWkDIkTgn83/view?usp=share_link",
+        target: "_blank",
       },
-      { text: 'Connect on LinkedIn', href: 'https://www.linkedin.com/in/lukas-yair-lehmann-460544199/', target: '_blank' },
+      {
+        text: "Connect on LinkedIn",
+        href: "https://www.linkedin.com/in/lukas-yair-lehmann-460544199/",
+        target: "_blank",
+      },
     ]}
   >
-    <Fragment slot="title"> Resume <br> <span class="text-4xl font-semibold">Lukas Lehmann - UX Designer | Accessibility</span> </Fragment>
+    <Fragment slot="title">
+      Resume <br />
+      <span class="text-4xl font-semibold"
+        >Lukas Lehmann - UX Designer | Accessibility</span
+      >
+    </Fragment>
 
     <Fragment slot="subtitle">
-      With a unique blend of technical expertise, empathy, and a passion for accessibility, I design inclusive digital experiences that empower users of all abilities. Whether it's a website, app, or service, my goal is to create solutions that work for everyone.
+      With a unique blend of technical expertise, empathy, and a passion for
+      accessibility, I design inclusive digital experiences that empower users
+      of all abilities. Whether it's a website, app, or service, my goal is to
+      create solutions that work for everyone.
     </Fragment>
   </Hero>
 
@@ -184,7 +211,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         <li>Enhanced design functionality through improved skills in <strong>HTML, CSS,</strong> and <strong>CMS platforms</strong>.</li>
         <li>Applied <strong>agile methods</strong>, <strong>design thinking</strong> and <strong>service design</strong> across multiple projects.</li>
         `,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
@@ -193,7 +220,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         <li>Managed book projects, from handover to delivery, ensuring <strong>high quality</strong> and timely publication.</li>
         <li>Collaborated with <strong>authors, editors, and designers</strong> to refine content and design.</li>
         <li>Ensured <strong>consistency</strong> in style and formatting across books.</li>`,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
@@ -201,7 +228,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         description: `
         <li>Strengthened skills in <strong>Classic and Agile Project Management</strong> and <strong>Design Thinking.</strong></li>
         <li>Completed courses on <strong>project and team management.</strong></strong></li>`,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
@@ -211,7 +238,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         <li>Managed <strong>client relationships</strong> and <strong>project timelines</strong> to ensure high-quality deliverables.</li>
         <li>Developed <strong>problem-solving</strong> and organizational expertise.</li>
         `,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
@@ -220,7 +247,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         <li>Led a <strong>website overhaul</strong>, improving <strong>user experience</strong> and information architecture.</li>
         <li>Trained staff in <strong>WordPress</strong> and optimized website management.</li>
         `,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
@@ -228,17 +255,17 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         description: `
         <li>Supported individuals with special needs, developing strong communication skills based on <strong>empathy </strong>and respect.</li>
         <li>Gained valuable insights into <strong>accessibility</strong> and their diverse needs.</li>`,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
       {
         title:
           'Webmaster<br /> <span class="font-normal">Hochschule für Jüdische Studien, Heidelberg, Germany </span> <br /> <span class="text-sm font-normal">2006 - 2008</span>',
         description: `
         <li>Maintained website content using <strong>HTML</strong> and <strong>CSS</strong> to ensure a functional and user-friendly experience. </li>`,
-        icon: 'tabler:briefcase',
+        icon: "tabler:briefcase",
       },
     ]}
-    classes={{ container: 'max-w-3xl' }}
+    classes={{ container: "max-w-3xl" }}
   />
 
   <!-- Steps Widget ****************** -->
@@ -253,10 +280,10 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         <li>Supported children and teenagers with special needs, developing strong <strong>problem-solving</strong> and interpersonal skills.</li>
         <li>Gained early exposure to <strong>accessibility and inclusivity</strong>, shaping a career-long passion for user-centered solutions.</li>
         `,
-        icon: 'tabler:heart-handshake',
+        icon: "tabler:heart-handshake",
       },
     ]}
-    classes={{ container: 'max-w-3xl' }}
+    classes={{ container: "max-w-3xl" }}
   />
 
   <!-- Steps Widget ****************** -->
@@ -267,34 +294,34 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     items={[
       {
         title: `Certificate in Product UX Design <br /> <span class="font-normal">WBS Coding School</span> <br /> <span class="text-sm font-normal">2024</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Scrum Master (PSM-I) <br /> <span class="font-normal">Scrum.org</span> <br /> <span class="text-sm font-normal">2024</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Certificate in UX/UI Design, Branded UX / Interaction Design <br /> <span class="font-normal">cimdata Bildungsakademie GmbH</span> <br /> <span class="text-sm font-normal">2023 - 2024</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Certificate in Content Marketing Management <br /> <span class="font-normal">Webmasters Europe e.V. <br /> <span class="text-sm font-normal">2022</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Certificate in Content Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2021 - 2022</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Certificate in Project Management <br /> <span class="font-normal">WBS Training AG</span> <br /> <span class="text-sm font-normal">2017</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
       {
         title: `Bachelor of Arts in Jewish Studies, History  <br /> <span class="font-normal">HfJS Heidelberg, Ruprecht-Karls-Universität Heidelberg</span> <br /> <span class="text-sm font-normal">2005 - 2011</span>`,
-        icon: 'tabler:school',
+        icon: "tabler:school",
       },
     ]}
-    classes={{ container: 'max-w-3xl' }}
+    classes={{ container: "max-w-3xl" }}
   />
 
   <!-- Features3 Widget ************** -->
@@ -306,7 +333,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     defaultIcon="tabler:point-filled"
     items={[
       {
-        title: 'Project Management',
+        title: "Project Management",
         description: `
             <li>Certified Scrum Master (PSM-I) with experience in <strong>Agile workflows</strong>.</li>
             <li>Skilled in tools like Jira and Asana to manage tasks and keep projects on track.</li>
@@ -314,7 +341,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         `,
       },
       {
-        title: 'UX/UI Design',
+        title: "UX/UI Design",
         description: `
             <li>Experienced in creating <strong> wireframes, prototypes</strong>, and user-friendly designs.</li>
             <li>Proficient in tools like <strong>Figma, Sketch</strong>, and <strong>Adobe XD.</strong></li>
@@ -322,7 +349,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
           `,
       },
       {
-        title: 'Accessibility and Inclusive Design',
+        title: "Accessibility and Inclusive Design",
         description: `
             <li>Skilled in designing for <strong>all users</strong>, including those with disabilities.</li>
             <li>Knowledge of accessibility standards like <strong>WCAG</strong>.</li>
@@ -330,7 +357,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
           `,
       },
       {
-        title: 'Front-End Development',
+        title: "Front-End Development",
         description: `
             <li>Proficient in <strong> HTML, CSS</strong>, and WordPress.</li>
             <li>Skilled in creating responsive, mobile-friendly websites.</li>
@@ -338,14 +365,14 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
           `,
       },
       {
-        title: 'Strategic Thinking and Problem-Solving',
+        title: "Strategic Thinking and Problem-Solving",
         description: `
             <li>Skilled at seeing the big picture and finding creative ways to solve challenges.</li>
             <li>Adaptable to changing situations, bringing <strong>fresh ideas to complex problems</strong>.</li>
           `,
       },
       {
-        title: 'Empathy and Communication',
+        title: "Empathy and Communication",
         description: `
             <li>Strong <strong>empathy skills</strong>, prioritizing user needs in design</li>
             <li>Clear communicator, skilled at explaining ideas in simple, approachable ways.</li>
@@ -361,29 +388,30 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
     id="contact"
     actions={[
       {
-        variant: 'primary',
-        text: 'Email me',
+        variant: "primary",
+        text: "Email me",
         href: `mailto:${email}`, // Update this line to use the imported email
       },
       {
-        variant: 'tertiary',
-        text: 'LinkedIn',
-        href: 'https://www.linkedin.com/in/lylehmann/',
-        target: '_blank',
+        variant: "tertiary",
+        text: "LinkedIn",
+        href: "https://www.linkedin.com/in/lylehmann/",
+        target: "_blank",
       },
       {
-        variant: 'tertiary',
-        text: 'GitHub',
-        href: 'https://www.github.com/lylehmann/',
-        target: '_blank',
+        variant: "tertiary",
+        text: "GitHub",
+        href: "https://www.github.com/lylehmann/",
+        target: "_blank",
       },
     ]}
   >
     <Fragment slot="title"> Let's Connect </Fragment>
 
     <Fragment slot="subtitle">
-      Passionate about creating inclusive, user-centered designs? <br class="hidden md:inline" /> Let's team up to make a
-      real impact.
+      Passionate about creating inclusive, user-centered designs? <br
+        class="hidden md:inline"
+      /> Let's team up to make a real impact.
     </Fragment>
   </CallToAction>
 </Layout>

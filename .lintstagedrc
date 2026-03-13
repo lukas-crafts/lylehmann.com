@@ -1,0 +1,5 @@
+{
+  "*.{js,ts,jsx,tsx,json,css}": "bun x biome check --write",
+  "*.{md,mdx}": "prettier --write",
+  "*.astro": ["eslint --fix", "prettier --write"]
+}
