@@ -1,8 +1,9 @@
 ---
+import type { HTMLInputTypeAttribute } from "astro/types";
 import Button from "./Button.astro";
 
 interface Input {
-  type?: string;
+  type?: HTMLInputTypeAttribute;
   name: string;
   label?: string;
   autocomplete?: string;
@@ -15,7 +16,7 @@ const {
   disclaimer,
   button = "Contact us",
   description = "",
-} = Astro.props as { inputs?: Input[]; textarea?: any; disclaimer?: any; button?: string; description?: string };
+} = Astro.props as { inputs?: Input[]; textarea?: any; disclaimer?: any; button?: any; description?: string };
 ---
 
 <form>
@@ -86,7 +87,11 @@ const {
   {
     button && (
       <div class="mt-10 grid">
-        <Button variant="primary" type="submit">
+        <Button
+          variant="primary"
+          type="submit"
+          {...(typeof button === "object" ? button : {})}
+        >
           {button}
         </Button>
       </div>
