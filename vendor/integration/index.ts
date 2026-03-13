@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 import type { AstroConfig, AstroIntegration } from "astro";
 
 import configBuilder, { type Config } from "./utils/configBuilder";
@@ -43,8 +44,9 @@ export const ANALYTICS = ${JSON.stringify(ANALYTICS, null, 2)};
 `;
 
         // Write the config to a real file
+        const rootPath = fileURLToPath(config.root);
         const configPath = path.join(
-          config.root.pathname,
+          rootPath,
           "src/generated/astrowind-config.ts",
         );
         const configDir = path.dirname(configPath);
@@ -53,7 +55,14 @@ export const ANALYTICS = ${JSON.stringify(ANALYTICS, null, 2)};
           fs.mkdirSync(configDir, { recursive: true });
         }
 
-        fs.writeFileSync(configPath, configContent, "utf8");
+        if (fs.existsSync(configPath)) {
+          const currentContent = fs.readFileSync(configPath, "utf8");
+          if (currentContent !== configContent) {
+            fs.writeFileSync(configPath, configContent, "utf8");
+          }
+        } else {
+          fs.writeFileSync(configPath, configContent, "utf8");
+        }
 
         updateConfig({
           site: SITE.site,

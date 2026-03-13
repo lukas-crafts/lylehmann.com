@@ -1,6 +1,7 @@
 @import "./design-tokens.css";
 @import "@radix-ui/themes/styles.css";
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 @layer base {
   /* Stärkere Spezifität für Aufzählungszeichen */
@@ -10,9 +11,9 @@
 
   /* SVG Icons in Primärfarbe */
   svg {
-    stroke: var(--color-brand-primary) !important;
-    color: var(--color-brand-primary) !important;
-    fill: var(--color-brand-primary) !important;
+    stroke: var(--color-brand-primary);
+    color: var(--color-brand-primary);
+    fill: var(--color-brand-primary);
   }
 }
 
@@ -52,7 +53,7 @@
 
   /* Utility-Klasse für Primary Text in Light und Dark Mode */
   .text-primary {
-    color: var(--color-brand-primary) !important;
+    color: var(--color-brand-primary);
   }
 
   /* Border Utilities */

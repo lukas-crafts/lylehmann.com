@@ -1,0 +1,15 @@
+[tools]
+node = "22"
+bun = "latest"
+
+[tasks.dev]
+run = "bun run dev"
+description = "Run Astro dev server"
+
+[tasks.build]
+run = "bun run build"
+description = "Build the production site"
+
+[tasks.preview]
+run = "bun run preview"
+description = "Preview the built site"

@@ -1,59 +1,4 @@
 ---
-import {
-  Accessibility,
-  Apple,
-  ArrowLeft,
-  ArrowRight,
-  Bell,
-  Blocks,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  Cloud,
-  Diamond,
-  ExternalLink,
-  Facebook,
-  Github,
-  Globe,
-  Grid3x3,
-  Heart,
-  Inbox,
-  Layout,
-  Lightbulb,
-  Linkedin,
-  Mail,
-  MapPin,
-  Megaphone,
-  Menu,
-  MessageCircle,
-  Moon,
-  Music,
-  Palette,
-  Pencil,
-  Phone,
-  Plug,
-  Rocket,
-  Scale,
-  Search,
-  Settings,
-  Smartphone,
-  Sparkles,
-  Sun,
-  Tag,
-  Timer,
-  Twitter,
-  User,
-  Users,
-  X,
-  ZoomIn,
-} from "lucide-astro";
-import { twMerge } from "tailwind-merge";
-import type { ItemGrid as Props } from "../../types";
-import { sanitize } from "../../utils/sanitize";
-import Button from "./Button.astro";
-import Icon from "./Icon.astro";
-
 const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
 
 const {
@@ -104,7 +49,7 @@ const {
               {tags && tags.length > 0 && (
                 <div class="flex flex-wrap gap-2 mt-2" aria-label="Skills and tools">
                   {tags.map((tag) => (
-                    <span class="bg-[var(--color-interactive-secondary-hover)] px-2 py-0.5 border border-[var(--color-border-default)] rounded-full font-medium text-[var(--color-text-body)] text-xs">
+                    <span class="bg-(--color-interactive-secondary-hover) px-2 py-0.5 border border-(--color-border-default) rounded-full font-medium text-(--color-text-body) text-xs">
                       {tag}
                     </span>
                   ))}
@@ -112,7 +57,7 @@ const {
               )}
               {callToAction && (
                 <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
-                  <Button variant="link" {...callToAction} />
+                  <Button variant="link" {...(callToAction as any)} />
                 </div>
               )}
             </div>

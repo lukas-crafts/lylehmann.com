@@ -1,9 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import LandingLayout from "../../layouts/LandingLayout.astro";
 
 const projects = await getCollection("projects");
-const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
 ---
 
 <LandingLayout metadata={{ title: 'Portfolio', description: 'A showcase of real projects and case studies.' }}>
@@ -29,7 +27,7 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
             <input
               type="text"
               placeholder="Search projects..."
-              class="bg-[var(--color-bg-default)] shadow-sm focus:shadow-md py-2 pr-3 pl-10 border border-[var(--color-border-default)] rounded-full focus:outline-none focus:ring-2 focus:ring-primary w-full text-[var(--color-text-body)] transition-all duration-200"
+              class="bg-(--color-bg-default) shadow-sm focus:shadow-md py-2 pr-3 pl-10 border border-(--color-border-default) rounded-full focus:outline-none focus:ring-2 focus:ring-primary w-full text-(--color-text-body) transition-all duration-200"
               aria-label="Search projects by title or description"
               id="search-input"
             />
@@ -51,13 +49,14 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
         <!-- Project Grid -->
         <section class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" aria-label="Portfolio projects" id="projects-grid">
           {projects.map((project) => (
-            <div class="project-card flex flex-col justify-between bg-[var(--color-bg-subtle)] opacity-100 shadow hover:shadow-xl p-6 border border-[var(--color-border-default)] rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.data.title} data-description={project.data.description || project.data.excerpt || ''} data-tags={project.data.tags?.join(',') || ''}>
+            <div class="project-card flex flex-col justify-between bg-(--color-bg-subtle) opacity-100 shadow hover:shadow-xl p-6 border border-(--color-border-default) rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.data.title} data-description={project.data.description || project.data.excerpt || ''} data-tags={project.data.tags?.join(',') || ''}>
               {(project.data.cover || project.data.image) && (
-                <img
+                <Image
                   src={project.data.cover || project.data.image}
                   alt={project.data.title || "Project cover"}
-                  class="bg-[var(--color-bg-muted)] mb-4 rounded-xl w-full h-48 object-cover"
-                  loading="lazy"
+                  class="bg-(--color-bg-muted) mb-4 rounded-xl w-full h-48 object-cover"
+                  width={400}
+                  height={200}
                 />
               )}
               <div>
@@ -69,7 +68,7 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
                 <p class="mb-4 text-muted">{project.data.description || project.data.excerpt}</p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   {(project.data.tags || []).map((tag) => (
-                    <span class="bg-[var(--color-interactive-secondary-hover)] px-2 py-0.5 border border-[var(--color-border-default)] rounded-full font-medium text-[var(--color-text-body)] text-xs">
+                    <span class="bg-(--color-interactive-secondary-hover) px-2 py-0.5 border border-(--color-border-default) rounded-full font-medium text-(--color-text-body) text-xs">
                       {tag}
                     </span>
                   ))}
@@ -77,7 +76,7 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
               </div>
               <a
                 href={`/portfolio/${project.id}`}
-                class="inline-block mt-auto focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-[var(--color-brand-primary)] hover:underline"
+                class="inline-block mt-auto focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-(--color-brand-primary) hover:underline"
                 aria-label={`View case study: ${project.data.title}`}
               >
                 View Case Study
@@ -95,20 +94,22 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
       <!-- Interactive Script -->
       <script>
         document.addEventListener('DOMContentLoaded', function() {
-          const searchInput = document.getElementById('search-input');
-          const clearButton = document.getElementById('clear-search');
+          const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+          const clearButton = document.getElementById('clear-search') as HTMLButtonElement | null;
           const projectCards = document.querySelectorAll('.project-card');
           const noResultsMessage = document.getElementById('no-results');
           const projectsGrid = document.getElementById('projects-grid');
           
           function filterProjects() {
+            if (!searchInput) return;
             const searchTerm = searchInput.value.toLowerCase();
             let visibleCount = 0;
             
-            projectCards.forEach(card => {
-              const title = card.getAttribute('data-title').toLowerCase();
-              const description = card.getAttribute('data-description').toLowerCase();
-              const tags = card.getAttribute('data-tags').toLowerCase();
+            projectCards.forEach(cardNode => {
+              const card = cardNode as HTMLElement;
+              const title = card.getAttribute('data-title')?.toLowerCase() || '';
+              const description = card.getAttribute('data-description')?.toLowerCase() || '';
+              const tags = card.getAttribute('data-tags')?.toLowerCase() || '';
               
               const matches = !searchTerm || 
                 title.includes(searchTerm) || 
@@ -124,29 +125,37 @@ const allTags = [...new Set(projects.flatMap((p) => p.data.tags || []))];
             });
             
             // Show/hide no results message
-            if (visibleCount === 0 && searchTerm) {
-              noResultsMessage.style.display = 'block';
-              projectsGrid.style.display = 'none';
-            } else {
-              noResultsMessage.style.display = 'none';
-              projectsGrid.style.display = 'grid';
+            if (noResultsMessage && projectsGrid) {
+              if (visibleCount === 0 && searchTerm) {
+                noResultsMessage.style.display = 'block';
+                projectsGrid.style.display = 'none';
+              } else {
+                noResultsMessage.style.display = 'none';
+                projectsGrid.style.display = 'grid';
+              }
             }
             
             // Show/hide clear button
-            if (searchTerm) {
-              clearButton.classList.remove('hidden');
-            } else {
-              clearButton.classList.add('hidden');
+            if (clearButton) {
+              if (searchTerm) {
+                clearButton.classList.remove('hidden');
+              } else {
+                clearButton.classList.add('hidden');
+              }
             }
           }
           
-          searchInput.addEventListener('input', filterProjects);
+          if (searchInput) {
+            searchInput.addEventListener('input', filterProjects);
+          }
           
-          clearButton.addEventListener('click', function() {
-            searchInput.value = '';
-            filterProjects();
-            searchInput.focus();
-          });
+          if (clearButton && searchInput) {
+            clearButton.addEventListener('click', function() {
+              searchInput.value = '';
+              filterProjects();
+              searchInput.focus();
+            });
+          }
         });
       </script>
     </div>

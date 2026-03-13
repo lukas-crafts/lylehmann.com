@@ -1,8 +1,4 @@
 ---
-import { sanitize } from "../../utils/sanitize";
-import { twMerge } from "tailwind-merge";
-import type { Headline as Props } from "../../types";
-
 const {
   title = await Astro.slots.render("title"),
   subtitle = await Astro.slots.render("subtitle"),
@@ -21,16 +17,16 @@ const {
   (title || subtitle || tagline) && (
     <div class={twMerge('mb-8 md:mx-auto md:mb-12 text-center', containerClass)}>
       {tagline && (
-        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase" set:html={sanitize(tagline)} />
+        <p class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase" set:html={tagline} />
       )}
       {title && (
         <h2
           class={twMerge('font-bold leading-tighter tracking-tighter font-heading text-heading text-3xl', titleClass)}
-          set:html={sanitize(title)}
+          set:html={title}
         />
       )}
 
-      {subtitle && <p class={twMerge('mt-4 text-muted', subtitleClass)} set:html={sanitize(subtitle)} />}
+      {subtitle && <p class={twMerge('mt-4 text-muted', subtitleClass)} set:html={subtitle} />}
     </div>
   )
 }

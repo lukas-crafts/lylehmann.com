@@ -1,30 +1,7 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
-import { SITE } from "../../generated/astrowind-config";
-import { getHomePermalink } from "../../utils/permalinks";
-
+import { Icon } from 'astro-icon/components';
+import { SITE } from 'astrowind:config';
+import { getHomePermalink } from '~/utils/permalinks';
 interface Link {
   text?: string;
   href?: string;
@@ -113,10 +90,10 @@ const {
                   aria-label={ariaLabel}
                   href={href}
                 >
-                  {icon === "tabler:brand-linkedin" && <Linkedin class="w-5 h-5" />}
-                  {icon === "tabler:mail" && <Mail class="w-5 h-5" />}
-                  {icon === "tabler:brand-github" && <Github class="w-5 h-5" />}
-                  {icon === "tabler:brand-twitter" && <Twitter class="w-5 h-5" />}
+                  {icon === "tabler:brand-linkedin" && <Icon name="tabler:brand-linkedin" class="w-5 h-5" />}
+                  {icon === "tabler:mail" && <Icon name="tabler:mail" class="w-5 h-5" />}
+                  {icon === "tabler:brand-github" && <Icon name="tabler:brand-github" class="w-5 h-5" />}
+                  {icon === "tabler:brand-twitter" && <Icon name="tabler:brand-twitter" class="w-5 h-5" />}
                   <Fragment set:html={text} />
                 </a>
               </li>

@@ -1,7 +1,25 @@
-import type { AstroComponentFactory } from "astro";
-import type { HTMLAttributes, HTMLInputTypeAttribute, ImageMetadata } from "astro/types";
+import type {
+  HTMLAttributes,
+  HTMLInputTypeAttribute,
+  ImageMetadata,
+} from "astro/types";
 
-// Blog-specific types removed. Define project types here if needed.
+// Blog-specific types
+export interface Post {
+  id: string;
+  slug: string;
+  body?: string;
+  title: string;
+  publishDate?: Date;
+  excerpt?: string;
+  image?: string | ImageMetadata;
+  category?: Taxonomy;
+  tags?: Taxonomy[];
+  author?: string;
+  metadata?: MetaData;
+  draft?: boolean;
+  readingTime?: number;
+}
 
 export interface Taxonomy {
   slug: string;
@@ -144,11 +162,22 @@ export interface Disclaimer {
 
 // COMPONENTS
 export interface CallToAction extends Omit<HTMLAttributes<"a">, "slot"> {
-  variant?: "solid" | "outline" | "soft" | "ghost" | "surface" | "classic";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "link"
+    | "solid"
+    | "outline"
+    | "soft"
+    | "ghost"
+    | "surface"
+    | "classic";
   text?: string;
   icon?: string;
   classes?: Record<string, string>;
   type?: "button" | "submit" | "reset";
+  metadata?: Record<string, unknown>;
 }
 
 export interface ItemGrid {
@@ -245,6 +274,18 @@ export interface Content extends Omit<Headline, "classes">, Widget {
   isReversed?: boolean;
   isAfterContent?: boolean;
   callToAction?: CallToAction;
+  defaultIcon?: string;
+}
+
+export interface Timeline extends Omit<Headline, "classes">, Widget {
+  items: Array<{
+    title: string;
+    description?: string;
+    icon?: string;
+    classes?: Record<string, string>;
+    date?: string | Date;
+  }>;
+  defaultIcon?: string;
 }
 
 export interface Contact extends Omit<Headline, "classes">, Form, Widget {}

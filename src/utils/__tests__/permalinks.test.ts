@@ -29,7 +29,13 @@ vi.mock("../generated/astrowind-config", () => ({
   },
 }));
 
-import { BLOG_BASE, getAsset, getBlogPermalink, trimSlash, getHomePermalink } from "../permalinks";
+import {
+  BLOG_BASE,
+  getAsset,
+  getBlogPermalink,
+  getHomePermalink,
+  trimSlash,
+} from "../permalinks";
 
 describe("getAsset", () => {
   it("should return the correct asset link", () => {
@@ -73,7 +79,7 @@ describe("getHomePermalink", () => {
 });
 
 describe("getBlogPermalink", () => {
-// ... existing tests
+  // ... existing tests
   it("should return the correct blog permalink", () => {
     // Based on the mock, BLOG_BASE should be "portfolio"
     // and getBlogPermalink() should return "/portfolio"

@@ -1,27 +1,5 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
   text: string;
@@ -29,7 +7,7 @@ export interface Props {
   class?: string;
 }
 
-const { text, url, class: className = "inline-block" } = Astro.props;
+const { text, url, class: className = 'inline-block' } = Astro.props;
 ---
 
 <div class={className}>

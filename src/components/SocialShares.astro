@@ -1,27 +1,5 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
+import Icon from "./ui/Icon.astro";
 
 /**
  * SocialShares Component
@@ -39,7 +17,7 @@ interface Props {
 const { url = Astro.url.href } = Astro.props;
 ---
 
-<ul class="ml-[-10px] flex flex-wrap gap-3 pt-4">
+<ul class="-ml-2.5 flex flex-wrap gap-3 pt-4">
   <li class="animate-bouncing">
     <a
       href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`}
@@ -47,13 +25,13 @@ const { url = Astro.url.href } = Astro.props;
       rel="noopener noreferrer"
     >
       <span class="sr-only">Share on Facebook</span>
-      <Icon name="lucide:facebook" size={40} />
+      <Icon name="lucide:facebook" />
     </a>
   </li>
   <li class="animate-bouncing">
     <a href={`https://x.com/share?url=${encodeURIComponent(url)}`} target="_blank" rel="noopener noreferrer">
       <span class="sr-only">Share on Twitter</span>
-      <Icon name="lucide:twitter" size={40} />
+      <Icon name="lucide:twitter" />
     </a>
   </li>
   <li class="animate-bouncing">
@@ -63,7 +41,7 @@ const { url = Astro.url.href } = Astro.props;
       rel="noopener noreferrer"
     >
       <span class="sr-only">Share on LinkedIn</span>
-      <Icon name="lucide:linkedin" size={40} />
+      <Icon name="lucide:linkedin" />
     </a>
   </li>
 </ul>

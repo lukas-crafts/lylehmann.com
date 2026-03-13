@@ -5,5 +5,8 @@
   function handleClick () {
     throw new Error('This is a test error');
   }
-  document.querySelector("#error-button").addEventListener("click", handleClick);
+  const btn = document.querySelector("#error-button");
+  if (btn) {
+    btn.addEventListener("click", handleClick);
+  }
 </script>

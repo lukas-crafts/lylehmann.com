@@ -252,8 +252,12 @@ export const astroAsseetsOptimizer: ImagesOptimizer = async (
   _height,
   format = undefined,
 ) => {
-  const imgsrc = typeof image === "string" ? image : (image as any)?.src;
-  const isLocalPath = typeof imgsrc === "string" && (imgsrc.startsWith(".") || imgsrc.startsWith("~") || imgsrc.includes("assets/"));
+  const imgsrc = typeof image === "string" ? image : image.src;
+  const isLocalPath =
+    typeof imgsrc === "string" &&
+    (imgsrc.startsWith(".") ||
+      imgsrc.startsWith("~") ||
+      imgsrc.includes("assets/"));
 
   if (!image || isLocalPath) {
     return [];
@@ -348,7 +352,10 @@ export async function getImagesOptimized(
   width = (width && Number(width)) || undefined;
   height = (height && Number(height)) || undefined;
 
-  widths ||= (width && width < config.deviceSizes[0]) ? [...config.imageSizes, ...config.deviceSizes] : config.deviceSizes;
+  widths ||=
+    width && width < config.deviceSizes[0]
+      ? [...config.imageSizes, ...config.deviceSizes]
+      : config.deviceSizes;
   sizes ||= getSizes(Number(width) || undefined, layout);
   aspectRatio = parseAspectRatio(aspectRatio);
 
@@ -384,22 +391,27 @@ export async function getImagesOptimized(
   });
   breakpoints = [...new Set(breakpoints)].sort((a, b) => a - b);
 
-  const imgsrc = typeof image === "string" ? image : (image as any)?.src;
-  const isLocalPath = typeof imgsrc === "string" && (imgsrc.startsWith(".") || imgsrc.startsWith("~") || imgsrc.includes("assets/"));
+  const imgsrc = typeof image === "string" ? image : image.src;
+  const isLocalPath =
+    typeof imgsrc === "string" &&
+    (imgsrc.startsWith(".") ||
+      imgsrc.startsWith("~") ||
+      imgsrc.includes("assets/"));
 
-  const srcset = (!image || isLocalPath)
-    ? ""
-    : (
-        await transform(
-          image,
-          breakpoints,
-          Number(width) || undefined,
-          Number(height) || undefined,
-          format,
+  const srcset =
+    !image || isLocalPath
+      ? ""
+      : (
+          await transform(
+            image,
+            breakpoints,
+            Number(width) || undefined,
+            Number(height) || undefined,
+            format,
+          )
         )
-      )
-        .map(({ src, width }) => `${src} ${width}w`)
-        .join(", ");
+          .map(({ src, width }) => `${src} ${width}w`)
+          .join(", ");
 
   return {
     src: typeof image === "string" ? image : image.src,

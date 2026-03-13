@@ -1,11 +1,11 @@
 import type { RehypePlugin, RemarkPlugin } from "@astrojs/markdown-remark";
-import { toString } from "mdast-util-to-string";
+import { toString as mdastToString } from "mdast-util-to-string";
 import getReadingTime from "reading-time";
 import { visit } from "unist-util-visit";
 
 export const readingTimeRemarkPlugin: RemarkPlugin = () => {
   return (tree, file) => {
-    const textOnPage = toString(tree);
+    const textOnPage = mdastToString(tree);
     const readingTime = Math.ceil(getReadingTime(textOnPage).minutes);
 
     if (typeof file?.data?.astro?.frontmatter !== "undefined") {

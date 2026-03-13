@@ -1,29 +1,7 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
-import Icon from "../../components/ui/Icon.astro";
-import { UI } from "../../generated/astrowind-config";
+import { Icon } from 'astro-icon/components';
+
+import { UI } from 'astrowind:config';
 
 export interface Props {
   label?: string;
@@ -33,17 +11,17 @@ export interface Props {
 }
 
 const {
-  label = "Toggle between Dark and Light mode",
+  label = 'Toggle between Dark and Light mode',
   class:
-    className = "text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center",
-  iconClass = "w-6 h-6",
-  iconName = "tabler:sun",
+    className = 'text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center',
+  iconClass = 'w-6 h-6',
+  iconName = 'tabler:sun',
 } = Astro.props;
 ---
 
 {
   !(UI.theme && UI.theme.endsWith(':only')) && (
-    <button type="button" class={className} aria-label={label} data-theme-toggle>
+    <button type="button" class={className} aria-label={label} data-aw-toggle-color-scheme>
       <Icon name={iconName} class={iconClass} />
     </button>
   )

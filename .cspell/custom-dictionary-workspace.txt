@@ -4,6 +4,7 @@ astrowind
 birthtime
 esca
 facebook
+faqs
 Gispert
 isbn
 Kroll
