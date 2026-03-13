@@ -6,7 +6,7 @@
   ],
   "settings": {
     "explorer.compactFolders": false,
-    "workbench.iconTheme": "vscode-icons",
+    "workbench.iconTheme": "helium-icon-theme",
     "workbench.colorTheme": "Default Dark Modern"
   }
 }

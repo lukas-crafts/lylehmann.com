@@ -1,5 +1,5 @@
 ---
-import { Seo } from "astro-seo-meta";
+import { AstroSeo as Seo } from "@astrolib/seo";
 import { Schema } from "astro-seo-schema";
 import ContactInfo from "../components/widgets/ContactInfo.astro";
 import Header from "../components/widgets/Header.astro";
@@ -13,9 +13,18 @@ const email = import.meta.env.PUBLIC_EMAIL;
 <Seo
   title="Impressum - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate. Find out how to get in touch and learn more about his work."
-  keywords={["Impressum", "Legal Information", "Contact", "Lukas Yair Lehmann", "UX Designer", "Accessibility Advocate", "User Experience", "Inclusive Design"]}
+  keywords={[
+    "Impressum",
+    "Legal Information",
+    "Contact",
+    "Lukas Yair Lehmann",
+    "UX Designer",
+    "Accessibility Advocate",
+    "User Experience",
+    "Inclusive Design",
+  ]}
   icon="../assets/favicons/favicon.ico"
-  robots='index, follow'
+  robots="index, follow"
 />
 
 <Schema
@@ -24,7 +33,8 @@ const email = import.meta.env.PUBLIC_EMAIL;
     "@type": "ContactPage",
     name: "Impressum - Lukas Yair Lehmann | UX Designer",
     url: "https://lylehmann.com/impressum",
-    "description": "Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate.",
+    description:
+      "Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate.",
     mainEntity: {
       "@id": "https://lylehmann.com/#person",
       "@type": "Person",
@@ -38,7 +48,7 @@ const email = import.meta.env.PUBLIC_EMAIL;
         "https://www.linkedin.com/in/lylehmann/",
         "https://github.com/lylehmann",
       ],
-    }
+    },
   }}
 />
 
@@ -51,15 +61,15 @@ const email = import.meta.env.PUBLIC_EMAIL;
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://lylehmann.com"
+        item: "https://lylehmann.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Impressum",
-        item: "https://lylehmann.com/impressum"
-      }
-    ]
+        item: "https://lylehmann.com/impressum",
+      },
+    ],
   }}
 />
 
@@ -68,16 +78,16 @@ const email = import.meta.env.PUBLIC_EMAIL;
   <Fragment slot="header">
     <Header
       links={[
-        { text: 'Home', href: '/'},
-        { text: 'Porfolio', href: '/portfolio' },
-        { text: 'About', href: '/about' },
-        { text: 'Resume', href: '/resume' },
+        { text: "Home", href: "/" },
+        { text: "Porfolio", href: "/portfolio" },
+        { text: "About", href: "/about" },
+        { text: "Resume", href: "/resume" },
       ]}
       actions={[
         {
-          text: 'Meet me',
+          text: "Meet me",
           href: `https://calendly.com/lylehmann`,
-          target: '_blank',
+          target: "_blank",
         },
       ]}
       isSticky
@@ -86,10 +96,16 @@ const email = import.meta.env.PUBLIC_EMAIL;
   </Fragment>
 
   <section class="max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8 lg:py-20">
-    <h1 class="text-4xl font-bold tracking-tighter font-heading md:text-5xl leading-tighter">Impressum</h1>
+    <h1
+      class="text-4xl font-bold tracking-tighter font-heading md:text-5xl leading-tighter"
+    >
+      Impressum
+    </h1>
     <p class="mt-4">Last updated: December 20, 2024</p>
     <h2 class="mt-8 text-2xl font-bold">Contact</h2>
     <ContactInfo />
-    <p class="mt-4">Source: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a></p>
+    <p class="mt-4">
+      Source: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>
+    </p>
   </section>
 </Layout>

@@ -26,9 +26,6 @@ export default ({
       }) => {
         const buildLogger = logger.fork("astrowind");
 
-        const virtualModuleId = "astrowind:config";
-        const resolvedVirtualModuleId = "\0" + virtualModuleId;
-
         const rawJsonConfig = (await loadConfig(_themeConfig)) as Config;
         const { SITE, I18N, METADATA, APP_BLOG, UI, ANALYTICS } =
           configBuilder(rawJsonConfig);

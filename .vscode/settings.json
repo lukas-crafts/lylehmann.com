@@ -1,4 +1,5 @@
 {
+  "locale": "de",
   "css.customData": ["./vscode.tailwind.json"],
   "eslint.validate": [
     "javascript",

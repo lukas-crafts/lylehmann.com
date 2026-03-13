@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
+import type { ImageMetadata } from "astro";
 
 // Mock astro:assets before importing the module under test
 vi.mock("astro:assets", () => ({

@@ -1,4 +1,6 @@
 ---
+import { sanitize } from "~/utils/sanitize";
+
 const {
   title = await Astro.slots.render("title"),
   subtitle = await Astro.slots.render("subtitle"),
@@ -72,7 +74,7 @@ const {
         {
           image && (
             <div class="relative max-w-5xl m-auto">
-              {typeof image === 'string' ? (
+              {typeof image === "string" ? (
                 <Fragment set:html={sanitize(image)} />
               ) : (
                 <Image

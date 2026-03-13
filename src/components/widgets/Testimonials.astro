@@ -1,4 +1,9 @@
 ---
+import WidgetWrapper from "~/components/ui/WidgetWrapper.astro";
+import Headline from "~/components/ui/Headline.astro";
+import { Image } from "astro:assets";
+import Button from "~/components/ui/Button.astro";
+
 const {
   title = "",
   subtitle = "",
@@ -13,7 +18,12 @@ const {
 } = Astro.props;
 ---
 
-<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-6xl mx-auto ${classes?.container ?? ""}`}
+  bg={bg}
+>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -22,7 +32,9 @@ const {
         testimonials.map(({ title, testimonial, name, job, image }) => (
           <div class="flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter">
             <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600">
-              {title && <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>}
+              {title && (
+                <h2 class="text-lg font-medium leading-6 pb-4">{title}</h2>
+              )}
               {testimonial && (
                 <blockquote class="flex-auto">
                   <p class="text-muted">" {testimonial} "</p>
@@ -34,7 +46,7 @@ const {
               <div class="flex items-center">
                 {image && (
                   <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600">
-                    {typeof image === 'string' ? (
+                    {typeof image === "string" ? (
                       <Fragment set:html={image} />
                     ) : (
                       <Image
