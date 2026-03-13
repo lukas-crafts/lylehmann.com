@@ -7,7 +7,7 @@ export const SITE = {
   "googleSiteVerificationId": "0huXZJ-6uK_goDlERB78YvAOL04Gfh8oBM6dTztEC0Y"
 };
 export const I18N = {
-  "language": "en",
+  "language": "de",
   "textDirection": "ltr"
 };
 export const METADATA = {
