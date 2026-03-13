@@ -1,9 +1,9 @@
 ---
-import type { HTMLInputTypeAttribute } from "astro/types";
+import type { HTMLAttributes } from "astro/types";
 import Button from "./Button.astro";
 
 interface Input {
-  type?: HTMLInputTypeAttribute;
+  type?: any;
   name: string;
   label?: string;
   autocomplete?: string;
