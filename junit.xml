@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites name="vitest tests" tests="21" failures="3" errors="0" time="0.014584458">
-    <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T09:02:17.263Z" hostname="MacBookPro.fritz.box" tests="17" failures="0" errors="0" skipped="0" time="0.01340875">
+    <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T09:27:21.167Z" hostname="MacBookPro.fritz.box" tests="17" failures="0" errors="0" skipped="0" time="0.01340875">
         <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; edge cases &gt; should return an empty string for null input" time="0.001380625">
         </testcase>
         <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; edge cases &gt; should return an empty string for undefined input" time="0.000286125">
@@ -36,7 +36,7 @@
         <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; XSS prevention &gt; should strip disallowed attributes" time="0.000282">
         </testcase>
     </testsuite>
-    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T09:02:17.272Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T09:27:21.171Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
         <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
             <failure message="Transform failed with 1 error:
 /Users/lukaslehmann/Developer/lylehmann.com/src/utils/permalinks.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">
@@ -59,11 +59,11 @@ Error: Transform failed with 1 error:
             </failure>
         </testcase>
     </testsuite>
-    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T09:02:17.278Z" hostname="MacBookPro.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001175708">
+    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T09:27:21.172Z" hostname="MacBookPro.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001175708">
         <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.0005425">
         </testcase>
     </testsuite>
-    <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T09:02:17.279Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+    <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T09:27:21.172Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
         <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
             <failure message="Transform failed with 1 error:
 /Users/lukaslehmann/Developer/lylehmann.com/src/utils/utils.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">
@@ -86,7 +86,7 @@ Error: Transform failed with 1 error:
             </failure>
         </testcase>
     </testsuite>
-    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T09:02:17.281Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T09:27:21.172Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
         <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
             <failure message="Transform failed with 1 error:
 /Users/lukaslehmann/Developer/lylehmann.com/src/utils/images-optimization.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">

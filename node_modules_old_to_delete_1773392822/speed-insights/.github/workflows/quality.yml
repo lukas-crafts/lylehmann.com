@@ -1,0 +1,65 @@
+name: ci
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  biome:
+    name: lint and format
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+      - name: Run Biome
+        run: biome ci
+
+  tests:
+    name: unit tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+      - name: Install
+        uses: ./.github/composite-actions/install
+      - name: Build
+        run: pnpm -F @vercel/speed-insights build
+      - name: Test
+        run: pnpm -r test
+
+  playwright:
+    name: e2e tests
+    runs-on: ubuntu-latest
+    if: false
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        test:
+          - 'test:e2e:production'
+          - 'test:e2e:development'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Install
+        uses: ./.github/composite-actions/install
+      - name: Get Playwright version
+        id: pw
+        run: echo "version=$(cat apps/nextjs/package.json | jq -r '.devDependencies."@playwright/test"')" >> $GITHUB_OUTPUT
+      - name: Install Playwright
+        run: pnpx playwright@${{ steps.pw.outputs.version }} install
+      - name: Run tests
+        run: pnpm -r ${{ matrix.test }}

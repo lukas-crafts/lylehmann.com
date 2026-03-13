@@ -1,37 +1,13 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "jsx": "preserve",
-    "strict": true,
     "strictNullChecks": true,
-    "ignoreDeprecations": "6.0",
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@assets/*": ["src/assets/*"],
-      "astrowind:config": ["src/generated/astrowind-config.ts"]
-    },
-    "types": []
+      "~/*": ["src/*"]
+    }
   },
-  // Force IDE refresh: 2026-03-12 11:38
-  "include": [
-    ".astro/types.d.ts",
-    "src/**/*",
-    "vitest.config.ts",
-    "vitest.setup.ts"
-  ],
-  "exclude": ["dist/", "node_modules/", "node_modules_corrupt/", "node_modules_old_corrupt/", ".bun-cache/"]
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist/"]
 }
