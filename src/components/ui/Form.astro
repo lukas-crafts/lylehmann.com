@@ -1,26 +1,28 @@
 ---
 import Button from "./Button.astro";
 
+interface Input {
+  type?: string;
+  name: string;
+  label?: string;
+  autocomplete?: string;
+  placeholder?: string;
+}
+
 const {
-  inputs,
+  inputs = [] as Input[],
   textarea,
   disclaimer,
   button = "Contact us",
   description = "",
-} = Astro.props;
+} = Astro.props as { inputs?: Input[]; textarea?: any; disclaimer?: any; button?: string; description?: string };
 ---
 
 <form>
   {
     inputs &&
       inputs.map(
-        ({
-          type = "text",
-          name,
-          label = "",
-          autocomplete = "on",
-          placeholder = "",
-        }) =>
+        ({ type = "text", name, label = "", autocomplete = "on", placeholder = "" }) =>
           name && (
             <div class="mb-6">
               {label && (

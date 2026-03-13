@@ -1,5 +1,4 @@
 ---
-import { SkipLink } from "accessible-astro-components";
 import Navigation from "./Navigation.astro";
 
 /**
@@ -10,7 +9,11 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header>
-  <SkipLink />
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-50"
+    >Skip to content</a
+  >
   <Navigation>
     <ul class="flex flex-row items-baseline gap-8">
       <li class="menu-item">

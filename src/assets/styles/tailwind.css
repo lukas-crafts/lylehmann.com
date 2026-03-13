@@ -191,6 +191,11 @@
     color: #fff;
   }
 
+  .aw-link-active {
+    color: var(--color-brand-primary) !important;
+    font-weight: 600;
+  }
+
   .hover-effect {
     transition-property: color;
     transition-duration: 200ms;

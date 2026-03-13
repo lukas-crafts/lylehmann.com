@@ -10,7 +10,7 @@
   --aw-font-heading: var(--font-heading);
 
   /* Brand Colors */
-  --color-brand-primary: hsl(14, 85%, 50%); /* Deep Orange */
+  --color-brand-primary: hsl(14, 85%, 38%); /* Darker Orange for better contrast */
   --color-brand-secondary: hsl(231, 55%, 45%); /* Indigo */
   --color-brand-accent: hsl(45, 95%, 45%); /* Amber */
 

@@ -2,6 +2,22 @@
 import { twMerge } from "tailwind-merge";
 import Icon from "./Icon.astro";
 import { sanitize } from "~/utils/sanitize";
+import Button from "./Button.astro";
+
+interface Item {
+  title?: string;
+  description?: string;
+  icon?: string;
+  callToAction?: any;
+  classes?: Record<string, string>;
+}
+
+interface Props {
+  items?: Item[];
+  columns?: number;
+  defaultIcon?: string;
+  classes?: Record<string, string>;
+}
 
 const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
 
@@ -56,7 +72,7 @@ const {
                 )}
               />
             )}
-            <div
+            {title && <div
               class={twMerge(
                 "font-bold text-xl",
                 titleClass,
@@ -64,7 +80,7 @@ const {
               )}
             >
               {title}
-            </div>
+            </div>}
             {description && (
               <p
                 class={twMerge(

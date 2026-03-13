@@ -1,6 +1,5 @@
 ---
 import { AstroSeo as Seo } from "@astrolib/seo";
-import { Schema } from "astro-seo-schema";
 import CallToAction from "../components/widgets/CallToAction.astro";
 import Features3 from "../components/widgets/Features3.astro";
 import Header from "../components/widgets/Header.astro";
@@ -14,24 +13,11 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
 <Seo
   title="Resume - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="View Lukas Yair Lehmann/'s resume, a UX designer focused on accessible, inclusive experiences. Discover his skills, experience, and passion."
-  keywords={[
-    "UX Designer",
-    "Accessibility",
-    "Lukas Yair Lehmann",
-    "Resume",
-    "User Experience",
-    "Inclusive Design",
-    "Neurodiversity",
-    "Digital Solutions",
-    "UX Design Skills",
-    "UX Design Experience",
-  ]}
-  icon="../assets/favicons/favicon.ico"
-  robots="index, follow"
+  noindex={false}
+  nofollow={false}
 />
 
-<Schema
-  item={{
+<script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Resume - Lukas Yair Lehmann | UX Designer",
@@ -118,11 +104,9 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         ],
       },
     },
-  }}
-/>
+  })} />
 
-<Schema
-  item={{
+<script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -139,8 +123,7 @@ const email = import.meta.env.PUBLIC_EMAIL; // Add this line to import the email
         item: "https://lylehmann.com/resume",
       },
     ],
-  }}
-/>
+  })} />
 
 <Layout>
   <!-- Header Widget ***************** -->

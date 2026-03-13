@@ -4,7 +4,27 @@ import Icon from "./Icon.astro";
 import { sanitize } from "~/utils/sanitize";
 import Button from '~/components/ui/Button.astro';
 
-const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props;
+interface Item {
+  title?: string;
+  description?: string;
+  icon?: string;
+  callToAction?: any;
+  tags?: string[];
+  classes?: {
+    panel?: string;
+    icon?: string;
+    title?: string;
+    description?: string;
+    actionClass?: string;
+  };
+}
+
+const { items = [], columns, defaultIcon = "", classes = {} } = Astro.props as {
+  items?: Item[];
+  columns?: number;
+  defaultIcon?: string;
+  classes?: Record<string, any>;
+};
 
 const {
   container: containerClass = "",

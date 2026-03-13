@@ -1,6 +1,5 @@
 ---
 import { AstroSeo as Seo } from "@astrolib/seo";
-import { Schema } from "astro-seo-schema";
 import websiteImage from "../assets/images/website-screenshot.png"; // Add this import
 import Features3 from "../components/widgets/Features3.astro";
 import Header from "../components/widgets/Header.astro";
@@ -11,25 +10,14 @@ import Layout from "../layouts/PageLayout.astro";
 <Seo
   title="Colophon - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="Erfahren Sie, wie die Website von Lukas Yair Lehmann erstellt wurde, einschließlich der verwendeten Technologien und Hosting-Plattform."
-  keywords={[
-    "Colophon",
-    "Technologien",
-    "Hosting",
-    "Quellcode",
-    "Lukas Yair Lehmann",
-  ]}
-  icon="../assets/favicons/favicon.ico"
-  robots="index, follow"
 />
 
-<Schema
-  item={{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    name: "Colophon - Lukas Yair Lehmann | UX Designer",
-    url: "https://lylehmann.com/colophon",
-  }}
-/>
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Colophon - Lukas Yair Lehmann | UX Designer",
+  "url": "https://lylehmann.com/colophon"
+})} />
 
 <Layout>
   <Fragment slot="header">

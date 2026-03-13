@@ -1,6 +1,5 @@
 ---
 import { AstroSeo as Seo } from "@astrolib/seo";
-import { Schema } from "astro-seo-schema";
 import ContactInfo from "../components/widgets/ContactInfo.astro";
 import Header from "../components/widgets/Header.astro";
 import Layout from "../layouts/PageLayout.astro";
@@ -13,22 +12,12 @@ const email = import.meta.env.PUBLIC_EMAIL;
 <Seo
   title="Impressum - Lukas Yair Lehmann | UX Designer & Accessibility"
   description="Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate. Find out how to get in touch and learn more about his work."
-  keywords={[
-    "Impressum",
-    "Legal Information",
-    "Contact",
-    "Lukas Yair Lehmann",
-    "UX Designer",
-    "Accessibility Advocate",
-    "User Experience",
-    "Inclusive Design",
-  ]}
-  icon="../assets/favicons/favicon.ico"
-  robots="index, follow"
+  noindex={false}
+  nofollow={false}
 />
 
-<Schema
-  item={{
+<script type="application/ld+json" set:html={JSON.stringify({
+  
     "@context": "https://schema.org",
     "@type": "ContactPage",
     name: "Impressum - Lukas Yair Lehmann | UX Designer",
@@ -49,11 +38,10 @@ const email = import.meta.env.PUBLIC_EMAIL;
         "https://github.com/lylehmann",
       ],
     },
-  }}
-/>
+  })} />
 
-<Schema
-  item={{
+<script type="application/ld+json" set:html={JSON.stringify({
+  
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -70,8 +58,7 @@ const email = import.meta.env.PUBLIC_EMAIL;
         item: "https://lylehmann.com/impressum",
       },
     ],
-  }}
-/>
+  })} />
 
 <Layout>
   <!-- Header Widget ***************** -->
