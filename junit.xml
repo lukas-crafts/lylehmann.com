@@ -1,76 +1,112 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="5" failures="5" errors="0" time="0">
-<testsuites name="vitest tests" tests="5" failures="5" errors="0" time="0">
-    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T08:51:04.979Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T08:51:04.979Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-            <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
-                <testcase classname="src/components/__tests__/example.test.ts" name="src/components/__tests__/example.test.ts" time="0">
-                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-                            </failure>
-                        </failure>
-                    </testcase>
-                </testcase>
-            </testsuite>
-        </testsuite>
-        <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T08:51:04.981Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T08:51:04.982Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-            <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
-                <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
-                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-                            </failure>
-                        </failure>
-                    </testcase>
-                </testcase>
-            </testsuite>
-        </testsuite>
-        <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-            <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
-                <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
-                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-                            </failure>
-                        </failure>
-                    </testcase>
-                </testcase>
-            </testsuite>
-        </testsuite>
-        <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-            <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
-                <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
-                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-                            </failure>
-                        </failure>
-                    </testcase>
-                </testcase>
-            </testsuite>
-        </testsuite>
-        <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T08:51:04.988Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T08:51:04.988Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-            <testcase classname="src/components/__tests__/example.test.ts" name="src/components/__tests__/example.test.ts" time="0">
-                <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
-                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
-                            </failure>
-                        </failure>
-                    </testcase>
-                </testcase>
-            </testsuite>
-        </testsuite>
-    </testsuites>
+<testsuites name="vitest tests" tests="21" failures="3" errors="0" time="0.014584458">
+    <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T09:02:17.263Z" hostname="MacBookPro.fritz.box" tests="17" failures="0" errors="0" skipped="0" time="0.01340875">
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; edge cases &gt; should return an empty string for null input" time="0.001380625">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; edge cases &gt; should return an empty string for undefined input" time="0.000286125">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; edge cases &gt; should return an empty string for an empty string input" time="0.000343334">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; allowed formatting tags &gt; should allow basic formatting tags" time="0.004078625">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; allowed formatting tags &gt; should allow structural tags" time="0.000281">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; allowed formatting tags &gt; should allow heading tags" time="0.000150042">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; allowed formatting tags &gt; should allow code and pre tags" time="0.000101417">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; allowed formatting tags &gt; should allow br and span tags" time="0.000104833">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; links and schemes &gt; should allow a tags with permitted attributes" time="0.000906084">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; links and schemes &gt; should allow permitted URL schemes" time="0.000474541">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; links and schemes &gt; should strip disallowed URL schemes" time="0.000093916">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; SVG support &gt; should allow svg and child elements with attributes" time="0.000730583">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; SVG support &gt; should handle camelCase input by lowercasing it in the output for SVG tags/attributes" time="0.000161958">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; global attributes &gt; should allow class, id, aria-hidden, and role on tags" time="0.000348792">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; XSS prevention &gt; should strip disallowed tags and their content if they are risky" time="0.001711959">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; XSS prevention &gt; should strip disallowed tags but keep content if they are safe structural tags" time="0.000396542">
+        </testcase>
+        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="sanitize utility &gt; XSS prevention &gt; should strip disallowed attributes" time="0.000282">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T09:02:17.272Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
+            <failure message="Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/permalinks.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">
+Error: Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/permalinks.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;
+  Plugin: vite:esbuild
+  File: /Users/lukaslehmann/Developer/lylehmann.com/src/utils/permalinks.ts:1:0
+  
+  Unexpected &quot;&lt;&lt;&quot;
+  1  |  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+     |  ^
+  2  |  import slugify from &quot;limax&quot;;
+  3  |  
+  
+ ❯ failureErrorWithLog node_modules/esbuild/lib/main.js:1467:15
+ ❯ node_modules/esbuild/lib/main.js:736:50
+ ❯ responseCallbacks.&lt;computed&gt; node_modules/esbuild/lib/main.js:603:9
+ ❯ handleIncomingPacket node_modules/esbuild/lib/main.js:658:12
+ ❯ Socket.readFromStdout node_modules/esbuild/lib/main.js:581:7
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T09:02:17.278Z" hostname="MacBookPro.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001175708">
+        <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.0005425">
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T09:02:17.279Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
+            <failure message="Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/utils.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">
+Error: Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/utils.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;
+  Plugin: vite:esbuild
+  File: /Users/lukaslehmann/Developer/lylehmann.com/src/utils/utils.ts:1:0
+  
+  Unexpected &quot;&lt;&lt;&quot;
+  1  |  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+     |  ^
+  2  |  const language = &quot;en&quot;; // Fallback, falls keine Konfiguration vorhanden
+  3  |  
+  
+ ❯ failureErrorWithLog node_modules/esbuild/lib/main.js:1467:15
+ ❯ node_modules/esbuild/lib/main.js:736:50
+ ❯ responseCallbacks.&lt;computed&gt; node_modules/esbuild/lib/main.js:603:9
+ ❯ handleIncomingPacket node_modules/esbuild/lib/main.js:658:12
+ ❯ Socket.readFromStdout node_modules/esbuild/lib/main.js:581:7
+            </failure>
+        </testcase>
+    </testsuite>
+    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T09:02:17.281Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
+            <failure message="Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/images-optimization.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;" type="Error">
+Error: Transform failed with 1 error:
+/Users/lukaslehmann/Developer/lylehmann.com/src/utils/images-optimization.ts:1:0: ERROR: Unexpected &quot;&lt;&lt;&quot;
+  Plugin: vite:esbuild
+  File: /Users/lukaslehmann/Developer/lylehmann.com/src/utils/images-optimization.ts:1:0
+  
+  Unexpected &quot;&lt;&lt;&quot;
+  1  |  &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+     |  ^
+  2  |  import { getImage } from &quot;astro:assets&quot;;
+  3  |  import type { ImageMetadata } from &quot;astro&quot;;
+  
+ ❯ failureErrorWithLog node_modules/esbuild/lib/main.js:1467:15
+ ❯ node_modules/esbuild/lib/main.js:736:50
+ ❯ responseCallbacks.&lt;computed&gt; node_modules/esbuild/lib/main.js:603:9
+ ❯ handleIncomingPacket node_modules/esbuild/lib/main.js:658:12
+ ❯ Socket.readFromStdout node_modules/esbuild/lib/main.js:581:7
+            </failure>
+        </testcase>
+    </testsuite>
 </testsuites>

@@ -1,46 +1,27 @@
 ---
-import Image from "../../components/common/Image.astro";
-import Headline from "../../components/ui/Headline.astro";
-import ItemGrid from "../../components/ui/ItemGrid.astro";
-import WidgetWrapper from "../../components/ui/WidgetWrapper.astro";
-import type { Features as Props } from "../../types";
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import ItemGrid from '~/components/ui/ItemGrid.astro';
+import Headline from '~/components/ui/Headline.astro';
+import type { Features as Props } from '~/types';
 
 const {
-  title = await Astro.slots.render("title"),
-  subtitle = await Astro.slots.render("subtitle"),
-  tagline = await Astro.slots.render("tagline"),
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
   items = [],
   columns = 2,
-  image, // Neue Property für das Bild
+
   defaultIcon,
+
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render("bg"),
+  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-5xl ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} classes={classes?.headline as Record<string, string>} />
-  
-  {image && (
-    <div class="relative mb-8 md:mb-12">
-      {typeof image === 'string' ? (
-        <Fragment set:html={image} />
-      ) : (
-        <Image
-          class="mx-auto bg-gray-400 rounded-lg shadow-lg dark:bg-slate-700"
-          widths={[400, 768, 1024, 2040]}
-          sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-          loading="eager"
-          width={1024}
-          height={576}
-          {...image}
-        />
-      )}
-    </div>
-  )}
-  
   <ItemGrid
     items={items}
     columns={columns}

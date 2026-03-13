@@ -1,10 +1,12 @@
 ---
-import Grid from "../../components/blog/Grid.astro";
-import WidgetWrapper from "../../components/ui/WidgetWrapper.astro";
-import { APP_BLOG } from "../../generated/astrowind-config";
-import type { Widget } from "../../types";
-import { findPostsByIds } from "../../utils/blog";
-import { getBlogPermalink } from "../../utils/permalinks";
+import { APP_BLOG } from 'astrowind:config';
+
+import Grid from '~/components/blog/Grid.astro';
+
+import { getBlogPermalink } from '~/utils/permalinks';
+import { findPostsByIds } from '~/utils/blog';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
 
 export interface Props extends Widget {
   title?: string;
@@ -15,16 +17,16 @@ export interface Props extends Widget {
 }
 
 const {
-  title = await Astro.slots.render("title"),
-  linkText = "View all posts",
+  title = await Astro.slots.render('title'),
+  linkText = 'View all posts',
   linkUrl = getBlogPermalink(),
-  information = await Astro.slots.render("information"),
+  information = await Astro.slots.render('information'),
   postIds = [],
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render("bg"),
+  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 
 const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
@@ -33,16 +35,16 @@ const posts = APP_BLOG.isEnabled ? await findPostsByIds(postIds) : [];
 {
   APP_BLOG.isEnabled ? (
     <WidgetWrapper id={id} isDark={isDark} containerClass={classes?.container as string} bg={bg}>
-      <div class="flex flex-col mb-8 lg:justify-between lg:flex-row">
+      <div class="flex flex-col lg:justify-between lg:flex-row mb-8">
         {title && (
           <div class="md:max-w-sm">
             <h2
-              class="mb-2 text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading"
+              class="text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none group font-heading mb-2"
               set:html={title}
             />
             {APP_BLOG.list.isEnabled && linkText && linkUrl && (
               <a
-                class="block mb-6 transition duration-200 ease-in text-muted dark:text-slate-400 hover:text-primary lg:mb-0"
+                class="text-muted dark:text-slate-400 hover:text-primary transition ease-in duration-200 block mb-6 lg:mb-0"
                 href={linkUrl}
               >
                 {linkText} »

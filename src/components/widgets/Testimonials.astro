@@ -1,21 +1,21 @@
 ---
-import Image from "../../components/common/Image.astro";
-import Button from "../../components/ui/Button.astro";
-import Headline from "../../components/ui/Headline.astro";
-import WidgetWrapper from "../../components/ui/WidgetWrapper.astro";
-import type { Testimonials as Props } from "../../types";
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+import type { Testimonials as Props } from '~/types';
 
 const {
-  title = "",
-  subtitle = "",
-  tagline = "",
+  title = '',
+  subtitle = '',
+  tagline = '',
   testimonials = [],
   callToAction,
 
   id,
   isDark = false,
   classes = {},
-  bg = await Astro.slots.render("bg"),
+  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
