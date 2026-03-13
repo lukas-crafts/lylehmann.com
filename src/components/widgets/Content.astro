@@ -1,6 +1,5 @@
 ---
 import Image from "../../components/common/Image.astro";
-import Button from "../../components/ui/Button.astro";
 import type { Content as Props } from "../../types";
 import Headline from "../ui/Headline.astro";
 import ItemGrid from "../ui/ItemGrid.astro";
@@ -46,7 +45,7 @@ const {
       <div class="self-center md:basis-1/2">
         {content && <div class="mb-12 text-lg" set:html={content} />}
         {callToAction && callToAction.href && (
-          <div class="mt-[-40px] mb-8 flex items-center">
+          <div class="-mt-10 mb-8 flex items-center">
             {callToAction.icon && callToAction.icon !== 'tabler:check' && (
               <span class="shrink-0 mr-2">
                 <i class={callToAction.icon}></i>

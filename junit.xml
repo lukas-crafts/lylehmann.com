@@ -1,35 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="5" failures="4" errors="0" time="0.001275958">
-    <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-12T15:42:39.108Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="0" errors="0" skipped="0" time="0.001275958">
-        <testcase classname="src/components/__tests__/example.test.ts" name="Example Test &gt; should work" time="0.000564375">
-        </testcase>
-    </testsuite>
-    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-12T15:42:39.109Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
-            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
-            </failure>
-        </testcase>
-    </testsuite>
-    <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-12T15:42:39.110Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
-            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
-            </failure>
-        </testcase>
-    </testsuite>
-    <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-12T15:42:39.110Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
-            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
-            </failure>
-        </testcase>
-    </testsuite>
-    <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-12T15:42:39.111Z" hostname="MacBook-Pro-von-Lukas-2.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
-        <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
-            <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;" type="Error">
-Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/xvUtrOCMbq6AUKlUzf4PD/client/.tmp-1773330159010-yawo23gjfee&apos;
-            </failure>
-        </testcase>
-    </testsuite>
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites name="vitest tests" tests="5" failures="5" errors="0" time="0">
+<testsuites name="vitest tests" tests="5" failures="5" errors="0" time="0">
+    <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T08:51:04.979Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T08:51:04.979Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+            <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
+                <testcase classname="src/components/__tests__/example.test.ts" name="src/components/__tests__/example.test.ts" time="0">
+                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+                            </failure>
+                        </failure>
+                    </testcase>
+                </testcase>
+            </testsuite>
+        </testsuite>
+        <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T08:51:04.981Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testsuite name="src/utils/__tests__/images-optimization.test.ts" timestamp="2026-03-13T08:51:04.982Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+            <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
+                <testcase classname="src/utils/__tests__/images-optimization.test.ts" name="src/utils/__tests__/images-optimization.test.ts" time="0">
+                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+                            </failure>
+                        </failure>
+                    </testcase>
+                </testcase>
+            </testsuite>
+        </testsuite>
+        <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testsuite name="src/utils/__tests__/permalinks.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+            <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
+                <testcase classname="src/utils/__tests__/permalinks.test.ts" name="src/utils/__tests__/permalinks.test.ts" time="0">
+                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+                            </failure>
+                        </failure>
+                    </testcase>
+                </testcase>
+            </testsuite>
+        </testsuite>
+        <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testsuite name="src/utils/__tests__/sanitize.test.ts" timestamp="2026-03-13T08:51:04.983Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+            <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
+                <testcase classname="src/utils/__tests__/sanitize.test.ts" name="src/utils/__tests__/sanitize.test.ts" time="0">
+                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+                            </failure>
+                        </failure>
+                    </testcase>
+                </testcase>
+            </testsuite>
+        </testsuite>
+        <testsuite name="src/components/__tests__/example.test.ts" timestamp="2026-03-13T08:51:04.988Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+        <testsuite name="src/utils/__tests__/utils.test.ts" timestamp="2026-03-13T08:51:04.988Z" hostname="MacBookPro.fritz.box" tests="1" failures="1" errors="0" skipped="0" time="0">
+            <testcase classname="src/components/__tests__/example.test.ts" name="src/components/__tests__/example.test.ts" time="0">
+                <testcase classname="src/utils/__tests__/utils.test.ts" name="src/utils/__tests__/utils.test.ts" time="0">
+                    <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+                        <failure message="ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;" type="Error">
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+Error: ENOENT: no such file or directory, open &apos;/var/folders/m8/cv10mdd54yb7tf0c85trl4v40000gn/T/ZeEDTaFEGbkoSOPIQyDBV/client/.tmp-1773391864943-uasu3pqhgrr&apos;
+                            </failure>
+                        </failure>
+                    </testcase>
+                </testcase>
+            </testsuite>
+        </testsuite>
+    </testsuites>
 </testsuites>

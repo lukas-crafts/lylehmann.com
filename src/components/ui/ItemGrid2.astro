@@ -1,27 +1,4 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
 import { twMerge } from "tailwind-merge";
 import type { ItemGrid as Props } from "../../types";
 import { sanitize } from "../../utils/sanitize";
@@ -76,7 +53,7 @@ const {
           )}
           {callToAction && (
             <div class="mt-1">
-              <Button {...callToAction} />
+              <Button {...(callToAction as any)} />
             </div>
           )}
         </div>

@@ -2,7 +2,7 @@
 import type { Post } from "../../types";
 import { getRelatedPosts } from "../../utils/blog";
 import { getBlogPermalink } from "../../utils/permalinks";
-import { APP_BLOG } from "../generated/astrowind-config";
+import { APP_BLOG } from "../../generated/astrowind-config";
 import BlogHighlightedPosts from "../widgets/BlogHighlightedPosts.astro";
 
 export interface Props {
@@ -11,7 +11,7 @@ export interface Props {
 
 const { post } = Astro.props;
 
-const relatedPosts = post.tags ? await getRelatedPosts(post, 4) : [];
+const relatedPosts = post.tags ? await getRelatedPosts([], post, 4) : [];
 ---
 
 {

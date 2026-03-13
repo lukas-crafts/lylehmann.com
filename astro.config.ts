@@ -8,7 +8,7 @@ import playformCompress from "@playform/compress";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import type { AstroIntegration } from "astro";
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 // import icon from "astro-icon"; // Removed due to compatibility issues
 import purgecss from "astro-purgecss";
 import robotsTxt from "astro-robots-txt";
@@ -35,6 +35,13 @@ export default defineConfig({
   build: {
     inlineStylesheets: "never",
   },
+  fonts: [
+    {
+      name: "Inter",
+      cssVariable: "--font-inter",
+      provider: fontProviders.fontsource(),
+    },
+  ],
   output: "static",
 
   site: "https://lylehmann.com",
@@ -143,9 +150,16 @@ export default defineConfig({
         },
       },
     },
+    plugins: [
+      tailwindcss(),
+    ],
+    optimizeDeps: {
+      exclude: ["@tailwindcss/vite", "lightningcss", "sharp"],
+    },
     build: {
       target: "es2022",
       rollupOptions: {
+        external: ["node:child_process", "node:fs", "node:path", "node:url"],
         output: {
           assetFileNames: (assetInfo) => {
             let name = assetInfo.originalFileName || assetInfo.name || "";
@@ -162,8 +176,5 @@ export default defineConfig({
         },
       },
     },
-    plugins: [
-      tailwindcss(),
-    ],
   },
 });

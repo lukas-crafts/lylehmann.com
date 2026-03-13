@@ -1,12 +1,25 @@
 ---
 import { twMerge } from "tailwind-merge";
 
+interface Props {
+  variant?: "primary" | "secondary" | "outline" | "ghost" | "link" | "tertiary" | "solid" | "soft" | "surface" | "classic";
+  size?: "sm" | "md" | "lg";
+  radius?: "none" | "sm" | "md" | "lg" | "full";
+  color?: string | null;
+  highContrast?: boolean;
+  icon?: string;
+  text?: string;
+  class?: string | null;
+  href?: string | URL | null;
+  target?: string | null;
+  rel?: string | null;
+  [x: string]: any;
+}
+
 const {
   variant = "primary",
-  color = "indigo",
   size = "md",
   radius = "full",
-  highContrast = false,
   icon = "",
   text = await Astro.slots.render("default"),
   class: className = "",
@@ -14,7 +27,7 @@ const {
   target = undefined,
   rel = undefined,
   ...rest
-} = Astro.props;
+} = Astro.props as Props;
 
 // Define base classes for different variants
 const baseClasses =
@@ -48,9 +61,9 @@ const radiusClasses = {
 
 const buttonClasses = twMerge(
   baseClasses,
-  sizeClasses[size] || sizeClasses.md,
-  variantClasses[variant] || variantClasses.primary,
-  radiusClasses[radius] || radiusClasses.full,
+  sizeClasses[size as keyof typeof sizeClasses] || sizeClasses.md,
+  variantClasses[variant as keyof typeof variantClasses] || variantClasses.primary,
+  radiusClasses[radius as keyof typeof radiusClasses] || radiusClasses.full,
   className,
 );
 ---

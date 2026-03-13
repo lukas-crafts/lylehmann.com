@@ -1,27 +1,5 @@
 ---
-import {
-  ArrowLeft,
-  ArrowRight,
-  Calendar,
-  ChevronLeft,
-  ChevronRight,
-  Clock,
-  ExternalLink,
-  Facebook,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Menu,
-  Moon,
-  Phone,
-  Search,
-  Sun,
-  Tag,
-  Twitter,
-  User,
-  X,
-} from "lucide-astro";
+import Icon from "./ui/Icon.astro";
 
 /**
  * Feature Component
@@ -43,7 +21,7 @@ const { icon = "mdi:rocket", title = "Title" }: Props = Astro.props;
 ---
 
 <div class="feature flex flex-col gap-4">
-  <User class="w-8 h-8" />
+  <Icon name={icon} class="w-8 h-8" />
   <div class="content">
     <h3 class="text-2xl font-bold">{title}</h3>
     <p>

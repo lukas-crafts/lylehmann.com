@@ -11,7 +11,6 @@ const {
   tagline = await Astro.slots.render("tagline"),
   items = [],
   image = await Astro.slots.render("image"),
-  isReversed = false,
 
   id,
   isDark = false,
@@ -36,35 +35,6 @@ const {
       />
     </div>
     
-    {image && (
-      <div class="relative w-full">
-        {typeof image === 'string' ? (
-          <Fragment set:html={image} />
-        ) : (
-          <Image
-            class="w-full mx-auto rounded-lg shadow-lg"
-            width={500}
-            height={500}
-            widths={[400, 768]}
-            sizes="(max-width: 768px) 100vw, 432px"
-            layout="responsive"
-            {...image}
-          />
-        )}
-      </div>
-    )}
-
-    <Timeline
-      items={items}
-      classes={{
-        icon: 'border border-muted bg-transparent text-muted dark:text-muted',
-        ...((classes?.items as object) ?? {})
-      }}
-    />
-          ...((classes?.headline as object) ?? {}),
-        }}
-      />
-    </div>
     {image && (
       <div class="relative w-full">
         {typeof image === 'string' ? (

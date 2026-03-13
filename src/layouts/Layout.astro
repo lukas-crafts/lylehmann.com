@@ -3,6 +3,7 @@ import "../assets/styles/tailwind.css";
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
 import CustomStyles from "../components/CustomStyles.astro";
 // import ApplyColorMode from "../components/common/ApplyColorMode.astro";
 import BasicScripts from "../components/common/BasicScripts.astro";
@@ -28,6 +29,7 @@ const { language, textDirection } = I18N;
   <head>
     <CommonMeta />
     <Favicons />
+    <Font cssVariable="--font-inter" />
     <CustomStyles />
     {/* <ApplyColorMode client:load /> */}
     <Metadata {...metadata} />
@@ -37,10 +39,10 @@ const { language, textDirection } = I18N;
 
     <!-- Google Tag Manager -->
     {import.meta.env.PROD && (
-      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});let f=d.getElementsByTagName(s)[0],
+      <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;if (f && f.parentNode) f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-PVL67MM');</script>
     )}
     <!-- End Google Tag Manager -->
