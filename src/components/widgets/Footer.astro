@@ -1,112 +1,50 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { SITE } from 'astrowind:config';
-import { getHomePermalink } from '~/utils/permalinks';
-interface Link {
-  text?: string;
-  href?: string;
-  ariaLabel?: string;
-  icon?: string;
-}
-
-interface Links {
-  title?: string;
-  links: Array<Link>;
-}
-
-export interface Props {
-  links: Array<Links>;
-  secondaryLinks: Array<Link>;
-  socialLinks: Array<Link>;
-  footNote?: string;
-  theme?: string;
-}
-
-const {
-  socialLinks = [],
-  secondaryLinks = [],
-  links = [],
-  footNote = "",
-  theme = "light",
-} = Astro.props;
+const year = new Date().getFullYear();
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t border-gray-200 dark:border-slate-800 not-prose']}>
-  <div class="absolute inset-0 pointer-events-none dark:bg-dark" aria-hidden="true"></div>
-  <div
-    class="relative px-4 mx-auto max-w-7xl sm:px-6 dark:text-slate-300 intersect-once intersect-quarter intercept-no-queue motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-  >
-    <div class="grid grid-cols-12 gap-4 py-8 gap-y-8 sm:gap-8 md:py-12">
-      <div class="col-span-12 lg:col-span-4">
-        <div class="mb-2">
-          <a class="inline-block text-xl font-bold" href={getHomePermalink()}>{SITE?.name}</a>
+<footer class="bg-zinc-950 border-t border-zinc-900 py-20 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+        <div class="col-span-1 md:col-span-2 space-y-6">
+            <a href="/" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500 flex items-center justify-center text-zinc-950 font-black">
+                    L
+                </div>
+                lylehmann.com
+            </a>
+            <p class="text-zinc-400 max-w-sm leading-relaxed">
+                Expert UX Designer and Accessibility Advocate. Building digital solutions that empower every user, regardless of ability.
+            </p>
         </div>
-        <div class="flex gap-1 text-sm text-muted">
-          {
-            secondaryLinks.map(({ text, href }, index) => (
-              <>
-                {index !== 0 ? ' · ' : ''}
-                <a
-                  class="transition duration-150 ease-in-out text-muted hover:text-gray-700 dark:text-gray-400 hover:underline"
-                  href={href}
-                  set:html={text}
-                />
-              </>
-            ))
-          }
-        </div>
-      </div>
-      {
-        links.map(({ title, links }) => (
-          <div class="col-span-6 md:col-span-3 lg:col-span-2">
-            <div class="mb-2 font-medium dark:text-gray-300">{title}</div>
-            {links && Array.isArray(links) && links.length > 0 && (
-              <ul class="text-sm">
-                {links.map(({ text, href, ariaLabel }) => (
-                  <li class="mb-2">
-                    <a
-                      class="transition duration-150 ease-in-out text-muted hover:text-gray-700 hover:underline dark:text-gray-400"
-                      href={href}
-                      aria-label={ariaLabel}
-                    >
-                      <Fragment set:html={text} />
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
-        ))
-      }
-    </div>
-    <div class="py-6 md:flex md:items-center md:justify-between md:py-8">
-      {
-        socialLinks?.length ? (
-          <ul class="flex mb-4 -ml-2 md:order-1 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4">
-            {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-              <li>
-                <a
-                  class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  {icon === "tabler:brand-linkedin" && <Icon name="tabler:brand-linkedin" class="w-5 h-5" />}
-                  {icon === "tabler:mail" && <Icon name="tabler:mail" class="w-5 h-5" />}
-                  {icon === "tabler:brand-github" && <Icon name="tabler:brand-github" class="w-5 h-5" />}
-                  {icon === "tabler:brand-twitter" && <Icon name="tabler:brand-twitter" class="w-5 h-5" />}
-                  <Fragment set:html={text} />
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          ''
-        )
-      }
 
-      <div class="mr-4 text-sm dark:text-muted">
-        <Fragment set:html={footNote} />
+        <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-6">Explore</h3>
+            <ul class="space-y-4">
+                <li><a href="/portfolio" class="text-zinc-400 hover:text-emerald-400 transition-colors">Portfolio</a></li>
+                <li><a href="/services" class="text-zinc-400 hover:text-emerald-400 transition-colors">Services</a></li>
+                <li><a href="/about" class="text-zinc-400 hover:text-emerald-400 transition-colors">About</a></li>
+                <li><a href="/contact" class="text-zinc-400 hover:text-emerald-400 transition-colors">Contact</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h3 class="text-sm font-bold uppercase tracking-widest text-zinc-500 mb-6">Social</h3>
+            <ul class="space-y-4">
+                <li><a href="https://linkedin.com/in/lylehmann" class="text-zinc-400 hover:text-emerald-400 transition-colors">LinkedIn</a></li>
+                <li><a href="https://github.com/lylehmann" class="text-zinc-400 hover:text-emerald-400 transition-colors">GitHub</a></li>
+                <li><a href="mailto:lylehmann@gmail.com" class="text-zinc-400 hover:text-emerald-400 transition-colors">Email</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-20">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-8 pt-12 border-t border-zinc-800">
+        <div class="text-zinc-500 text-sm">
+          © {year} Lukas Yair Lehmann. All rights reserved.
+        </div>
+        <div class="flex gap-8">
+          <a href="/impressum" class="text-zinc-500 hover:text-white transition-colors text-sm">Impressum</a>
+          <a href="/privacy" class="text-zinc-500 hover:text-white transition-colors text-sm">Privacy Policy</a>
+        </div>
       </div>
     </div>
-  </div>
 </footer>

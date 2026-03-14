@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+import { MoveRight } from "lucide-astro";
+import type { PortfolioEntry } from "../../types/content";
+
+interface Props {
+  project: PortfolioEntry;
+}
+
+const { project } = Astro.props;
+const { title, description, image, tags, category, excerpt } = project.data;
+---
+
+<a
+  href={`/portfolio/${project.id}`}
+  class="group relative flex flex-col h-full rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden transition-all hover:border-emerald-500/50 hover:bg-zinc-900/80 active:scale-[0.98]"
+>
+  {
+    image && (
+      <div class="relative aspect-video overflow-hidden">
+        <Image
+          src={image}
+          alt={title}
+          width={800}
+          height={450}
+          class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+          transition:name={`project-image-${project.id}`}
+        />
+        <div class="absolute inset-0 bg-linear-to-t from-zinc-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+      </div>
+    )
+  }
+
+  <div class="grow p-6 flex flex-col space-y-4">
+    <div class="flex flex-wrap items-center gap-2">
+      {
+        category && (
+          <span class="px-2 py-1 text-[10px] font-black uppercase tracking-widest bg-emerald-500 text-zinc-950 rounded-md">
+            {category}
+          </span>
+        )
+      }
+      {
+        tags.map((tag) => (
+          <span class="px-2 py-1 text-[10px] font-bold uppercase tracking-wider bg-zinc-800 text-zinc-400 border border-zinc-700 rounded-md">
+            {tag}
+          </span>
+        ))
+      }
+    </div>
+
+    <div class="space-y-2">
+      <h3
+        class="text-xl font-bold text-zinc-50 group-hover:text-emerald-400 transition-colors"
+        transition:name={`project-title-${project.id}`}
+      >
+        {title}
+      </h3>
+      <p class="text-sm text-zinc-400 line-clamp-3 leading-relaxed">
+        {excerpt || description}
+      </p>
+    </div>
+
+    <div
+      class="pt-2 mt-auto flex items-center text-sm font-bold text-zinc-300 group-hover:text-white transition-colors"
+    >
+      View Case Study
+      <MoveRight
+        class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1"
+      />
+    </div>
+  </div>
+</a>

@@ -87,7 +87,7 @@ const DEFAULT_SITE_NAME = "Website";
 const getSite = (config: Config) => {
   const _default = {
     name: DEFAULT_SITE_NAME,
-    site: undefined,
+    site: "",
     base: "/",
     trailingSlash: false,
 
@@ -184,7 +184,7 @@ const getAnalytics = (config: Config) => {
   const _default = {
     vendors: {
       googleAnalytics: {
-        id: undefined,
+        id: "",
         partytown: true,
       },
     },

@@ -1,0 +1,208 @@
+---
+import { getCollection, render } from "astro:content";
+import { Image } from "astro:assets";
+import Layout from "~/layouts/Layout.astro";
+import Header from "~/components/widgets/Header.astro";
+import Footer from "~/components/widgets/Footer.astro";
+import {
+  ArrowLeft,
+  Clock,
+  Tag,
+  User,
+  Users,
+  Wrench,
+  Timer,
+} from "lucide-astro";
+import {
+  Stats,
+  FeatureList,
+  StepList,
+  DesignElementList,
+  OutcomeList,
+  InsightList,
+  FaqList,
+} from "~/components/portfolio/case-study-blocks";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("portfolio");
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const {
+  title,
+  description,
+  publishDate,
+  image,
+  tags = [],
+  metadata = {},
+  role,
+  team,
+  duration,
+  tools = [],
+} = project.data;
+
+const { Content } = await render(project);
+
+const safePublishDate =
+  publishDate instanceof Date ? publishDate : new Date(publishDate);
+
+const projectMeta = [
+  role ? { icon: "user", label: "Role", value: role } : null,
+  team ? { icon: "users", label: "Team", value: team } : null,
+  duration ? { icon: "timer", label: "Duration", value: duration } : null,
+  tools.length > 0
+    ? { icon: "wrench", label: "Tools", value: tools.join(", ") }
+    : null,
+].filter(Boolean);
+
+const components = {
+  Stats,
+  FeatureList,
+  StepList,
+  DesignElementList,
+  OutcomeList,
+  InsightList,
+  FaqList,
+  img: Image,
+};
+---
+
+<Layout
+  title={`${title} | Lukas Yair Lehmann`}
+  description={description}
+  metadata={metadata}
+>
+  <Header slot="header" />
+
+  <article class="min-h-screen pt-28 pb-24">
+    <header class="max-w-5xl mx-auto px-6 space-y-8 pb-12">
+      <a
+        href="/portfolio"
+        class="inline-flex items-center text-sm font-bold text-zinc-500 hover:text-emerald-400 transition-colors group"
+      >
+        <ArrowLeft
+          class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+        />
+        Back to Portfolio
+      </a>
+
+      <div class="flex flex-wrap items-center gap-3 text-xs text-zinc-500">
+        <div class="flex items-center gap-1.5">
+          <Clock class="w-3.5 h-3.5 text-emerald-500" />
+          <time datetime={safePublishDate.toISOString()}>
+            {
+              safePublishDate.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+              })
+            }
+          </time>
+        </div>
+        <span class="text-zinc-700">·</span>
+        <div class="flex items-center gap-1.5">
+          <Tag class="w-3.5 h-3.5 text-emerald-500" />
+          <div class="flex gap-2 flex-wrap">
+            {
+              tags?.map((tag) => (
+                <span class="px-2.5 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-300 font-bold">
+                  {tag}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+
+      <h1
+        class="text-5xl sm:text-7xl font-black tracking-tighter text-white leading-[0.95] max-w-4xl"
+        transition:name={`project-title-${project.id}`}
+      >
+        {title}
+      </h1>
+      <p class="text-xl sm:text-2xl text-zinc-400 leading-relaxed max-w-3xl">
+        {description}
+      </p>
+    </header>
+
+    {image && (
+      <div class="max-w-7xl mx-auto px-6 mb-12">
+        <div class="rounded-4xl overflow-hidden border border-zinc-800/60 bg-zinc-900/50 aspect-video lg:aspect-21/9 shadow-2xl shadow-black/50">
+          <Image
+            src={image}
+            alt={title}
+            width={1920}
+            height={1080}
+            class="w-full h-full object-cover"
+            transition:name={`project-image-${project.id}`}
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+    )}
+
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-12 lg:gap-16 items-start">
+        <div class="space-y-20 min-w-0">
+          <section class="relative">
+            <div class="absolute -left-4 top-0 bottom-0 w-0.5 bg-linear-to-b from-emerald-500 via-emerald-500/30 to-transparent rounded-full" />
+            <div class="space-y-6">
+              <div class="prose prose-zinc prose-invert max-w-none
+                prose-headings:font-black prose-headings:tracking-tighter
+                prose-h2:text-3xl prose-h2:text-white prose-h2:mt-8 prose-h2:mb-4
+                prose-h3:text-xl prose-h3:text-zinc-200 prose-h3:mt-6 prose-h3:mb-3
+                prose-p:text-zinc-400 prose-p:leading-relaxed prose-p:text-base
+                prose-strong:text-zinc-200 prose-strong:font-bold
+                prose-a:text-emerald-400 hover:prose-a:text-emerald-300
+                prose-ul:space-y-2 prose-li:text-zinc-400
+                prose-ol:space-y-2
+                prose-hr:border-zinc-800 prose-hr:my-8
+                prose-blockquote:border-l-emerald-500 prose-blockquote:text-zinc-400
+                prose-img:rounded-2xl prose-img:border prose-img:border-zinc-800 prose-img:shadow-xl
+                prose-code:text-emerald-400 prose-code:bg-zinc-900 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono">
+                <Content components={components} />
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="space-y-8 lg:sticky lg:top-28">
+          {projectMeta.length > 0 && (
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 overflow-hidden">
+              <div class="px-5 py-4 border-b border-zinc-800">
+                <span class="text-xs font-black uppercase tracking-widest text-zinc-500">Project Info</span>
+              </div>
+              <div class="divide-y divide-zinc-800/60">
+                {projectMeta.map((meta: any) => (
+                  <div class="flex items-start gap-3 px-5 py-4">
+                    <div class="w-4 h-4 text-emerald-500 mt-0.5 shrink-0">
+                      {meta.icon === "user" && <User class="w-4 h-4" />}
+                      {meta.icon === "users" && <Users class="w-4 h-4" />}
+                      {meta.icon === "timer" && <Timer class="w-4 h-4" />}
+                      {meta.icon === "wrench" && <Wrench class="w-4 h-4" />}
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-0.5">{meta.label}</div>
+                      <div class="text-sm text-zinc-300 font-medium leading-snug">{meta.value}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+    </div>
+  </article>
+
+  <Footer slot="footer" />
+</Layout>

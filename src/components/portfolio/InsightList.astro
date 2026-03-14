@@ -1,0 +1,22 @@
+---
+interface Item {
+  title: string;
+  description: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props as Props;
+---
+<div class="space-y-4 my-12">
+  {items.map((insight) => (
+    <div class="p-6 rounded-2xl border border-zinc-800 bg-linear-to-br from-zinc-900/50 to-zinc-950/50 space-y-2">
+      <h3 class="text-base font-bold text-emerald-400 mt-0!">
+        {insight.title}
+      </h3>
+      <p class="text-sm text-zinc-400 leading-relaxed italic mb-0!">
+        "{insight.description}"
+      </p>
+    </div>
+  ))}
+</div>

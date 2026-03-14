@@ -1,98 +1,62 @@
 ---
-import { AstroSeo as Seo } from "@astrolib/seo";
-import ContactInfo from "../components/widgets/ContactInfo.astro";
-import Header from "../components/widgets/Header.astro";
-import Layout from "../layouts/PageLayout.astro";
-
-const address = import.meta.env.PUBLIC_ADDRESS;
-const phone = import.meta.env.PUBLIC_PHONE_NUMBER;
-const email = import.meta.env.PUBLIC_EMAIL;
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { Mail, MapPin, ExternalLink } from 'lucide-astro';
 ---
 
-<Seo
-  title="Impressum - Lukas Yair Lehmann | UX Designer & Accessibility"
-  description="Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate. Find out how to get in touch and learn more about his work."
-  noindex={false}
-  nofollow={false}
-/>
+<Layout title="Impressum | Lukas Yair Lehmann" description="Legal information and contact details.">
+  <Header slot="header" />
 
-<script type="application/ld+json" set:html={JSON.stringify({
-  
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    name: "Impressum - Lukas Yair Lehmann | UX Designer",
-    url: "https://lylehmann.com/impressum",
-    description:
-      "Legal and contact information about Lukas Yair Lehmann, a UX Designer and Accessibility Advocate.",
-    mainEntity: {
-      "@id": "https://lylehmann.com/#person",
-      "@type": "Person",
-      name: "Lukas Yair Lehmann",
-      jobTitle: "UX Designer",
-      address: address,
-      telephone: phone,
-      email: email,
-      url: "https://lylehmann.com",
-      sameAs: [
-        "https://www.linkedin.com/in/lylehmann/",
-        "https://github.com/lylehmann",
-      ],
-    },
-  })} />
+  <section class="min-h-screen p-6 pt-32 pb-20">
+    <main class="max-w-4xl mx-auto space-y-16">
+      <header class="space-y-6">
+        <h1 class="text-5xl font-black tracking-tight text-white">Impressum</h1>
+        <p class="text-zinc-500 font-bold uppercase tracking-widest text-sm">Last updated: December 20, 2024</p>
+      </header>
 
-<script type="application/ld+json" set:html={JSON.stringify({
-  
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://lylehmann.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Impressum",
-        item: "https://lylehmann.com/impressum",
-      },
-    ],
-  })} />
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="p-10 rounded-3xl border border-zinc-800 bg-zinc-900/50 space-y-8">
+          <div class="space-y-2">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <MapPin class="w-5 h-5 text-emerald-500" />
+              Angaben gemäß § 5 TMG
+            </h2>
+            <div class="text-zinc-400 leading-relaxed">
+              Lukas Yair Lehmann<br />
+              Willy-Brandt-Straße 1<br />
+              10557 Berlin<br />
+              Germany
+            </div>
+          </div>
 
-<Layout>
-  <!-- Header Widget ***************** -->
-  <Fragment slot="header">
-    <Header
-      links={[
-        { text: "Home", href: "/" },
-        { text: "Porfolio", href: "/portfolio" },
-        { text: "About", href: "/about" },
-        { text: "Resume", href: "/resume" },
-      ]}
-      actions={[
-        {
-          text: "Meet me",
-          href: `https://calendly.com/lylehmann`,
-          target: "_blank",
-        },
-      ]}
-      isSticky
-      showToggleTheme
-    />
-  </Fragment>
+          <div class="space-y-4">
+            <h2 class="text-xl font-bold text-white flex items-center gap-2">
+              <Mail class="w-5 h-5 text-emerald-500" />
+              Kontakt
+            </h2>
+            <div class="space-y-2">
+              <a href="mailto:lylehmann@gmail.com" class="text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
+                lylehmann@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
 
-  <section class="max-w-4xl px-4 py-16 mx-auto sm:px-6 lg:px-8 lg:py-20">
-    <h1
-      class="text-4xl font-bold tracking-tighter font-heading md:text-5xl leading-tighter"
-    >
-      Impressum
-    </h1>
-    <p class="mt-4">Last updated: December 20, 2024</p>
-    <h2 class="mt-8 text-2xl font-bold">Contact</h2>
-    <ContactInfo />
-    <p class="mt-4">
-      Source: <a href="https://www.e-recht24.de">https://www.e-recht24.de</a>
-    </p>
+        <div class="prose prose-zinc prose-invert">
+          <h2 class="text-white">Haftung für Inhalte</h2>
+          <p>
+            Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          </p>
+          <div class="pt-6">
+            <a href="https://www.e-recht24.de" target="_blank" class="inline-flex items-center gap-1.5 text-sm text-zinc-500 hover:text-white transition-colors">
+              Source: e-recht24.de <ExternalLink class="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
   </section>
+
+  <Footer slot="footer" />
 </Layout>

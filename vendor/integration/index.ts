@@ -63,10 +63,9 @@ export const ANALYTICS = ${JSON.stringify(ANALYTICS, null, 2)};
 
         updateConfig({
           site: SITE.site,
-          base: SITE.base,
-
-          trailingSlash: SITE.trailingSlash ? "always" : "never",
-
+          base: SITE.base ?? "/",
+          trailingSlash: "never",
+          // ...
           vite: {
             resolve: {
               alias: {
