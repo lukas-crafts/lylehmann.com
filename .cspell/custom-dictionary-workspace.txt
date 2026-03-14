@@ -8,6 +8,7 @@ faqs
 Gispert
 isbn
 Kroll
+lucide
 Lukas
 lylehmann
 Meta

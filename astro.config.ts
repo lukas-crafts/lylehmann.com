@@ -1,102 +1,36 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import mdx from "@astrojs/mdx";
-import partytown from "@astrojs/partytown";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@tailwindcss/vite";
-import type { AstroIntegration } from "astro";
-import { defineConfig } from "astro/config";
-import compress from "astro-compress";
-import icon from "astro-icon";
-import {
-  lazyImagesRehypePlugin,
-  readingTimeRemarkPlugin,
-  responsiveTablesRehypePlugin,
-} from "./src/utils/frontmatter";
-import astrowind from "./vendor/integration";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const hasExternalScripts = false;
-const whenExternalScripts = (
-  items: (() => AstroIntegration) | (() => AstroIntegration)[] = [],
-) =>
-  hasExternalScripts
-    ? Array.isArray(items)
-      ? items.map((item) => item())
-      : [items()]
-    : [];
+import { defineConfig, fontProviders } from 'astro/config';
+import tailwind from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 
 export default defineConfig({
-  site: "https://lylehmann.com",
-  base: "/",
-  trailingSlash: "never",
-
-  output: "static",
-
+  srcDir: './src',
+  publicDir: './public',
+  outDir: './dist',
+  
+  site: 'https://lylehmann.com',
+  
+  fonts: [
+    {
+      provider: fontProviders.google(),
+      name: 'Inter',
+      cssVariable: '--font-inter',
+      weights: ['400 900'],
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Outfit',
+      cssVariable: '--font-outfit',
+      weights: ['400 900'],
+    },
+  ],
+  
   integrations: [
     sitemap(),
     mdx(),
-    icon({
-      include: {
-        tabler: ["*"],
-        "flat-color-icons": [
-          "template",
-          "gallery",
-          "approval",
-          "document",
-          "advertising",
-          "currency-exchange",
-          "voice-presentation",
-          "business-contact",
-          "database",
-        ],
-      },
-    }),
-
-    ...whenExternalScripts(() =>
-      partytown({
-        config: { forward: ["dataLayer.push"] },
-      }),
-    ),
-
-    compress({
-      CSS: true,
-      HTML: {
-        "html-minifier-terser": {
-          removeAttributeQuotes: false,
-        },
-      },
-      Image: false,
-      JavaScript: true,
-      SVG: false,
-      Logger: 1,
-    }),
-
-    astrowind({
-      config: "./src/config.yaml",
-    }),
   ],
-
-  image: {
-    remotePatterns: [
-      { protocol: "https", hostname: "cdn.pixabay.com" },
-      { protocol: "https", hostname: "images.pexels.com" },
-      { protocol: "https", hostname: "plus.unsplash.com" },
-    ],
-  },
-
-  markdown: {
-    remarkPlugins: [readingTimeRemarkPlugin],
-    rehypePlugins: [responsiveTablesRehypePlugin, lazyImagesRehypePlugin],
-  },
-
+  
   vite: {
     plugins: [tailwind()],
-    resolve: {
-      alias: {
-        "~": path.resolve(__dirname, "./src"),
-      },
-    },
   },
 });

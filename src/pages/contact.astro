@@ -1,79 +1,91 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { Mail, Linkedin } from 'lucide-astro';
 
-const metadata = {
-  title: 'Contact',
-};
+const social = [
+  { name: 'Email', handle: 'lylehmann@gmail.com', href: 'mailto:lylehmann@gmail.com', icon: Mail },
+  { name: 'LinkedIn', handle: 'Lukas Yair Lehmann', href: 'https://linkedin.com/in/lylehmann', icon: Linkedin },
+];
 ---
 
-<Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+<Layout title="Contact | Lukas Yair Lehmann" description="Get in touch to discuss your next project or just say hello.">
+  <Header slot="header" />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <section class="min-h-screen p-6 pt-32 pb-20">
+    <main class="max-w-6xl mx-auto">
+      <div class="flex flex-col lg:flex-row gap-24">
+        <div class="flex-1 space-y-12">
+          <header class="space-y-6">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400">
+              Connections
+            </div>
+            <h1 class="text-6xl font-black tracking-tight sm:text-7xl bg-gradient-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
+              Let's <span class="text-emerald-500">Talk.</span>
+            </h1>
+            <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">
+              Have a project in mind or just want to discuss the future of accessible design? I'd love to hear from you.
+            </p>
+          </header>
 
-  <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+          <div class="space-y-6">
+            {social.map(item => (
+              <a href={item.href} class="flex items-center gap-6 p-6 rounded-3xl border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-900 hover:border-emerald-500/30 transition-all group">
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                  <item.icon class="w-6 h-6" />
+                </div>
+                <div class="space-y-1">
+                  <div class="text-zinc-500 text-sm font-bold uppercase tracking-widest">{item.name}</div>
+                  <div class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">{item.handle}</div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
 
-  <!-- Features2 Widget ************** -->
+        <div class="flex-1">
+          <form class="p-10 rounded-[2.5rem] border border-zinc-800 bg-zinc-900/30 space-y-8">
+            <div class="space-y-6">
+              <div class="space-y-2">
+                <label for="name" class="text-sm font-bold text-zinc-400 ml-1">Your Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="email" class="text-sm font-bold text-zinc-400 ml-1">Email Address</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700"
+                  placeholder="john@example.com"
+                />
+              </div>
+              <div class="space-y-2">
+                <label for="message" class="text-sm font-bold text-zinc-400 ml-1">Message</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="5"
+                  class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700 resize-none"
+                  placeholder="Tell me about your project..."
+                ></textarea>
+              </div>
+            </div>
+            <button type="submit" class="w-full py-5 rounded-2xl bg-emerald-500 text-zinc-950 font-black text-lg transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </main>
+  </section>
 
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <Footer slot="footer" />
 </Layout>

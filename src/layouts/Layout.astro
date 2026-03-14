@@ -1,71 +1,73 @@
 ---
-import "../assets/styles/tailwind.css";
+import "~/assets/styles/global.css";
+import { ClientRouter } from 'astro:transitions';
 
-// Comment the line below to disable View Transitions
-import { ClientRouter } from "astro:transitions";
-import { Font } from "astro:assets";
-import CustomStyles from "../components/CustomStyles.astro";
-// import ApplyColorMode from "../components/common/ApplyColorMode.astro";
-import BasicScripts from "../components/common/BasicScripts.astro";
-import CommonMeta from "../components/common/CommonMeta.astro";
-import Metadata from "../components/common/Metadata.astro";
-import SiteVerification from "../components/common/SiteVerification.astro";
-import Favicons from "../components/Favicons.astro";
-import SpeedInsights from "@vercel/speed-insights/astro";
-import { I18N } from "../generated/astrowind-config";
-
-import type { MetaData as MetaDataType } from "../types";
-
-export interface Props {
-  metadata?: MetaDataType;
+interface Props {
+  title?: string;
+  description?: string;
+  metadata?: any;
 }
 
-const { metadata = {} } = Astro.props;
-const { language, textDirection } = I18N;
+const { 
+  title = "Lukas Yair Lehmann | UX & Accessibility",
+  description = "Building inclusive digital experiences through accessible design and high-performance engineering.",
+  metadata = {}
+} = Astro.props;
+
+const finalTitle = metadata.title || title;
+const finalDescription = metadata.description || description;
+const { canonical, robots, openGraph, twitter } = metadata;
 ---
 
-<!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
-  <head>
-    <CommonMeta />
-    <Favicons />
-    <CustomStyles />
-    {/* <ApplyColorMode client:load /> */}
-    <Metadata {...metadata} />
-    <SiteVerification />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="robots" content="index, follow" />
-
-    <!-- Google Tag Manager -->
-    {import.meta.env.PROD && (
-      <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;if (f && f.parentNode) f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PVL67MM');</script>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta name="generator" content={import.meta.env.GENERATOR} />
+    <ClientRouter />
+    
+    <title>{finalTitle}</title>
+    <meta name="description" content={finalDescription} />
+    
+    {robots && (
+      <meta name="robots" content={`${robots.index ? 'index' : 'noindex'}, ${robots.follow ? 'follow' : 'nofollow'}`} />
     )}
-    <!-- End Google Tag Manager -->
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={openGraph?.title || finalTitle} />
+    <meta property="og:description" content={openGraph?.description || finalDescription} />
+    <meta property="og:type" content={openGraph?.type || "website"} />
+    <meta property="og:url" content={openGraph?.url} />
+    <meta property="og:site_name" content={openGraph?.siteName || "lylehmann.com"} />
+    {openGraph?.images?.map((img: any) => (
+      <>
+        <meta property="og:image" content={img.url} />
+        {img.width && <meta property="og:image:width" content={img.width.toString()} />}
+        {img.height && <meta property="og:image:height" content={img.height.toString()} />}
+      </>
+    ))}
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content={twitter?.cardType || "summary_large_image"} />
+    <meta name="twitter:site" content={twitter?.site} />
+    <meta name="twitter:creator" content={twitter?.handle} />
+    <meta name="twitter:title" content={finalTitle} />
+    <meta name="twitter:description" content={finalDescription} />
+</head>
+<body class="bg-zinc-950 text-zinc-50 antialiased flex flex-col min-h-screen">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-emerald-500 focus:text-zinc-950 focus:rounded-md focus:font-bold">
+        Skip to content
+    </a>
 
-    <!-- Sentry -->
-    <script>
-      import { initSentry } from "../sentry.client";
-      initSentry();
-    </script>
-    <!-- End Sentry -->
-    <!-- Comment the line below to disable View Transitions -->
-    <ClientRouter fallback="swap" />
-  </head>
+    <slot name="header" />
+    
+    <main id="main-content" class="grow">
+        <slot />
+    </main>
 
-  <body class="bg-page text-page antialiased tracking-tight">
-    <!-- Google Tag Manager (noscript) -->
-    {import.meta.env.PROD && (
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVL67MM"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    )}
-  <!-- End Google Tag Manager (noscript) -->
-    <slot />
-
-    <BasicScripts />
-    <SpeedInsights />
-  </body>
+    <slot name="footer" />
+</body>
 </html>

@@ -1,163 +1,46 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import ProjectCard from '~/components/portfolio/ProjectCard.astro';
 
-const projects = await getCollection("projects");
+const projects = await getCollection('portfolio', ({ data }) => {
+  return data.draft !== true;
+});
+
+// Sort by date descending
+projects.sort((a, b) => {
+  const dateA = new Date(a.data.publishDate).getTime();
+  const dateB = new Date(b.data.publishDate).getTime();
+  return dateB - dateA;
+});
 ---
 
-<LandingLayout metadata={{ title: 'Portfolio', description: 'A showcase of real projects and case studies.' }}>
-  <section class="bg-page py-16 md:py-24">
-    <div class="mx-auto px-4 container">
-      <div class="mb-12 text-center">
-        <h1 class="mb-4 font-bold text-4xl md:text-5xl" id="portfolio-heading">Portfolio</h1>
-        <p class="text-muted text-lg">A showcase of real projects and case studies.</p>
-      </div>
+<Layout title="Portfolio | Lukas Yair Lehmann" description="Selected works in UX design, accessible engineering, and digital inclusivity.">
+  <Header slot="header" />
 
-      <!-- Interactive Portfolio Filter -->
-      <div id="portfolio-filter">
-        <!-- Search Bar -->
-        <div class="flex md:flex-row flex-col md:justify-between md:items-center gap-4 mb-8">
-          <div class="relative w-full">
-            <span class="top-1/2 left-3 absolute text-gray-400 -translate-y-1/2 pointer-events-none">
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <title>Search</title>
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.3-4.3" />
-              </svg>
-            </span>
-            <input
-              type="text"
-              placeholder="Search projects..."
-              class="bg-(--color-bg-default) shadow-sm focus:shadow-md py-2 pr-3 pl-10 border border-(--color-border-default) rounded-full focus:outline-none focus:ring-2 focus:ring-primary w-full text-(--color-text-body) transition-all duration-200"
-              aria-label="Search projects by title or description"
-              id="search-input"
-            />
-            <button
-              type="button"
-              class="top-1/2 right-3 absolute focus:outline-none text-gray-400 hover:text-primary -translate-y-1/2 hidden"
-              aria-label="Clear search"
-              id="clear-search"
-            >
-              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                <title>Clear search</title>
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            </button>
-          </div>
+  <section class="min-h-screen p-6 pt-32 pb-20">
+    <main class="max-w-6xl mx-auto space-y-16">
+      <header class="max-w-3xl space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400">
+          Case Studies
         </div>
-        
-        <!-- Project Grid -->
-        <section class="gap-8 md:gap-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" aria-label="Portfolio projects" id="projects-grid">
-          {projects.map((project) => (
-            <div class="project-card flex flex-col justify-between bg-(--color-bg-subtle) opacity-100 shadow hover:shadow-xl p-6 border border-(--color-border-default) rounded-2xl focus-within:ring-2 focus-within:ring-primary scale-100 hover:scale-[1.03] transition-all hover:-translate-y-1 duration-300 portfolio-card-modern" data-title={project.data.title} data-description={project.data.description || project.data.excerpt || ''} data-tags={project.data.tags?.join(',') || ''}>
-              {(project.data.cover || project.data.image) && (
-                <Image
-                  src={project.data.cover || project.data.image}
-                  alt={project.data.title || "Project cover"}
-                  class="bg-(--color-bg-muted) mb-4 rounded-xl w-full h-48 object-cover"
-                  width={400}
-                  height={200}
-                />
-              )}
-              <div>
-                <div class="flex items-center mb-4">
-                  <h2 class="font-semibold text-2xl">
-                    {project.data.title || "Project"}
-                  </h2>
-                </div>
-                <p class="mb-4 text-muted">{project.data.description || project.data.excerpt}</p>
-                <div class="flex flex-wrap gap-2 mb-4">
-                  {(project.data.tags || []).map((tag) => (
-                    <span class="bg-(--color-interactive-secondary-hover) px-2 py-0.5 border border-(--color-border-default) rounded-full font-medium text-(--color-text-body) text-xs">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <a
-                href={`/portfolio/${project.id}`}
-                class="inline-block mt-auto focus:outline-none focus:ring-2 focus:ring-primary font-semibold text-(--color-brand-primary) hover:underline"
-                aria-label={`View case study: ${project.data.title}`}
-              >
-                View Case Study
-              </a>
-            </div>
-          ))}
-        </section>
-        
-        <!-- No results message -->
-        <div class="col-span-full py-12 text-muted text-center hidden" id="no-results">
-          No projects found.
-        </div>
+        <h1 class="text-5xl font-black tracking-tight sm:text-7xl bg-linear-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
+          Selected <span class="text-emerald-500">Works.</span>
+        </h1>
+        <p class="text-xl text-zinc-400 leading-relaxed">
+          Exploring the intersection of human-centric design and technical excellence. Each project is a deep dive into accessibility and performance.
+        </p>
+      </header>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map(project => (
+          <ProjectCard project={project} />
+        ))}
       </div>
-      
-      <!-- Interactive Script -->
-      <script>
-        document.addEventListener('DOMContentLoaded', function() {
-          const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
-          const clearButton = document.getElementById('clear-search') as HTMLButtonElement | null;
-          const projectCards = document.querySelectorAll('.project-card');
-          const noResultsMessage = document.getElementById('no-results');
-          const projectsGrid = document.getElementById('projects-grid');
-          
-          function filterProjects() {
-            if (!searchInput) return;
-            const searchTerm = searchInput.value.toLowerCase();
-            let visibleCount = 0;
-            
-            projectCards.forEach(cardNode => {
-              const card = cardNode as HTMLElement;
-              const title = card.getAttribute('data-title')?.toLowerCase() || '';
-              const description = card.getAttribute('data-description')?.toLowerCase() || '';
-              const tags = card.getAttribute('data-tags')?.toLowerCase() || '';
-              
-              const matches = !searchTerm || 
-                title.includes(searchTerm) || 
-                description.includes(searchTerm) || 
-                tags.includes(searchTerm);
-              
-              if (matches) {
-                card.style.display = 'flex';
-                visibleCount++;
-              } else {
-                card.style.display = 'none';
-              }
-            });
-            
-            // Show/hide no results message
-            if (noResultsMessage && projectsGrid) {
-              if (visibleCount === 0 && searchTerm) {
-                noResultsMessage.style.display = 'block';
-                projectsGrid.style.display = 'none';
-              } else {
-                noResultsMessage.style.display = 'none';
-                projectsGrid.style.display = 'grid';
-              }
-            }
-            
-            // Show/hide clear button
-            if (clearButton) {
-              if (searchTerm) {
-                clearButton.classList.remove('hidden');
-              } else {
-                clearButton.classList.add('hidden');
-              }
-            }
-          }
-          
-          if (searchInput) {
-            searchInput.addEventListener('input', filterProjects);
-          }
-          
-          if (clearButton && searchInput) {
-            clearButton.addEventListener('click', function() {
-              searchInput.value = '';
-              filterProjects();
-              searchInput.focus();
-            });
-          }
-        });
-      </script>
-    </div>
+    </main>
   </section>
-</LandingLayout>
+
+  <Footer slot="footer" />
+</Layout>

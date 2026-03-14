@@ -1,52 +1,101 @@
 ---
-import Layout from '../layouts/PageLayout.astro';
-import Hero from '../components/widgets/Hero.astro';
-import Content from '../components/widgets/Content.astro';
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { Accessibility, User, Code, MoveRight } from 'lucide-astro';
 
-const metadata = {
-  title: 'About Me',
-};
+const mission = [
+  {
+    title: 'Inclusion',
+    description: 'Building products that everyone can use, regardless of their abilities.',
+    icon: Accessibility,
+  },
+  {
+    title: 'User-Centered',
+    description: 'Focusing on the human at the other end of the screen.',
+    icon: User,
+  },
+  {
+    title: 'Clean Code',
+    description: 'Writing maintainable and performant frontend code.',
+    icon: Code,
+  },
+];
 ---
 
-<Layout metadata={metadata}>
-  <Hero
-    tagline="About me"
-    title="Designing for Humans"
-    subtitle="I'm Lukas Lehmann, a UX Designer and Developer focused on creating accessible and inclusive digital experiences."
-    image={{
-      src: '/assets/images/lylehmann.png',
-      alt: 'Lukas Lehmann',
-    }}
-  />
+<Layout 
+  title="Services | Lukas Yair Lehmann" 
+  description="Strategic UX design, WCAG accessibility audits, and high-performance frontend engineering for forward-thinking brands."
+>
+  <Header slot="header" />
 
-  <Content
-    isReversed
-    tagline="My Mission"
-    title="Accessibility first"
-    items={[
-      {
-        title: 'Inclusion',
-        description: 'Building products that everyone can use, regardless of their abilities.',
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'User-Centered',
-        description: 'Focusing on the human at the other end of the screen.',
-        icon: 'tabler:user',
-      },
-      {
-        title: 'Clean Code',
-        description: 'Writing maintainable and performant frontend code.',
-        icon: 'tabler:code',
-      },
-    ]}
-  >
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">My Journey</h3>
-      <p>
-        With a background in both design and development, I bridge the gap between aesthetics and functionality. 
-        I believe that the best digital products are the ones that fade into the background, enabling users to achieve their goals with ease.
-      </p>
-    </Fragment>
-  </Content>
+  <section class="min-h-screen p-6 pt-32 pb-20">
+    <main class="max-w-6xl mx-auto space-y-32">
+      <!-- Hero -->
+      <header class="flex flex-col lg:flex-row items-center gap-16">
+        <div class="flex-1 space-y-8">
+          <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400">
+            The Human Behind the Screen
+          </div>
+          <h1 class="text-6xl font-black tracking-tight sm:text-8xl bg-gradient-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
+            Designing for <br /> <span class="text-emerald-500">Humans.</span>
+          </h1>
+          <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">
+            I'm Lukas Lehmann, a UX Designer and Developer focused on bridging the gap between aesthetics and radical digital inclusivity.
+          </p>
+        </div>
+        <div class="flex-1 relative group">
+          <div class="absolute -inset-4 bg-emerald-500/20 rounded-3xl blur-2xl group-hover:bg-emerald-500/30 transition-all duration-500"></div>
+          <div class="relative aspect-square rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 group-hover:border-emerald-500/50 transition-colors">
+             <div class="w-full h-full flex items-center justify-center text-zinc-800">
+                <span class="text-8xl font-black">LYL</span>
+             </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mission -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {mission.map(item => (
+          <div class="p-8 rounded-3xl border border-zinc-800 bg-zinc-900/50 space-y-6 hover:border-emerald-500/30 transition-colors group">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+              <item.icon class="w-6 h-6" />
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold text-white">{item.title}</h3>
+              <p class="text-zinc-400 leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Journey -->
+      <div class="flex flex-col lg:flex-row gap-16 items-center">
+        <div class="flex-1 prose prose-invert prose-emerald lg:prose-xl">
+          <h2 class="text-4xl font-black tracking-tight text-white mb-8">My Journey</h2>
+          <p>
+            With a background in both design and development, I bridge the gap between aesthetics and functionality. I believe that the best digital products are the ones that fade into the background, enabling users to achieve their goals with ease.
+          </p>
+          <p>
+            My work is driven by the belief that accessibility is not a "feature" to be added, but a fundamental human right in the digital age. Whether it's crafting high-performance Astro components or designing intuitive mobile interfaces, the end goal is always the same: empowerment.
+          </p>
+          <div class="pt-8">
+            <a href="/portfolio" class="inline-flex items-center gap-2 text-emerald-400 font-bold hover:text-emerald-300 group">
+              View my work <MoveRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </a>
+          </div>
+        </div>
+        <div class="flex-1 w-full bg-zinc-900/50 rounded-3xl border border-zinc-800 p-1">
+            <div class="bg-zinc-950 rounded-[1.4rem] p-12 aspect-[4/3] flex items-center justify-center">
+                <div class="text-center space-y-4">
+                    <div class="text-6xl font-black text-emerald-500">100%</div>
+                    <div class="text-zinc-400 font-medium uppercase tracking-widest text-sm">Commitment to AA Compliance</div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </main>
+  </section>
+
+  <Footer slot="footer" />
 </Layout>

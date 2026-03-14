@@ -1,0 +1,54 @@
+0 verbose cli /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/bin/node /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.9.4
+2 info using node@v22.22.1
+3 silly config load:file:/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lukaslehmann/Developer/lylehmann.com/.npmrc
+5 silly config load:file:/Users/lukaslehmann/.npmrc
+6 silly config load:file:/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/etc/npmrc
+7 verbose title npm install starwind-ui
+8 verbose argv "install" "--cache" ".npm-local" "starwind-ui"
+9 verbose logfile logs-max:10 dir:/Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_09_226Z-
+10 verbose logfile /Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_09_226Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 verbose shrinkwrap failed to load /Users/lukaslehmann/Developer/lylehmann.com EPERM: operation not permitted, open '/Users/lukaslehmann/Developer/lylehmann.com/node_modules/.package-lock.json'
+14 silly idealTree buildDeps
+15 silly fetch manifest starwind-ui@*
+16 silly packumentCache full:https://registry.npmjs.org/starwind-ui cache-miss
+17 http fetch GET 200 https://registry.npmjs.org/npm 336ms
+18 http fetch GET 404 https://registry.npmjs.org/starwind-ui 764ms (cache skip)
+19 silly placeDep ROOT starwind-ui@ OK for: lylehmann-bespoke@1.0.0 want: *
+20 verbose stack HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/starwind-ui - Not found
+20 verbose stack     at /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/npm-registry-fetch/lib/check-response.js:103:15
+20 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+20 verbose stack     at async RegistryFetcher.packument (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/pacote/lib/registry.js:90:19)
+20 verbose stack     at async RegistryFetcher.manifest (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/pacote/lib/registry.js:128:23)
+20 verbose stack     at async #fetchManifest (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1202:20)
+20 verbose stack     at async #nodeFromEdge (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:1040:19)
+20 verbose stack     at async #buildDepStep (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:904:11)
+20 verbose stack     at async Arborist.buildIdealTree (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:181:7)
+20 verbose stack     at async Promise.all (index 1)
+20 verbose stack     at async Arborist.reify (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:131:5)
+21 verbose statusCode 404
+22 verbose pkgid starwind-ui@*
+23 error code E404
+24 error 404 Not Found - GET https://registry.npmjs.org/starwind-ui - Not found
+25 error 404
+26 error 404  'starwind-ui@*' is not in this registry.
+27 error 404
+28 error 404 Note that you can also install from a
+29 error 404 tarball, folder, http url, or git url.
+30 silly unfinished npm timer reify 1773489909395
+31 silly unfinished npm timer reify:loadTrees 1773489909395
+32 verbose cwd /Users/lukaslehmann/Developer/lylehmann.com
+33 verbose os Darwin 25.3.0
+34 verbose node v22.22.1
+35 verbose npm  v10.9.4
+36 notice
+36 notice New [31mmajor[39m version of npm available! [31m10.9.4[39m -> [34m11.11.1[39m
+36 notice Changelog: [34mhttps://github.com/npm/cli/releases/tag/v11.11.1[39m
+36 notice To update run: [4mnpm install -g npm@11.11.1[24m
+36 notice  { force: true, [Symbol(proc-log.meta)]: true }
+37 verbose exit 1
+38 verbose code 1
+39 error A complete log of this run can be found in: /Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_09_226Z-debug-0.log

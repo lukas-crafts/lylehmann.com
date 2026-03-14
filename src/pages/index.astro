@@ -1,62 +1,41 @@
 ---
-import { getCollection } from 'astro:content';
-import Headline from "../components/ui/Headline.astro";
-import ItemGrid2 from "../components/ui/ItemGrid2.astro";
-import CallToAction from "../components/widgets/CallToAction.astro";
-import Header from "../components/widgets/Header.astro";
-import Hero2 from "../components/widgets/Hero2.astro";
-import Layout from "../layouts/PageLayout.astro";
-
-const allProjects = await getCollection('projects');
-const selectedIds = ["focusbuddy-case-study", "brushbuddy-case-study", "mettacafe-case-study"];
-const projects = allProjects.filter(p => selectedIds.includes(p.id));
-
-const skills = [
-  { icon: "tabler:layout-dashboard", title: "UX & Product", description: "I make websites and apps easy to use." },
-  { icon: "tabler:code", title: "Frontend", description: "I build websites that look good and work fast." },
-  { icon: "tabler:robot", title: "AI & Automation", description: "I add smart features that help you get things done." },
-  { icon: "tabler:accessible", title: "Accessibility", description: "I make sure everyone can use what I build." },
-];
+import Layout from '~/layouts/Layout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Footer from '~/components/widgets/Footer.astro';
+import { MoveRight } from 'lucide-astro';
 ---
 
-<Layout metadata={{ title: 'Home' }}>
-  <Fragment slot="header">
-    <Header
-      links={[{ text: 'Home', href: '/' }, { text: 'Portfolio', href: '/portfolio' }, { text: 'About', href: '/about' }]}
-      isSticky
-      showToggleTheme
-    />
-  </Fragment>
+<Layout 
+  title="Lukas Yair Lehmann | UX Designer & Accessibility Engineer"
+  description="Designing and engineering inclusive digital experiences that empower every user. Specialist in WCAG, Astro, and Tailwind CSS."
+>
+  <Header slot="header" />
 
-  <Hero2
-    title="Designing for Humans. Building for the Web."
-    subtitle="I turn complex challenges into digital products people love to use."
-    actions={[{ variant: 'solid', text: "Let's Work Together", href: 'mailto:lylehmann@gmail.com', icon: 'tabler:mail' }]}
-    image={{ src: '/assets/images/lylehmann.png', alt: 'Lukas Lehmann' }}
-  />
-
-  <section class="mx-auto mt-40 mb-20 px-4 max-w-5xl">
-    <Headline title="What I Do" />
-    <ItemGrid2 items={skills} columns={4} />
-  </section>
-
-  <section class="mx-auto mb-20 px-4 max-w-6xl">
-    <Headline title="Selected Projects" />
-    <div class="gap-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-      {projects.map((project) => (
-        <div class="flex flex-col justify-between bg-[var(--color-bg-subtle)] p-8 border border-[var(--color-border-default)] rounded-2xl
-       transition-all hover:scale-[1.03]">
-          {project.data.cover && <img src={project.data.cover} alt={project.data.title} class="mb-6 rounded-xl w-full h-48 object-cover"
-       />}
-          <div>
-            <h3 class="mb-2 font-bold text-white text-xl">{project.data.title}</h3>
-            <p class="mb-4 text-sm">{project.data.description ?? project.data.excerpt}</p>
-          </div>
-          <a href={`/portfolio/${project.id}`} class="font-semibold text-primary hover:underline">View Case Study</a>
+  <section class="min-h-screen flex items-center justify-center p-6 pt-32">
+    <main class="max-w-3xl w-full space-y-12">
+      <header class="space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400 animate-pulse">
+          Bespoke Astro 6 + Tailwind 4
         </div>
-      ))}
-    </div>
+        <h1 class="text-6xl font-black tracking-tight sm:text-8xl bg-gradient-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-[1.1]">
+          Digital Inclusivity <br /> <span class="text-emerald-500">by Design.</span>
+        </h1>
+        <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">
+          Building the future of accessible UX. Currently migrating to a high-performance, bespoke architecture focused on radical user empowerment.
+        </p>
+      </header>
+      
+      <div class="flex flex-wrap gap-5">
+        <a href="mailto:lylehmann@gmail.com" class="group flex items-center gap-3 px-8 py-4 rounded-2xl bg-zinc-50 text-zinc-950 font-bold transition-all hover:bg-white hover:ring-8 hover:ring-zinc-50/5 active:scale-95">
+          Get in touch
+          <MoveRight class="w-5 h-5 transition-transform group-hover:translate-x-1" />
+        </a>
+        <a href="/portfolio" class="px-8 py-4 rounded-2xl border border-zinc-800 bg-zinc-900/50 font-bold text-zinc-300 hover:bg-zinc-800 transition-all active:scale-95">
+          View Portfolio
+        </a>
+      </div>
+    </main>
   </section>
 
-  <CallToAction title="Ready to ship?" subtitle="Let's talk." />
+  <Footer slot="footer" />
 </Layout>

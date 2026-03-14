@@ -1,0 +1,241 @@
+0 verbose cli /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/bin/node /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@10.9.4
+2 info using node@v22.22.1
+3 silly config load:file:/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/lukaslehmann/Developer/lylehmann.com/.npmrc
+5 silly config load:file:/Users/lukaslehmann/.npmrc
+6 silly config load:file:/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/etc/npmrc
+7 verbose title npm exec starwind@latest init --yes
+8 verbose argv "exec" "--" "starwind@latest" "init" "--yes"
+9 verbose logfile logs-max:10 dir:/Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_14_626Z-
+10 verbose logfile /Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_14_626Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+13 verbose shrinkwrap failed to load /Users/lukaslehmann/Developer/lylehmann.com EPERM: operation not permitted, open '/Users/lukaslehmann/Developer/lylehmann.com/node_modules/.package-lock.json'
+14 http fetch GET 200 https://registry.npmjs.org/starwind 313ms (cache miss)
+15 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+16 silly packumentCache heap:4345298944 maxSize:1086324736 maxEntrySize:543162368
+17 silly idealTree buildDeps
+18 silly fetch manifest starwind@1.16.2
+19 silly packumentCache full:https://registry.npmjs.org/starwind cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/starwind 847ms (cache miss)
+21 silly packumentCache full:https://registry.npmjs.org/starwind set size:undefined disposed:false
+22 silly placeDep ROOT starwind@1.16.2 OK for:  want: 1.16.2
+23 silly fetch manifest @clack/prompts@^0.11.0
+24 silly packumentCache full:https://registry.npmjs.org/@clack%2fprompts cache-miss
+25 silly fetch manifest @starwind-ui/core@1.16.2
+26 silly packumentCache full:https://registry.npmjs.org/@starwind-ui%2fcore cache-miss
+27 silly fetch manifest chalk@^5.6.2
+28 silly packumentCache full:https://registry.npmjs.org/chalk cache-miss
+29 silly fetch manifest commander@^14.0.2
+30 silly packumentCache full:https://registry.npmjs.org/commander cache-miss
+31 silly fetch manifest execa@^9.6.0
+32 silly packumentCache full:https://registry.npmjs.org/execa cache-miss
+33 silly fetch manifest fs-extra@^11.3.2
+34 silly packumentCache full:https://registry.npmjs.org/fs-extra cache-miss
+35 silly fetch manifest semver@^7.7.3
+36 silly packumentCache full:https://registry.npmjs.org/semver cache-miss
+37 silly fetch manifest zod@^3.25.74
+38 silly packumentCache full:https://registry.npmjs.org/zod cache-miss
+39 http fetch GET 200 https://registry.npmjs.org/@clack%2fprompts 78ms (cache miss)
+40 silly packumentCache full:https://registry.npmjs.org/@clack%2fprompts set size:undefined disposed:false
+41 http fetch GET 200 https://registry.npmjs.org/chalk 100ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/chalk set size:undefined disposed:false
+43 http fetch GET 200 https://registry.npmjs.org/fs-extra 109ms (cache miss)
+44 silly packumentCache full:https://registry.npmjs.org/fs-extra set size:undefined disposed:false
+45 http fetch GET 200 https://registry.npmjs.org/semver 110ms (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/semver set size:undefined disposed:false
+47 http fetch GET 200 https://registry.npmjs.org/commander 119ms (cache miss)
+48 silly packumentCache full:https://registry.npmjs.org/commander set size:undefined disposed:false
+49 http fetch GET 200 https://registry.npmjs.org/execa 128ms (cache miss)
+50 silly packumentCache full:https://registry.npmjs.org/execa set size:undefined disposed:false
+51 http fetch GET 200 https://registry.npmjs.org/zod 164ms (cache miss)
+52 silly packumentCache full:https://registry.npmjs.org/zod set size:undefined disposed:false
+53 http fetch GET 200 https://registry.npmjs.org/@starwind-ui%2fcore 1006ms (cache miss)
+54 silly packumentCache full:https://registry.npmjs.org/@starwind-ui%2fcore set size:undefined disposed:false
+55 silly placeDep ROOT @clack/prompts@0.11.0 OK for: starwind@1.16.2 want: ^0.11.0
+56 silly placeDep ROOT @starwind-ui/core@1.16.2 OK for: starwind@1.16.2 want: 1.16.2
+57 silly placeDep ROOT chalk@5.6.2 OK for: starwind@1.16.2 want: ^5.6.2
+58 silly placeDep ROOT commander@14.0.3 OK for: starwind@1.16.2 want: ^14.0.2
+59 silly placeDep ROOT execa@9.6.1 OK for: starwind@1.16.2 want: ^9.6.0
+60 silly placeDep ROOT fs-extra@11.3.4 OK for: starwind@1.16.2 want: ^11.3.2
+61 silly placeDep ROOT semver@7.7.4 OK for: starwind@1.16.2 want: ^7.7.3
+62 silly placeDep ROOT zod@3.25.76 OK for: starwind@1.16.2 want: ^3.25.74
+63 silly fetch manifest picocolors@^1.0.0
+64 silly packumentCache full:https://registry.npmjs.org/picocolors cache-miss
+65 silly fetch manifest sisteransi@^1.0.5
+66 silly packumentCache full:https://registry.npmjs.org/sisteransi cache-miss
+67 silly fetch manifest @clack/core@0.5.0
+68 silly packumentCache full:https://registry.npmjs.org/@clack%2fcore cache-miss
+69 silly fetch manifest @sindresorhus/merge-streams@^4.0.0
+70 silly packumentCache full:https://registry.npmjs.org/@sindresorhus%2fmerge-streams cache-miss
+71 silly fetch manifest cross-spawn@^7.0.6
+72 silly packumentCache full:https://registry.npmjs.org/cross-spawn cache-miss
+73 silly fetch manifest figures@^6.1.0
+74 silly packumentCache full:https://registry.npmjs.org/figures cache-miss
+75 silly fetch manifest get-stream@^9.0.0
+76 silly packumentCache full:https://registry.npmjs.org/get-stream cache-miss
+77 silly fetch manifest human-signals@^8.0.1
+78 silly packumentCache full:https://registry.npmjs.org/human-signals cache-miss
+79 silly fetch manifest is-plain-obj@^4.1.0
+80 silly packumentCache full:https://registry.npmjs.org/is-plain-obj cache-miss
+81 http fetch GET 200 https://registry.npmjs.org/sisteransi 34ms (cache miss)
+82 silly packumentCache full:https://registry.npmjs.org/sisteransi set size:undefined disposed:false
+83 silly fetch manifest is-stream@^4.0.1
+84 silly packumentCache full:https://registry.npmjs.org/is-stream cache-miss
+85 http fetch GET 200 https://registry.npmjs.org/get-stream 42ms (cache miss)
+86 silly packumentCache full:https://registry.npmjs.org/get-stream set size:undefined disposed:false
+87 silly fetch manifest npm-run-path@^6.0.0
+88 silly packumentCache full:https://registry.npmjs.org/npm-run-path cache-miss
+89 http fetch GET 200 https://registry.npmjs.org/picocolors 44ms (cache miss)
+90 silly packumentCache full:https://registry.npmjs.org/picocolors set size:undefined disposed:false
+91 silly fetch manifest pretty-ms@^9.2.0
+92 silly packumentCache full:https://registry.npmjs.org/pretty-ms cache-miss
+93 http fetch GET 200 https://registry.npmjs.org/figures 45ms (cache miss)
+94 silly packumentCache full:https://registry.npmjs.org/figures set size:undefined disposed:false
+95 silly fetch manifest signal-exit@^4.1.0
+96 silly packumentCache full:https://registry.npmjs.org/signal-exit cache-miss
+97 http fetch GET 200 https://registry.npmjs.org/human-signals 46ms (cache miss)
+98 silly packumentCache full:https://registry.npmjs.org/human-signals set size:undefined disposed:false
+99 silly fetch manifest strip-final-newline@^4.0.0
+100 silly packumentCache full:https://registry.npmjs.org/strip-final-newline cache-miss
+101 http fetch GET 200 https://registry.npmjs.org/@sindresorhus%2fmerge-streams 48ms (cache miss)
+102 silly packumentCache full:https://registry.npmjs.org/@sindresorhus%2fmerge-streams set size:undefined disposed:false
+103 silly fetch manifest yoctocolors@^2.1.1
+104 silly packumentCache full:https://registry.npmjs.org/yoctocolors cache-miss
+105 http fetch GET 200 https://registry.npmjs.org/cross-spawn 49ms (cache miss)
+106 silly packumentCache full:https://registry.npmjs.org/cross-spawn set size:undefined disposed:false
+107 silly fetch manifest graceful-fs@^4.2.0
+108 silly packumentCache full:https://registry.npmjs.org/graceful-fs cache-miss
+109 http fetch GET 200 https://registry.npmjs.org/is-stream 39ms (cache miss)
+110 silly packumentCache full:https://registry.npmjs.org/is-stream set size:undefined disposed:false
+111 silly fetch manifest jsonfile@^6.0.1
+112 silly packumentCache full:https://registry.npmjs.org/jsonfile cache-miss
+113 http fetch GET 200 https://registry.npmjs.org/npm-run-path 33ms (cache miss)
+114 silly packumentCache full:https://registry.npmjs.org/npm-run-path set size:undefined disposed:false
+115 silly fetch manifest universalify@^2.0.0
+116 silly packumentCache full:https://registry.npmjs.org/universalify cache-miss
+117 http fetch GET 200 https://registry.npmjs.org/@clack%2fcore 80ms (cache miss)
+118 silly packumentCache full:https://registry.npmjs.org/@clack%2fcore set size:undefined disposed:false
+119 http fetch GET 200 https://registry.npmjs.org/signal-exit 37ms (cache miss)
+120 silly packumentCache full:https://registry.npmjs.org/signal-exit set size:undefined disposed:false
+121 http fetch GET 200 https://registry.npmjs.org/yoctocolors 35ms (cache miss)
+122 silly packumentCache full:https://registry.npmjs.org/yoctocolors set size:undefined disposed:false
+123 http fetch GET 200 https://registry.npmjs.org/graceful-fs 38ms (cache miss)
+124 silly packumentCache full:https://registry.npmjs.org/graceful-fs set size:undefined disposed:false
+125 http fetch GET 200 https://registry.npmjs.org/pretty-ms 45ms (cache miss)
+126 silly packumentCache full:https://registry.npmjs.org/pretty-ms set size:undefined disposed:false
+127 http fetch GET 200 https://registry.npmjs.org/jsonfile 37ms (cache miss)
+128 silly packumentCache full:https://registry.npmjs.org/jsonfile set size:undefined disposed:false
+129 http fetch GET 200 https://registry.npmjs.org/universalify 45ms (cache miss)
+130 silly packumentCache full:https://registry.npmjs.org/universalify set size:undefined disposed:false
+131 http fetch GET 200 https://registry.npmjs.org/is-plain-obj 239ms (cache miss)
+132 silly packumentCache full:https://registry.npmjs.org/is-plain-obj set size:undefined disposed:false
+133 http fetch GET 200 https://registry.npmjs.org/strip-final-newline 483ms (cache miss)
+134 silly packumentCache full:https://registry.npmjs.org/strip-final-newline set size:undefined disposed:false
+135 silly placeDep ROOT @clack/core@0.5.0 OK for: @clack/prompts@0.11.0 want: 0.5.0
+136 silly placeDep ROOT picocolors@1.1.1 OK for: @clack/prompts@0.11.0 want: ^1.0.0
+137 silly placeDep ROOT sisteransi@1.0.5 OK for: @clack/prompts@0.11.0 want: ^1.0.5
+138 silly placeDep ROOT @sindresorhus/merge-streams@4.0.0 OK for: execa@9.6.1 want: ^4.0.0
+139 silly placeDep ROOT cross-spawn@7.0.6 OK for: execa@9.6.1 want: ^7.0.6
+140 silly placeDep ROOT figures@6.1.0 OK for: execa@9.6.1 want: ^6.1.0
+141 silly placeDep ROOT get-stream@9.0.1 OK for: execa@9.6.1 want: ^9.0.0
+142 silly placeDep ROOT human-signals@8.0.1 OK for: execa@9.6.1 want: ^8.0.1
+143 silly placeDep ROOT is-plain-obj@4.1.0 OK for: execa@9.6.1 want: ^4.1.0
+144 silly placeDep ROOT is-stream@4.0.1 OK for: execa@9.6.1 want: ^4.0.1
+145 silly placeDep ROOT npm-run-path@6.0.0 OK for: execa@9.6.1 want: ^6.0.0
+146 silly placeDep ROOT pretty-ms@9.3.0 OK for: execa@9.6.1 want: ^9.2.0
+147 silly placeDep ROOT signal-exit@4.1.0 OK for: execa@9.6.1 want: ^4.1.0
+148 silly placeDep ROOT strip-final-newline@4.0.0 OK for: execa@9.6.1 want: ^4.0.0
+149 silly placeDep ROOT yoctocolors@2.1.2 OK for: execa@9.6.1 want: ^2.1.1
+150 silly fetch manifest which@^2.0.1
+151 silly packumentCache full:https://registry.npmjs.org/which cache-miss
+152 silly fetch manifest path-key@^3.1.0
+153 silly packumentCache full:https://registry.npmjs.org/path-key cache-miss
+154 silly fetch manifest shebang-command@^2.0.0
+155 silly packumentCache full:https://registry.npmjs.org/shebang-command cache-miss
+156 silly fetch manifest is-unicode-supported@^2.0.0
+157 silly packumentCache full:https://registry.npmjs.org/is-unicode-supported cache-miss
+158 silly fetch manifest @sec-ant/readable-stream@^0.4.1
+159 silly packumentCache full:https://registry.npmjs.org/@sec-ant%2freadable-stream cache-miss
+160 silly fetch manifest path-key@^4.0.0
+161 silly packumentCache full:https://registry.npmjs.org/path-key cache-miss
+162 silly fetch manifest unicorn-magic@^0.3.0
+163 silly packumentCache full:https://registry.npmjs.org/unicorn-magic cache-miss
+164 silly fetch manifest parse-ms@^4.0.0
+165 silly packumentCache full:https://registry.npmjs.org/parse-ms cache-miss
+166 http fetch GET 200 https://registry.npmjs.org/which 35ms (cache miss)
+167 silly packumentCache full:https://registry.npmjs.org/which set size:undefined disposed:false
+168 http fetch GET 200 https://registry.npmjs.org/unicorn-magic 36ms (cache miss)
+169 silly packumentCache full:https://registry.npmjs.org/unicorn-magic set size:undefined disposed:false
+170 http fetch GET 200 https://registry.npmjs.org/parse-ms 41ms (cache miss)
+171 silly packumentCache full:https://registry.npmjs.org/parse-ms set size:undefined disposed:false
+172 http fetch GET 200 https://registry.npmjs.org/path-key 42ms (cache miss)
+173 silly packumentCache full:https://registry.npmjs.org/path-key set size:undefined disposed:false
+174 http fetch GET 200 https://registry.npmjs.org/path-key 43ms (cache miss)
+175 silly packumentCache full:https://registry.npmjs.org/path-key set size:undefined disposed:false
+176 http fetch GET 200 https://registry.npmjs.org/is-unicode-supported 44ms (cache miss)
+177 silly packumentCache full:https://registry.npmjs.org/is-unicode-supported set size:undefined disposed:false
+178 http fetch GET 200 https://registry.npmjs.org/shebang-command 55ms (cache miss)
+179 silly packumentCache full:https://registry.npmjs.org/shebang-command set size:undefined disposed:false
+180 http fetch GET 200 https://registry.npmjs.org/@sec-ant%2freadable-stream 77ms (cache miss)
+181 silly packumentCache full:https://registry.npmjs.org/@sec-ant%2freadable-stream set size:undefined disposed:false
+182 silly placeDep ROOT path-key@3.1.1 OK for: cross-spawn@7.0.6 want: ^3.1.0
+183 silly placeDep ROOT shebang-command@2.0.0 OK for: cross-spawn@7.0.6 want: ^2.0.0
+184 silly placeDep ROOT which@2.0.2 OK for: cross-spawn@7.0.6 want: ^2.0.1
+185 silly fetch manifest shebang-regex@^3.0.0
+186 silly packumentCache full:https://registry.npmjs.org/shebang-regex cache-miss
+187 silly fetch manifest isexe@^2.0.0
+188 silly packumentCache full:https://registry.npmjs.org/isexe cache-miss
+189 http fetch GET 200 https://registry.npmjs.org/shebang-regex 37ms (cache miss)
+190 silly packumentCache full:https://registry.npmjs.org/shebang-regex set size:undefined disposed:false
+191 http fetch GET 200 https://registry.npmjs.org/isexe 41ms (cache miss)
+192 silly packumentCache full:https://registry.npmjs.org/isexe set size:undefined disposed:false
+193 silly placeDep ROOT is-unicode-supported@2.1.0 OK for: figures@6.1.0 want: ^2.0.0
+194 silly placeDep ROOT graceful-fs@4.2.11 OK for: fs-extra@11.3.4 want: ^4.2.0
+195 silly placeDep ROOT jsonfile@6.2.0 OK for: fs-extra@11.3.4 want: ^6.0.1
+196 silly placeDep ROOT universalify@2.0.1 OK for: fs-extra@11.3.4 want: ^2.0.0
+197 silly placeDep ROOT @sec-ant/readable-stream@0.4.1 OK for: get-stream@9.0.1 want: ^0.4.1
+198 silly placeDep node_modules/npm-run-path path-key@4.0.0 OK for: npm-run-path@6.0.0 want: ^4.0.0
+199 silly placeDep ROOT unicorn-magic@0.3.0 OK for: npm-run-path@6.0.0 want: ^0.3.0
+200 silly placeDep ROOT parse-ms@4.0.0 OK for: pretty-ms@9.3.0 want: ^4.0.0
+201 silly placeDep ROOT shebang-regex@3.0.0 OK for: shebang-command@2.0.0 want: ^3.0.0
+202 silly placeDep ROOT isexe@2.0.0 OK for: which@2.0.2 want: ^2.0.0
+203 silly reify moves {}
+204 verbose Error: EPERM: operation not permitted, mkdir '/Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_npx/47e6aa6e401449b7/node_modules/starwind'
+    at async mkdir (node:internal/fs/promises:855:10)
+    at async /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:624:20
+    at async Promise.allSettled (index 0)
+    at async [reifyPackages] (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:325:11)
+    at async Arborist.reify (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:142:5)
+    at async exec (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:290:7)
+    at async Npm.exec (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/lib/npm.js:207:9)
+    at async module.exports (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/lib/cli/entry.js:74:5)
+205 verbose stack Error: EPERM: operation not permitted, mkdir '/Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_npx/47e6aa6e401449b7/node_modules/starwind'
+205 verbose stack     at async mkdir (node:internal/fs/promises:855:10)
+205 verbose stack     at async /Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:624:20
+205 verbose stack     at async Promise.allSettled (index 0)
+205 verbose stack     at async [reifyPackages] (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:325:11)
+205 verbose stack     at async Arborist.reify (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:142:5)
+205 verbose stack     at async exec (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:290:7)
+205 verbose stack     at async Npm.exec (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/lib/npm.js:207:9)
+205 verbose stack     at async module.exports (/Users/lukaslehmann/.local/share/mise/installs/node/22.22.1/lib/node_modules/npm/lib/cli/entry.js:74:5)
+206 error code EPERM
+207 error syscall mkdir
+208 error path /Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_npx/47e6aa6e401449b7/node_modules/starwind
+209 error errno -1
+210 error
+210 error Your cache folder contains root-owned files, due to a bug in
+210 error previous versions of npm which has since been addressed.
+210 error
+210 error To permanently fix this problem, please run:
+210 error   sudo chown -R 501:20 "/Users/lukaslehmann/Developer/lylehmann.com/.npm-local"
+211 silly unfinished npm timer reify 1773489932102
+212 silly unfinished npm timer reify:createSparse 1773489934630
+213 verbose cwd /Users/lukaslehmann/Developer/lylehmann.com
+214 verbose os Darwin 25.3.0
+215 verbose node v22.22.1
+216 verbose npm  v10.9.4
+217 verbose exit -1
+218 verbose code -1
+219 error A complete log of this run can be found in: /Users/lukaslehmann/Developer/lylehmann.com/.npm-local/_logs/2026-03-14T12_05_14_626Z-debug-0.log

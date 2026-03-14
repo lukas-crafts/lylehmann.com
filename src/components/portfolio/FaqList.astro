@@ -1,0 +1,27 @@
+---
+interface Item {
+  title: string;
+  description: string;
+}
+interface Props {
+  items: Item[];
+}
+const { items } = Astro.props as Props;
+---
+<div class="space-y-4 my-12">
+  {items.map((faq) => (
+    <details class="group rounded-2xl border border-zinc-800 bg-zinc-900/30 overflow-hidden">
+      <summary class="flex items-center justify-between gap-4 p-6 cursor-pointer list-none hover:text-white transition-colors">
+        <span class="font-bold text-zinc-200 text-base">
+          {faq.title}
+        </span>
+        <span class="w-5 h-5 rounded-full border border-zinc-700 flex items-center justify-center shrink-0 text-zinc-500 group-open:rotate-45 transition-transform text-lg leading-none">
+          +
+        </span>
+      </summary>
+      <div class="px-6 pb-6 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800 pt-4">
+        {faq.description}
+      </div>
+    </details>
+  ))}
+</div>
