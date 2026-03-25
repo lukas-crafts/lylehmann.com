@@ -1,6 +1,7 @@
 import json
 import os
 from datetime import datetime
+import html
 
 # Path to the JSON file
 JSON_PATH = "/Users/lukaslehmann/Downloads/GoodLinks-Export-2026-03-16-10-59.json"
@@ -13,7 +14,10 @@ def load_data(path):
 def format_date(timestamp):
     if not timestamp:
         return ""
-    return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
+    try:
+        return datetime.fromtimestamp(timestamp).strftime("%Y-%m-%d")
+    except:
+        return ""
 
 def generate_html(data):
     # Sort by addedAt descending
@@ -33,44 +37,47 @@ def generate_html(data):
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bookmarks Index</title>
-    <!-- Tailwind CSS Play CDN (Optimized for development/standalone) -->
+    <!-- Tailwind CSS Play CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
+        tailwind.config = {{
             darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            primary: '#10b981', // Emerald
-                            dark: '#09090b', // Zinc 950
-                        }
-                    }
-                }
-            }
-        }
+            theme: {{
+                extend: {{
+                    colors: {{
+                        brand: {{
+                            primary: '#10b981',
+                            dark: '#09090b',
+                        }}
+                    }}
+                }}
+            }}
+        }}
     </script>
     <style type="text/tailwindcss">
-        @layer base {
-            body {
+        @layer base {{
+            body {{
                 @apply bg-brand-dark text-zinc-100 antialiased;
-            }
-        }
-        .glass {
+            }}
+        }}
+        .glass {{
             @apply bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 shadow-xl;
-        }
-        .bookmark-card {
+        }}
+        .bookmark-card {{
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .bookmark-card:hover {
+        }}
+        .bookmark-card:hover {{
             @apply transform -translate-y-1 shadow-2xl border-emerald-500/30;
-        }
+        }}
+        .scrollbar-hide::-webkit-scrollbar {{
+            display: none;
+        }}
     </style>
 </head>
 <body class="min-h-screen p-4 md:p-8">
     <div class="max-w-6xl mx-auto">
         <!-- Header -->
-        <header class="mb-12 text-center animate-fade-in">
+        <header class="mb-12 text-center">
             <h1 class="text-4xl md:text-6xl font-black mb-4 bg-gradient-to-r from-emerald-400 to-blue-500 bg-clip-text text-transparent">
                 My Bookmarks
             </h1>
@@ -80,7 +87,7 @@ def generate_html(data):
         </header>
 
         <!-- Search and Filter Bar -->
-        <div class="sticky top-4 z-50 mb-8">
+        <div class="sticky top-4 z-50 mb-8 px-2">
             <div class="glass p-4 rounded-2xl flex flex-col md:flex-row gap-4 items-center">
                 <div class="relative w-full">
                     <input type="text" id="searchInput" placeholder="Search keywords, titles, or tags..." 
@@ -90,15 +97,13 @@ def generate_html(data):
                     </svg>
                 </div>
                 <div class="flex gap-2 w-full md:w-auto overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
-                    <button onclick="filterByTag('all')" class="px-4 py-2 rounded-lg bg-emerald-500 text-white font-medium whitespace-nowrap active-tag-btn">All</button>
-                    <!-- Tags will be dynamically handled or pre-rendered if small, but with 1400 items, we might want a dropdown or search-based tag filter -->
-                    <select id="tagSelect" class="bg-zinc-800 border border-zinc-700 p-2 rounded-lg focus:outline-none">
-                        <option value="all">Filter by Tag</option>
+                    <select id="tagSelect" class="bg-zinc-800 border border-zinc-700 p-2.5 rounded-xl focus:outline-none min-w-[150px]">
+                        <option value="all">All Categories</option>
                         {tag_options}
                     </select>
                 </div>
             </div>
-            <div id="stats" class="text-xs text-zinc-500 mt-2 px-4 flex justify-between">
+            <div id="stats" class="text-[10px] font-mono text-zinc-500 mt-2 px-2 flex justify-between uppercase tracking-wider">
                 <span id="resultCount">Showing {count} items</span>
                 <span>Sorted by Most Recent</span>
             </div>
@@ -118,47 +123,47 @@ def generate_html(data):
         const cards = Array.from(grid.getElementsByClassName('bookmark-item'));
         const resultCount = document.getElementById('resultCount');
 
-        function filter() {
-            const query = searchInput.value.toLowerCase();
+        function filter() {{
+            const query = searchInput.value.toLowerCase().trim();
             const tag = tagSelect.value;
             let visibleCount = 0;
 
-            cards.forEach(card => {
-                const title = card.dataset.title.toLowerCase();
-                const summary = card.dataset.summary.toLowerCase();
-                const tags = card.dataset.tags.toLowerCase();
-                const matchesSearch = title.includes(query) || summary.includes(query) || tags.includes(query);
+            cards.forEach(card => {{
+                const title = card.getAttribute('data-title').toLowerCase();
+                const summary = card.getAttribute('data-summary').toLowerCase();
+                const tags = card.getAttribute('data-tags').toLowerCase();
+                const matchesSearch = !query || title.includes(query) || summary.includes(query) || tags.includes(query);
                 const matchesTag = tag === 'all' || tags.includes(tag.toLowerCase());
 
-                if (matchesSearch && matchesTag) {
-                    card.style.display = 'block';
+                if (matchesSearch && matchesTag) {{
+                    card.style.display = 'flex';
                     visibleCount++;
-                } else {
+                }} else {{
                     card.style.display = 'none';
-                }
-            });
-            resultCount.textContent = `Showing ${visibleCount} items`;
-        }
+                }}
+            }});
+            resultCount.textContent = `Showing ${{visibleCount}} items`;
+        }}
 
         searchInput.addEventListener('input', filter);
         tagSelect.addEventListener('change', filter);
 
         // Initial animation
-        cards.forEach((card, i) => {
+        cards.forEach((card, i) => {{
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-                card.style.transition = 'all 0.4s ease';
+            setTimeout(() => {{
+                card.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
                 card.style.opacity = '1';
                 card.style.transform = 'translateY(0)';
-            }, i < 50 ? i * 20 : 0); // Only animate first 50 for performance
-        });
-    script>
+            }}, i < 30 ? i * 30 : 0);
+        }});
+    </script>
 </body>
 </html>
 """
 
-    tag_options = "".join([f'<option value="{tag}">{tag}</option>' for tag in sorted_tags])
+    tag_options = "".join([f'<option value="{html.escape(tag)}">{html.escape(tag)}</option>' for tag in sorted_tags])
 
     bookmark_items = []
     for item in data:
@@ -169,32 +174,38 @@ def generate_html(data):
         added_at = format_date(item.get("addedAt"))
         tags_str = ", ".join(tags)
         
-        tag_badges = "".join([f'<span class="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 text-[10px] border border-zinc-700">{tag}</span>' for tag in tags])
+        # Prepare escaped values for HTML attributes
+        safe_title = html.escape(title)
+        safe_summary = html.escape(summary)
+        safe_tags = html.escape(tags_str)
+        safe_url = html.escape(url)
+
+        tag_badges = "".join([f'<span class="px-2 py-0.5 rounded-full bg-zinc-800 text-zinc-400 text-[10px] border border-zinc-700 whitespace-nowrap">{html.escape(tag)}</span>' for tag in tags])
 
         item_html = f"""
-        <div class="bookmark-item bookmark-card glass p-5 rounded-2xl flex flex-col justify-between" 
-             data-title="{title.replace('"', '&quot;')}" 
-             data-summary="{summary.replace('"', '&quot;')}" 
-             data-tags="{tags_str.replace('"', '&quot;')}">
+        <div class="bookmark-item bookmark-card glass p-6 rounded-2xl flex flex-col justify-between" 
+             data-title="{safe_title}" 
+             data-summary="{safe_summary}" 
+             data-tags="{safe_tags}">
             <div>
-                <div class="flex justify-between items-start mb-3">
+                <div class="flex justify-between items-start mb-4">
                     <span class="text-zinc-500 text-[10px] font-mono">{added_at}</span>
-                    <div class="flex flex-wrap gap-1 justify-end">
+                    <div class="flex flex-wrap gap-1.5 justify-end ml-4">
                         {tag_badges}
                     </div>
                 </div>
-                <h3 class="text-xl font-bold mb-2 group">
-                    <a href="{url}" target="_blank" class="hover:text-emerald-400 transition-colors line-clamp-2">
-                        {title}
+                <h3 class="text-xl font-bold mb-3 leading-tight">
+                    <a href="{safe_url}" target="_blank" class="hover:text-emerald-400 transition-colors line-clamp-2">
+                        {safe_title}
                     </a>
                 </h3>
-                <p class="text-zinc-400 text-sm line-clamp-3 mb-4 leading-relaxed">
-                    {summary}
+                <p class="text-zinc-400 text-sm line-clamp-3 mb-6 leading-relaxed">
+                    {safe_summary}
                 </p>
             </div>
-            <div class="flex items-center justify-between border-t border-zinc-800/50 pt-4 mt-2">
-                <span class="text-xs text-zinc-600 truncate max-w-[150px]">{url}</span>
-                <a href="{url}" target="_blank" class="p-2 rounded-lg bg-zinc-800 hover:bg-emerald-500/20 text-emerald-400 transition-all">
+            <div class="flex items-center justify-between border-t border-zinc-800/50 pt-5 mt-auto">
+                <span class="text-xs text-zinc-600 truncate max-w-[180px] font-mono">{safe_url}</span>
+                <a href="{safe_url}" target="_blank" class="p-2.5 rounded-xl bg-zinc-800 hover:bg-emerald-500/20 text-emerald-400 transition-all border border-zinc-700 hover:border-emerald-500/50">
                     <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 012-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
@@ -220,4 +231,6 @@ if __name__ == "__main__":
         data = load_data(JSON_PATH)
         generate_html(data)
     except Exception as e:
+        import traceback
+        traceback.print_exc()
         print(f"Error: {e}")

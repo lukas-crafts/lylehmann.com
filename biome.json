@@ -35,7 +35,8 @@
         ".goose/**",
         "dist/**",
         ".cache/**",
-        "WARP.md"
+        "WARP.md",
+        "bookmarks.html"
       ],
       "linter": { "enabled": false },
       "formatter": { "enabled": false }

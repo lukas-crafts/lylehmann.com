@@ -39,5 +39,13 @@ words:
   - WBSCS
   - wireframing
   - Yair
+  - vfile
+  - onwarn
+  - Frontmatter
+  - linecap
+  - linejoin
+  - bezier
+  - junie
+  - gemini
 ignoreWords: []
 import: []
