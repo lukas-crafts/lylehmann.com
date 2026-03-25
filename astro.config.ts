@@ -2,6 +2,12 @@ import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
+import {
+  transformerNotationDiff,
+  transformerNotationErrorLevel,
+  transformerNotationFocus,
+  transformerNotationHighlight,
+} from "@shikijs/transformers";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import { remarkReadingTime } from "./src/utils/remark-reading-time";
@@ -43,6 +49,18 @@ export default defineConfig({
     mdx({ remarkPlugins: [remarkReadingTime] }),
     preact({ compat: true }),
   ],
+
+  markdown: {
+    shikiConfig: {
+      theme: "one-dark-pro",
+      transformers: [
+        transformerNotationDiff(),
+        transformerNotationErrorLevel(),
+        transformerNotationFocus(),
+        transformerNotationHighlight(),
+      ],
+    },
+  },
 
   vite: {
     plugins: [tailwind()],
