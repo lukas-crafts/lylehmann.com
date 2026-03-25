@@ -12,6 +12,7 @@
     "preview": "astro preview",
     "check": "astro check && biome check && vitest run",
     "fix": "biome check --write",
+    "test": "vitest run",
     "gitagent": "gitagent info -d .agent"
   },
   "dependencies": {
