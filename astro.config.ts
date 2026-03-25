@@ -10,8 +10,10 @@ export default defineConfig({
   srcDir: "./src",
   publicDir: "./public",
   outDir: "./dist",
-  output: "static",
-  adapter: vercel(),
+  output: "server",
+  adapter: vercel({
+    staticHeaders: true,
+  }),
   prefetch: true,
   experimental: {
     contentIntellisense: true,
