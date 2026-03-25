@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.014078791">
-    <testsuite name="src/utils/date.test.ts" timestamp="2026-03-25T15:04:38.909Z" hostname="MacBook-Pro-von-Lukas-2.local" tests="3" failures="0" errors="0" skipped="0" time="0.014078791">
-        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; formats a Date object correctly" time="0.013091417">
+<testsuites name="vitest tests" tests="3" failures="0" errors="0" time="0.0141555">
+    <testsuite name="src/utils/date.test.ts" timestamp="2026-03-25T15:41:00.481Z" hostname="MacBook-Pro-von-Lukas-2.local" tests="3" failures="0" errors="0" skipped="0" time="0.0141555">
+        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; formats a Date object correctly" time="0.01305225">
         </testcase>
-        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; formats a date string correctly" time="0.000157">
+        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; formats a date string correctly" time="0.000187208">
         </testcase>
-        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; handles valid ISO strings" time="0.000127167">
+        <testcase classname="src/utils/date.test.ts" name="formatDate &gt; handles valid ISO strings" time="0.000138792">
         </testcase>
     </testsuite>
 </testsuites>

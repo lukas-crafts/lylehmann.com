@@ -1,0 +1,27 @@
+---
+// This is a Server Island!
+// It will render separately from the main page content.
+// server:prerender = false is implicitly true for things inside server:defer,
+// but we can also use dynamic data fetching here.
+
+// Simulate a "dynamic" fetch (e.g. latest status or random greeting)
+const greetings = [
+  "Ready for the next challenge.",
+  "Designing for the future.",
+  "Making the web accessible.",
+  "Available for new opportunities.",
+  "Building inclusive experiences.",
+];
+const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+
+// Simulate slow fetch
+await new Promise((resolve) => setTimeout(resolve, 800));
+---
+
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-bold animate-in fade-in zoom-in duration-500">
+    <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+    </span>
+    {greeting}
+</div>

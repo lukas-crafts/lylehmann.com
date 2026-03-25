@@ -1,7 +1,9 @@
 ---
 import { MoveRight } from "lucide-astro";
 import Footer from "~/components/widgets/Footer.astro";
+import GitHubStatus from "~/components/widgets/GitHubStatus.astro";
 import Header from "~/components/widgets/Header.astro";
+import LatestUpdate from "~/components/widgets/LatestUpdate.astro";
 import Layout from "~/layouts/Layout.astro";
 ---
 
@@ -14,10 +16,28 @@ import Layout from "~/layouts/Layout.astro";
   <section class="min-h-screen flex items-center justify-center p-6 pt-32">
     <main class="max-w-3xl w-full space-y-12">
       <header class="space-y-6">
-        <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400 animate-pulse">
-          Bespoke Astro 6 + Tailwind 4
+        <div class="flex flex-wrap items-center gap-4">
+          <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400 animate-pulse">
+            Bespoke Astro 6 + Tailwind 4
+          </div>
+          <LatestUpdate server:defer>
+            <div slot="fallback" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-500 text-xs font-bold">
+              <div class="w-2 h-2 rounded-full bg-zinc-800 animate-pulse"></div>
+              Loading status...
+            </div>
+          </LatestUpdate>
         </div>
-        <h1 class="text-6xl font-black tracking-tight sm:text-8xl bg-gradient-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-[1.1]">
+        
+        <div class="max-w-md">
+          <GitHubStatus server:defer>
+            <div slot="fallback" class="p-4 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 animate-pulse flex items-center gap-3">
+              <div class="w-8 h-8 rounded-lg bg-zinc-800"></div>
+              <div class="h-4 w-32 bg-zinc-800 rounded"></div>
+            </div>
+          </GitHubStatus>
+        </div>
+
+        <h1 class="text-6xl font-black tracking-tight sm:text-8xl bg-linear-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-[1.1]">
           Digital Inclusivity <br /> <span class="text-emerald-500">by Design.</span>
         </h1>
         <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">

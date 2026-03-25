@@ -1,5 +1,6 @@
 ---
 import { Menu, X } from "lucide-astro";
+import Search from "./Search";
 
 const links = [
   { text: "Portfolio", href: "/portfolio" },
@@ -20,6 +21,7 @@ const links = [
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-8">
+            <Search client:load />
             {links.map(link => (
                 <a href={link.href} class="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative group">
                     {link.text}
@@ -32,7 +34,13 @@ const links = [
         </nav>
 
         <!-- Mobile Toggle -->
-        <button class="md:hidden p-2 text-zinc-400 hover:text-white" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <button 
+            class="md:hidden p-2 text-zinc-400 hover:text-white" 
+            id="mobile-menu-toggle" 
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+        >
             <Menu class="w-6 h-6" id="menu-icon" />
             <X class="w-6 h-6 hidden" id="close-icon" />
         </button>
@@ -78,5 +86,8 @@ const links = [
         menuIcon?.classList.toggle('hidden');
         closeIcon?.classList.toggle('hidden');
         document.body.style.overflow = isOpen ? 'auto' : 'hidden';
+        
+        // Update ARIA
+        toggle.setAttribute('aria-expanded', String(!isOpen));
     });
 </script>

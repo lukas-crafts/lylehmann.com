@@ -1,0 +1,5 @@
+bookmarks.html
+dist/
+node_modules/
+.astro/
+junit.xml

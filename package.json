@@ -17,13 +17,17 @@
   },
   "dependencies": {
     "@astrojs/mdx": "latest",
+    "@astrojs/preact": "^5.0.2",
     "@astrojs/rss": "latest",
     "@astrojs/sitemap": "latest",
+    "@astrojs/vercel": "^10.0.2",
     "@tailwindcss/vite": "latest",
     "astro": "latest",
     "js-yaml": "^4.1.1",
     "lodash.merge": "^4.6.2",
     "lucide-astro": "latest",
+    "lucide-preact": "^1.6.0",
+    "preact": "^10.29.0",
     "tailwindcss": "latest"
   },
   "devDependencies": {

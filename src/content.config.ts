@@ -1,107 +1,115 @@
-import { defineCollection } from "astro:content";
+import { defineCollection, type SchemaContext } from "astro:content";
 import { glob } from "astro/loaders";
-import { z } from "zod";
+import { z } from "astro/zod";
 
-// Reusable schemas for case study sections
-const statSchema = z.object({
-  title: z.string().min(1).describe("The main title of the statistic"),
-  subtitle: z
-    .string()
-    .optional()
-    .describe("A secondary description or unit for the statistic"),
-});
-
-const itemSchema = z.object({
-  title: z.string().min(1).describe("The title of the item"),
-  description: z.string().min(1).describe("A detailed description of the item"),
-  icon: z
-    .string()
-    .optional()
-    .describe("The name of the Lucide icon to display"),
-});
-
-const metadataSchema = z
-  .object({
-    title: z
-      .string()
-      .max(60)
-      .optional()
-      .describe("The SEO title for the page (optimal: 50-60 characters)"),
-    ignoreTitleTemplate: z
-      .boolean()
-      .optional()
-      .describe("If true, the global title template will be ignored"),
-    canonical: z
+// Reusable schema factories
+const createStatSchema = () =>
+  z.object({
+    title: z.string().min(1).describe("The main title of the statistic"),
+    subtitle: z
       .string()
       .optional()
-      .describe("The canonical URL for this page"),
-    robots: z
-      .object({
-        index: z
-          .boolean()
-          .optional()
-          .describe("Whether robots should index this page"),
-        follow: z
-          .boolean()
-          .optional()
-          .describe("Whether robots should follow links on this page"),
-      })
-      .optional()
-      .describe("Robots meta tag configuration"),
+      .describe("A secondary description or unit for the statistic"),
+  });
+
+const createItemSchema = () =>
+  z.object({
+    title: z.string().min(1).describe("The title of the item"),
     description: z
       .string()
-      .max(160)
+      .min(1)
+      .describe("A detailed description of the item"),
+    icon: z
+      .string()
       .optional()
-      .describe("The meta description for SEO (optimal: 120-160 characters)"),
-    openGraph: z
-      .object({
-        url: z.string().optional().describe("The Open Graph URL"),
-        siteName: z
-          .string()
-          .optional()
-          .describe("The name of the site for Open Graph"),
-        images: z
-          .array(
-            z.object({
-              url: z.string().describe("The URL of the Open Graph image"),
-              width: z.number().optional().describe("The width of the image"),
-              height: z.number().optional().describe("The height of the image"),
-            }),
-          )
-          .optional()
-          .describe("Images to be used in Open Graph"),
-        locale: z.string().optional().describe("The locale for Open Graph"),
-        type: z
-          .string()
-          .optional()
-          .describe("The type of content (e.g., website, article)"),
-      })
-      .optional()
-      .describe("Open Graph metadata configuration"),
-    twitter: z
-      .object({
-        handle: z
-          .string()
-          .optional()
-          .describe("Twitter handle of the content creator"),
-        site: z.string().optional().describe("Twitter handle for the site"),
-        cardType: z
-          .string()
-          .optional()
-          .describe("The type of Twitter card to display"),
-      })
-      .optional()
-      .describe("Twitter metadata configuration"),
-  })
-  .optional()
-  .describe("SEO metadata for the portfolio item");
+      .describe("The name of the Lucide icon to display"),
+  });
+
+const createMetadataSchema = () =>
+  z
+    .object({
+      title: z
+        .string()
+        .max(60)
+        .optional()
+        .describe("The SEO title for the page (optimal: 50-60 characters)"),
+      ignoreTitleTemplate: z
+        .boolean()
+        .optional()
+        .describe("If true, the global title template will be ignored"),
+      canonical: z
+        .string()
+        .optional()
+        .describe("The canonical URL for this page"),
+      robots: z
+        .object({
+          index: z
+            .boolean()
+            .optional()
+            .describe("Whether robots should index this page"),
+          follow: z
+            .boolean()
+            .optional()
+            .describe("Whether robots should follow links on this page"),
+        })
+        .optional()
+        .describe("Robots meta tag configuration"),
+      description: z
+        .string()
+        .max(160)
+        .optional()
+        .describe("The meta description for SEO (optimal: 120-160 characters)"),
+      openGraph: z
+        .object({
+          url: z.string().optional().describe("The Open Graph URL"),
+          siteName: z
+            .string()
+            .optional()
+            .describe("The name of the site for Open Graph"),
+          images: z
+            .array(
+              z.object({
+                url: z.string().describe("The URL of the Open Graph image"),
+                width: z.number().optional().describe("The width of the image"),
+                height: z
+                  .number()
+                  .optional()
+                  .describe("The height of the image"),
+              }),
+            )
+            .optional()
+            .describe("Images to be used in Open Graph"),
+          locale: z.string().optional().describe("The locale for Open Graph"),
+          type: z
+            .string()
+            .optional()
+            .describe("The type of content (e.g., website, article)"),
+        })
+        .optional()
+        .describe("Open Graph metadata configuration"),
+      twitter: z
+        .object({
+          handle: z
+            .string()
+            .optional()
+            .describe("Twitter handle of the content creator"),
+          site: z.string().optional().describe("Twitter handle for the site"),
+          cardType: z
+            .string()
+            .optional()
+            .describe("The type of Twitter card to display"),
+        })
+        .optional()
+        .describe("Twitter metadata configuration"),
+    })
+    .optional();
 
 const portfolio = defineCollection({
   loader: glob({
     pattern: "**/[^_]*.{md,mdx}",
     base: "./src/content/portfolio",
   }),
-  schema: ({ image }) =>
+  schema: ({ image }: SchemaContext) =>
     z.object({
       // Core Metadata
       title: z
@@ -178,19 +186,19 @@ const portfolio = defineCollection({
 
       // Structured Case Study Blocks (Frontmatter-driven)
       stats: z
-        .array(statSchema)
+        .array(createStatSchema())
         .optional()
         .describe("Key metrics or data points"),
       features: z
-        .array(itemSchema)
+        .array(createItemSchema())
         .optional()
         .describe("Main features implemented"),
       steps: z
-        .array(itemSchema)
+        .array(createItemSchema())
         .optional()
         .describe("Process steps or project phases"),
       designElements: z
-        .array(itemSchema)
+        .array(createItemSchema())
         .optional()
         .describe("UI/UX design considerations"),
       outcomes: z
@@ -198,7 +206,7 @@ const portfolio = defineCollection({
         .optional()
         .describe("The final results achieved"),
       insights: z
-        .array(itemSchema)
+        .array(createItemSchema())
         .optional()
         .describe("Lessons learned and project insights"),
       faqs: z
@@ -207,7 +215,9 @@ const portfolio = defineCollection({
         .describe("Frequently asked questions about the project"),
 
       // SEO
-      metadata: metadataSchema,
+      metadata: createMetadataSchema().describe(
+        "SEO metadata for the portfolio item",
+      ),
     }),
 });
 

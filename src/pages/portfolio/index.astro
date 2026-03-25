@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import ProjectCard from "~/components/portfolio/ProjectCard.astro";
+import PortfolioFilters from "~/components/portfolio/PortfolioFilters";
 import Footer from "~/components/widgets/Footer.astro";
 import Header from "~/components/widgets/Header.astro";
 import Layout from "~/layouts/Layout.astro";
@@ -34,11 +34,7 @@ projects.sort((a, b) => {
         </p>
       </header>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map(project => (
-          <ProjectCard project={project} />
-        ))}
-      </div>
+      <PortfolioFilters projects={projects} client:load />
     </main>
   </section>
 

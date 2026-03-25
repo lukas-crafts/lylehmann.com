@@ -22,6 +22,7 @@ import {
 } from "~/components/mdx/case-study-blocks";
 import Footer from "~/components/widgets/Footer.astro";
 import Header from "~/components/widgets/Header.astro";
+import TableOfContents from "~/components/widgets/TableOfContents";
 import Layout from "~/layouts/Layout.astro";
 
 export async function getStaticPaths() {
@@ -211,27 +212,7 @@ const components = {
           )}
 
           {headings && headings.length > 0 && (
-            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 overflow-hidden">
-              <div class="px-5 py-4 border-b border-zinc-800">
-                <span class="text-xs font-black uppercase tracking-widest text-zinc-500">Table of Contents</span>
-              </div>
-              <nav class="px-5 py-4">
-                <ul class="space-y-3">
-                  {headings
-                    .filter(h => h.depth <= 3)
-                    .map((heading) => (
-                    <li style={`padding-left: ${(heading.depth - 2) * 12}px`}>
-                      <a
-                        href={`#${heading.slug}`}
-                        class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors block leading-tight font-medium"
-                      >
-                        {heading.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            </div>
+            <TableOfContents headings={headings} client:visible />
           )}
         </aside>
       </div>

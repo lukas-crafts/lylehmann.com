@@ -31,7 +31,7 @@ const social = [
             <div class="inline-block px-4 py-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-xs font-bold tracking-wider uppercase text-emerald-400">
               Connections
             </div>
-            <h1 class="text-6xl font-black tracking-tight sm:text-7xl bg-gradient-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
+            <h1 class="text-6xl font-black tracking-tight sm:text-7xl bg-linear-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
               Let's <span class="text-emerald-500">Talk.</span>
             </h1>
             <p class="text-xl text-zinc-400 leading-relaxed max-w-xl">
@@ -55,7 +55,12 @@ const social = [
         </div>
 
         <div class="flex-1">
-          <form class="p-10 rounded-[2.5rem] border border-zinc-800 bg-zinc-900/30 space-y-8">
+          <form 
+            id="contact-form"
+            class="p-10 rounded-[2.5rem] border border-zinc-800 bg-zinc-900/30 space-y-8"
+          >
+            <div id="form-feedback" class="hidden p-4 rounded-xl text-sm font-bold"></div>
+            
             <div class="space-y-6">
               <div class="space-y-2">
                 <label for="name" class="text-sm font-bold text-zinc-400 ml-1">Your Name</label>
@@ -63,6 +68,7 @@ const social = [
                   type="text" 
                   id="name" 
                   name="name" 
+                  required
                   class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700"
                   placeholder="John Doe"
                 />
@@ -73,6 +79,7 @@ const social = [
                   type="email" 
                   id="email" 
                   name="email" 
+                  required
                   class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700"
                   placeholder="john@example.com"
                 />
@@ -83,12 +90,13 @@ const social = [
                   id="message" 
                   name="message" 
                   rows="5"
+                  required
                   class="w-full px-6 py-4 rounded-2xl bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all placeholder:text-zinc-700 resize-none"
                   placeholder="Tell me about your project..."
                 ></textarea>
               </div>
             </div>
-            <button type="submit" class="w-full py-5 rounded-2xl bg-emerald-500 text-zinc-950 font-black text-lg transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]">
+            <button type="submit" id="submit-btn" class="w-full py-5 rounded-2xl bg-emerald-500 text-zinc-950 font-black text-lg transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] disabled:opacity-50 disabled:cursor-not-allowed">
               Send Message
             </button>
           </form>
@@ -96,6 +104,50 @@ const social = [
       </div>
     </main>
   </section>
+
+  <script>
+    import { actions } from "astro:actions";
+
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const feedback = document.getElementById('form-feedback');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      submitBtn.disabled = true;
+      submitBtn.innerText = "Sending...";
+
+      try {
+        const { data, error } = await actions.contact(formData);
+
+        if (error) {
+          if (feedback) {
+            feedback.innerText = error.message || "An error occurred. Please try again.";
+            feedback.className = "p-4 rounded-xl text-sm font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6";
+            feedback.classList.remove('hidden');
+          }
+        } else if (data?.success) {
+          if (feedback) {
+            feedback.innerText = data.message;
+            feedback.className = "p-4 rounded-xl text-sm font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-6";
+            feedback.classList.remove('hidden');
+          }
+          form.reset();
+        }
+      } catch (err) {
+        if (feedback) {
+          feedback.innerText = "Something went wrong. Please check your connection.";
+          feedback.className = "p-4 rounded-xl text-sm font-bold bg-red-500/10 text-red-400 border border-red-500/20 mb-6";
+          feedback.classList.remove('hidden');
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Send Message";
+      }
+    });
+  </script>
 
   <Footer slot="footer" />
 </Layout>
