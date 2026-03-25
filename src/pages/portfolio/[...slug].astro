@@ -1,30 +1,32 @@
 ---
+import { Picture } from "astro:assets";
 import { getCollection, render } from "astro:content";
-import { Image } from "astro:assets";
-import Layout from "~/layouts/Layout.astro";
-import Header from "~/components/widgets/Header.astro";
-import Footer from "~/components/widgets/Footer.astro";
 import {
   ArrowLeft,
   Clock,
   Tag,
+  Timer,
   User,
   Users,
   Wrench,
-  Timer,
 } from "lucide-astro";
 import {
-  Stats,
-  FeatureList,
-  StepList,
   DesignElementList,
-  OutcomeList,
-  InsightList,
   FaqList,
-} from "~/components/portfolio/case-study-blocks";
+  FeatureList,
+  InsightList,
+  OutcomeList,
+  Stats,
+  StepList,
+} from "~/components/mdx/case-study-blocks";
+import Footer from "~/components/widgets/Footer.astro";
+import Header from "~/components/widgets/Header.astro";
+import Layout from "~/layouts/Layout.astro";
 
 export async function getStaticPaths() {
-  const projects = await getCollection("portfolio");
+  const projects = await getCollection("portfolio", ({ data }) => {
+    return import.meta.env.DEV || !data.draft;
+  });
   return projects.map((project) => ({
     params: { slug: project.id },
     props: { project },
@@ -40,8 +42,9 @@ if (!project) {
 const {
   title,
   description,
-  publishDate,
+  date,
   image,
+  imageAlt,
   tags = [],
   metadata = {},
   role,
@@ -50,15 +53,18 @@ const {
   tools = [],
 } = project.data;
 
-const { Content } = await render(project);
+const { Content, headings, remarkPluginFrontmatter } = await render(project);
+const readingTime = remarkPluginFrontmatter?.readingTime;
 
-const safePublishDate =
-  publishDate instanceof Date ? publishDate : new Date(publishDate);
+const safePublishDate = date instanceof Date ? date : new Date(date);
 
 const projectMeta = [
   role ? { icon: "user", label: "Role", value: role } : null,
   team ? { icon: "users", label: "Team", value: team } : null,
   duration ? { icon: "timer", label: "Duration", value: duration } : null,
+  readingTime
+    ? { icon: "clock", label: "Reading Time", value: readingTime }
+    : null,
   tools.length > 0
     ? { icon: "wrench", label: "Tools", value: tools.join(", ") }
     : null,
@@ -72,7 +78,7 @@ const components = {
   OutcomeList,
   InsightList,
   FaqList,
-  img: Image,
+  img: Picture,
 };
 ---
 
@@ -136,9 +142,10 @@ const components = {
     {image && (
       <div class="max-w-7xl mx-auto px-6 mb-12">
         <div class="rounded-4xl overflow-hidden border border-zinc-800/60 bg-zinc-900/50 aspect-video lg:aspect-21/9 shadow-2xl shadow-black/50">
-          <Image
+          <Picture
             src={image}
-            alt={title}
+            alt={imageAlt || title}
+            formats={["avif", "webp"]}
             width={1920}
             height={1080}
             class="w-full h-full object-cover"
@@ -189,6 +196,7 @@ const components = {
                       {meta.icon === "users" && <Users class="w-4 h-4" />}
                       {meta.icon === "timer" && <Timer class="w-4 h-4" />}
                       {meta.icon === "wrench" && <Wrench class="w-4 h-4" />}
+                      {meta.icon === "clock" && <Clock class="w-4 h-4" />}
                     </div>
                     <div class="min-w-0">
                       <div class="text-[10px] font-black uppercase tracking-widest text-zinc-600 mb-0.5">{meta.label}</div>
@@ -197,6 +205,30 @@ const components = {
                   </div>
                 ))}
               </div>
+            </div>
+          )}
+
+          {headings && headings.length > 0 && (
+            <div class="rounded-2xl border border-zinc-800 bg-zinc-900/40 overflow-hidden">
+              <div class="px-5 py-4 border-b border-zinc-800">
+                <span class="text-xs font-black uppercase tracking-widest text-zinc-500">Table of Contents</span>
+              </div>
+              <nav class="px-5 py-4">
+                <ul class="space-y-3">
+                  {headings
+                    .filter(h => h.depth <= 3)
+                    .map((heading) => (
+                    <li style={`padding-left: ${(heading.depth - 2) * 12}px`}>
+                      <a
+                        href={`#${heading.slug}`}
+                        class="text-sm text-zinc-400 hover:text-emerald-400 transition-colors block leading-tight font-medium"
+                      >
+                        {heading.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
             </div>
           )}
         </aside>

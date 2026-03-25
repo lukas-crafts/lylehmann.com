@@ -22,3 +22,12 @@ pnpm-debug.log*
 pnpm-lock.yaml
 
 .astro
+.vercel
+.junie
+.agent
+.gemini
+.goose
+.antigravity
+.antigravityignore
+WARP.md
+.cache

@@ -3,27 +3,37 @@
 @theme {
   --color-brand-primary: oklch(0.7 0.2 150); /* Emerald accent */
   --color-brand-secondary: oklch(0.6 0.15 250); /* Blue accent */
-  
+
   --color-primary: var(--aw-color-primary);
   --color-secondary: var(--aw-color-secondary);
   --color-accent: var(--aw-color-accent);
   --color-default: var(--aw-color-text-default);
   --color-muted: var(--aw-color-text-muted);
 
-  --font-sans: var(--aw-font-sans, var(--font-inter)), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:
+    var(--aw-font-sans, var(--font-inter)), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--aw-font-serif), ui-serif, Georgia, serif;
-  --font-heading: var(--aw-font-heading, var(--font-outfit)), ui-sans-serif, system-ui, sans-serif;
+  --font-heading:
+    var(--aw-font-heading, var(--font-outfit)), ui-sans-serif, system-ui,
+    sans-serif;
 
   --breakpoint-xs: 480px;
 
   --animate-fade: fadeInUp 1s both;
 
   @keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(2rem); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
-  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 @layer base {
@@ -58,7 +68,7 @@
   .text-gradient {
     @apply bg-linear-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent;
   }
-  
+
   .glass {
     @apply bg-zinc-900/50 backdrop-blur-md border border-zinc-800/50 shadow-xl;
   }

@@ -137,7 +137,7 @@ export const ANALYTICS = ${JSON.stringify(ANALYTICS, null, 2)};
             }
           }
           // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        } catch (error) {
+        } catch (_error) {
           /* empty */
         }
       },

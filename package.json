@@ -7,10 +7,12 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "sync": "astro sync",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check && biome check && vitest run",
-    "fix": "biome check --write"
+    "fix": "biome check --write",
+    "gitagent": "gitagent info -d .agent"
   },
   "dependencies": {
     "@astrojs/mdx": "latest",
@@ -26,8 +28,10 @@
   "devDependencies": {
     "@astrojs/check": "latest",
     "@biomejs/biome": "latest",
+    "@open-gitagent/gitagent": "^0.1.7",
     "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
+    "@types/node": "^25.5.0",
     "jsdom": "latest",
     "patch-package": "^8.0.1",
     "typescript": "latest",

@@ -1,23 +1,24 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-import { Accessibility, User, Code, MoveRight } from 'lucide-astro';
+import { Accessibility, Code, MoveRight, User } from "lucide-astro";
+import Footer from "~/components/widgets/Footer.astro";
+import Header from "~/components/widgets/Header.astro";
+import Layout from "~/layouts/Layout.astro";
 
 const mission = [
   {
-    title: 'Inclusion',
-    description: 'Building products that everyone can use, regardless of their abilities.',
+    title: "Inclusion",
+    description:
+      "Building products that everyone can use, regardless of their abilities.",
     icon: Accessibility,
   },
   {
-    title: 'User-Centered',
-    description: 'Focusing on the human at the other end of the screen.',
+    title: "User-Centered",
+    description: "Focusing on the human at the other end of the screen.",
     icon: User,
   },
   {
-    title: 'Clean Code',
-    description: 'Writing maintainable and performant frontend code.',
+    title: "Clean Code",
+    description: "Writing maintainable and performant frontend code.",
     icon: Code,
   },
 ];

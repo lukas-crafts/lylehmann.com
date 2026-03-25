@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
 import { MoveRight } from "lucide-astro";
 import type { PortfolioEntry } from "../../types/content";
 
@@ -8,7 +8,8 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, description, image, tags, category, excerpt } = project.data;
+const { title, description, image, imageAlt, tags, category, excerpt } =
+  project.data;
 ---
 
 <a
@@ -18,9 +19,10 @@ const { title, description, image, tags, category, excerpt } = project.data;
   {
     image && (
       <div class="relative aspect-video overflow-hidden">
-        <Image
+        <Picture
           src={image}
-          alt={title}
+          alt={imageAlt || title}
+          formats={["avif", "webp"]}
           width={800}
           height={450}
           class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"

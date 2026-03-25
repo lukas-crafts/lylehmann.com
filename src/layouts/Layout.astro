@@ -1,17 +1,53 @@
 ---
 import "~/assets/styles/global.css";
-import { ClientRouter } from 'astro:transitions';
+import { ClientRouter } from "astro:transitions";
+
+interface Metadata {
+  title?: string | undefined;
+  description?: string | undefined;
+  canonical?: string | undefined;
+  robots?:
+    | {
+        index?: boolean | undefined;
+        follow?: boolean | undefined;
+      }
+    | undefined;
+  openGraph?:
+    | {
+        url?: string | undefined;
+        siteName?: string | undefined;
+        images?:
+          | Array<{
+              url: string;
+              width?: number | undefined;
+              height?: number | undefined;
+            }>
+          | undefined;
+        locale?: string | undefined;
+        type?: string | undefined;
+        title?: string | undefined;
+        description?: string | undefined;
+      }
+    | undefined;
+  twitter?:
+    | {
+        handle?: string | undefined;
+        site?: string | undefined;
+        cardType?: string | undefined;
+      }
+    | undefined;
+}
 
 interface Props {
   title?: string;
   description?: string;
-  metadata?: any;
+  metadata?: Metadata;
 }
 
-const { 
+const {
   title = "Lukas Yair Lehmann | UX & Accessibility",
   description = "Building inclusive digital experiences through accessible design and high-performance engineering.",
-  metadata = {}
+  metadata = {},
 } = Astro.props;
 
 const finalTitle = metadata.title || title;
@@ -42,7 +78,7 @@ const { canonical, robots, openGraph, twitter } = metadata;
     <meta property="og:type" content={openGraph?.type || "website"} />
     <meta property="og:url" content={openGraph?.url} />
     <meta property="og:site_name" content={openGraph?.siteName || "lylehmann.com"} />
-    {openGraph?.images?.map((img: any) => (
+    {openGraph?.images?.map((img) => (
       <>
         <meta property="og:image" content={img.url} />
         {img.width && <meta property="og:image:width" content={img.width.toString()} />}
