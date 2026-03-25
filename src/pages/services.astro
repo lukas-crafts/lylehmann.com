@@ -1,38 +1,52 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-import { PencilRuler, Search, Rocket, Smartphone, MessageSquare, ShieldCheck, MoveRight } from 'lucide-astro';
+import {
+  MessageSquare,
+  MoveRight,
+  PencilRuler,
+  Rocket,
+  Search,
+  ShieldCheck,
+  Smartphone,
+} from "lucide-astro";
+import Footer from "~/components/widgets/Footer.astro";
+import Header from "~/components/widgets/Header.astro";
+import Layout from "~/layouts/Layout.astro";
 
 const services = [
   {
-    title: 'UX/UI Design',
-    description: 'Crafting intuitive, beautiful, and accessible interfaces that users love to interact with.',
+    title: "UX/UI Design",
+    description:
+      "Crafting intuitive, beautiful, and accessible interfaces that users love to interact with.",
     icon: PencilRuler,
   },
   {
-    title: 'Accessibility Audits',
-    description: 'Ensuring your digital products meet WCAG 2.2 standards for maximum inclusivity.',
+    title: "Accessibility Audits",
+    description:
+      "Ensuring your digital products meet WCAG 2.2 standards for maximum inclusivity.",
     icon: ShieldCheck,
   },
   {
-    title: 'Frontend Development',
-    description: 'Building high-performance, responsive websites using Astro, React, and modern CSS.',
+    title: "Frontend Development",
+    description:
+      "Building high-performance, responsive websites using Astro, React, and modern CSS.",
     icon: Rocket,
   },
   {
-    title: 'UX Research',
-    description: 'Deep diving into user behavior to inform design decisions with real data.',
+    title: "UX Research",
+    description:
+      "Deep diving into user behavior to inform design decisions with real data.",
     icon: Search,
   },
   {
-    title: 'Mobile App Design',
-    description: 'Modern mobile experiences optimized for both iOS and Android platforms.',
+    title: "Mobile App Design",
+    description:
+      "Modern mobile experiences optimized for both iOS and Android platforms.",
     icon: Smartphone,
   },
   {
-    title: 'Conversational UX',
-    description: 'Designing AI and chatbot interfaces that feel human and helpful.',
+    title: "Conversational UX",
+    description:
+      "Designing AI and chatbot interfaces that feel human and helpful.",
     icon: MessageSquare,
   },
 ];

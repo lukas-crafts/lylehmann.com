@@ -1,3 +1,3 @@
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
-export type PortfolioEntry = CollectionEntry<'portfolio'>;
+export type PortfolioEntry = CollectionEntry<"portfolio">;

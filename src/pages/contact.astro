@@ -1,12 +1,22 @@
 ---
-import Layout from '~/layouts/Layout.astro';
-import Header from '~/components/widgets/Header.astro';
-import Footer from '~/components/widgets/Footer.astro';
-import { Mail, Linkedin } from 'lucide-astro';
+import { Linkedin, Mail } from "lucide-astro";
+import Footer from "~/components/widgets/Footer.astro";
+import Header from "~/components/widgets/Header.astro";
+import Layout from "~/layouts/Layout.astro";
 
 const social = [
-  { name: 'Email', handle: 'lylehmann@gmail.com', href: 'mailto:lylehmann@gmail.com', icon: Mail },
-  { name: 'LinkedIn', handle: 'Lukas Yair Lehmann', href: 'https://linkedin.com/in/lylehmann', icon: Linkedin },
+  {
+    name: "Email",
+    handle: "lylehmann@gmail.com",
+    href: "mailto:lylehmann@gmail.com",
+    icon: Mail,
+  },
+  {
+    name: "LinkedIn",
+    handle: "Lukas Yair Lehmann",
+    href: "https://linkedin.com/in/lylehmann",
+    icon: Linkedin,
+  },
 ];
 ---
 
