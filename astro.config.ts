@@ -2,7 +2,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
-import { remarkReadingTime } from "./src/utils/remark-reading-time.mjs";
+import { remarkReadingTime } from "./src/utils/remark-reading-time";
 
 export default defineConfig({
   srcDir: "./src",
@@ -10,7 +10,9 @@ export default defineConfig({
   outDir: "./dist",
 
   site: "https://lylehmann.com",
-
+  image: {
+    remotePatterns: [],
+  },
   fonts: [
     {
       provider: fontProviders.google(),
@@ -26,9 +28,23 @@ export default defineConfig({
     },
   ],
 
-  integrations: [sitemap(), mdx({ remarkPlugins: [remarkReadingTime()] })],
+  integrations: [sitemap(), mdx({ remarkPlugins: [remarkReadingTime] })],
 
   vite: {
     plugins: [tailwind()],
+    build: {
+      rollupOptions: {
+        onwarn(warning, warn) {
+          // Silence known internal Astro 6.x / Vite unused import warnings
+          if (
+            warning.code === "UNUSED_EXTERNAL_IMPORT" &&
+            warning.message.includes("matchHostname")
+          ) {
+            return;
+          }
+          warn(warning);
+        },
+      },
+    },
   },
 });

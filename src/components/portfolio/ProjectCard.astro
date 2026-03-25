@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import { MoveRight } from "lucide-astro";
 import type { PortfolioEntry } from "../../types/content";
 
@@ -10,6 +11,8 @@ interface Props {
 const { project } = Astro.props;
 const { title, description, image, imageAlt, tags, category, excerpt } =
   project.data;
+
+const projectImage = image as ImageMetadata | undefined;
 ---
 
 <a
@@ -17,10 +20,10 @@ const { title, description, image, imageAlt, tags, category, excerpt } =
   class="group relative flex flex-col h-full rounded-2xl border border-zinc-800 bg-zinc-900/50 overflow-hidden transition-all hover:border-emerald-500/50 hover:bg-zinc-900/80 active:scale-[0.98]"
 >
   {
-    image && (
+    projectImage && (
       <div class="relative aspect-video overflow-hidden">
         <Picture
-          src={image}
+          src={projectImage}
           alt={imageAlt || title}
           formats={["avif", "webp"]}
           width={800}

@@ -1,6 +1,7 @@
 ---
 import { Picture } from "astro:assets";
 import { getCollection, render } from "astro:content";
+import type { ImageMetadata } from "astro";
 import {
   ArrowLeft,
   Clock,
@@ -54,6 +55,7 @@ const {
 } = project.data;
 
 const { Content, headings, remarkPluginFrontmatter } = await render(project);
+const projectImage = image as ImageMetadata | undefined;
 const readingTime = remarkPluginFrontmatter?.readingTime;
 
 const safePublishDate = date instanceof Date ? date : new Date(date);
@@ -143,7 +145,7 @@ const components = {
       <div class="max-w-7xl mx-auto px-6 mb-12">
         <div class="rounded-4xl overflow-hidden border border-zinc-800/60 bg-zinc-900/50 aspect-video lg:aspect-21/9 shadow-2xl shadow-black/50">
           <Picture
-            src={image}
+            src={projectImage as ImageMetadata}
             alt={imageAlt || title}
             formats={["avif", "webp"]}
             width={1920}
