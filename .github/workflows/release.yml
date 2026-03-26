@@ -47,6 +47,11 @@ jobs:
           echo "Latest version tag:"
           git tag --merged HEAD --list "v*" --sort=-version:refname | head -1 || echo "No version tags found"
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
