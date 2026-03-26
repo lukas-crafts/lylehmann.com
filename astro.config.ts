@@ -63,7 +63,7 @@ export default defineConfig({
   },
 
   vite: {
-    // tailwind() returns vite 8 Plugin[] but Astro bundles vite 7; cast to bypass cross-version type mismatch
+    // biome-ignore lint/suspicious/noExplicitAny: tailwind() returns vite 8 Plugin[] but Astro bundles vite 7 — cross-version type mismatch
     plugins: tailwind() as any,
     resolve: {
       alias: {
