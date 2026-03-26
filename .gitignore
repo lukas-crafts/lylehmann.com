@@ -21,6 +21,7 @@ pnpm-debug.log*
 
 pnpm-lock.yaml
 package-lock.json
+junit.xml
 
 .astro
 .vercel
