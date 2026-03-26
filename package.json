@@ -34,12 +34,14 @@
     "@astrojs/check": "latest",
     "@biomejs/biome": "latest",
     "@open-gitagent/gitagent": "^0.1.7",
+    "@semantic-release/changelog": "^6.0.3",
     "@shikijs/transformers": "^4.0.2",
     "@types/js-yaml": "^4.0.9",
     "@types/lodash.merge": "^4.6.9",
     "@types/node": "^25.5.0",
     "jsdom": "latest",
     "patch-package": "^8.0.1",
+    "semantic-release": "^25.0.3",
     "typescript": "latest",
     "vitest": "latest"
   }
