@@ -55,7 +55,7 @@ const {
   metadata = {},
 } = Astro.props;
 
-const safePublishDate = date instanceof Date ? date : new Date(date);
+const safePublishDate = date;
 
 const projectMeta: MetaItem[] = [
   role ? { icon: "user", label: "Role", value: role } : null,
