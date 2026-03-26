@@ -21,13 +21,13 @@ const projectImage = image as ImageMetadata | undefined;
 >
   {
     projectImage && (
-      <div class="relative aspect-video overflow-hidden">
+      <div class="@container relative aspect-video overflow-hidden">
         <Picture
           src={projectImage}
           alt={imageAlt || title}
           formats={["avif", "webp"]}
-          width={800}
-          height={450}
+          widths={[400, 800, 1200]}
+          sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
           class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
           transition:name={`project-image-${project.id}`}
         />
