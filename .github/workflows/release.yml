@@ -55,8 +55,18 @@ jobs:
       - name: Install dependencies
         run: bun install
 
+      - name: Install semantic-release plugins
+        run: |
+          npm install --no-save \
+            semantic-release \
+            @semantic-release/changelog \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator \
+            @semantic-release/npm \
+            @semantic-release/github
+
       - name: Semantic Release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Only if publishing to npm
-        run: ./node_modules/.bin/semantic-release
+        run: npx semantic-release
