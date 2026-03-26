@@ -59,4 +59,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Only if publishing to npm
-        run: npx semantic-release
+        run: bunx semantic-release
