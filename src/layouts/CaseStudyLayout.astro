@@ -10,9 +10,9 @@ import {
   Users,
   Wrench,
 } from "lucide-astro";
-import TableOfContents from "~/components/widgets/TableOfContents";
 import Footer from "~/components/widgets/Footer.astro";
 import Header from "~/components/widgets/Header.astro";
+import TableOfContents from "~/components/widgets/TableOfContents";
 import Layout from "~/layouts/Layout.astro";
 
 interface MetaItem {
@@ -61,8 +61,12 @@ const projectMeta: MetaItem[] = [
   role ? { icon: "user", label: "Role", value: role } : null,
   team ? { icon: "users", label: "Team", value: team } : null,
   duration ? { icon: "timer", label: "Duration", value: duration } : null,
-  readingTime ? { icon: "clock", label: "Reading Time", value: readingTime } : null,
-  tools.length > 0 ? { icon: "wrench", label: "Tools", value: tools.join(", ") } : null,
+  readingTime
+    ? { icon: "clock", label: "Reading Time", value: readingTime }
+    : null,
+  tools.length > 0
+    ? { icon: "wrench", label: "Tools", value: tools.join(", ") }
+    : null,
 ].filter(Boolean) as MetaItem[];
 ---
 
