@@ -21,6 +21,7 @@
     "@astrojs/rss": "latest",
     "@astrojs/sitemap": "latest",
     "@astrojs/vercel": "^10.0.2",
+    "@vercel/analytics": "^1.6.1",
     "@tailwindcss/vite": "latest",
     "astro": "latest",
     "js-yaml": "^4.1.1",

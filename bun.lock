@@ -11,6 +11,7 @@
         "@astrojs/sitemap": "latest",
         "@astrojs/vercel": "^10.0.2",
         "@tailwindcss/vite": "latest",
+        "@vercel/analytics": "^1.6.1",
         "astro": "latest",
         "js-yaml": "^4.1.1",
         "lodash.merge": "^4.6.2",
