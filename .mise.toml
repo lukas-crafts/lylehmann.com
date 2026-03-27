@@ -1,5 +1,5 @@
-[settings]
-dotenv = [".env"]
+[env]
+_.file = ".env"
 
 [tools]
 node = "22"
