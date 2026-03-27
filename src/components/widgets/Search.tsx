@@ -53,7 +53,7 @@ export default function Search() {
                 type="text"
                 value={query}
                 onInput={(e) => setQuery((e.target as HTMLInputElement).value)}
-                placeholder="Search projects, services, or blog..."
+                placeholder="Search projects or services..."
                 className="flex-1 bg-transparent border-none text-xl text-white focus:outline-none placeholder:text-zinc-600"
               />
               <button
