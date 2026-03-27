@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git pull:*)",
+      "Bash(git stash:*)",
+      "Bash(git rm:*)",
+      "Bash(git restore:*)",
+      "Bash(git checkout:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh pr:*)",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_teams",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_projects",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_deployments",
+      "Bash(ls /Users/lukaslehmann/Developer/lylehmann.com/.mise*)",
+      "Bash(gh api:*)",
+      "Bash(bun audit:*)",
+      "Bash(npm audit:*)",
+      "Bash(bun update:*)"
+    ]
+  }
+}
