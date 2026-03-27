@@ -17,7 +17,13 @@
       "Bash(gh api:*)",
       "Bash(bun audit:*)",
       "Bash(npm audit:*)",
-      "Bash(bun update:*)"
+      "Bash(bun update:*)",
+      "Bash(bun install:*)",
+      "Bash(bun run:*)",
+      "Read(//Users/lukaslehmann/**)",
+      "Bash(mise settings:*)",
+      "Bash(mise --help)",
+      "Bash(mise env:*)"
     ]
   }
 }
