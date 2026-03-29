@@ -2,8 +2,7 @@ export function sortProjectsByDate<T extends { data: { date: Date | string } }>(
   projects: T[],
 ): T[] {
   return [...projects].sort(
-    (a, b) =>
-      new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
   );
 }
 
