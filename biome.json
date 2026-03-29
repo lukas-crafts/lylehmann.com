@@ -37,7 +37,8 @@
         "dist/**",
         ".cache/**",
         "WARP.md",
-        "bookmarks.html"
+        "bookmarks.html",
+        "vercel.json"
       ],
       "linter": { "enabled": false },
       "formatter": { "enabled": false }
