@@ -28,6 +28,14 @@ export default defineConfig({
   site: "https://lylehmann.com",
   image: {
     remotePatterns: [],
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        jpeg: { mozjpeg: true },
+        webp: { effort: 6 },
+        avif: { effort: 4 },
+      },
+    },
   },
   fonts: [
     {
