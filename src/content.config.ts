@@ -168,7 +168,9 @@ const portfolio = defineCollection({
       archived: z
         .boolean()
         .default(false)
-        .describe("If true, this project will appear in the archive instead of the main portfolio"),
+        .describe(
+          "If true, this project will appear in the archive instead of the main portfolio",
+        ),
 
       // Project Specifics
       role: z
