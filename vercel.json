@@ -2,8 +2,8 @@
   "framework": "astro",
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "astro build",
-  "devCommand": "astro dev",
+  "buildCommand": "bun run build",
+  "devCommand": "bun run dev",
   "outputDirectory": "dist",
   "headers": [
     {
