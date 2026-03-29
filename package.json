@@ -22,7 +22,7 @@
     "@astrojs/sitemap": "^3.7.2",
     "@astrojs/vercel": "^10.0.3",
     "@vercel/analytics": "^1.6.1",
-    "@tailwindcss/vite": "latest",
+    "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.1.0",
     "js-yaml": "^4.1.1",
     "lodash.merge": "^4.6.2",
