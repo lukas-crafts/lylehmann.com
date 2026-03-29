@@ -42,5 +42,5 @@ run = "vitest"
 description = "Run tests in watch mode"
 
 [tasks.fix]
-run = "biome check --write"
+run = "bun run fix"
 description = "Auto-fix lint issues"
