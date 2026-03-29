@@ -34,7 +34,7 @@ depends = ["check:types", "check:lint", "test"]
 description = "Run all checks in parallel (types, lint, tests)"
 
 [tasks.test]
-run = "vitest run"
+run = "bun run test"
 description = "Run tests once"
 
 [tasks."test:watch"]
