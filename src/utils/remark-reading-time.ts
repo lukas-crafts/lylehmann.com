@@ -5,7 +5,7 @@ import type { VFile } from "vfile";
 export function remarkReadingTime() {
   return (tree: Root, file: VFile) => {
     // If file is undefined, we can't inject frontmatter, so we skip
-    if (!file || !file.data) return;
+    if (!file?.data) return;
 
     const textOnPage = mdastToString(tree);
     const wordCount = textOnPage.split(/\s+/).length;
