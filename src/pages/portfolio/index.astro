@@ -6,7 +6,7 @@ import Header from "~/components/widgets/Header.astro";
 import Layout from "~/layouts/Layout.astro";
 
 const projects = await getCollection("portfolio", ({ data }) => {
-  return data.draft !== true;
+  return data.draft !== true && data.archived !== true;
 });
 
 // Sort by date descending
