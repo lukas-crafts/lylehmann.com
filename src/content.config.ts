@@ -165,6 +165,12 @@ const portfolio = defineCollection({
         .boolean()
         .default(false)
         .describe("If true, this project will not be visible in production"),
+      archived: z
+        .boolean()
+        .default(false)
+        .describe(
+          "If true, this project will appear in the archive instead of the main portfolio",
+        ),
 
       // Project Specifics
       role: z
