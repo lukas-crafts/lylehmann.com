@@ -23,6 +23,7 @@ export default defineConfig({
   prefetch: true,
   experimental: {
     contentIntellisense: true,
+    queuedRendering: { enabled: true },
   },
 
   site: "https://lylehmann.com",
@@ -32,8 +33,7 @@ export default defineConfig({
       entrypoint: "astro/assets/services/sharp",
       config: {
         jpeg: { mozjpeg: true },
-        webp: { effort: 6 },
-        avif: { effort: 4 },
+        webp: { effort: 6 }, // max effort (default: 4); accepts longer build times
       },
     },
   },
