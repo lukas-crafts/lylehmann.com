@@ -16,3 +16,31 @@ description = "Build the production site"
 [tasks.preview]
 run = "bun run preview"
 description = "Preview the built site"
+
+[tasks."check:types"]
+run = "astro check"
+description = "Run Astro type checking"
+
+[tasks."check:lint"]
+run = "biome check"
+description = "Run Biome linter"
+
+[tasks."check:test"]
+run = "vitest run"
+description = "Run tests once"
+
+[tasks.check]
+depends = ["check:types", "check:lint", "check:test"]
+description = "Run all checks in parallel (types, lint, tests)"
+
+[tasks.test]
+run = "vitest run"
+description = "Run tests once"
+
+[tasks."test:watch"]
+run = "vitest"
+description = "Run tests in watch mode"
+
+[tasks.fix]
+run = "biome check --write"
+description = "Auto-fix lint issues"
