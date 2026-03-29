@@ -36,6 +36,7 @@ interface Props {
   headings: { depth: number; slug: string; text: string }[];
   projectId: string;
   metadata?: Record<string, unknown>;
+  archived?: boolean;
 }
 
 const {
@@ -53,6 +54,7 @@ const {
   headings,
   projectId,
   metadata = {},
+  archived = false,
 } = Astro.props;
 
 const safePublishDate = date;
@@ -79,15 +81,22 @@ const projectMeta: MetaItem[] = [
 
   <article class="min-h-screen pt-28 pb-24">
     <header class="max-w-5xl mx-auto px-6 space-y-8 pb-12">
-      <a
-        href="/portfolio"
-        class="inline-flex items-center text-sm font-bold text-zinc-500 hover:text-emerald-400 transition-colors group"
-      >
-        <ArrowLeft
-          class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
-        />
-        Back to Portfolio
-      </a>
+      <div class="flex items-center gap-4">
+        <a
+          href={archived ? "/archive" : "/portfolio"}
+          class="inline-flex items-center text-sm font-bold text-zinc-500 hover:text-emerald-400 transition-colors group"
+        >
+          <ArrowLeft
+            class="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+          />
+          {archived ? "Back to Archive" : "Back to Portfolio"}
+        </a>
+        {archived && (
+          <span class="px-3 py-1 rounded-full border border-zinc-700/50 bg-zinc-800/50 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+            Archived
+          </span>
+        )}
+      </div>
 
       <div class="flex flex-wrap items-center gap-3 text-xs text-zinc-500">
         <div class="flex items-center gap-1.5">

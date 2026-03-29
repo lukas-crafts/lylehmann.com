@@ -43,6 +43,7 @@ const {
   team,
   duration,
   tools = [],
+  archived = false,
 } = project.data;
 
 const { Content, headings, remarkPluginFrontmatter } = await render(project);
@@ -76,6 +77,7 @@ const components = {
   headings={headings}
   projectId={project.id}
   metadata={metadata}
+  archived={archived}
 >
   <Content components={components} />
 </CaseStudyLayout>
