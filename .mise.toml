@@ -30,7 +30,7 @@ run = "vitest run"
 description = "Run tests once"
 
 [tasks.check]
-depends = ["check:types", "check:lint", "check:test"]
+depends = ["check:types", "check:lint", "test"]
 description = "Run all checks in parallel (types, lint, tests)"
 
 [tasks.test]
