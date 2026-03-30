@@ -32,7 +32,7 @@
       "Bash(mise install:*)",
       "Bash(eval '$\\(mise env\\)')",
       "Bash(git fetch:*)",
-      "Bash(npx vercel:*)",
+      "Bash(npx vercel alias:*)",
       "WebFetch(domain:lylehmann.com)"
     ]
   }
