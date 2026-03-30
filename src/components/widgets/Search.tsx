@@ -1,6 +1,8 @@
 /** @jsxImportSource preact */
+
 import { Search as SearchIcon, X } from "lucide-preact";
-import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import type { FunctionComponent } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 interface SearchItem {
   id: string;
@@ -23,7 +25,7 @@ interface Props {
   items: SearchItem[];
 }
 
-export default function Search({ items }: Props) {
+const Search: FunctionComponent<Props> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -45,22 +47,22 @@ export default function Search({ items }: Props) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  const results: SearchResult[] = useMemo(() => {
-    const q = query.toLowerCase().trim();
-    if (q.length < 2) return [];
-    return items.filter((item) => {
-      const searchable = [
-        item.title,
-        item.description,
-        item.category,
-        ...item.tags,
-        ...item.tools,
-      ]
-        .join(" ")
-        .toLowerCase();
-      return searchable.includes(q);
-    });
-  }, [query, items]);
+  const q = query.toLowerCase().trim();
+  const results: SearchResult[] =
+    q.length < 2
+      ? []
+      : items.filter((item) => {
+          const searchable = [
+            item.title,
+            item.description,
+            item.category,
+            ...item.tags,
+            ...item.tools,
+          ]
+            .join(" ")
+            .toLowerCase();
+          return searchable.includes(q);
+        });
 
   const handleClose = () => {
     setIsOpen(false);
@@ -188,4 +190,6 @@ export default function Search({ items }: Props) {
       )}
     </>
   );
-}
+};
+
+export default Search;
