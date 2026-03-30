@@ -23,7 +23,9 @@
       "Read(//Users/lukaslehmann/**)",
       "Bash(mise settings:*)",
       "Bash(mise --help)",
-      "Bash(mise env:*)"
+      "Bash(mise env:*)",
+      "Bash(find . -path ./node_modules -prune -o -type f \\\\\\(-name *route* -o -name *api* \\\\\\) -print)",
+      "Bash(grep -r \"hero\\\\|Hero\\\\|HERO\" --include=*.astro --include=*.tsx --include=*.jsx .)"
     ]
   }
 }
