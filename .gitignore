@@ -33,3 +33,6 @@ junit.xml
 .antigravityignore
 WARP.md
 .cache
+
+# Domscribe artifacts
+.domscribe
