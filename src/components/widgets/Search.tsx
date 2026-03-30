@@ -184,7 +184,11 @@ export default function Search() {
                   to open
                 </span>
               </div>
-              <div>{results.length > 0 ? `${results.length} result${results.length !== 1 ? "s" : ""}` : "Powered by Astro Islands"}</div>
+              <div>
+                {results.length > 0
+                  ? `${results.length} result${results.length !== 1 ? "s" : ""}`
+                  : "Powered by Astro Islands"}
+              </div>
             </div>
           </div>
         </div>
