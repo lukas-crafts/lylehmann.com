@@ -1,22 +1,34 @@
 /** @jsxImportSource preact */
+
 import { Search as SearchIcon, X } from "lucide-preact";
-import { useEffect, useMemo, useRef, useState } from "preact/hooks";
+import type { FunctionComponent } from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
+
+interface SearchItem {
+  id: string;
+  title: string;
+  description: string;
+  category: string;
+  tags: string[];
+  tools: string[];
+}
 
 interface SearchResult {
   id: string;
   title: string;
   description: string;
-  category?: string;
-  tags?: string[];
+  category: string;
+  tags: string[];
 }
 
-export default function Search() {
+interface Props {
+  items: SearchItem[];
+}
+
+const Search: FunctionComponent<Props> = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [results, setResults] = useState<SearchResult[]>([]);
-  const [loading, setLoading] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -35,33 +47,27 @@ export default function Search() {
     return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
-  useEffect(() => {
-    if (debounceRef.current) clearTimeout(debounceRef.current);
-
-    if (query.length < 2) {
-      setResults([]);
-      setLoading(false);
-      return;
-    }
-
-    setLoading(true);
-    debounceRef.current = setTimeout(async () => {
-      try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(query)}`);
-        const data = await res.json();
-        setResults(data);
-      } catch (_) {
-        setResults([]);
-      } finally {
-        setLoading(false);
-      }
-    }, 250);
-  }, [query]);
+  const q = query.toLowerCase().trim();
+  const queryTerms = q.split(" ").filter((term) => term.length > 0);
+  const results: SearchResult[] =
+    q.length < 2
+      ? []
+      : items.filter((item) => {
+          const searchable = [
+            item.title,
+            item.description,
+            item.category,
+            ...item.tags,
+            ...item.tools,
+          ]
+            .join(" ")
+            .toLowerCase();
+          return queryTerms.every((term) => searchable.includes(term));
+        });
 
   const handleClose = () => {
     setIsOpen(false);
     setQuery("");
-    setResults([]);
   };
 
   return (
@@ -115,10 +121,6 @@ export default function Search() {
                     Try "Accessibility", "Design", or "E-Commerce"
                   </p>
                 </div>
-              ) : loading ? (
-                <div className="flex-1 flex items-center justify-center">
-                  <div className="w-5 h-5 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
-                </div>
               ) : results.length === 0 ? (
                 <div className="flex-1 flex flex-col items-center justify-center text-center space-y-2">
                   <p className="font-medium text-lg text-zinc-400">
@@ -150,7 +152,7 @@ export default function Search() {
                         <p className="text-sm text-zinc-400 leading-relaxed">
                           {result.description}
                         </p>
-                        {result.tags && result.tags.length > 0 && (
+                        {result.tags.length > 0 && (
                           <div className="flex flex-wrap gap-1.5 mt-1">
                             {result.tags.slice(0, 4).map((tag) => (
                               <span
@@ -177,12 +179,6 @@ export default function Search() {
                   </kbd>{" "}
                   to close
                 </span>
-                <span>
-                  <kbd className="bg-zinc-800 px-1.5 py-0.5 rounded border border-zinc-700 text-zinc-400 font-mono">
-                    ENTER
-                  </kbd>{" "}
-                  to open
-                </span>
               </div>
               <div>
                 {results.length > 0
@@ -195,4 +191,6 @@ export default function Search() {
       )}
     </>
   );
-}
+};
+
+export default Search;
