@@ -1,0 +1,76 @@
+---
+import { getCollection } from "astro:content";
+import Footer from "~/components/widgets/Footer.astro";
+import Header from "~/components/widgets/Header.astro";
+import Layout from "~/layouts/Layout.astro";
+import { sortProjectsByDate } from "~/utils/date";
+
+const archivedProjects = await getCollection("portfolio", ({ data }) => {
+  return data.draft !== true && data.archived === true;
+});
+
+const projects = sortProjectsByDate(archivedProjects);
+---
+
+<Layout title="Archive | Lukas Yair Lehmann" description="Archived case studies and older projects from my design portfolio.">
+  <Header slot="header" />
+
+  <section class="min-h-screen p-6 pt-32 pb-20">
+    <div class="max-w-6xl mx-auto space-y-16">
+      <header class="max-w-3xl space-y-6">
+        <div class="inline-block px-4 py-1.5 rounded-full border border-zinc-700/40 bg-zinc-800/40 text-xs font-bold tracking-wider uppercase text-zinc-400">
+          Archive
+        </div>
+        <h1 class="text-5xl font-black tracking-tight sm:text-7xl bg-linear-to-br from-white via-white to-zinc-600 bg-clip-text text-transparent leading-tight">
+          Past <span class="text-zinc-500">Works.</span>
+        </h1>
+        <p class="text-xl text-zinc-400 leading-relaxed">
+          Older case studies and projects that shaped my design practice — kept here for reference and context.
+        </p>
+      </header>
+
+      {projects.length > 0 ? (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <a
+              href={`/portfolio/${project.id}`}
+              class="group block p-6 rounded-3xl border border-zinc-800 bg-zinc-900/40 hover:bg-zinc-900 hover:border-zinc-600/50 transition-all hover:-translate-y-1"
+            >
+              <div class="space-y-4">
+                <div class="flex flex-wrap gap-2">
+                  {project.data.tags?.slice(0, 2).map((tag) => (
+                    <span class="text-[10px] uppercase tracking-widest font-black text-zinc-500">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <h3 class="text-2xl font-bold text-white group-hover:text-zinc-300 transition-colors leading-tight">
+                  {project.data.title}
+                </h3>
+                <p class="text-zinc-400 line-clamp-2 text-sm leading-relaxed">
+                  {project.data.description}
+                </p>
+                <div class="pt-4 flex items-center gap-1 text-xs font-bold text-zinc-500 group-hover:text-zinc-300 group-hover:gap-2 transition-all">
+                  View Case Study
+                  <span class="opacity-0 group-hover:opacity-100 transition-all">→</span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="py-20 text-center">
+          <p class="text-zinc-500 font-medium">No archived projects yet.</p>
+        </div>
+      )}
+
+      <div class="pt-4 border-t border-zinc-800">
+        <a href="/portfolio" class="inline-flex items-center gap-2 text-sm font-bold text-zinc-400 hover:text-emerald-400 transition-colors">
+          ← Back to Portfolio
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

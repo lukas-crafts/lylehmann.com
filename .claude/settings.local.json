@@ -13,8 +13,13 @@
       "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_teams",
       "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_projects",
       "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__list_deployments",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__get_project",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__get_deployment",
+      "mcp__814b4d92-181e-48ed-9dd8-ed0643c53c86__web_fetch_vercel_url",
       "Bash(ls /Users/lukaslehmann/Developer/lylehmann.com/.mise*)",
       "Bash(gh api:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
       "Bash(bun audit:*)",
       "Bash(npm audit:*)",
       "Bash(bun update:*)",
@@ -24,8 +29,12 @@
       "Bash(mise settings:*)",
       "Bash(mise --help)",
       "Bash(mise env:*)",
-      "Bash(find . -path ./node_modules -prune -o -type f \\\\\\(-name *route* -o -name *api* \\\\\\) -print)",
-      "Bash(grep -r \"hero\\\\|Hero\\\\|HERO\" --include=*.astro --include=*.tsx --include=*.jsx .)"
+      "Bash(mise trust:*)",
+      "Bash(mise install:*)",
+      "Bash(eval '$\\(mise env\\)')",
+      "Bash(git fetch:*)",
+      "Bash(npx vercel alias:*)",
+      "WebFetch(domain:lylehmann.com)"
     ]
   }
 }

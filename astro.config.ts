@@ -23,11 +23,19 @@ export default defineConfig({
   prefetch: true,
   experimental: {
     contentIntellisense: true,
+    queuedRendering: { enabled: true },
   },
 
   site: "https://lylehmann.com",
   image: {
     remotePatterns: [],
+    service: {
+      entrypoint: "astro/assets/services/sharp",
+      config: {
+        jpeg: { mozjpeg: true },
+        webp: { effort: 6 }, // max effort (default: 4); accepts longer build times
+      },
+    },
   },
   fonts: [
     {
