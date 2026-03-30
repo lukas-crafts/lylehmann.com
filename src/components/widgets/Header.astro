@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { Menu, X } from "lucide-astro";
 import Search from "./Search";
 
@@ -8,6 +9,16 @@ const links = [
   { text: "Services", href: "/services" },
   { text: "About", href: "/about" },
 ];
+
+const projects = await getCollection("portfolio", ({ data }) => !data.draft);
+const searchItems = projects.map((p) => ({
+  id: p.id,
+  title: p.data.title,
+  description: p.data.description,
+  category: p.data.category ?? "",
+  tags: p.data.tags ?? [],
+  tools: p.data.tools ?? [],
+}));
 ---
 
 <header class="fixed top-0 w-full z-50 transition-all duration-300 border-b border-transparent data-[scrolled=true]:bg-zinc-950/80 data-[scrolled=true]:backdrop-blur-xl data-[scrolled=true]:border-zinc-800" id="main-header">
@@ -21,7 +32,7 @@ const links = [
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-8">
-            <Search client:only="preact" />
+            <Search items={searchItems} client:only="preact" />
             {links.map(link => (
                 <a href={link.href} class="text-sm font-medium text-zinc-400 hover:text-white transition-colors relative group">
                     {link.text}
@@ -34,9 +45,9 @@ const links = [
         </nav>
 
         <!-- Mobile Toggle -->
-        <button 
-            class="md:hidden p-2 text-zinc-400 hover:text-white" 
-            id="mobile-menu-toggle" 
+        <button
+            class="md:hidden p-2 text-zinc-400 hover:text-white"
+            id="mobile-menu-toggle"
             aria-label="Toggle menu"
             aria-expanded="false"
             aria-controls="mobile-menu"
@@ -86,7 +97,7 @@ const links = [
         menuIcon?.classList.toggle('hidden');
         closeIcon?.classList.toggle('hidden');
         document.body.style.overflow = isOpen ? 'auto' : 'hidden';
-        
+
         // Update ARIA
         toggle.setAttribute('aria-expanded', String(!isOpen));
     });
