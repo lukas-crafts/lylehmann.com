@@ -8,10 +8,7 @@ export const GET: APIRoute = async ({ url }) => {
     return Response.json([]);
   }
 
-  const projects = await getCollection(
-    "portfolio",
-    ({ data }) => !data.draft
-  );
+  const projects = await getCollection("portfolio", ({ data }) => !data.draft);
 
   const results = projects
     .filter((project) => {
