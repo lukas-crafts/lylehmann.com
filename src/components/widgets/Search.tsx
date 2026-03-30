@@ -48,6 +48,7 @@ const Search: FunctionComponent<Props> = ({ items }) => {
   }, []);
 
   const q = query.toLowerCase().trim();
+  const queryTerms = q.split(" ").filter((term) => term.length > 0);
   const results: SearchResult[] =
     q.length < 2
       ? []
@@ -61,7 +62,7 @@ const Search: FunctionComponent<Props> = ({ items }) => {
           ]
             .join(" ")
             .toLowerCase();
-          return searchable.includes(q);
+          return queryTerms.every((term) => searchable.includes(term));
         });
 
   const handleClose = () => {
