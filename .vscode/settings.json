@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["shiki", "shikijs", "tailwindcss", "Shiki"]
+  "cSpell.words": ["shiki", "shikijs", "tailwindcss", "Shiki"],
+  "npm.packageManager": "bun"
 }
