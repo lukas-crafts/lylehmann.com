@@ -34,7 +34,8 @@
       "Bash(eval '$\\(mise env\\)')",
       "Bash(git fetch:*)",
       "Bash(npx vercel alias:*)",
-      "WebFetch(domain:lylehmann.com)"
+      "WebFetch(domain:lylehmann.com)",
+      "Bash(but commit *)"
     ]
   }
 }

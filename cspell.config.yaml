@@ -3,11 +3,14 @@ ignorePaths: []
 dictionaryDefinitions: []
 dictionaries: []
 words:
+  - bezier
   - Bildungsakademie
   - brushbuddy
   - cimdata
   - Cimdata
   - focusbuddy
+  - Frontmatter
+  - gemini
   - Gispert
   - github
   - Heilbad
@@ -18,34 +21,32 @@ words:
   - Impressum
   - Innodata
   - Jüdische
+  - junie
   - Karls
   - Kerem
+  - linecap
+  - linejoin
   - linkedin
   - Linkedin
   - Lukas Lehmann
   - lylehmann
   - metacafe
+  - mozjpeg
   - neurodivergent
   - neurodiverse
   - neurodiversity
   - Neurodiversity
   - omnichannel
+  - onwarn
   - Porfolio
   - Ruprecht
   - saas
   - Studien
   - tabler
   - Universität
+  - vfile
   - WBSCS
   - wireframing
   - Yair
-  - vfile
-  - onwarn
-  - Frontmatter
-  - linecap
-  - linejoin
-  - bezier
-  - junie
-  - gemini
 ignoreWords: []
 import: []

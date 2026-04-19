@@ -7,6 +7,6 @@
   "settings": {
     "explorer.compactFolders": false,
     "workbench.iconTheme": "helium-icon-theme",
-    "workbench.colorTheme": "Default Dark Modern"
+    "workbench.colorTheme": "Dark Modern"
   }
 }
