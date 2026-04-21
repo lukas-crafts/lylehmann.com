@@ -1,0 +1,36 @@
+name: Auto-fill PR Metadata
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Auto-assign reviewer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr edit $PR_NUMBER --add-reviewer gemini-code-assist
+
+      - name: Auto-add label based on commit type
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          commits=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].message' | head -1)
+          case "$commits" in
+            *feat:*) gh pr edit $PR_NUMBER --add-label "enhancement" ;;
+            *fix:*) gh pr edit $PR_NUMBER --add-label "bug" ;;
+            *docs:*) gh pr edit $PR_NUMBER --add-label "documentation" ;;
+            *chore:*) gh pr edit $PR_NUMBER --add-label "dependencies" ;;
+            *test:*) gh pr edit $PR_NUMBER --add-label "testing" ;;
+          esac

@@ -31,15 +31,15 @@
       "includes": [
         ".astro/**",
         ".vercel/**",
-        ".junie/**",
         ".agent/**",
         ".gemini/**",
         ".goose/**",
         "dist/**",
         ".cache/**",
-        "WARP.md",
         "bookmarks.html",
-        "vercel.json"
+        "vercel.json",
+        ".claude/**",
+        "node_modules/**"
       ],
       "linter": { "enabled": false },
       "formatter": { "enabled": false }

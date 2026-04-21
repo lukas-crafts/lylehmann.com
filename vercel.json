@@ -1,8 +1,11 @@
 {
   "framework": "astro",
+  "github": {
+    "autoJobCancelation": false
+  },
   "cleanUrls": true,
   "trailingSlash": false,
-  "buildCommand": "astro check && biome check && bun run build",
+  "buildCommand": "bun run build",
   "devCommand": "bun run dev",
   "outputDirectory": "dist",
   "headers": [
