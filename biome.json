@@ -39,7 +39,8 @@
         ".cache/**",
         "WARP.md",
         "bookmarks.html",
-        "vercel.json"
+        "vercel.json",
+        ".claude/**"
       ],
       "linter": { "enabled": false },
       "formatter": { "enabled": false }
