@@ -11,22 +11,23 @@ permissions:
 jobs:
   pr-metadata:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Auto-assign reviewer
-        run: |
-          gh pr edit ${{ github.event.pull_request.number }} --add-reviewer gemini-code-assist
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: gh pr edit $PR_NUMBER --add-reviewer gemini-code-assist
 
       - name: Auto-add label based on commit type
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          commits=$(gh pr view ${{ github.event.pull_request.number }} --json commits --jq '.commits[].message' | head -1)
+          commits=$(gh pr view $PR_NUMBER --json commits --jq '.commits[].message' | head -1)
           case "$commits" in
-            *feat:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "enhancement" ;;
-            *fix:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "bug" ;;
-            *docs:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "documentation" ;;
-            *chore:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "dependencies" ;;
-            *test:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "testing" ;;
+            *feat:*) gh pr edit $PR_NUMBER --add-label "enhancement" ;;
+            *fix:*) gh pr edit $PR_NUMBER --add-label "bug" ;;
+            *docs:*) gh pr edit $PR_NUMBER --add-label "documentation" ;;
+            *chore:*) gh pr edit $PR_NUMBER --add-label "dependencies" ;;
+            *test:*) gh pr edit $PR_NUMBER --add-label "testing" ;;
           esac
-
-      
