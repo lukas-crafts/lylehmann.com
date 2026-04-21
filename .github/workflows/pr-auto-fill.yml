@@ -12,6 +12,9 @@ jobs:
   pr-metadata:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Auto-assign reviewer
         env:
           GH_TOKEN: ${{ github.token }}
