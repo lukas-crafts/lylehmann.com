@@ -11,13 +11,9 @@ permissions:
 jobs:
   pr-metadata:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
-      - name: Get PR info
-        id: pr-info
-        run: |
-          echo "title=$(gh pr view ${{ github.event.pull_request.number }} --json title --jq '.title')" >> $GITHUB_OUTPUT
-          echo "body='${{ github.event.pull_request.body }}'" >> $GITHUB_OUTPUT
-
       - name: Auto-assign reviewer
         run: |
           gh pr edit ${{ github.event.pull_request.number }} --add-reviewer gemini-code-assist
