@@ -1,5 +1,6 @@
 {
   "framework": "astro",
+  "autoJobCancelation": false,
   "cleanUrls": true,
   "trailingSlash": false,
   "buildCommand": "bun run build",
