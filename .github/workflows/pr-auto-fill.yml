@@ -1,0 +1,36 @@
+name: Auto-fill PR Metadata
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  pr-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get PR info
+        id: pr-info
+        run: |
+          echo "title=$(gh pr view ${{ github.event.pull_request.number }} --json title --jq '.title')" >> $GITHUB_OUTPUT
+          echo "body='${{ github.event.pull_request.body }}'" >> $GITHUB_OUTPUT
+
+      - name: Auto-assign reviewer
+        run: |
+          gh pr edit ${{ github.event.pull_request.number }} --add-reviewer gemini-code-assist
+
+      - name: Auto-add label based on commit type
+        run: |
+          commits=$(gh pr view ${{ github.event.pull_request.number }} --json commits --jq '.commits[].message' | head -1)
+          case "$commits" in
+            *feat:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "enhancement" ;;
+            *fix:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "bug" ;;
+            *docs:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "documentation" ;;
+            *chore:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "dependencies" ;;
+            *test:*) gh pr edit ${{ github.event.pull_request.number }} --add-label "testing" ;;
+          esac
+
+      
