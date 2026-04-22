@@ -4,11 +4,3 @@
 2026-04-21 12:55:38,993 - mcp.server.lowlevel.server - INFO - Processing request of type ListResourcesRequest
 2026-04-21 12:55:38,994 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
 2026-04-21 12:55:38,994 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
-2026-04-21 16:55:52,286 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
-2026-04-21 16:55:52,287 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
-2026-04-21 16:55:52,291 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
-2026-04-21 16:55:52,291 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
-2026-04-22 08:22:25,642 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
-2026-04-22 08:22:25,662 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
-2026-04-22 08:22:25,668 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
-2026-04-22 08:22:25,668 - mcp.server.lowlevel.server - INFO - Processing request of type ListPromptsRequest
