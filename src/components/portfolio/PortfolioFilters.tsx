@@ -41,7 +41,7 @@ export default function PortfolioFilters({ projects }: Props) {
           onClick={() => setActiveTag(null)}
           className={`px-5 py-2 rounded-full text-sm font-bold transition-all border ${
             !activeTag
-              ? "bg-emerald-500 text-zinc-950 border-emerald-500 shadow-lg shadow-emerald-500/20"
+              ? "bg-emerald-500 text-white border-emerald-500 shadow-lg shadow-emerald-500/20"
               : "bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-zinc-200"
           }`}
         >
@@ -54,7 +54,7 @@ export default function PortfolioFilters({ projects }: Props) {
             onClick={() => setActiveTag(activeTag === tag ? null : tag)}
             className={`px-5 py-2 rounded-full text-sm font-bold transition-all border ${
               activeTag === tag
-                ? "bg-emerald-500 text-zinc-950 border-emerald-500 shadow-lg shadow-emerald-500/20"
+                ? "bg-emerald-500 text-white border-emerald-500 shadow-lg shadow-emerald-500/20"
                 : "bg-zinc-900 text-zinc-400 border-zinc-800 hover:border-zinc-700 hover:text-zinc-200"
             }`}
           >
