@@ -44,3 +44,15 @@ description = "Run tests in watch mode"
 [tasks.fix]
 run = "bun run fix"
 description = "Auto-fix lint issues"
+
+[tasks.sync]
+run = "bun run sync"
+description = "Sync Astro content"
+
+[tasks.release]
+run = "bun run release"
+description = "Run semantic-release"
+
+[tasks.lint]
+run = "bun run check"
+description = "Run all checks (types, lint, tests)"
