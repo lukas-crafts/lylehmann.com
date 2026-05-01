@@ -35,7 +35,11 @@
       "Bash(git fetch:*)",
       "Bash(npx vercel alias:*)",
       "WebFetch(domain:lylehmann.com)",
-      "Bash(but commit *)"
+      "Bash(but commit *)",
+      "WebFetch(domain:ralph-tui.com)",
+      "Bash(ralph-tui doctor *)",
+      "WebFetch(domain:docs.factory.ai)",
+      "Bash(/Users/lukaslehmann/.local/bin/droid exec *)"
     ]
   }
 }
