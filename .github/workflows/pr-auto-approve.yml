@@ -16,7 +16,7 @@ jobs:
     if: github.event_name == 'pull_request' || github.event.check_run.conclusion == 'success'
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Request review instead of approving
         env:
