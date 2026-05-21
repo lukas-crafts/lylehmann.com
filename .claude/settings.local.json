@@ -39,7 +39,7 @@
       "WebFetch(domain:ralph-tui.com)",
       "Bash(ralph-tui doctor *)",
       "WebFetch(domain:docs.factory.ai)",
-      "Bash(/Users/lukaslehmann/.local/bin/droid exec *)"
+      "Bash(droid exec *)"
     ]
   }
 }
