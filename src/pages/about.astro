@@ -1,5 +1,7 @@
 ---
+import { Picture } from "astro:assets";
 import { Accessibility, Code, MoveRight, User } from "lucide-astro";
+import avatar from "~/assets/about/avatar.png";
 import Footer from "~/components/widgets/Footer.astro";
 import Header from "~/components/widgets/Header.astro";
 import Layout from "~/layouts/Layout.astro";
@@ -48,9 +50,14 @@ const mission = [
         <div class="flex-1 relative group">
           <div class="absolute -inset-4 bg-emerald-500/20 rounded-3xl blur-2xl group-hover:bg-emerald-500/30 transition-all duration-500"></div>
           <div class="relative aspect-square rounded-3xl overflow-hidden border border-zinc-800 bg-zinc-900 group-hover:border-emerald-500/50 transition-colors">
-             <div class="w-full h-full flex items-center justify-center text-zinc-800">
-                <span class="text-8xl font-black">LYL</span>
-             </div>
+             <Picture
+                src={avatar}
+                alt="Lukas Yair Lehmann"
+                formats={["avif", "webp"]}
+                class="w-full h-full object-cover"
+                loading="eager"
+                fetchpriority="high"
+             />
           </div>
         </div>
       </header>
