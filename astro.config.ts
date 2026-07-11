@@ -23,7 +23,6 @@ export default defineConfig({
   prefetch: true,
   experimental: {
     contentIntellisense: true,
-    queuedRendering: { enabled: true },
   },
 
   site: "https://lylehmann.com",
