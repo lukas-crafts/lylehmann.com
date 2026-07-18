@@ -18,13 +18,13 @@
     "release": "semantic-release"
   },
   "dependencies": {
-    "@astrojs/mdx": "^7.0.2",
+    "@astrojs/mdx": "^7.0.3",
     "@astrojs/preact": "^6.0.1",
-    "@astrojs/rss": "^4.0.18",
-    "@astrojs/sitemap": "^3.7.2",
-    "@astrojs/vercel": "^11.0.2",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/vercel": "^11.0.3",
     "@vercel/analytics": "^2.0.1",
-    "astro": "^7.0.7",
+    "astro": "^7.1.1",
     "js-yaml": "^5.2.1",
     "lodash.merge": "^4.6.2",
     "lucide-astro": "^0.556.0",
@@ -39,7 +39,7 @@
     "vite": "^8.0.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@biomejs/biome": "^2.4.9",
     "@domscribe/transform": "^0.5.0",
     "@open-gitagent/gitagent": "^2.0.1",
@@ -58,7 +58,7 @@
     "patch-package": "^8.0.1",
     "semantic-release": "^25.0.3",
     "tailwindcss": "4.3.2",
-    "typescript": "^7.0.2",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.4"
   }
 }
